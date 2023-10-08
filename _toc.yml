@@ -1,10 +1,8 @@
 format: jb-book
 root: intro
 chapters:
-  - file: Week0/Week0-Intro
-    sections:
-  #  - file: Week0/Worksheet0
-    - file: Week0/Week_0_Friday
+  sections:
+  - file: Week0/Week_0_Friday
   #- file: Week1/Week1-Intro
   #   sections:
   #   - file: Week1/Week1-Monday
