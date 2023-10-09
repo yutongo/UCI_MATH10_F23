@@ -367,21 +367,20 @@ document.write(`
 <p>A function with two input arguments. Be sure you are using the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement to indicate what should be returned.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def getsub(arr, n):
-    cts = (arr == n).sum(axis = 1)
-    subarr = arr[cts &gt;= 2]
-    return subarr
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getsub</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">cts</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">subarr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">cts</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">subarr</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
-rng = np.random.default_rng(seed = 1)
-arr = rng.integers(0,4, size = (100,3))
-arr
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">arr</span>
 </pre></div>
 </div>
 </div>
@@ -492,7 +491,7 @@ arr
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>getsub(arr, 3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">getsub</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -526,10 +525,10 @@ arr
 <p>Properly formatted code can help in preventing errors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def getsub(arr, n):
-cts = (arr == n).sum(axis = 1)
-subarr = arr[cts &gt;= 2]
-return subarr
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getsub</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="n">cts</span> <span class="o">=</span> <span class="p">(</span><span class="n">arr</span> <span class="o">==</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">subarr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">cts</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">return</span> <span class="n">subarr</span>
 </pre></div>
 </div>
 </div>
@@ -545,7 +544,7 @@ return subarr
 <p>There aren’t any <code class="docutils literal notranslate"><span class="pre">5</span></code> values in this array, so that’s why the following returns an empty array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>getsub(arr, 5)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">getsub</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -570,7 +569,7 @@ return subarr
 <p>Any approach using this list-of-lists data type is inevitably going to be a little awkward.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(our_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">our_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -583,7 +582,7 @@ return subarr
 <p>Convenient slicing for multiple dimensions does not work with our list of lists.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>our_list[:,-1] # not a numpy array
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">our_list</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># not a numpy array</span>
 </pre></div>
 </div>
 </div>
@@ -601,8 +600,8 @@ return subarr
 <p>Some practice with for loops.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for inside_list in our_list:
-    print(inside_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">inside_list</span> <span class="ow">in</span> <span class="n">our_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">inside_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -617,12 +616,12 @@ return subarr
 <p>We start out making a list of ratings. We use the <code class="docutils literal notranslate"><span class="pre">append</span></code> method (that is available for any list) to put the ratings onto the end of the <code class="docutils literal notranslate"><span class="pre">rating</span></code> list, one at a time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rating = []
-for inside_list in our_list:
-    #print(inside_list[-1])
-    rating.append(inside_list[-1])
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rating</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">inside_list</span> <span class="ow">in</span> <span class="n">our_list</span><span class="p">:</span>
+    <span class="c1">#print(inside_list[-1])</span>
+    <span class="n">rating</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inside_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-rating
+<span class="n">rating</span>
 </pre></div>
 </div>
 </div>
@@ -635,7 +634,7 @@ rating
 <p>We now compute the average. Notice the small rounding error (the true answer is exactly <code class="docutils literal notranslate"><span class="pre">3.7</span></code>). These sorts of rounding errors are pretty much inevitable when working with floats (decimal values) in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sum(rating)/len(rating)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -648,9 +647,9 @@ rating
 <p>Be careful testing equality <code class="docutils literal notranslate"><span class="pre">==</span></code> with floats in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># be careful with numerical precision
-# that&#39;s also true in NumPy and pandas
-sum(rating)/len(rating) == 3.7
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># be careful with numerical precision</span>
+<span class="c1"># that&#39;s also true in NumPy and pandas</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span> <span class="o">==</span> <span class="mf">3.7</span>
 </pre></div>
 </div>
 </div>
@@ -663,7 +662,7 @@ sum(rating)/len(rating) == 3.7
 <p>The following simple computation already fails. (Using equality is safer when working with integers instead of floats.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>0.1 + 0.1 + 0.1 == 0.3
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">==</span> <span class="mf">0.3</span>
 </pre></div>
 </div>
 </div>
@@ -676,9 +675,9 @@ sum(rating)/len(rating) == 3.7
 <p>Append a string onto the end of it. (We can make strings using either single or double quotation marks)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_list = rating
-new_list.append(&#39;Friday&#39;)
-new_list
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="n">rating</span>
+<span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Friday&#39;</span><span class="p">)</span>
+<span class="n">new_list</span>
 </pre></div>
 </div>
 </div>
@@ -690,7 +689,7 @@ new_list
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rating
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rating</span>
 </pre></div>
 </div>
 </div>
@@ -703,11 +702,11 @@ new_list
 <p>Because we used copy, the original ratings list did not change.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rating = [4.7, 4.4, 2]
-new_list = rating.copy()
-new_list.append(&#39;friday&#39;)
-print(new_list)
-print(rating)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rating</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">new_list</span> <span class="o">=</span> <span class="n">rating</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">new_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;friday&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -725,9 +724,9 @@ print(rating)
 <p>Convert <code class="docutils literal notranslate"><span class="pre">our_list</span></code> to a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>our_arr = np.array(our_list)
-print(our_arr) #Notice the quotation marks.
-print(type(our_arr))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">our_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">our_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">our_arr</span><span class="p">)</span> <span class="c1">#Notice the quotation marks.</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">our_arr</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +742,7 @@ print(type(our_arr))
 <p>If we check the type, we are told this is some NumPy version of a string. (It should be a number!) The problem is the column of seller names. NumPy wants homogeneous data, where all data types are the same within an array. But our data set is most naturally made using different data types in different columns. That is a problem that will be solved using pandas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(our_arr[0,1]) #string not integer
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">our_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="c1">#string not integer</span>
 </pre></div>
 </div>
 </div>
@@ -755,13 +754,13 @@ print(type(our_arr))
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># if all data types are numbers
-our_list2 = [
-        [6.43, 10,  4.7],
-        [5.81, 15, 4.4],
-        [4.99, 2, 2]
-    ]
-print(np.array(our_list2))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if all data types are numbers</span>
+<span class="n">our_list2</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">[</span><span class="mf">6.43</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>  <span class="mf">4.7</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">5.81</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">4.99</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">our_list2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -775,7 +774,7 @@ print(np.array(our_list2))
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>our_arr[0,1] + our_arr[0,1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">our_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">our_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -787,7 +786,7 @@ print(np.array(our_list2))
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;10&#39; + &#39;10&#39;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;10&#39;</span> <span class="o">+</span> <span class="s1">&#39;10&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -800,7 +799,7 @@ print(np.array(our_list2))
 <p>We can convert to floats using the astype method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>our_arr[:,0].astype(float)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">our_arr</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -819,8 +818,8 @@ print(np.array(our_list2))
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-pd.DataFrame(our_list)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">our_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -882,8 +881,8 @@ pd.DataFrame(our_list)
 <p>One advantage of this approach: the column names show up.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&#39;our-own.csv&#39;)
-df
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;our-own.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>

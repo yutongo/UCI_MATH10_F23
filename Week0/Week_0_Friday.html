@@ -504,7 +504,7 @@ To execute a cell, you can use <code class="docutils literal notranslate"><span 
 <p>Here are some examples of code cells:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>2+2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -516,9 +516,9 @@ To execute a cell, you can use <code class="docutils literal notranslate"><span 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>a = 4
-b = 8
-a+b
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">a</span><span class="o">+</span><span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +531,7 @@ a+b
 <p>The order in which we evaluate cells matters!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(x)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -548,14 +548,14 @@ a+b
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = 10
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(x)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -567,8 +567,8 @@ a+b
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># take square of x
-x**2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># take square of x</span>
+<span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 </div>
 </div>
@@ -580,7 +580,7 @@ x**2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(&#39;Hello World!&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -592,14 +592,14 @@ x**2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list = [5, 6, 7, 8]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list[1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -612,7 +612,7 @@ x**2
 <p>Indexing in Python starts at 0!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list[0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -624,7 +624,7 @@ x**2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list[3]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -636,7 +636,7 @@ x**2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list[-1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -648,7 +648,7 @@ x**2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>list[::-1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -665,18 +665,18 @@ The abbreviation <code class="docutils literal notranslate"><span class="pre">np
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># load Numpy
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load Numpy</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># generate a random variable
-# we can use the funtion in numpy random.default_rng
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate a random variable</span>
+<span class="c1"># we can use the funtion in numpy random.default_rng</span>
 
-np.random.default_rng?
+np.random.default_rng<span class="o">?</span>
 </pre></div>
 </div>
 </div>
@@ -763,8 +763,8 @@ array([[0.77395605, 0.43887844, 0.85859792],
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rng = np.random.default_rng()
-rng.random(5)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -776,7 +776,7 @@ rng.random(5)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(rng.random)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -836,7 +836,7 @@ random(...) method of numpy.random._generator.Generator instance
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rng.random(3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
