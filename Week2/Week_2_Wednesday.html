@@ -361,8 +361,8 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;taxis.csv&quot;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+df = pd.read_csv(&quot;taxis.csv&quot;)
 </pre></div>
 </div>
 </div>
@@ -374,7 +374,7 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pickup_borough&#39;</span><span class="p">]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;pickup_borough&#39;]
 </pre></div>
 </div>
 </div>
@@ -397,7 +397,7 @@ Name: pickup_borough, Length: 6433, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;pickup_borough&#39;</span><span class="p">]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[:,&#39;pickup_borough&#39;]
 </pre></div>
 </div>
 </div>
@@ -421,7 +421,7 @@ Name: pickup_borough, Length: 6433, dtype: object
 <p>If we want to use <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, we need to find the integer position of the “pickup_borough” column. We can use the <code class="docutils literal notranslate"><span class="pre">columns</span></code> attribute to see all the columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.columns
 </pre></div>
 </div>
 </div>
@@ -437,10 +437,10 @@ Name: pickup_borough, Length: 6433, dtype: object
 <p>Convert to a <code class="docutils literal notranslate"><span class="pre">list</span></code> and then use the <code class="docutils literal notranslate"><span class="pre">index</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="n">mylist</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;pickup_borough&#39;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># list
+mylist = list(df.columns)
+print(mylist)
+mylist.index(&#39;pickup_borough&#39;)
 </pre></div>
 </div>
 </div>
@@ -455,7 +455,7 @@ Name: pickup_borough, Length: 6433, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">12</span><span class="p">]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.iloc[:,12]
 </pre></div>
 </div>
 </div>
@@ -479,10 +479,10 @@ Name: pickup_borough, Length: 6433, dtype: object
 <p>Get a Boolean array and then use <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code> (don’t forget to import NumPy before calling <code class="docutils literal notranslate"><span class="pre">np.nonzero</span></code>.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># boolean</span>
-<span class="n">label_ba</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">==</span> <span class="s1">&#39;pickup_borough&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">label_ba</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">label_ba</span><span class="p">))</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># boolean
+label_ba = df.columns == &#39;pickup_borough&#39;
+print(label_ba)
+print(type(label_ba))
 </pre></div>
 </div>
 </div>
@@ -498,9 +498,9 @@ Name: pickup_borough, Length: 6433, dtype: object
 <p>For a 1D array, the output will be a tuple with a single array inside it (such as <code class="docutils literal notranslate"><span class="pre">(array([12]),)</span></code>). For a 2D array, the output would be a tuple with two arrays, one for each dimension (such as <code class="docutils literal notranslate"><span class="pre">(array([2]),</span> <span class="pre">array([2]))</span></code>). The output <code class="docutils literal notranslate"><span class="pre">(array([12]),</span> <span class="pre">1)</span></code> would not be a valid output for <code class="docutils literal notranslate"><span class="pre">np.nonzero()</span></code> or <code class="docutils literal notranslate"><span class="pre">np.where</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">label_ba</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">label_ba</span><span class="p">))</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
+print(np.nonzero(label_ba))
+print(np.where(label_ba))
 </pre></div>
 </div>
 </div>
@@ -513,7 +513,7 @@ Name: pickup_borough, Length: 6433, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">label_ba</span><span class="p">]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[:,label_ba]
 </pre></div>
 </div>
 </div>
@@ -592,7 +592,7 @@ Name: pickup_borough, Length: 6433, dtype: object
 <p>Use the <code class="docutils literal notranslate"><span class="pre">get_loc</span></code> method of a pandas Index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s1">&#39;pickup_borough&#39;</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.columns.get_loc(&#39;pickup_borough&#39;)
 </pre></div>
 </div>
 </div>
@@ -604,7 +604,7 @@ Name: pickup_borough, Length: 6433, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(df.columns)
 </pre></div>
 </div>
 </div>
@@ -616,23 +616,33 @@ Name: pickup_borough, Length: 6433, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(df.columns.get_loc)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method get_loc in module pandas.core.indexes.base:
 
-get_loc(key) method of pandas.core.indexes.base.Index instance
+get_loc(key, method=None, tolerance=None) method of pandas.core.indexes.base.Index instance
     Get integer location, slice or boolean mask for requested label.
     
     Parameters
     ----------
     key : label
+    method : {None, &#39;pad&#39;/&#39;ffill&#39;, &#39;backfill&#39;/&#39;bfill&#39;, &#39;nearest&#39;}, optional
+        * default: exact matches only.
+        * pad / ffill: find the PREVIOUS index value if no exact match.
+        * backfill / bfill: use NEXT index value if no exact match
+        * nearest: use the NEAREST index value if no exact match. Tied
+          distances are broken by preferring the larger index value.
+    tolerance : int or float, optional
+        Maximum distance from index value for inexact matches. The value of
+        the index at the matching location must satisfy the equation
+        ``abs(index[loc] - key) &lt;= tolerance``.
     
     Returns
     -------
-    int if unique index, slice if monotonic index, else mask
+    loc : int if unique index, slice if monotonic index, else mask
     
     Examples
     --------
@@ -654,8 +664,8 @@ get_loc(key) method of pandas.core.indexes.base.Index instance
 <p>Use the <code class="docutils literal notranslate"><span class="pre">get_indexer</span></code> method of a pandas Index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#df.columns.get_loc([&#39;pickup_borough&#39;,&#39;pickup&#39;]) #fail for multiple locations</span>
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">([</span><span class="s1">&#39;pickup_borough&#39;</span><span class="p">,</span><span class="s1">&#39;pickup&#39;</span><span class="p">])</span> <span class="c1"># get multiple locations at the same time</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#df.columns.get_loc([&#39;pickup_borough&#39;,&#39;pickup&#39;]) #fail for multiple locations
+df.columns.get_indexer([&#39;pickup_borough&#39;,&#39;pickup&#39;]) # get multiple locations at the same time
 </pre></div>
 </div>
 </div>
@@ -668,8 +678,8 @@ get_loc(key) method of pandas.core.indexes.base.Index instance
 <p><code class="docutils literal notranslate"><span class="pre">unique</span></code> gets us the distinct values which occur in the Series (including the missing value, represented as <code class="docutils literal notranslate"><span class="pre">nan</span></code>, which stands for “not a number”). Notice that <code class="docutils literal notranslate"><span class="pre">unique</span></code> is a Series method, not a DataFrame method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_pb</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;pickup_borough&#39;</span><span class="p">]</span>
-<span class="n">col_pb</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>col_pb = df[&#39;pickup_borough&#39;]
+col_pb.unique()
 </pre></div>
 </div>
 </div>
@@ -681,7 +691,7 @@ get_loc(key) method of pandas.core.indexes.base.Index instance
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">col_pb</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>len(col_pb.unique())
 </pre></div>
 </div>
 </div>
@@ -694,7 +704,7 @@ get_loc(key) method of pandas.core.indexes.base.Index instance
 <p><code class="docutils literal notranslate"><span class="pre">(5,)</span></code> represents a one-dimensional array (such as <code class="docutils literal notranslate"><span class="pre">np.array([1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5])</span></code>), while the shape <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">1)</span></code> represents a two-dimensional array with one column (such as <code class="docutils literal notranslate"><span class="pre">np.array([[1],</span> <span class="pre">[2],</span> <span class="pre">[3],</span> <span class="pre">[4],</span> <span class="pre">[5]])</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_pb</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>col_pb.unique().shape
 </pre></div>
 </div>
 </div>
@@ -707,18 +717,17 @@ get_loc(key) method of pandas.core.indexes.base.Index instance
 <p><code class="docutils literal notranslate"><span class="pre">value_counts</span></code> returns a Series containing counts of unique values. Excludes <code class="docutils literal notranslate"><span class="pre">nan</span></code> by default.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">col_pb</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">col_pb</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(col_pb.value_counts())
+len(col_pb.value_counts())
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup_borough
-Manhattan    5268
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manhattan    5268
 Queens        657
 Brooklyn      383
 Bronx          99
-Name: count, dtype: int64
+Name: pickup_borough, dtype: int64
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
@@ -728,14 +737,14 @@ Name: count, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">col_pb</span><span class="o">.</span><span class="n">value_counts</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(col_pb.value_counts)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method value_counts in module pandas.core.base:
 
-value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, ascending: &#39;bool&#39; = False, bins=None, dropna: &#39;bool&#39; = True) -&gt; &#39;Series&#39; method of pandas.core.series.Series instance
+value_counts(normalize: bool = False, sort: bool = True, ascending: bool = False, bins=None, dropna: bool = True) method of pandas.core.series.Series instance
     Return a Series containing counts of unique values.
     
     The resulting object will be in descending order so that the
@@ -772,10 +781,10 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     &gt;&gt;&gt; index = pd.Index([3, 1, 2, 3, 4, np.nan])
     &gt;&gt;&gt; index.value_counts()
     3.0    2
-    1.0    1
     2.0    1
     4.0    1
-    Name: count, dtype: int64
+    1.0    1
+    dtype: int64
     
     With `normalize` set to `True`, returns the relative frequency by
     dividing all values by the sum of values.
@@ -783,10 +792,10 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     &gt;&gt;&gt; s = pd.Series([3, 1, 2, 3, 4, np.nan])
     &gt;&gt;&gt; s.value_counts(normalize=True)
     3.0    0.4
-    1.0    0.2
     2.0    0.2
     4.0    0.2
-    Name: proportion, dtype: float64
+    1.0    0.2
+    dtype: float64
     
     **bins**
     
@@ -799,7 +808,7 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     (0.996, 2.0]    2
     (2.0, 3.0]      2
     (3.0, 4.0]      1
-    Name: count, dtype: int64
+    dtype: int64
     
     **dropna**
     
@@ -807,29 +816,28 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     
     &gt;&gt;&gt; s.value_counts(dropna=False)
     3.0    2
-    1.0    1
     2.0    1
-    4.0    1
     NaN    1
-    Name: count, dtype: int64
+    4.0    1
+    1.0    1
+    dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_pb</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>col_pb.value_counts(dropna=False)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup_borough
-Manhattan    5268
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manhattan    5268
 Queens        657
 Brooklyn      383
 Bronx          99
 NaN            26
-Name: count, dtype: int64
+Name: pickup_borough, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -843,7 +851,7 @@ Name: count, dtype: int64
 <p>We can recognize “pickup” and “dropoff” columns as dates, but for now, they are just strings to Python and to pandas. (Notice that it is reported as an “object” data type.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;pickup&#39;</span><span class="p">,</span><span class="s1">&#39;dropoff&#39;</span><span class="p">]]</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[[&#39;pickup&#39;,&#39;dropoff&#39;]]
 </pre></div>
 </div>
 </div>
@@ -934,8 +942,8 @@ Name: count, dtype: int64
 <p>Let’s see in a smaller example how the <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code>  works. We start out by defining a string representing today’s date.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">today</span> <span class="o">=</span> <span class="s1">&#39;Oct 11, 2023&#39;</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>today = &#39;Oct 11, 2023&#39;
+type(today)
 </pre></div>
 </div>
 </div>
@@ -948,9 +956,9 @@ Name: count, dtype: int64
 <p>Convert it to a Timestamp using <code class="docutils literal notranslate"><span class="pre">pd.to_datetime</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">today</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ts = pd.to_datetime(today)
+print(ts)
+type(ts)
 </pre></div>
 </div>
 </div>
@@ -966,7 +974,7 @@ Name: count, dtype: int64
 <p>We now have access to all sorts of additional information related to this date. It’s a little unpredictable which are methods. Whether <code class="docutils literal notranslate"><span class="pre">day_name</span></code> or <code class="docutils literal notranslate"><span class="pre">day_of_year</span></code> is a method is not something you would be tested on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">day_of_year</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ts.day_of_year
 </pre></div>
 </div>
 </div>
@@ -978,7 +986,7 @@ Name: count, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ts.day_name()
 </pre></div>
 </div>
 </div>
@@ -990,7 +998,7 @@ Name: count, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">day_name</span><span class="p">)</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(ts.day_name)
 </pre></div>
 </div>
 </div>
@@ -1008,17 +1016,6 @@ day_name(...) method of pandas._libs.tslibs.timestamps.Timestamp instance
     Returns
     -------
     str
-    
-    Examples
-    --------
-    &gt;&gt;&gt; ts = pd.Timestamp(&#39;2020-03-14T15:32:52.192548651&#39;)
-    &gt;&gt;&gt; ts.day_name()
-    &#39;Saturday&#39;
-    
-    Analogous for ``pd.NaT``:
-    
-    &gt;&gt;&gt; pd.NaT.day_name()
-    nan
 </pre></div>
 </div>
 </div>
@@ -1026,8 +1023,8 @@ day_name(...) method of pandas._libs.tslibs.timestamps.Timestamp instance
 <p>Here we are adding one new column to the DataFrame. We name it “picktime”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pickuptime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pickup&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;pickuptime&#39;] = pd.to_datetime(df[&#39;pickup&#39;])
+df.head()
 </pre></div>
 </div>
 </div>
@@ -1162,7 +1159,9 @@ day_name(...) method of pandas._libs.tslibs.timestamps.Timestamp instance
 </table>
 </div></div></div>
 </div>
-</section>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=2f21f4a9-07b2-41ad-8584-90f9bfaa8fb3' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
 </section>
 
     <script type="text/x-thebe-config">
