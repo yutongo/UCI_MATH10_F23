@@ -1099,25 +1099,49 @@ Name: Quantity, dtype: bool
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [24],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sub_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 
-<span class="nn">File ~/Documents/math10/lib/python3.8/site-packages/pandas/core/indexing.py:1096,</span> in <span class="ni">_LocationIndexer.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1094</span>     <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1095</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_scalar_access</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1096</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">takeable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_takeable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span>     <span class="c1"># we by definition only have the 0th axis</span>
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/indexing.py:889,</span> in <span class="ni">_LocationIndexer.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">886</span>         <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="ne">KeyError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">887</span>             <span class="c1"># AttributeError for IntervalTree get_value</span>
+<span class="g g-Whitespace">    </span><span class="mi">888</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">takeable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_takeable</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">889</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">890</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span>     <span class="c1"># we by definition only have the 0th axis</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span>     <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">or</span> <span class="mi">0</span>
 
-<span class="nn">File ~/Documents/math10/lib/python3.8/site-packages/pandas/core/frame.py:3877,</span> in <span class="ni">DataFrame._get_value</span><span class="nt">(self, index, col, takeable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3875</span> <span class="k">if</span> <span class="n">takeable</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3876</span>     <span class="n">series</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ixs</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3877</span>     <span class="k">return</span> <span class="n">series</span><span class="o">.</span><span class="n">_values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">3879</span> <span class="n">series</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_item_cache</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3880</span> <span class="n">engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">_engine</span>
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/indexing.py:1450,</span> in <span class="ni">_iLocIndexer._getitem_tuple</span><span class="nt">(self, tup)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1448</span> <span class="k">def</span> <span class="nf">_getitem_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tup</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1450</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_tuple</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1451</span>     <span class="k">with</span> <span class="n">suppress</span><span class="p">(</span><span class="n">IndexingError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_lowerdim</span><span class="p">(</span><span class="n">tup</span><span class="p">)</span>
 
-<span class="ne">IndexError</span>: index 2 is out of bounds for axis 0 with size 2
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/indexing.py:723,</span> in <span class="ni">_LocationIndexer._has_valid_tuple</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">721</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">722</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">723</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span>     <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">726</span>             <span class="s2">&quot;Location based indexing can only have &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">727</span>             <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_valid_types</span><span class="si">}</span><span class="s2">] types&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">728</span>         <span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/indexing.py:1358,</span> in <span class="ni">_iLocIndexer._validate_key</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1356</span>     <span class="k">return</span>
+<span class="g g-Whitespace">   </span><span class="mi">1357</span> <span class="k">elif</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1358</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_validate_integer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1359</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1360</span>     <span class="c1"># a tuple should already have been caught by this point</span>
+<span class="g g-Whitespace">   </span><span class="mi">1361</span>     <span class="c1"># so don&#39;t treat a tuple as a valid indexer</span>
+<span class="g g-Whitespace">   </span><span class="mi">1362</span>     <span class="k">raise</span> <span class="n">IndexingError</span><span class="p">(</span><span class="s2">&quot;Too many indexers&quot;</span><span class="p">)</span>
+
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/indexing.py:1444,</span> in <span class="ni">_iLocIndexer._validate_integer</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1442</span> <span class="n">len_axis</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_axis</span><span class="p">(</span><span class="n">axis</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1443</span> <span class="k">if</span> <span class="n">key</span> <span class="o">&gt;=</span> <span class="n">len_axis</span> <span class="ow">or</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">len_axis</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1444</span>     <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;single positional indexer is out-of-bounds&quot;</span><span class="p">)</span>
+
+<span class="ne">IndexError</span>: single positional indexer is out-of-bounds
 </pre></div>
 </div>
 </div>
@@ -1724,53 +1748,53 @@ Name: Quantity, dtype: bool
   </thead>
   <tbody>
     <tr>
-      <th>43</th>
-      <td>2019-03-27 19:39:16</td>
-      <td>2019-03-27 20:00:26</td>
+      <th>2768</th>
+      <td>2019-03-14 18:46:48</td>
+      <td>2019-03-14 18:54:48</td>
       <td>1</td>
-      <td>9.50</td>
-      <td>28.0</td>
-      <td>0.00</td>
-      <td>5.76</td>
-      <td>35.06</td>
-      <td>yellow</td>
-      <td>cash</td>
-      <td>LaGuardia Airport</td>
-      <td>Washington Heights South</td>
-      <td>Queens</td>
-      <td>Manhattan</td>
-    </tr>
-    <tr>
-      <th>6073</th>
-      <td>2019-03-06 10:08:03</td>
-      <td>2019-03-06 10:12:22</td>
-      <td>1</td>
-      <td>0.69</td>
-      <td>5.0</td>
-      <td>0.00</td>
-      <td>0.00</td>
-      <td>5.80</td>
-      <td>green</td>
-      <td>cash</td>
-      <td>Morningside Heights</td>
-      <td>Morningside Heights</td>
-      <td>Manhattan</td>
-      <td>Manhattan</td>
-    </tr>
-    <tr>
-      <th>1789</th>
-      <td>2019-03-25 16:32:14</td>
-      <td>2019-03-25 16:41:23</td>
-      <td>1</td>
-      <td>1.10</td>
-      <td>7.5</td>
-      <td>2.95</td>
-      <td>0.00</td>
-      <td>14.75</td>
+      <td>0.60</td>
+      <td>6.5</td>
+      <td>2.70</td>
+      <td>0.0</td>
+      <td>13.50</td>
       <td>yellow</td>
       <td>credit card</td>
-      <td>Garment District</td>
-      <td>Midtown South</td>
+      <td>SoHo</td>
+      <td>Little Italy/NoLiTa</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+    </tr>
+    <tr>
+      <th>6147</th>
+      <td>2019-03-09 22:22:28</td>
+      <td>2019-03-09 22:46:25</td>
+      <td>1</td>
+      <td>4.03</td>
+      <td>18.0</td>
+      <td>4.41</td>
+      <td>0.0</td>
+      <td>26.46</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>Central Harlem</td>
+      <td>Times Sq/Theatre District</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+    </tr>
+    <tr>
+      <th>4962</th>
+      <td>2019-03-09 15:41:40</td>
+      <td>2019-03-09 15:56:57</td>
+      <td>1</td>
+      <td>2.54</td>
+      <td>12.5</td>
+      <td>3.16</td>
+      <td>0.0</td>
+      <td>18.96</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Upper West Side South</td>
+      <td>Lenox Hill West</td>
       <td>Manhattan</td>
       <td>Manhattan</td>
     </tr>

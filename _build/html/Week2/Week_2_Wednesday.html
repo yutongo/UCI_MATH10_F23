@@ -623,16 +623,26 @@ Name: pickup_borough, Length: 6433, dtype: object
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method get_loc in module pandas.core.indexes.base:
 
-get_loc(key) method of pandas.core.indexes.base.Index instance
+get_loc(key, method=None, tolerance=None) method of pandas.core.indexes.base.Index instance
     Get integer location, slice or boolean mask for requested label.
     
     Parameters
     ----------
     key : label
+    method : {None, &#39;pad&#39;/&#39;ffill&#39;, &#39;backfill&#39;/&#39;bfill&#39;, &#39;nearest&#39;}, optional
+        * default: exact matches only.
+        * pad / ffill: find the PREVIOUS index value if no exact match.
+        * backfill / bfill: use NEXT index value if no exact match
+        * nearest: use the NEAREST index value if no exact match. Tied
+          distances are broken by preferring the larger index value.
+    tolerance : int or float, optional
+        Maximum distance from index value for inexact matches. The value of
+        the index at the matching location must satisfy the equation
+        ``abs(index[loc] - key) &lt;= tolerance``.
     
     Returns
     -------
-    int if unique index, slice if monotonic index, else mask
+    loc : int if unique index, slice if monotonic index, else mask
     
     Examples
     --------
@@ -713,12 +723,11 @@ get_loc(key) method of pandas.core.indexes.base.Index instance
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup_borough
-Manhattan    5268
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manhattan    5268
 Queens        657
 Brooklyn      383
 Bronx          99
-Name: count, dtype: int64
+Name: pickup_borough, dtype: int64
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
@@ -735,7 +744,7 @@ Name: count, dtype: int64
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method value_counts in module pandas.core.base:
 
-value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, ascending: &#39;bool&#39; = False, bins=None, dropna: &#39;bool&#39; = True) -&gt; &#39;Series&#39; method of pandas.core.series.Series instance
+value_counts(normalize: bool = False, sort: bool = True, ascending: bool = False, bins=None, dropna: bool = True) method of pandas.core.series.Series instance
     Return a Series containing counts of unique values.
     
     The resulting object will be in descending order so that the
@@ -772,10 +781,10 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     &gt;&gt;&gt; index = pd.Index([3, 1, 2, 3, 4, np.nan])
     &gt;&gt;&gt; index.value_counts()
     3.0    2
-    1.0    1
     2.0    1
     4.0    1
-    Name: count, dtype: int64
+    1.0    1
+    dtype: int64
     
     With `normalize` set to `True`, returns the relative frequency by
     dividing all values by the sum of values.
@@ -783,10 +792,10 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     &gt;&gt;&gt; s = pd.Series([3, 1, 2, 3, 4, np.nan])
     &gt;&gt;&gt; s.value_counts(normalize=True)
     3.0    0.4
-    1.0    0.2
     2.0    0.2
     4.0    0.2
-    Name: proportion, dtype: float64
+    1.0    0.2
+    dtype: float64
     
     **bins**
     
@@ -799,7 +808,7 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     (0.996, 2.0]    2
     (2.0, 3.0]      2
     (3.0, 4.0]      1
-    Name: count, dtype: int64
+    dtype: int64
     
     **dropna**
     
@@ -807,11 +816,11 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
     
     &gt;&gt;&gt; s.value_counts(dropna=False)
     3.0    2
-    1.0    1
     2.0    1
-    4.0    1
     NaN    1
-    Name: count, dtype: int64
+    4.0    1
+    1.0    1
+    dtype: int64
 </pre></div>
 </div>
 </div>
@@ -823,13 +832,12 @@ value_counts(normalize: &#39;bool&#39; = False, sort: &#39;bool&#39; = True, asc
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup_borough
-Manhattan    5268
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manhattan    5268
 Queens        657
 Brooklyn      383
 Bronx          99
 NaN            26
-Name: count, dtype: int64
+Name: pickup_borough, dtype: int64
 </pre></div>
 </div>
 </div>
@@ -1008,17 +1016,6 @@ day_name(...) method of pandas._libs.tslibs.timestamps.Timestamp instance
     Returns
     -------
     str
-    
-    Examples
-    --------
-    &gt;&gt;&gt; ts = pd.Timestamp(&#39;2020-03-14T15:32:52.192548651&#39;)
-    &gt;&gt;&gt; ts.day_name()
-    &#39;Saturday&#39;
-    
-    Analogous for ``pd.NaT``:
-    
-    &gt;&gt;&gt; pd.NaT.day_name()
-    nan
 </pre></div>
 </div>
 </div>

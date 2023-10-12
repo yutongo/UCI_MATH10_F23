@@ -341,6 +341,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-complex-example-of-boolean-indexing">More complex example of Boolean indexing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-example-of-the-axis-keyword-argument">Another example of the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-in-python">Functions in Python</a></li>
 </ul>
             </nav>
         </div>
@@ -555,7 +556,7 @@ Add new code block below current one: <code class="docutils literal notranslate"
 <ul class="simple">
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">sum</span></code> method with <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> to find how many 2s there are in each row.</p></li>
 </ul>
-<div class="cell tag_output_scroll docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
 </pre></div>
@@ -734,18 +735,18 @@ sum(a, axis=None, dtype=None, out=None, keepdims=&lt;no value&gt;, initial=&lt;n
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">AxisError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [17],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># we do not have the third dimension</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ba</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="nn">File &lt;__array_function__ internals&gt;:180,</span> in <span class="ni">sum</span><span class="nt">(*args, **kwargs)</span>
 
-<span class="nn">File ~/Documents/math10/lib/python3.8/site-packages/numpy/core/fromnumeric.py:2298,</span> in <span class="ni">sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2298,</span> in <span class="ni">sum</span><span class="nt">(a, axis, dtype, out, keepdims, initial, where)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2295</span>         <span class="k">return</span> <span class="n">out</span>
 <span class="g g-Whitespace">   </span><span class="mi">2296</span>     <span class="k">return</span> <span class="n">res</span>
 <span class="ne">-&gt; </span><span class="mi">2298</span> <span class="k">return</span> <span class="n">_wrapreduction</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span>
 <span class="g g-Whitespace">   </span><span class="mi">2299</span>                       <span class="n">initial</span><span class="o">=</span><span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="n">where</span><span class="p">)</span>
 
-<span class="nn">File ~/Documents/math10/lib/python3.8/site-packages/numpy/core/fromnumeric.py:86,</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/numpy/core/fromnumeric.py:86,</span> in <span class="ni">_wrapreduction</span><span class="nt">(obj, ufunc, method, axis, dtype, out, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">84</span>             <span class="k">return</span> <span class="n">reduction</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">86</span> <span class="k">return</span> <span class="n">ufunc</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="o">**</span><span class="n">passkwargs</span><span class="p">)</span>
@@ -859,8 +860,8 @@ sum(a, axis=None, dtype=None, out=None, keepdims=&lt;no value&gt;, initial=&lt;n
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [24],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
 
 <span class="ne">IndexError</span>: too many indices for array: array is 2-dimensional, but 3 were indexed
 </pre></div>
@@ -1187,6 +1188,12 @@ amax(a, axis=None, out=None, keepdims=&lt;no value&gt;, initial=&lt;no value&gt;
 </div>
 </div>
 </section>
+<section id="functions-in-python">
+<h2>Functions in Python<a class="headerlink" href="#functions-in-python" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Write a function <code class="docutils literal notranslate"><span class="pre">getsub</span></code> which takes two inputs, a NumPy <code class="docutils literal notranslate"><span class="pre">arr</span></code> and an integer <code class="docutils literal notranslate"><span class="pre">n</span></code>, and as output returns the subarray of <code class="docutils literal notranslate"><span class="pre">arr</span></code> containing all rows with at least two entries equal to <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1254,6 +1261,7 @@ amax(a, axis=None, out=None, keepdims=&lt;no value&gt;, initial=&lt;no value&gt;
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-complex-example-of-boolean-indexing">More complex example of Boolean indexing</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#another-example-of-the-axis-keyword-argument">Another example of the <code class="docutils literal notranslate"><span class="pre">axis</span></code> keyword argument</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-in-python">Functions in Python</a></li>
 </ul>
   </nav></div>
 
