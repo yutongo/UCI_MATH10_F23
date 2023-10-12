@@ -379,9 +379,9 @@ document.write(`
 <p>One advantage of this approach: the column names show up.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-df = pd.read_csv(&#39;our-own.csv&#39;)
-df
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;our-own.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -438,7 +438,7 @@ df
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(df)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +455,7 @@ df
 <p>The fact that pandas DataFrames can have different columns with different data types is one of the big advantages of a pandas DataFrame over a NumPy array.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.dtypes
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
@@ -476,8 +476,8 @@ dtype: object
 <strong>By Column Label</strong>: Access a specific column using its label.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>col = df[&#39;Rating&#39;]
-col
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span>
+<span class="n">col</span>
 </pre></div>
 </div>
 </div>
@@ -495,7 +495,7 @@ Name: Rating, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(df)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -507,7 +507,7 @@ Name: Rating, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(col)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -522,7 +522,7 @@ Name: Rating, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.shape
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -538,7 +538,7 @@ Name: Rating, dtype: float64
 <p>Notice the exact same numerical precision issue is showing up (even with the same <code class="docutils literal notranslate"><span class="pre">6</span></code> at the end of the decimal). The library pandas has lots of advantages, but it does not solve numerical precision issues.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;Rating&#39;].mean()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -554,7 +554,7 @@ Name: Rating, dtype: float64
 <p>There are two commonly used ways to index in pandas: using labels (with <code class="docutils literal notranslate"><span class="pre">loc</span></code>) and using integer position (with <code class="docutils literal notranslate"><span class="pre">iloc</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -612,7 +612,7 @@ Name: Rating, dtype: float64
 <p><strong>By Row Index</strong>: Access a specific row using the .loc accessor with its index label.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[0]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -634,7 +634,7 @@ Name: 0, dtype: object
 <p><strong>Single Label</strong>: Select data at a particular row or column label.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[2,&#39;Seller&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Seller&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -647,7 +647,7 @@ Name: 0, dtype: object
 <p><strong>List of Labels</strong>: Select multiple rows or columns using a list of labels.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[[0, 1], [&#39;Seller&#39;, &#39;Rating&#39;]]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Seller&#39;</span><span class="p">,</span> <span class="s1">&#39;Rating&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -694,9 +694,9 @@ Name: 0, dtype: object
 <code class="docutils literal notranslate"><span class="pre">slice(start</span> <span class="pre">(default</span> <span class="pre">0),</span> <span class="pre">end)</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[:1, &#39;Quantity&#39;:&#39;Rating&#39;] 
-#equivalent to
-#df.loc[slice(0,1), slice(&#39;Quantity&#39;,&#39;Rating&#39;)] 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">:</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span> 
+<span class="c1">#equivalent to</span>
+<span class="c1">#df.loc[slice(0,1), slice(&#39;Quantity&#39;,&#39;Rating&#39;)] </span>
 </pre></div>
 </div>
 </div>
@@ -744,7 +744,7 @@ Name: 0, dtype: object
 <p><strong>Boolean Array</strong>: Select rows or columns based on a boolean condition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[df[&#39;Quantity&#39;] &lt; 12] #select rows
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">]</span> <span class="c1">#select rows</span>
 </pre></div>
 </div>
 </div>
@@ -801,7 +801,7 @@ Name: 0, dtype: object
 <p><strong>Single Integer</strong>: Select data at a particular row or column integer index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.iloc[2,2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -814,7 +814,7 @@ Name: 0, dtype: object
 <p><strong>List of Integers</strong>: Select multiple rows or columns using a list of integer indices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.iloc[[0, 2], [0, 2]]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -860,7 +860,7 @@ Name: 0, dtype: object
 <p>Remember that <code class="docutils literal notranslate"><span class="pre">.loc</span></code> includes both the start and the end of the slice, while <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> includes the start but excludes the end.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.iloc[0:1, 0:1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -905,7 +905,7 @@ Name: 0, dtype: object
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;Quantity&#39;] &lt; 12 #indexing using a Boolean Series
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span> <span class="c1">#indexing using a Boolean Series</span>
 </pre></div>
 </div>
 </div>
@@ -920,7 +920,7 @@ Name: Quantity, dtype: bool
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(df[&#39;Quantity&#39;] &lt; 12)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -933,8 +933,8 @@ Name: Quantity, dtype: bool
 <p>The Boolean Series says to keep rows <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> but to discard row <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sub_df = df[df[&#39;Quantity&#39;] &lt; 12]
-sub_df
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">]</span>
+<span class="n">sub_df</span>
 </pre></div>
 </div>
 </div>
@@ -984,8 +984,8 @@ sub_df
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># alternative way
-df.loc[df[&#39;Quantity&#39;] &lt; 12]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># alternative way</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1036,7 +1036,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 <p><strong>Multiple Conditions</strong>: Combine multiple conditions using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (and), <code class="docutils literal notranslate"><span class="pre">|</span></code> (or), and <code class="docutils literal notranslate"><span class="pre">~</span></code> (not).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[(df[&#39;Quantity&#39;] &gt; 2) &amp; (df[&#39;Quantity&#39;] &lt; 12)]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 <p>We can use <code class="docutils literal notranslate"><span class="pre">2</span></code> with loc, since there is row with label <code class="docutils literal notranslate"><span class="pre">2</span></code>. However, there is not a row at integer location <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sub_df.loc[2,&#39;Rating&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1092,7 +1092,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sub_df.iloc[2,3]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1151,7 +1151,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sub_df[&#39;Cost&#39;].mean()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_df</span><span class="p">[</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1170,7 +1170,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[:2]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1221,7 +1221,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 <p><strong>Column Slicing</strong>: Slice columns using the <code class="docutils literal notranslate"><span class="pre">.loc</span></code> accessor and label slices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[:, &#39;Quantity&#39;:&#39;Rating&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">:</span><span class="s1">&#39;Rating&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1274,7 +1274,7 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.iloc[:, 1:3]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1330,8 +1330,8 @@ df.loc[df[&#39;Quantity&#39;] &lt; 12]
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
-df = pd.read_csv(&quot;taxis.csv&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;taxis.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1347,7 +1347,7 @@ df = pd.read_csv(&quot;taxis.csv&quot;)
 <p>The shape attribute reports the number of rows (<code class="docutils literal notranslate"><span class="pre">6433</span></code> in this case) and the number of columns (<code class="docutils literal notranslate"><span class="pre">14</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.shape
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1359,7 +1359,7 @@ df = pd.read_csv(&quot;taxis.csv&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.head(10) # we look at its first 10 rows
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># we look at its first 10 rows</span>
 </pre></div>
 </div>
 </div>
@@ -1575,7 +1575,7 @@ df = pd.read_csv(&quot;taxis.csv&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[:5] #first 5 rows
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#first 5 rows</span>
 </pre></div>
 </div>
 </div>
@@ -1707,7 +1707,7 @@ df = pd.read_csv(&quot;taxis.csv&quot;)
 <p>The sample method is similar, but it returns a random selection of the rows. Notice that they could also be in a different order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.sample(3)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1806,7 +1806,7 @@ df = pd.read_csv(&quot;taxis.csv&quot;)
 <p>A huge issue in data science is missing data (and how to deal with it). This <code class="docutils literal notranslate"><span class="pre">info</span></code> method also reports missing data. (Or more precisely, it reports non-missing data, so for example we can infer below that <code class="docutils literal notranslate"><span class="pre">6433-6389</span> <span class="pre">=</span> <span class="pre">44</span></code> values are missing from the “payment” column.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.info()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1839,7 +1839,7 @@ memory usage: 703.7+ KB
 <p>The <code class="docutils literal notranslate"><span class="pre">describe</span></code> method is returns information about the distribution of numbers in numeric columns. For example, we can see that the median fare is <code class="docutils literal notranslate"><span class="pre">6.5</span></code> (the 50-th percentile), whereas the mean fare is <code class="docutils literal notranslate"><span class="pre">13.09</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.describe()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1947,9 +1947,7 @@ memory usage: 703.7+ KB
 </table>
 </div></div></div>
 </div>
-<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=268bea20-a83e-4c1f-ab8c-87bedbaf9246' target="_blank">
-<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
-Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
