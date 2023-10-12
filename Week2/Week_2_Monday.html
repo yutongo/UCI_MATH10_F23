@@ -1090,7 +1090,7 @@ Name: Quantity, dtype: bool
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sub_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
@@ -1333,7 +1333,7 @@ Name: Quantity, dtype: bool
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># we look at its first 10 rows</span>
 </pre></div>
@@ -1549,7 +1549,7 @@ Name: Quantity, dtype: bool
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="c1">#first 5 rows</span>
 </pre></div>
@@ -1780,7 +1780,7 @@ Name: Quantity, dtype: bool
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">info</span></code> method contains lots of iinformation. At the very bottom, it tells us how much space the DataFrame is taking up (which can be very useful if you’ve loaded a huge DataFrame from some external source). For each row, it tells us the data type (in the usual rough sense, for example, strings are reported as the “object” data type).</p>
 <p>A huge issue in data science is missing data (and how to deal with it). This <code class="docutils literal notranslate"><span class="pre">info</span></code> method also reports missing data. (Or more precisely, it reports non-missing data, so for example we can infer below that <code class="docutils literal notranslate"><span class="pre">6433-6389</span> <span class="pre">=</span> <span class="pre">44</span></code> values are missing from the “payment” column.)</p>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -1813,7 +1813,7 @@ memory usage: 703.7+ KB
 </div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">describe</span></code> method is returns information about the distribution of numbers in numeric columns. For example, we can see that the median fare is <code class="docutils literal notranslate"><span class="pre">6.5</span></code> (the 50-th percentile), whereas the mean fare is <code class="docutils literal notranslate"><span class="pre">13.09</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
