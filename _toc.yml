@@ -9,6 +9,10 @@ chapters:
       - file: Week1/Week_1_Monday
       - file: Week1/Week_1_Wednesday
       - file: Week1/Week_1_Friday
+  - file: Week2/Week2_Intro
+    sections:
+      - file: Week2/Week_2_Monday
+      - file: Week2/Week_2_Wednesday
   #- file: Week1/Week1-Intro
   #   sections:
   #   - file: Week1/Week1-Monday
