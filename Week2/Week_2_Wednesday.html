@@ -1,0 +1,2523 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 2 Wednesday &#8212; UC Irvine Math 10, Fall 2023</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week2/Week_2_Wednesday';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Week 2 Monday" href="Week_2_Monday.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">UC Irvine Math 10, Fall 2023</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    UC Irvine, Math 10, Spring 2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week0/Week0_Intro.html">Week 0</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week0/Week_0_Friday.html">Week 0 Friday</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/Week1_Intro.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/Week_1_Monday.html">Week 1 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/Week_1_Wednesday.html">Week 1 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/Week_1_Friday.html">Week 1 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week2_Intro.html">Week 2</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Week_2_Monday.html">Week 2 Monday</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Week 2 Wednesday</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yutongo/UCI_MATH10_F23" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week2/Week_2_Wednesday.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 2 Wednesday</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-taxis-dataset">Exploring the taxis dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dates-in-pandas">Working with dates in pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-strings-in-pandas">Working with strings in pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values-in-pandas">Missing values in pandas</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-wednesday">
+<h1>Week 2 Wednesday<a class="headerlink" href="#week-2-wednesday" title="Permalink to this heading">#</a></h1>
+<section id="exploring-the-taxis-dataset">
+<h2>Exploring the taxis dataset<a class="headerlink" href="#exploring-the-taxis-dataset" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Load the attached file <code class="docutils literal notranslate"><span class="pre">taxis.csv</span></code> using the pandas function <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>.  Store the resulting DataFrame in the variable <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+df = pd.read_csv(&quot;taxis.csv&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>How many different values are there in the “pickup_borough” column?  First get the pandas Series containing that column, then</p>
+<ul class="simple">
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">unique</span></code> method;</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">value_counts</span></code> method.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># easiest way
+col_pu = df.loc[:, &#39;pickup_borough&#39;] #df[&#39;pickup_borough&#39;]
+col_pu
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       Manhattan
+1       Manhattan
+2       Manhattan
+3       Manhattan
+4       Manhattan
+          ...    
+6428    Manhattan
+6429       Queens
+6430     Brooklyn
+6431     Brooklyn
+6432     Brooklyn
+Name: pickup_borough, Length: 6433, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># using iloc? which index is &#39;pickup_borough&#39;
+print(df.columns)
+mylist = list(df.columns)
+print(mylist)
+mylist.index(&quot;pickup_borough&quot;)
+# df.iloc[:, 12]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;pickup&#39;, &#39;dropoff&#39;, &#39;passengers&#39;, &#39;distance&#39;, &#39;fare&#39;, &#39;tip&#39;, &#39;tolls&#39;,
+       &#39;total&#39;, &#39;color&#39;, &#39;payment&#39;, &#39;pickup_zone&#39;, &#39;dropoff_zone&#39;,
+       &#39;pickup_borough&#39;, &#39;dropoff_borough&#39;],
+      dtype=&#39;object&#39;)
+[&#39;pickup&#39;, &#39;dropoff&#39;, &#39;passengers&#39;, &#39;distance&#39;, &#39;fare&#39;, &#39;tip&#39;, &#39;tolls&#39;, &#39;total&#39;, &#39;color&#39;, &#39;payment&#39;, &#39;pickup_zone&#39;, &#39;dropoff_zone&#39;, &#39;pickup_borough&#39;, &#39;dropoff_borough&#39;]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Boolean array and then use np.nonzero
+df.columns == &quot;pickup_borough&quot;
+import numpy as np
+print(np.nonzero(df.columns == &quot;pickup_borough&quot;))
+np.nonzero(df.columns == &quot;pickup_borough&quot;)[0][0]
+print(np.where(df.columns == &quot;pickup_borough&quot;))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([12]),)
+(array([12]),)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Here is an example of the additional functionality. We put the string &quot;Chris&quot; everywhere there was a True (just one slot), and we put the string &quot;Davis&quot; everywhere else.
+np.where(df.columns == &quot;pickup_borough&quot;, &quot;Yes&quot;, &quot;No&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;, &#39;No&#39;,
+       &#39;No&#39;, &#39;Yes&#39;, &#39;No&#39;], dtype=&#39;&lt;U3&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Use the get_loc method of a pandas Index
+df.columns.get_loc(&quot;pickup_borough&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># get multiple locations at the same time
+df.columns.get_indexer([&quot;pickup_zone&quot;, &quot;dropoff_zone&quot;,&#39;pickup&#39;])
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10, 11,  0])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This gets us the distinct values which occur in the Series (including the missing value, represented as nan, which stands for “not a number”).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># How many different values are there in the &quot;pickup_borough&quot; column?  First get the pandas Series containing that column, then
+# use the unique method;
+
+col_pu = df[&#39;pickup_borough&#39;]
+col_pu.unique()
+type(col_pu.unique()) #The output is a NumPy array. 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Manhattan&#39;, &#39;Queens&#39;, nan, &#39;Bronx&#39;, &#39;Brooklyn&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># counting how many unique values
+len(col_pu.unique())
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Notice that unique is a Series method, not a DataFrame method.
+df.unique() #cause error
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># use the value_counts method find unique values
+col_pu.value_counts() #unique values as index &amp; counts as values
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manhattan    5268
+Queens        657
+Brooklyn      383
+Bronx          99
+Name: pickup_borough, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>len(col_pu.value_counts()) #does not include NaN values in its count
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;pickup_borough&#39;].value_counts(dropna=False)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Manhattan    5268
+Queens        657
+Brooklyn      383
+Bronx          99
+NaN            26
+Name: pickup_borough, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(pd.value_counts)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function value_counts in module pandas.core.algorithms:
+
+value_counts(values, sort: &#39;bool&#39; = True, ascending: &#39;bool&#39; = False, normalize: &#39;bool&#39; = False, bins=None, dropna: &#39;bool&#39; = True) -&gt; &#39;Series&#39;
+    Compute a histogram of the counts of non-null values.
+    
+    Parameters
+    ----------
+    values : ndarray (1-d)
+    sort : bool, default True
+        Sort by values
+    ascending : bool, default False
+        Sort in ascending order
+    normalize: bool, default False
+        If True then compute a relative histogram
+    bins : integer, optional
+        Rather than count values, group them into half-open bins,
+        convenience for pd.cut, only works with numeric data
+    dropna : bool, default True
+        Don&#39;t include counts of NaN
+    
+    Returns
+    -------
+    Series
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-dates-in-pandas">
+<h2>Working with dates in pandas<a class="headerlink" href="#working-with-dates-in-pandas" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Convert the “pickup” and “dropoff” columns to datetime values, using the pandas function <code class="docutils literal notranslate"><span class="pre">to_datetime</span></code>.  Save the results as new columns in <code class="docutils literal notranslate"><span class="pre">df</span></code>, named “picktime” and “droptime”.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[[&quot;pickup&quot;,&quot;dropoff&quot;]]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-03-23 20:21:09</td>
+      <td>2019-03-23 20:27:24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-03-04 16:11:55</td>
+      <td>2019-03-04 16:19:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-03-27 17:53:01</td>
+      <td>2019-03-27 18:00:25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-03-10 01:23:59</td>
+      <td>2019-03-10 01:49:51</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-03-30 13:27:42</td>
+      <td>2019-03-30 13:37:14</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6428</th>
+      <td>2019-03-31 09:51:53</td>
+      <td>2019-03-31 09:55:27</td>
+    </tr>
+    <tr>
+      <th>6429</th>
+      <td>2019-03-31 17:38:00</td>
+      <td>2019-03-31 18:34:23</td>
+    </tr>
+    <tr>
+      <th>6430</th>
+      <td>2019-03-23 22:55:18</td>
+      <td>2019-03-23 23:14:25</td>
+    </tr>
+    <tr>
+      <th>6431</th>
+      <td>2019-03-04 10:09:25</td>
+      <td>2019-03-04 10:14:29</td>
+    </tr>
+    <tr>
+      <th>6432</th>
+      <td>2019-03-13 19:31:22</td>
+      <td>2019-03-13 19:48:02</td>
+    </tr>
+  </tbody>
+</table>
+<p>6433 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#a smaller example how the pd.to_datetime function works
+today = &quot;Oct 11, 2023&quot;
+type(today)
+ts = pd.to_datetime(today)
+print(ts)
+print(ts.day_of_year)
+print(ts.day_name()) #Parentheses
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-11 00:00:00
+284
+Wednesday
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#ts.day_of_year?
+help(ts.day_name)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function day_name:
+
+day_name(...) method of pandas._libs.tslibs.timestamps.Timestamp instance
+    Return the day name of the Timestamp with specified locale.
+    
+    Parameters
+    ----------
+    locale : str, default None (English locale)
+        Locale determining the language in which to return the day name.
+    
+    Returns
+    -------
+    str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ts = pd.to_datetime(df[&quot;pickup&quot;])
+ts
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      2019-03-23 20:21:09
+1      2019-03-04 16:11:55
+2      2019-03-27 17:53:01
+3      2019-03-10 01:23:59
+4      2019-03-30 13:27:42
+               ...        
+6428   2019-03-31 09:51:53
+6429   2019-03-31 17:38:00
+6430   2019-03-23 22:55:18
+6431   2019-03-04 10:09:25
+6432   2019-03-13 19:31:22
+Name: pickup, Length: 6433, dtype: datetime64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&quot;picktime&quot;] = pd.to_datetime(df[&quot;pickup&quot;])
+df[&quot;droptime&quot;] = pd.to_datetime(df[&quot;dropoff&quot;])
+df.head()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+      <th>passengers</th>
+      <th>distance</th>
+      <th>fare</th>
+      <th>tip</th>
+      <th>tolls</th>
+      <th>total</th>
+      <th>color</th>
+      <th>payment</th>
+      <th>pickup_zone</th>
+      <th>dropoff_zone</th>
+      <th>pickup_borough</th>
+      <th>dropoff_borough</th>
+      <th>picktime</th>
+      <th>droptime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-03-23 20:21:09</td>
+      <td>2019-03-23 20:27:24</td>
+      <td>1</td>
+      <td>1.60</td>
+      <td>7.0</td>
+      <td>2.15</td>
+      <td>0.0</td>
+      <td>12.95</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Lenox Hill West</td>
+      <td>UN/Turtle Bay South</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-23 20:21:09</td>
+      <td>2019-03-23 20:27:24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-03-04 16:11:55</td>
+      <td>2019-03-04 16:19:00</td>
+      <td>1</td>
+      <td>0.79</td>
+      <td>5.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>9.30</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>Upper West Side South</td>
+      <td>Upper West Side South</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-04 16:11:55</td>
+      <td>2019-03-04 16:19:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-03-27 17:53:01</td>
+      <td>2019-03-27 18:00:25</td>
+      <td>1</td>
+      <td>1.37</td>
+      <td>7.5</td>
+      <td>2.36</td>
+      <td>0.0</td>
+      <td>14.16</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Alphabet City</td>
+      <td>West Village</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-27 17:53:01</td>
+      <td>2019-03-27 18:00:25</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-03-10 01:23:59</td>
+      <td>2019-03-10 01:49:51</td>
+      <td>1</td>
+      <td>7.70</td>
+      <td>27.0</td>
+      <td>6.15</td>
+      <td>0.0</td>
+      <td>36.95</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Hudson Sq</td>
+      <td>Yorkville West</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-10 01:23:59</td>
+      <td>2019-03-10 01:49:51</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-03-30 13:27:42</td>
+      <td>2019-03-30 13:37:14</td>
+      <td>3</td>
+      <td>2.16</td>
+      <td>9.0</td>
+      <td>1.10</td>
+      <td>0.0</td>
+      <td>13.40</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Midtown East</td>
+      <td>Yorkville West</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-30 13:27:42</td>
+      <td>2019-03-30 13:37:14</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Make a new column, “day”, containing the day of the week of the pickup.  Use the accessor <code class="docutils literal notranslate"><span class="pre">dt</span></code> and then the method <code class="docutils literal notranslate"><span class="pre">day_name</span></code>.</p></li>
+</ul>
+<p>If we try to call day_name on the Series directly, even though it contains datetime values, we get an error. We need to use the dt accessor to apply these kind of methods to the entries in the Series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&quot;picktime&quot;].day_name()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">44</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;picktime&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+
+<span class="nn">File /shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/generic.py:5465,</span> in <span class="ni">NDFrame.__getattr__</span><span class="nt">(self, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5463</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_info_axis</span><span class="o">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5464</span>     <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">5465</span> <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;Series&#39; object has no attribute &#39;day_name&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>the <code class="docutils literal notranslate"><span class="pre">.dt</span></code> accessor is used with pandas Series objects to access properties and methods specific to dates and times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&quot;day&quot;] = df[&quot;picktime&quot;].dt.day_name()
+df[&quot;day&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        Saturday
+1          Monday
+2       Wednesday
+3          Sunday
+4        Saturday
+          ...    
+6428       Sunday
+6429       Sunday
+6430     Saturday
+6431       Monday
+6432    Wednesday
+Name: day, Length: 6433, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Make a new column “duration” containing the amount of time the ride took.  (Now that pandas recognizes these as dates, you can just subtract.)</p></li>
+</ul>
+<p>Let’s remind ourselves what columns are available. The ones we want to use are near the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.columns
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;pickup&#39;, &#39;dropoff&#39;, &#39;passengers&#39;, &#39;distance&#39;, &#39;fare&#39;, &#39;tip&#39;, &#39;tolls&#39;,
+       &#39;total&#39;, &#39;color&#39;, &#39;payment&#39;, &#39;pickup_zone&#39;, &#39;dropoff_zone&#39;,
+       &#39;pickup_borough&#39;, &#39;dropoff_borough&#39;, &#39;picktime&#39;, &#39;droptime&#39;, &#39;day&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This sort of subtraction of times would never work if we hadn’t converted them to datetime types using pd.to_datetime.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&quot;duration&quot;] = df[&quot;droptime&quot;] - df[&quot;picktime&quot;]
+df[&quot;duration&quot;]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0 days 00:06:15
+1      0 days 00:07:05
+2      0 days 00:07:24
+3      0 days 00:25:52
+4      0 days 00:09:32
+             ...      
+6428   0 days 00:03:34
+6429   0 days 00:56:23
+6430   0 days 00:19:07
+6431   0 days 00:05:04
+6432   0 days 00:16:40
+Name: duration, Length: 6433, dtype: timedelta64[ns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we check out the first three rows and first two columns. Does the top row look like a 6 minute taxi ride? Yes, because it went from 8:21pm to 8:27pm.</p>
+<p>Remember that .loc includes both the start and the end of the slice, while .iloc includes the start but excludes the end.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.iloc[:3, :2]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-03-23 20:21:09</td>
+      <td>2019-03-23 20:27:24</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-03-04 16:11:55</td>
+      <td>2019-03-04 16:19:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-03-27 17:53:01</td>
+      <td>2019-03-27 18:00:25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>What are the data types of these four columns we just made?</p></li>
+</ul>
+<p>When you see “delta”, you should usually think “difference”, and that’s exactly what this column represents.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.dtypes
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pickup                      object
+dropoff                     object
+passengers                   int64
+distance                   float64
+fare                       float64
+tip                        float64
+tolls                      float64
+total                      float64
+color                       object
+payment                     object
+pickup_zone                 object
+dropoff_zone                object
+pickup_borough              object
+dropoff_borough             object
+picktime            datetime64[ns]
+droptime            datetime64[ns]
+day                         object
+duration           timedelta64[ns]
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-strings-in-pandas">
+<h2>Working with strings in pandas<a class="headerlink" href="#working-with-strings-in-pandas" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>How many rows in <code class="docutils literal notranslate"><span class="pre">df</span></code> have the word “Airport” in either the “pickup_zone” column or the “dropoff_zone” column?  Do any rows have the word “Airport” in both columns?</p></li>
+</ul>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">str</span></code> accessor and the <code class="docutils literal notranslate"><span class="pre">contains</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&quot;pickup_zone&quot;][:3] # check out the first three entries in the “pickup_zone” column
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0          Lenox Hill West
+1    Upper West Side South
+2            Alphabet City
+Name: pickup_zone, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is an example of how str.contains works. Only the middle of these three contains the substring “South”, so we get False then True then False.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#.str accessor is used with Series objects to access methods and properties specific to string data.
+df[&quot;pickup_zone&quot;][:3].str.contains(&quot;South&quot;)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1     True
+2    False
+Name: pickup_zone, dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ps = df[&quot;pickup_zone&quot;].str.contains(&quot;Airport&quot;)
+ds = df[&quot;dropoff_zone&quot;].str.contains(&quot;Airport&quot;)
+df[ps | ds] #logical or is made using a vertical bar
+#df[ps &amp; ds]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+      <th>passengers</th>
+      <th>distance</th>
+      <th>fare</th>
+      <th>tip</th>
+      <th>tolls</th>
+      <th>total</th>
+      <th>color</th>
+      <th>payment</th>
+      <th>pickup_zone</th>
+      <th>dropoff_zone</th>
+      <th>pickup_borough</th>
+      <th>dropoff_borough</th>
+      <th>picktime</th>
+      <th>droptime</th>
+      <th>day</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>2019-03-16 10:02:25</td>
+      <td>2019-03-16 10:22:29</td>
+      <td>1</td>
+      <td>3.90</td>
+      <td>17.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>17.80</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>LaGuardia Airport</td>
+      <td>Astoria</td>
+      <td>Queens</td>
+      <td>Queens</td>
+      <td>2019-03-16 10:02:25</td>
+      <td>2019-03-16 10:22:29</td>
+      <td>Saturday</td>
+      <td>0 days 00:20:04</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>2019-03-28 17:20:54</td>
+      <td>2019-03-28 17:55:57</td>
+      <td>1</td>
+      <td>9.82</td>
+      <td>31.50</td>
+      <td>8.31</td>
+      <td>5.76</td>
+      <td>49.87</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>LaGuardia Airport</td>
+      <td>Sutton Place/Turtle Bay North</td>
+      <td>Queens</td>
+      <td>Manhattan</td>
+      <td>2019-03-28 17:20:54</td>
+      <td>2019-03-28 17:55:57</td>
+      <td>Thursday</td>
+      <td>0 days 00:35:03</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>2019-03-27 19:39:16</td>
+      <td>2019-03-27 20:00:26</td>
+      <td>1</td>
+      <td>9.50</td>
+      <td>28.00</td>
+      <td>0.00</td>
+      <td>5.76</td>
+      <td>35.06</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>LaGuardia Airport</td>
+      <td>Washington Heights South</td>
+      <td>Queens</td>
+      <td>Manhattan</td>
+      <td>2019-03-27 19:39:16</td>
+      <td>2019-03-27 20:00:26</td>
+      <td>Wednesday</td>
+      <td>0 days 00:21:10</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>2019-03-20 18:49:24</td>
+      <td>2019-03-20 19:12:40</td>
+      <td>1</td>
+      <td>13.45</td>
+      <td>36.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>37.80</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>JFK Airport</td>
+      <td>Sunnyside</td>
+      <td>Queens</td>
+      <td>Queens</td>
+      <td>2019-03-20 18:49:24</td>
+      <td>2019-03-20 19:12:40</td>
+      <td>Wednesday</td>
+      <td>0 days 00:23:16</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>2019-03-05 17:57:00</td>
+      <td>2019-03-05 18:45:25</td>
+      <td>2</td>
+      <td>19.59</td>
+      <td>52.00</td>
+      <td>0.00</td>
+      <td>5.76</td>
+      <td>65.56</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>JFK Airport</td>
+      <td>Upper East Side North</td>
+      <td>Queens</td>
+      <td>Manhattan</td>
+      <td>2019-03-05 17:57:00</td>
+      <td>2019-03-05 18:45:25</td>
+      <td>Tuesday</td>
+      <td>0 days 00:48:25</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6243</th>
+      <td>2019-03-12 11:40:49</td>
+      <td>2019-03-12 11:49:23</td>
+      <td>1</td>
+      <td>3.50</td>
+      <td>12.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>12.80</td>
+      <td>green</td>
+      <td>cash</td>
+      <td>Steinway</td>
+      <td>LaGuardia Airport</td>
+      <td>Queens</td>
+      <td>Queens</td>
+      <td>2019-03-12 11:40:49</td>
+      <td>2019-03-12 11:49:23</td>
+      <td>Tuesday</td>
+      <td>0 days 00:08:34</td>
+    </tr>
+    <tr>
+      <th>6280</th>
+      <td>2019-03-27 12:25:04</td>
+      <td>2019-03-27 12:31:15</td>
+      <td>1</td>
+      <td>2.74</td>
+      <td>10.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>10.80</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>Steinway</td>
+      <td>LaGuardia Airport</td>
+      <td>Queens</td>
+      <td>Queens</td>
+      <td>2019-03-27 12:25:04</td>
+      <td>2019-03-27 12:31:15</td>
+      <td>Wednesday</td>
+      <td>0 days 00:06:11</td>
+    </tr>
+    <tr>
+      <th>6322</th>
+      <td>2019-03-01 17:03:11</td>
+      <td>2019-03-01 17:17:11</td>
+      <td>1</td>
+      <td>5.39</td>
+      <td>17.00</td>
+      <td>3.76</td>
+      <td>0.00</td>
+      <td>22.56</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>Jamaica</td>
+      <td>JFK Airport</td>
+      <td>Queens</td>
+      <td>Queens</td>
+      <td>2019-03-01 17:03:11</td>
+      <td>2019-03-01 17:17:11</td>
+      <td>Friday</td>
+      <td>0 days 00:14:00</td>
+    </tr>
+    <tr>
+      <th>6396</th>
+      <td>2019-03-15 17:44:09</td>
+      <td>2019-03-15 18:20:25</td>
+      <td>1</td>
+      <td>11.44</td>
+      <td>41.63</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>42.13</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>Bushwick South</td>
+      <td>LaGuardia Airport</td>
+      <td>Brooklyn</td>
+      <td>Queens</td>
+      <td>2019-03-15 17:44:09</td>
+      <td>2019-03-15 18:20:25</td>
+      <td>Friday</td>
+      <td>0 days 00:36:16</td>
+    </tr>
+    <tr>
+      <th>6398</th>
+      <td>2019-03-17 13:07:29</td>
+      <td>2019-03-17 13:51:56</td>
+      <td>1</td>
+      <td>18.39</td>
+      <td>50.50</td>
+      <td>7.70</td>
+      <td>0.00</td>
+      <td>59.00</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>DUMBO/Vinegar Hill</td>
+      <td>JFK Airport</td>
+      <td>Brooklyn</td>
+      <td>Queens</td>
+      <td>2019-03-17 13:07:29</td>
+      <td>2019-03-17 13:51:56</td>
+      <td>Sunday</td>
+      <td>0 days 00:44:27</td>
+    </tr>
+  </tbody>
+</table>
+<p>407 rows × 18 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="missing-values-in-pandas">
+<h2>Missing values in pandas<a class="headerlink" href="#missing-values-in-pandas" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Look at <code class="docutils literal notranslate"><span class="pre">df.info()</span></code> again.  Which columns have missing values?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.info()
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6433 entries, 0 to 6432
+Data columns (total 18 columns):
+ #   Column           Non-Null Count  Dtype          
+---  ------           --------------  -----          
+ 0   pickup           6433 non-null   object         
+ 1   dropoff          6433 non-null   object         
+ 2   passengers       6433 non-null   int64          
+ 3   distance         6433 non-null   float64        
+ 4   fare             6433 non-null   float64        
+ 5   tip              6433 non-null   float64        
+ 6   tolls            6433 non-null   float64        
+ 7   total            6433 non-null   float64        
+ 8   color            6433 non-null   object         
+ 9   payment          6389 non-null   object         
+ 10  pickup_zone      6407 non-null   object         
+ 11  dropoff_zone     6388 non-null   object         
+ 12  pickup_borough   6407 non-null   object         
+ 13  dropoff_borough  6388 non-null   object         
+ 14  picktime         6433 non-null   datetime64[ns] 
+ 15  droptime         6433 non-null   datetime64[ns] 
+ 16  day              6433 non-null   object         
+ 17  duration         6433 non-null   timedelta64[ns]
+dtypes: datetime64[ns](2), float64(5), int64(1), object(9), timedelta64[ns](1)
+memory usage: 904.8+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Define <code class="docutils literal notranslate"><span class="pre">df_sub</span></code> to be the sub-DataFrame containing all the rows for which the “pickup_zone” entry is missing.  Use the <code class="docutils literal notranslate"><span class="pre">isna</span></code> method.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_sub = df[df[&quot;pickup_zone&quot;].isna()] #df[df[&quot;pickup_zone&quot;].isnull()] also work
+df_sub
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+      <th>passengers</th>
+      <th>distance</th>
+      <th>fare</th>
+      <th>tip</th>
+      <th>tolls</th>
+      <th>total</th>
+      <th>color</th>
+      <th>payment</th>
+      <th>pickup_zone</th>
+      <th>dropoff_zone</th>
+      <th>pickup_borough</th>
+      <th>dropoff_borough</th>
+      <th>picktime</th>
+      <th>droptime</th>
+      <th>day</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>42</th>
+      <td>2019-03-30 23:59:14</td>
+      <td>2019-03-30 23:59:17</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>80.0</td>
+      <td>20.08</td>
+      <td>0.00</td>
+      <td>100.38</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-30 23:59:14</td>
+      <td>2019-03-30 23:59:17</td>
+      <td>Saturday</td>
+      <td>0 days 00:00:03</td>
+    </tr>
+    <tr>
+      <th>606</th>
+      <td>2019-03-19 15:04:40</td>
+      <td>2019-03-19 15:06:15</td>
+      <td>1</td>
+      <td>0.40</td>
+      <td>3.5</td>
+      <td>1.35</td>
+      <td>0.00</td>
+      <td>8.15</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>Upper East Side South</td>
+      <td>NaN</td>
+      <td>Manhattan</td>
+      <td>2019-03-19 15:04:40</td>
+      <td>2019-03-19 15:06:15</td>
+      <td>Tuesday</td>
+      <td>0 days 00:01:35</td>
+    </tr>
+    <tr>
+      <th>622</th>
+      <td>2019-03-12 19:52:36</td>
+      <td>2019-03-12 19:52:55</td>
+      <td>3</td>
+      <td>0.00</td>
+      <td>120.0</td>
+      <td>33.20</td>
+      <td>12.50</td>
+      <td>166.00</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-12 19:52:36</td>
+      <td>2019-03-12 19:52:55</td>
+      <td>Tuesday</td>
+      <td>0 days 00:00:19</td>
+    </tr>
+    <tr>
+      <th>671</th>
+      <td>2019-03-09 22:45:46</td>
+      <td>2019-03-09 22:46:50</td>
+      <td>1</td>
+      <td>0.40</td>
+      <td>3.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>7.30</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>NaN</td>
+      <td>Lincoln Square East</td>
+      <td>NaN</td>
+      <td>Manhattan</td>
+      <td>2019-03-09 22:45:46</td>
+      <td>2019-03-09 22:46:50</td>
+      <td>Saturday</td>
+      <td>0 days 00:01:04</td>
+    </tr>
+    <tr>
+      <th>712</th>
+      <td>2019-03-03 01:24:45</td>
+      <td>2019-03-03 01:29:32</td>
+      <td>1</td>
+      <td>0.80</td>
+      <td>5.0</td>
+      <td>1.75</td>
+      <td>0.00</td>
+      <td>10.55</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>West Chelsea/Hudson Yards</td>
+      <td>NaN</td>
+      <td>Manhattan</td>
+      <td>2019-03-03 01:24:45</td>
+      <td>2019-03-03 01:29:32</td>
+      <td>Sunday</td>
+      <td>0 days 00:04:47</td>
+    </tr>
+    <tr>
+      <th>970</th>
+      <td>2019-03-29 00:02:00</td>
+      <td>2019-03-29 00:02:05</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>45.0</td>
+      <td>5.00</td>
+      <td>0.00</td>
+      <td>50.30</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-29 00:02:00</td>
+      <td>2019-03-29 00:02:05</td>
+      <td>Friday</td>
+      <td>0 days 00:00:05</td>
+    </tr>
+    <tr>
+      <th>1108</th>
+      <td>2019-03-10 09:33:13</td>
+      <td>2019-03-10 09:52:04</td>
+      <td>1</td>
+      <td>13.40</td>
+      <td>52.0</td>
+      <td>11.70</td>
+      <td>5.76</td>
+      <td>70.26</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-10 09:33:13</td>
+      <td>2019-03-10 09:52:04</td>
+      <td>Sunday</td>
+      <td>0 days 00:18:51</td>
+    </tr>
+    <tr>
+      <th>1961</th>
+      <td>2019-03-19 16:43:59</td>
+      <td>2019-03-19 17:37:22</td>
+      <td>1</td>
+      <td>17.82</td>
+      <td>52.0</td>
+      <td>13.11</td>
+      <td>5.76</td>
+      <td>78.67</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>Garment District</td>
+      <td>NaN</td>
+      <td>Manhattan</td>
+      <td>2019-03-19 16:43:59</td>
+      <td>2019-03-19 17:37:22</td>
+      <td>Tuesday</td>
+      <td>0 days 00:53:23</td>
+    </tr>
+    <tr>
+      <th>2137</th>
+      <td>2019-03-08 13:27:32</td>
+      <td>2019-03-08 13:46:23</td>
+      <td>1</td>
+      <td>1.40</td>
+      <td>12.0</td>
+      <td>3.05</td>
+      <td>0.00</td>
+      <td>18.35</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-08 13:27:32</td>
+      <td>2019-03-08 13:46:23</td>
+      <td>Friday</td>
+      <td>0 days 00:18:51</td>
+    </tr>
+    <tr>
+      <th>2742</th>
+      <td>2019-03-23 06:20:27</td>
+      <td>2019-03-23 06:20:59</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>55.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>55.80</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-23 06:20:27</td>
+      <td>2019-03-23 06:20:59</td>
+      <td>Saturday</td>
+      <td>0 days 00:00:32</td>
+    </tr>
+    <tr>
+      <th>3085</th>
+      <td>2019-03-24 15:43:02</td>
+      <td>2019-03-24 16:02:57</td>
+      <td>1</td>
+      <td>3.20</td>
+      <td>14.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>15.30</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-24 15:43:02</td>
+      <td>2019-03-24 16:02:57</td>
+      <td>Sunday</td>
+      <td>0 days 00:19:55</td>
+    </tr>
+    <tr>
+      <th>3259</th>
+      <td>2019-03-30 00:39:09</td>
+      <td>2019-03-30 00:43:34</td>
+      <td>1</td>
+      <td>0.84</td>
+      <td>5.0</td>
+      <td>1.70</td>
+      <td>0.00</td>
+      <td>10.50</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-30 00:39:09</td>
+      <td>2019-03-30 00:43:34</td>
+      <td>Saturday</td>
+      <td>0 days 00:04:25</td>
+    </tr>
+    <tr>
+      <th>3644</th>
+      <td>2019-03-19 23:30:50</td>
+      <td>2019-03-19 23:32:33</td>
+      <td>2</td>
+      <td>0.00</td>
+      <td>103.0</td>
+      <td>20.65</td>
+      <td>0.00</td>
+      <td>123.95</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-19 23:30:50</td>
+      <td>2019-03-19 23:32:33</td>
+      <td>Tuesday</td>
+      <td>0 days 00:01:43</td>
+    </tr>
+    <tr>
+      <th>3793</th>
+      <td>2019-03-24 06:07:30</td>
+      <td>2019-03-24 06:12:22</td>
+      <td>1</td>
+      <td>1.50</td>
+      <td>6.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>9.80</td>
+      <td>yellow</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Midtown East</td>
+      <td>NaN</td>
+      <td>Manhattan</td>
+      <td>2019-03-24 06:07:30</td>
+      <td>2019-03-24 06:12:22</td>
+      <td>Sunday</td>
+      <td>0 days 00:04:52</td>
+    </tr>
+    <tr>
+      <th>3889</th>
+      <td>2019-03-30 06:42:55</td>
+      <td>2019-03-30 06:43:00</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>2.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3.30</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-30 06:42:55</td>
+      <td>2019-03-30 06:43:00</td>
+      <td>Saturday</td>
+      <td>0 days 00:00:05</td>
+    </tr>
+    <tr>
+      <th>4118</th>
+      <td>2019-03-15 14:01:54</td>
+      <td>2019-03-15 14:01:59</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>25.0</td>
+      <td>5.06</td>
+      <td>0.00</td>
+      <td>30.36</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-15 14:01:54</td>
+      <td>2019-03-15 14:01:59</td>
+      <td>Friday</td>
+      <td>0 days 00:00:05</td>
+    </tr>
+    <tr>
+      <th>4127</th>
+      <td>2019-03-01 05:18:21</td>
+      <td>2019-03-01 05:18:30</td>
+      <td>2</td>
+      <td>0.04</td>
+      <td>2.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3.80</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-01 05:18:21</td>
+      <td>2019-03-01 05:18:30</td>
+      <td>Friday</td>
+      <td>0 days 00:00:09</td>
+    </tr>
+    <tr>
+      <th>4281</th>
+      <td>2019-03-18 23:29:49</td>
+      <td>2019-03-18 23:38:00</td>
+      <td>1</td>
+      <td>2.10</td>
+      <td>9.0</td>
+      <td>2.06</td>
+      <td>0.00</td>
+      <td>12.36</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-18 23:29:49</td>
+      <td>2019-03-18 23:38:00</td>
+      <td>Monday</td>
+      <td>0 days 00:08:11</td>
+    </tr>
+    <tr>
+      <th>4414</th>
+      <td>2019-03-29 20:42:47</td>
+      <td>2019-03-29 21:03:50</td>
+      <td>1</td>
+      <td>4.20</td>
+      <td>17.0</td>
+      <td>4.80</td>
+      <td>5.76</td>
+      <td>28.86</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-29 20:42:47</td>
+      <td>2019-03-29 21:03:50</td>
+      <td>Friday</td>
+      <td>0 days 00:21:03</td>
+    </tr>
+    <tr>
+      <th>4772</th>
+      <td>2019-03-21 19:51:13</td>
+      <td>2019-03-21 19:57:03</td>
+      <td>1</td>
+      <td>0.72</td>
+      <td>5.5</td>
+      <td>1.46</td>
+      <td>0.00</td>
+      <td>8.76</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-21 19:51:13</td>
+      <td>2019-03-21 19:57:03</td>
+      <td>Thursday</td>
+      <td>0 days 00:05:50</td>
+    </tr>
+    <tr>
+      <th>4941</th>
+      <td>2019-03-01 08:12:28</td>
+      <td>2019-03-01 08:17:19</td>
+      <td>1</td>
+      <td>0.83</td>
+      <td>5.0</td>
+      <td>2.50</td>
+      <td>0.00</td>
+      <td>10.80</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-01 08:12:28</td>
+      <td>2019-03-01 08:17:19</td>
+      <td>Friday</td>
+      <td>0 days 00:04:51</td>
+    </tr>
+    <tr>
+      <th>5263</th>
+      <td>2019-03-09 20:37:53</td>
+      <td>2019-03-09 21:07:20</td>
+      <td>1</td>
+      <td>4.99</td>
+      <td>22.0</td>
+      <td>5.16</td>
+      <td>0.00</td>
+      <td>30.96</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-09 20:37:53</td>
+      <td>2019-03-09 21:07:20</td>
+      <td>Saturday</td>
+      <td>0 days 00:29:27</td>
+    </tr>
+    <tr>
+      <th>5493</th>
+      <td>2019-03-06 12:14:00</td>
+      <td>2019-03-06 12:14:00</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>10.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>10.00</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-06 12:14:00</td>
+      <td>2019-03-06 12:14:00</td>
+      <td>Wednesday</td>
+      <td>0 days 00:00:00</td>
+    </tr>
+    <tr>
+      <th>5624</th>
+      <td>2019-03-11 14:04:50</td>
+      <td>2019-03-11 14:04:50</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>2.5</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>3.30</td>
+      <td>green</td>
+      <td>cash</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-11 14:04:50</td>
+      <td>2019-03-11 14:04:50</td>
+      <td>Monday</td>
+      <td>0 days 00:00:00</td>
+    </tr>
+    <tr>
+      <th>5638</th>
+      <td>2019-03-13 12:22:00</td>
+      <td>2019-03-13 12:22:00</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>10.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>10.00</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-13 12:22:00</td>
+      <td>2019-03-13 12:22:00</td>
+      <td>Wednesday</td>
+      <td>0 days 00:00:00</td>
+    </tr>
+    <tr>
+      <th>6083</th>
+      <td>2019-03-19 15:34:00</td>
+      <td>2019-03-19 15:34:00</td>
+      <td>1</td>
+      <td>0.00</td>
+      <td>5.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>5.00</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2019-03-19 15:34:00</td>
+      <td>2019-03-19 15:34:00</td>
+      <td>Tuesday</td>
+      <td>0 days 00:00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#&quot;pickup_zone&quot; entry is not missing,
+#boolean indexing : selcect the rows (loc row or column)
+df[df[&quot;pickup_zone&quot;].notna()]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+      <th>passengers</th>
+      <th>distance</th>
+      <th>fare</th>
+      <th>tip</th>
+      <th>tolls</th>
+      <th>total</th>
+      <th>color</th>
+      <th>payment</th>
+      <th>pickup_zone</th>
+      <th>dropoff_zone</th>
+      <th>pickup_borough</th>
+      <th>dropoff_borough</th>
+      <th>picktime</th>
+      <th>droptime</th>
+      <th>day</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-03-23 20:21:09</td>
+      <td>2019-03-23 20:27:24</td>
+      <td>1</td>
+      <td>1.60</td>
+      <td>7.0</td>
+      <td>2.15</td>
+      <td>0.0</td>
+      <td>12.95</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Lenox Hill West</td>
+      <td>UN/Turtle Bay South</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-23 20:21:09</td>
+      <td>2019-03-23 20:27:24</td>
+      <td>Saturday</td>
+      <td>0 days 00:06:15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-03-04 16:11:55</td>
+      <td>2019-03-04 16:19:00</td>
+      <td>1</td>
+      <td>0.79</td>
+      <td>5.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>9.30</td>
+      <td>yellow</td>
+      <td>cash</td>
+      <td>Upper West Side South</td>
+      <td>Upper West Side South</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-04 16:11:55</td>
+      <td>2019-03-04 16:19:00</td>
+      <td>Monday</td>
+      <td>0 days 00:07:05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-03-27 17:53:01</td>
+      <td>2019-03-27 18:00:25</td>
+      <td>1</td>
+      <td>1.37</td>
+      <td>7.5</td>
+      <td>2.36</td>
+      <td>0.0</td>
+      <td>14.16</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Alphabet City</td>
+      <td>West Village</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-27 17:53:01</td>
+      <td>2019-03-27 18:00:25</td>
+      <td>Wednesday</td>
+      <td>0 days 00:07:24</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-03-10 01:23:59</td>
+      <td>2019-03-10 01:49:51</td>
+      <td>1</td>
+      <td>7.70</td>
+      <td>27.0</td>
+      <td>6.15</td>
+      <td>0.0</td>
+      <td>36.95</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Hudson Sq</td>
+      <td>Yorkville West</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-10 01:23:59</td>
+      <td>2019-03-10 01:49:51</td>
+      <td>Sunday</td>
+      <td>0 days 00:25:52</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-03-30 13:27:42</td>
+      <td>2019-03-30 13:37:14</td>
+      <td>3</td>
+      <td>2.16</td>
+      <td>9.0</td>
+      <td>1.10</td>
+      <td>0.0</td>
+      <td>13.40</td>
+      <td>yellow</td>
+      <td>credit card</td>
+      <td>Midtown East</td>
+      <td>Yorkville West</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-30 13:27:42</td>
+      <td>2019-03-30 13:37:14</td>
+      <td>Saturday</td>
+      <td>0 days 00:09:32</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6428</th>
+      <td>2019-03-31 09:51:53</td>
+      <td>2019-03-31 09:55:27</td>
+      <td>1</td>
+      <td>0.75</td>
+      <td>4.5</td>
+      <td>1.06</td>
+      <td>0.0</td>
+      <td>6.36</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>East Harlem North</td>
+      <td>Central Harlem North</td>
+      <td>Manhattan</td>
+      <td>Manhattan</td>
+      <td>2019-03-31 09:51:53</td>
+      <td>2019-03-31 09:55:27</td>
+      <td>Sunday</td>
+      <td>0 days 00:03:34</td>
+    </tr>
+    <tr>
+      <th>6429</th>
+      <td>2019-03-31 17:38:00</td>
+      <td>2019-03-31 18:34:23</td>
+      <td>1</td>
+      <td>18.74</td>
+      <td>58.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>58.80</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>Jamaica</td>
+      <td>East Concourse/Concourse Village</td>
+      <td>Queens</td>
+      <td>Bronx</td>
+      <td>2019-03-31 17:38:00</td>
+      <td>2019-03-31 18:34:23</td>
+      <td>Sunday</td>
+      <td>0 days 00:56:23</td>
+    </tr>
+    <tr>
+      <th>6430</th>
+      <td>2019-03-23 22:55:18</td>
+      <td>2019-03-23 23:14:25</td>
+      <td>1</td>
+      <td>4.14</td>
+      <td>16.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>17.30</td>
+      <td>green</td>
+      <td>cash</td>
+      <td>Crown Heights North</td>
+      <td>Bushwick North</td>
+      <td>Brooklyn</td>
+      <td>Brooklyn</td>
+      <td>2019-03-23 22:55:18</td>
+      <td>2019-03-23 23:14:25</td>
+      <td>Saturday</td>
+      <td>0 days 00:19:07</td>
+    </tr>
+    <tr>
+      <th>6431</th>
+      <td>2019-03-04 10:09:25</td>
+      <td>2019-03-04 10:14:29</td>
+      <td>1</td>
+      <td>1.12</td>
+      <td>6.0</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>6.80</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>East New York</td>
+      <td>East Flatbush/Remsen Village</td>
+      <td>Brooklyn</td>
+      <td>Brooklyn</td>
+      <td>2019-03-04 10:09:25</td>
+      <td>2019-03-04 10:14:29</td>
+      <td>Monday</td>
+      <td>0 days 00:05:04</td>
+    </tr>
+    <tr>
+      <th>6432</th>
+      <td>2019-03-13 19:31:22</td>
+      <td>2019-03-13 19:48:02</td>
+      <td>1</td>
+      <td>3.85</td>
+      <td>15.0</td>
+      <td>3.36</td>
+      <td>0.0</td>
+      <td>20.16</td>
+      <td>green</td>
+      <td>credit card</td>
+      <td>Boerum Hill</td>
+      <td>Windsor Terrace</td>
+      <td>Brooklyn</td>
+      <td>Brooklyn</td>
+      <td>2019-03-13 19:31:22</td>
+      <td>2019-03-13 19:48:02</td>
+      <td>Wednesday</td>
+      <td>0 days 00:16:40</td>
+    </tr>
+  </tbody>
+</table>
+<p>6407 rows × 18 columns</p>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>What if you tried to check for equality with <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[df[&quot;pickup_zone&quot;] == np.nan] #empty
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pickup</th>
+      <th>dropoff</th>
+      <th>passengers</th>
+      <th>distance</th>
+      <th>fare</th>
+      <th>tip</th>
+      <th>tolls</th>
+      <th>total</th>
+      <th>color</th>
+      <th>payment</th>
+      <th>pickup_zone</th>
+      <th>dropoff_zone</th>
+      <th>pickup_borough</th>
+      <th>dropoff_borough</th>
+      <th>picktime</th>
+      <th>droptime</th>
+      <th>day</th>
+      <th>duration</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>np.nan == np.nan # not equal to itself
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=47af4f37-99f4-44c3-aaa4-89ed7dd2f67c' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Week2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Week_2_Monday.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 2 Monday</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-taxis-dataset">Exploring the taxis dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-dates-in-pandas">Working with dates in pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-strings-in-pandas">Working with strings in pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#missing-values-in-pandas">Missing values in pandas</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yutong Sha
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
