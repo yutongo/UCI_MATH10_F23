@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Week Friday &#8212; UC Irvine Math 10, Fall 2023</title>
+    <title>Week3 Friday &#8212; UC Irvine Math 10, Fall 2023</title>
   
   
   
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Week3_Intro.html">Week 3</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Week_3_Monday.html">Week 3 Monday</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week_3_Wednesday.html">Week 3 Wednesday</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Week Friday</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Week3 Friday</a></li>
 </ul>
 </li>
 </ul>
@@ -335,7 +335,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Week Friday</h1>
+    <h1>Week3 Friday</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -359,8 +359,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week-friday">
-<h1>Week Friday<a class="headerlink" href="#week-friday" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week3-friday">
+<h1>Week3 Friday<a class="headerlink" href="#week3-friday" title="Permalink to this heading">#</a></h1>
 <p>You can find the notesbooks at <a class="reference external" href="https://yutongo.github.io/UCI_MATH10_F23/intro.html">course notes</a>.</p>
 <section id="rename-columns-or-rows">
 <h2>Rename columns or rows<a class="headerlink" href="#rename-columns-or-rows" title="Permalink to this heading">#</a></h2>
@@ -369,15 +369,15 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
-df = sns.load_dataset(&quot;penguins&quot;)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;penguins&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.columns
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -393,7 +393,7 @@ df = sns.load_dataset(&quot;penguins&quot;)
 <p>But the following has no effect.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.rename({&#39;island&#39;:&#39;location&#39;,&#39;sex&#39;:&#39;gender&#39;})
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;island&#39;</span><span class="p">:</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;gender&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -543,7 +543,7 @@ df = sns.load_dataset(&quot;penguins&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(df.rename)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,7 +664,7 @@ rename(mapper=None, index=None, columns=None, axis=None, copy=True, inplace=Fals
 <p>We are trying to change the column names, so we should instead use the argument <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>.  Notice how the “island” and “sex” columns have been renamed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.rename({&#39;island&#39;:&#39;location&#39;,&#39;sex&#39;:&#39;gender&#39;},axis=1)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;island&#39;</span><span class="p">:</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;gender&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -815,7 +815,7 @@ rename(mapper=None, index=None, columns=None, axis=None, copy=True, inplace=Fals
 <p>An example of renaming one of the row labels (switch to <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.rename({3: &#39;Today&#39;},axis=0)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;Today&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -966,7 +966,7 @@ rename(mapper=None, index=None, columns=None, axis=None, copy=True, inplace=Fals
 <p>It’s important to point out that we haven’t changed <code class="docutils literal notranslate"><span class="pre">df</span></code> itself.  A hint that we haven’t changed <code class="docutils literal notranslate"><span class="pre">df</span></code> is that DataFrames were displayed as the result of our code.  The code was creating new DataFrames, not changing the original DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1117,9 +1117,9 @@ rename(mapper=None, index=None, columns=None, axis=None, copy=True, inplace=Fals
 <p>If we want to change <code class="docutils literal notranslate"><span class="pre">df</span></code> itself, we should use the <code class="docutils literal notranslate"><span class="pre">inplace</span></code> keyword argument or assign the result to <code class="docutils literal notranslate"><span class="pre">df</span></code> (Warning: this can be dangerous; it would be safer to call this DataFrame something different, like <code class="docutils literal notranslate"><span class="pre">df2</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.rename({&#39;island&#39;:&#39;location&#39;,&#39;sex&#39;:&#39;gender&#39;},axis=1,inplace=True)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;island&#39;</span><span class="p">:</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;gender&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-df
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1269,8 +1269,8 @@ df
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df2 = df.rename({&#39;island&#39;:&#39;location&#39;,&#39;sex&#39;:&#39;gender&#39;},axis=1)
-df2
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s1">&#39;island&#39;</span><span class="p">:</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;sex&#39;</span><span class="p">:</span><span class="s1">&#39;gender&#39;</span><span class="p">},</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df2</span>
 </pre></div>
 </div>
 </div>
@@ -1428,7 +1428,7 @@ df2
 <p>If we use <code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, we are keeping the column labels the same, and finding out which columns have any missing values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.isna().any(axis = 0)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1448,7 +1448,7 @@ dtype: bool
 <p>In this case, we want to keep the row labels the same, and finding out which row have any missing values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.isna().any(axis = 1) #which row has any missing values
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">#which row has any missing values</span>
 </pre></div>
 </div>
 </div>
@@ -1472,7 +1472,7 @@ Length: 344, dtype: bool
 <p>There is also an <code class="docutils literal notranslate"><span class="pre">all</span></code> (in contrast to the <code class="docutils literal notranslate"><span class="pre">any</span></code> we are using).  Notice how the row <code class="docutils literal notranslate"><span class="pre">3</span></code> is now <code class="docutils literal notranslate"><span class="pre">False</span></code>, because it is not the case that all of the values are missing in this row.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.isna().all(axis=1)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1502,7 +1502,7 @@ Length: 344, dtype: bool
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.shape
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1514,8 +1514,8 @@ Length: 344, dtype: bool
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df3 = df[~df.isna().any(axis=1)] # get rid of rows with missing data
-df3.shape 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span> <span class="c1"># get rid of rows with missing data</span>
+<span class="n">df3</span><span class="o">.</span><span class="n">shape</span> 
 </pre></div>
 </div>
 </div>
@@ -1528,8 +1528,8 @@ df3.shape
 <p>We can also use <code class="docutils literal notranslate"><span class="pre">notna()</span></code> but with <code class="docutils literal notranslate"><span class="pre">all()</span></code> to remove rows with missig data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df4 = df[df.notna().all(axis = 1)]
-df4.shape
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)]</span>
+<span class="n">df4</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1542,8 +1542,8 @@ df4.shape
 <p>Or use <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> to directly remove missing values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df5 = df.dropna()
-df5.shape
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df5</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df5</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1561,7 +1561,7 @@ df5.shape
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df5.columns
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df5</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -1575,12 +1575,12 @@ df5.shape
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import altair as alt
-alt.Chart(df5).mark_circle().encode(
-    x = &#39;bill_length_mm&#39;,
-    y = &#39;flipper_length_mm&#39;,
-    color = &#39;species&#39;
-)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1646,11 +1646,11 @@ alt.Chart(df5).mark_circle().encode(
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df5).mark_circle().encode(
-    x = alt.X(&#39;bill_length_mm&#39;,scale = alt.Scale(domain=(30,60))),
-    y = alt.Y(&#39;flipper_length_mm&#39;,scale = alt.Scale(domain=(170,240))),
-    color = &#39;species&#39;
-)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">))),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="mi">240</span><span class="p">))),</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;species&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1717,11 +1717,11 @@ alt.Chart(df5).mark_circle().encode(
 <p>Changing from <code class="docutils literal notranslate"><span class="pre">&quot;species&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;species:N&quot;</span></code> does not have any effect, because when there are strings in the column, Altair automatically defaults to a Nominal data type.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df5).mark_circle().encode(
-    x = alt.X(&#39;bill_length_mm&#39;,scale = alt.Scale(domain=(30,60))),
-    y = alt.Y(&#39;flipper_length_mm&#39;,scale = alt.Scale(domain=(170,240))),
-    color = &#39;species:N&#39;
-)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">))),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="mi">240</span><span class="p">))),</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1789,11 +1789,11 @@ alt.Chart(df5).mark_circle().encode(
 <p>This chart definitely looks worse than with the default Quantitative encoding.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df5).mark_circle().encode(
-    x = &#39;bill_length_mm:O&#39;,
-    y = alt.Y(&#39;flipper_length_mm&#39;,scale = alt.Scale(domain=(170,240))),
-    color = &#39;species:N&#39;
-)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;bill_length_mm:O&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="mi">240</span><span class="p">))),</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;species:N&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1860,12 +1860,12 @@ alt.Chart(df5).mark_circle().encode(
 <p>Here the data is divided by “gender”, and the different genders are put into different rows.  That is what the <code class="docutils literal notranslate"><span class="pre">row=&quot;gender&quot;</span></code> part means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df5).mark_circle().encode(
-    x = alt.X(&#39;bill_length_mm&#39;,scale = alt.Scale(domain=(30,60))),
-    y = alt.Y(&#39;flipper_length_mm&#39;,scale = alt.Scale(domain=(170,240))),
-    color = &#39;species:N&#39;,
-    row = &#39;gender&#39;
-)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">))),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="mi">240</span><span class="p">))),</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;species:N&#39;</span><span class="p">,</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="s1">&#39;gender&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1929,12 +1929,12 @@ alt.Chart(df5).mark_circle().encode(
 <p>Here is the same thing, but putting different genders into different columns.  This would be a good choice if you wanted to compare the flipper lengths between genders.  If instead you wanted to compare the bill lengths between genders, then I think it would make more sense to use the above vertical facet chart.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df5).mark_circle().encode(
-    x = alt.X(&#39;bill_length_mm&#39;,scale = alt.Scale(domain=(30,60))),
-    y = alt.Y(&#39;flipper_length_mm&#39;,scale = alt.Scale(domain=(170,240))),
-    color = &#39;species:N&#39;,
-    column = &#39;gender&#39;
-)
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df5</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;bill_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">))),</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;flipper_length_mm&#39;</span><span class="p">,</span><span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span><span class="mi">240</span><span class="p">))),</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;species:N&#39;</span><span class="p">,</span>
+    <span class="n">column</span> <span class="o">=</span> <span class="s1">&#39;gender&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
