@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    UC Irvine, Math 10, Spring 2023
+                    UC Irvine, Math 10, Fall 2023
                 </a>
             </li>
         </ul>
@@ -388,9 +388,9 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
-print(sns.get_dataset_names()) # list of all the datasets included with Seaborn.
-df = sns.load_dataset(&quot;mpg&quot;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">get_dataset_names</span><span class="p">())</span> <span class="c1"># list of all the datasets included with Seaborn.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;mpg&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -402,8 +402,8 @@ df = sns.load_dataset(&quot;mpg&quot;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(df.shape)
-print(df.head(5)) #df.info() #df.describe()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="c1">#df.info() #df.describe()</span>
 </pre></div>
 </div>
 </div>
@@ -428,7 +428,7 @@ print(df.head(5)) #df.info() #df.describe()
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.info()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -458,7 +458,7 @@ memory usage: 28.1+ KB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>len(df[&quot;origin&quot;].unique())
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;origin&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -470,7 +470,7 @@ memory usage: 28.1+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&quot;origin&quot;].value_counts(dropna=False)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;origin&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -485,7 +485,7 @@ Name: origin, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>len(df[&quot;origin&quot;].value_counts(dropna=False))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;origin&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -501,7 +501,7 @@ Name: origin, dtype: int64
 <p>Here is an example of the “object-oriented programming” approach of having special-purpose objects. Here we have a <code class="docutils literal notranslate"><span class="pre">DataFrameGroupBy</span></code> object that is probably not used anywhere else.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.groupby(&quot;origin&quot;) #DataFrameGroupBy object
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">)</span> <span class="c1">#DataFrameGroupBy object</span>
 </pre></div>
 </div>
 </div>
@@ -514,7 +514,7 @@ Name: origin, dtype: int64
 <p>This special object has a mean method, which will report the average values for the various columns when split by their “origin” value. Here we have a whole DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.groupby(&quot;origin&quot;).mean()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -593,7 +593,7 @@ Name: origin, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>type(df.groupby(&quot;origin&quot;).mean()) #Compute mean of groups, excluding missing values.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="c1">#Compute mean of groups, excluding missing values.</span>
 </pre></div>
 </div>
 </div>
@@ -605,7 +605,7 @@ Name: origin, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.groupby(&quot;origin&quot;).mean()[&quot;weight&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -621,7 +621,7 @@ Name: weight, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>help(df.groupby(&quot;origin&quot;).mean)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;origin&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -631,8 +631,8 @@ Name: weight, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df_sub = df[df[&quot;origin&quot;] == &quot;europe&quot;]
-df_sub[&quot;weight&quot;].mean()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;origin&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;europe&quot;</span><span class="p">]</span>
+<span class="n">df_sub</span><span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -656,11 +656,11 @@ df_sub[&quot;weight&quot;].mean()
 <p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">&quot;mpg&quot;</span></code>: Similarly, this sets the y-axis to the “mpg” column of the df dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import altair as alt
-alt.Chart(df).mark_circle().encode(
-    x = &quot;weight&quot;,
-    y = &quot;mpg&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -726,11 +726,11 @@ alt.Chart(df).mark_circle().encode(
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_circle().encode(
-    x = &quot;weight&quot;,
-    y = &quot;mpg&quot;,
-    color = &quot;origin&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -796,7 +796,7 @@ alt.Chart(df).mark_circle().encode(
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.columns
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -812,12 +812,12 @@ alt.Chart(df).mark_circle().encode(
 <p>a tooltip provides supplementary information about a data point when you hover over it. You can specify which columns from your dataframe should be displayed in the tooltip.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_circle().encode(
-    x = &quot;weight&quot;,
-    y = &quot;mpg&quot;,
-    color = &quot;origin&quot;,
-    tooltip = [&quot;weight&quot;, &quot;mpg&quot;, &quot;origin&quot;, &quot;model_year&quot;,&quot;name&quot;]
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span> <span class="s2">&quot;model_year&quot;</span><span class="p">,</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -887,13 +887,13 @@ Seaborn is primarily designed for static visualizations, so interactive features
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
-sns.scatterplot(
-    data = df,
-    x = &quot;weight&quot;,
-    y = &quot;mpg&quot;,
-    hue = &quot;origin&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">hue</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -913,15 +913,15 @@ sns.scatterplot(
 <p>Plotly Express, a part of the Plotly library, is designed for interactive visualizations, and it supports tooltips.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import plotly.express as px
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 
-px.scatter(
-    data_frame=df,
-    x = &quot;weight&quot;,
-    y = &quot;mpg&quot;,
-    color = &quot;origin&quot;,
-    hover_data= [&#39;name&#39;]
-)
+<span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">data_frame</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;weight&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;origin&quot;</span><span class="p">,</span>
+    <span class="n">hover_data</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>

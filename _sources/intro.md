@@ -1,4 +1,4 @@
-# UC Irvine, Math 10, Spring 2023 
+# UC Irvine, Math 10, Fall 2023 
 
 Use the Navigation menu on the left to find the course content. 
 

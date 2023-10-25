@@ -157,7 +157,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    UC Irvine, Math 10, Spring 2023
+                    UC Irvine, Math 10, Fall 2023
                 </a>
             </li>
         </ul>
@@ -404,14 +404,14 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import altair as alt
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>print(alt.__version__) # check the version of altair 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span> <span class="c1"># check the version of altair </span>
 </pre></div>
 </div>
 </div>
@@ -424,8 +424,8 @@ document.write(`
 <p>Notice: the newest version 5 of Altair has different syntax.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import seaborn as sns
-df = sns.load_dataset(&#39;mpg&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;mpg&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -435,7 +435,7 @@ df = sns.load_dataset(&#39;mpg&#39;)
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.head(5)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -536,9 +536,9 @@ df = sns.load_dataset(&#39;mpg&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>#Boolean indexing to get the appropriate sub-DataFrame
-df_sub = df[df[&quot;name&quot;].str.contains(&quot;skylark&quot;)]
-df_sub
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Boolean indexing to get the appropriate sub-DataFrame</span>
+<span class="n">df_sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;skylark&quot;</span><span class="p">)]</span>
+<span class="n">df_sub</span>
 </pre></div>
 </div>
 </div>
@@ -630,11 +630,11 @@ df_sub
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df_sub).mark_circle().encode(
-    x = &quot;model_year&quot;,
-    y = &quot;mpg&quot;,
-    color = &quot;model_year&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;model_year&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;model_year&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -697,12 +697,12 @@ df_sub
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># increase the point size
-alt.Chart(df_sub).mark_circle(size = 150).encode(
-    x = &quot;model_year&quot;,
-    y = &quot;mpg&quot;,
-    color = &quot;model_year&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># increase the point size</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;model_year&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;model_year&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -765,11 +765,11 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df_sub).mark_circle(size = 150).encode(
-    x = alt.X(&quot;model_year&quot;, scale = alt.Scale(zero = False)), #x-axis does not start from zero
-    y = &quot;mpg&quot;,
-    color = &quot;model_year&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;model_year&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)),</span> <span class="c1">#x-axis does not start from zero</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;model_year&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -842,11 +842,11 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 ‘T’ for temporal data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df_sub).mark_circle(size = 150).encode(
-    x = alt.X(&quot;model_year:O&quot;, scale = alt.Scale(zero = False)), #`:O` for ordinal data type
-    y = &quot;mpg&quot;,
-    color = &quot;model_year&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)),</span> <span class="c1">#`:O` for ordinal data type</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;model_year&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -910,11 +910,11 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 <p>Here we change color scheme (see the above link for options). We are specifying that the color channel should use a “Quantitative” encoding, but that is the default, so you will see the same thing if you do not use that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df_sub).mark_circle(size = 150).encode(
-    x = alt.X(&quot;model_year:O&quot;, scale = alt.Scale(zero = False)), #x-axis does not start from zero
-    y = &quot;mpg&quot;,
-    color = alt.Color(&quot;model_year:Q&quot;, scale = alt.Scale(scheme=&quot;lightgreyred&quot;))
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)),</span> <span class="c1">#x-axis does not start from zero</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;model_year:Q&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;lightgreyred&quot;</span><span class="p">))</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -978,11 +978,11 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 <p>Here is the exact same chart, but where we switch to the “Ordinal” encoding data type.  Do you see the differences?  One different is that the “Quantiative” legend shows a continuous progression of numbers.  A more subtle difference is that the colors for <code class="docutils literal notranslate"><span class="pre">77</span></code>, <code class="docutils literal notranslate"><span class="pre">79</span></code>, <code class="docutils literal notranslate"><span class="pre">81</span></code> are grouped closer to each other in the “Quantitative” version, whereas everything, including the <code class="docutils literal notranslate"><span class="pre">70</span></code>, is equally spaced colorwise in the “Ordinal” version.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df_sub).mark_circle(size = 150).encode(
-    x = alt.X(&quot;model_year:O&quot;, scale = alt.Scale(zero = False)), #x-axis does not start from zero
-    y = &quot;mpg&quot;,
-    color = alt.Color(&quot;model_year:O&quot;, scale = alt.Scale(scheme=&quot;lightgreyred&quot;))
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)),</span> <span class="c1">#x-axis does not start from zero</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;lightgreyred&quot;</span><span class="p">))</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1046,11 +1046,11 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 <p>If you switch the color data type to “Nominal” (which means unordered) and use the default color scheme, you can see that there is no ordering or progression to the colors used.  The colors in this case are chosen to make the values as distinct as possible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df_sub).mark_circle(size = 150).encode(
-    x = alt.X(&quot;model_year:O&quot;, scale = alt.Scale(zero = False)), #x-axis does not start from zero
-    y = &quot;mpg&quot;,
-    color = alt.Color(&quot;model_year:N&quot;)
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_sub</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">zero</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)),</span> <span class="c1">#x-axis does not start from zero</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;mpg&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;model_year:N&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1121,10 +1121,10 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 <p>Here is no column called <code class="docutils literal notranslate"><span class="pre">&quot;median(mpg)&quot;</span></code> in our DataFrame.  Instead this syntax is telling Altair to compute the median and plot the bar heights based on the result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_bar().encode(
-    x = &quot;cylinders:O&quot;,
-    y = &quot;median(mpg)&quot;
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cylinders:O&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;median(mpg)&quot;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1191,11 +1191,11 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 <p>For example, if you put your mouse over the 4-cylinders bar, it will report a median value of <code class="docutils literal notranslate"><span class="pre">28.25</span></code>.  That is telling us that the median miles-per-gallon across 4-cylinder cars in the dataset is <code class="docutils literal notranslate"><span class="pre">28.25</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.Chart(df).mark_bar().encode(
-    x = &quot;cylinders:O&quot;,
-    y = &quot;median(mpg)&quot;,
-    tooltip = [&quot;median(mpg)&quot;, &quot;cylinders&quot;]
-)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;cylinders:O&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;median(mpg)&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;median(mpg)&quot;</span><span class="p">,</span> <span class="s2">&quot;cylinders&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1261,7 +1261,7 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.groupby(&quot;cylinders&quot;).median()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;cylinders&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1353,7 +1353,7 @@ alt.Chart(df_sub).mark_circle(size = 150).encode(
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.groupby(&quot;cylinders&quot;).median()[&quot;mpg&quot;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;cylinders&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()[</span><span class="s2">&quot;mpg&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1377,13 +1377,13 @@ Name: mpg, dtype: float64
 <p>Here we are storing the chart in the variable <code class="docutils literal notranslate"><span class="pre">c1</span></code> so we can refer to it below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c1 = alt.Chart(df).mark_rect().encode(
-    x = &quot;model_year:O&quot;,
-    y = &quot;cylinders:O&quot;,
-    color = &quot;count()&quot;,
-    tooltip = [&quot;count()&quot;]
-)
-c1 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_rect</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;cylinders:O&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;count()&quot;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;count()&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">c1</span> 
 </pre></div>
 </div>
 </div>
@@ -1450,12 +1450,12 @@ c1
 <p>By itself, this looks a little strange.  (We are using text for the marks in this case, that is why it is called <code class="docutils literal notranslate"><span class="pre">mark_text</span></code>.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c2 = alt.Chart(df).mark_text().encode(
-    x = &quot;model_year:O&quot;,
-    y = &quot;cylinders:O&quot;,
-    text = &quot;count()&quot;    
-)
-c2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;model_year:O&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;cylinders:O&quot;</span><span class="p">,</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;count()&quot;</span>    
+<span class="p">)</span>
+<span class="n">c2</span>
 </pre></div>
 </div>
 </div>
@@ -1521,7 +1521,7 @@ c2
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>c1 + c2
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
 </pre></div>
 </div>
 </div>
@@ -1585,7 +1585,7 @@ c2
 <p>The <code class="docutils literal notranslate"><span class="pre">+</span></code> notation in Altair is just shorthand for layering using <code class="docutils literal notranslate"><span class="pre">alt.layer</span></code>.  Here we are getting both charts displayed at once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>alt.layer(c1, c2)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">layer</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
