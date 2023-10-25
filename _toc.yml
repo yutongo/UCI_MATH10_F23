@@ -22,6 +22,7 @@ chapters:
   - file: Week4/Week4_Intro
     sections:
       - file: Week4/Week_4_Monday
+      - file: Week4/Week_4_Wednesday
   #   - file: Week1/Worksheet1
   #   - file: Week1/Week1-Tuesday
   #   - file: Week1/Week1-Wednesday
