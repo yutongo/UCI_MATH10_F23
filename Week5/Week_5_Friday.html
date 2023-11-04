@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Machine Learning: Overview of the whole picture &#8212; UC Irvine Math 10, Fall 2023</title>
+    <title>Week 5 Friday &#8212; UC Irvine Math 10, Fall 2023</title>
   
   
   
@@ -194,10 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Week5_Intro.html">Week 5</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="Week_5_Wednesday.html">Week 5 Wednesday</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Machine Learning: Overview of the whole picture</a></li>
-
-
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Week 5 Friday</a></li>
 </ul>
 </li>
 </ul>
@@ -351,7 +348,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Machine Learning: Overview of the whole picture</h1>
+    <h1>Week 5 Friday</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -361,16 +358,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Machine Learning: Overview of the whole picture</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression">Motivating Example III: Single-variable Polynomial Regression (Special Case of Multivariable Linear Regression)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem"><strong>Problem</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy"><strong>Strategy</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-overview-of-the-whole-picture">Machine Learning: Overview of the whole picture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression">Motivating Example III: Single-variable Polynomial Regression (Special Case of Multivariable Linear Regression)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem"><strong>Problem</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy"><strong>Strategy</strong></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-don-t-misuse-polynomial-regression">Warning: Don’t misuse polynomial regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-don-t-misuse-polynomial-regression">Warning: Don’t misuse polynomial regression</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -381,8 +377,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="machine-learning-overview-of-the-whole-picture">
-<h1>Machine Learning: Overview of the whole picture<a class="headerlink" href="#machine-learning-overview-of-the-whole-picture" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="week-5-friday">
+<h1>Week 5 Friday<a class="headerlink" href="#week-5-friday" title="Permalink to this heading">#</a></h1>
+<section id="machine-learning-overview-of-the-whole-picture">
+<h2>Machine Learning: Overview of the whole picture<a class="headerlink" href="#machine-learning-overview-of-the-whole-picture" title="Permalink to this heading">#</a></h2>
 <p>Possible hierarchies of machine learning concepts:</p>
 <ul class="simple">
 <li><p><strong>Problems</strong>:</p>
@@ -414,7 +412,7 @@ document.write(`
 </div>
 </section>
 <section id="recap">
-<h1>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h1>
+<h2>Recap<a class="headerlink" href="#recap" title="Permalink to this heading">#</a></h2>
 <p>This week we’ve started the Machine Learning portion of the class.  The most important points so far:</p>
 <ul class="simple">
 <li><p>The most common scikit-learn workflow: import, instantiate, fit, predict.</p></li>
@@ -424,9 +422,9 @@ document.write(`
 </ul>
 </section>
 <section id="motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression">
-<h1>Motivating Example III: Single-variable Polynomial Regression (Special Case of Multivariable Linear Regression)<a class="headerlink" href="#motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression" title="Permalink to this heading">#</a></h1>
+<h2>Motivating Example III: Single-variable Polynomial Regression (Special Case of Multivariable Linear Regression)<a class="headerlink" href="#motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression" title="Permalink to this heading">#</a></h2>
 <section id="problem">
-<h2><strong>Problem</strong><a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h2>
+<h3><strong>Problem</strong><a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h3>
 <p>Given the <em>training dataset</em> <span class="math notranslate nohighlight">\((x^{(i)},y^{(i)}), i= 1,2,..., N\)</span>, this time with <span class="math notranslate nohighlight">\(y^{(i)}\in \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(x^{(i)}\in\mathbb{R}\)</span>, we fit the single-variable polynomial function of <span class="math notranslate nohighlight">\(p\)</span>-th order</p>
 <div class="math notranslate nohighlight">
 \[
@@ -435,7 +433,7 @@ y\approx f(x)=w_{0}+w_{1}x+w_{2}x^{2}+...+w_{p}x^{p}
 <p><strong>Remark:</strong> A basic conclusion in numerical analysis is that with N points, we can have a polynomial of order (N-1) that fits every point perfectly.</p>
 </section>
 <section id="strategy">
-<h2><strong>Strategy</strong><a class="headerlink" href="#strategy" title="Permalink to this heading">#</a></h2>
+<h3><strong>Strategy</strong><a class="headerlink" href="#strategy" title="Permalink to this heading">#</a></h3>
 <p>Single-variable <strong>polynomial regression</strong> is a special case of multi-variable <strong>linear</strong> regression, because we can construct a dataset of <span class="math notranslate nohighlight">\(p\)</span> variables by defining each row as <span class="math notranslate nohighlight">\((x,x^{2}, ..., x^{p})\)</span> for each observation at <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <ul class="simple">
 <li><p>Load the mpg dataset from Seaborn and drop missing values.  Name the result <code class="docutils literal notranslate"><span class="pre">df</span></code>.</p></li>
@@ -1361,7 +1359,7 @@ train_test_split(*arrays, test_size=None, train_size=None, random_state=None, sh
 </section>
 </section>
 <section id="warning-don-t-misuse-polynomial-regression">
-<h1>Warning: Don’t misuse polynomial regression<a class="headerlink" href="#warning-don-t-misuse-polynomial-regression" title="Permalink to this heading">#</a></h1>
+<h2>Warning: Don’t misuse polynomial regression<a class="headerlink" href="#warning-don-t-misuse-polynomial-regression" title="Permalink to this heading">#</a></h2>
 <p>Relevant quote:</p>
 <blockquote>
 <div><p>“We are drowning in information but starved for knowledge.”  John Naisbitt, <em>Megatrends</em>, 1982</p>
@@ -1370,6 +1368,7 @@ train_test_split(*arrays, test_size=None, train_size=None, random_state=None, sh
 <a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=3580877f-56c1-48f3-912d-61bc5cd707ee' target="_blank">
 <img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
 Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1425,16 +1424,15 @@ Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Machine Learning: Overview of the whole picture</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression">Motivating Example III: Single-variable Polynomial Regression (Special Case of Multivariable Linear Regression)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem"><strong>Problem</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy"><strong>Strategy</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-overview-of-the-whole-picture">Machine Learning: Overview of the whole picture</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">Recap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivating-example-iii-single-variable-polynomial-regression-special-case-of-multivariable-linear-regression">Motivating Example III: Single-variable Polynomial Regression (Special Case of Multivariable Linear Regression)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem"><strong>Problem</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strategy"><strong>Strategy</strong></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-don-t-misuse-polynomial-regression">Warning: Don’t misuse polynomial regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warning-don-t-misuse-polynomial-regression">Warning: Don’t misuse polynomial regression</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
