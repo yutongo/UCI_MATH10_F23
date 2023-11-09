@@ -198,6 +198,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Week_5_Friday.html">Week 5 Friday</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/Week6_Intro.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/Week_6_Monday.html">Week 6 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/Week_6_Wednesday.html">Week 6 Wednesday</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -416,14 +421,12 @@ document.write(`
 <h2>Motivating Example I: Single-variable (1D) Linear Regression<a class="headerlink" href="#motivating-example-i-single-variable-1d-linear-regression" title="Permalink to this heading">#</a></h2>
 <section id="problem">
 <h3><strong>Problem</strong><a class="headerlink" href="#problem" title="Permalink to this heading">#</a></h3>
-<p>Given the <em>training dataset</em> <span class="math notranslate nohighlight">\((x^{(i)}\in\mathbb{R},y^{(i)}\in\mathbb{R}), i= 1,2,..., N\)</span>, we want to find the linear function
-$<span class="math notranslate nohighlight">\(
-y\approx f(x)=wx +b
-\)</span><span class="math notranslate nohighlight">\( 
-that fits the relations between \)</span>x^{(i)}<span class="math notranslate nohighlight">\( and \)</span>y^{(i)}<span class="math notranslate nohighlight">\(. So that given any new \)</span>x^{test}<span class="math notranslate nohighlight">\( in the **test** dataset, we can make the prediction 
-\)</span><span class="math notranslate nohighlight">\(
-y^{pred} = w x^{test}+b
-\)</span>$</p>
+<p>Given the <em>training dataset</em> <span class="math notranslate nohighlight">\((x^{(i)}\in\mathbb{R},y^{(i)}\in\mathbb{R}), i= 1,2,..., N\)</span>, we want to find the linear function</p>
+<div class="math notranslate nohighlight">
+\[y\approx f(x)=wx +b\]</div>
+<p>that fits the relations between <span class="math notranslate nohighlight">\(x^{(i)}\)</span> and <span class="math notranslate nohighlight">\(y^{(i)}\)</span>. So that given any new <span class="math notranslate nohighlight">\(x^{test}\)</span> in the <strong>test</strong> dataset, we can make the prediction</p>
+<div class="math notranslate nohighlight">
+\[y^{pred} = w x^{test}+b\]</div>
 </section>
 <section id="training-the-model">
 <h3>Training the model<a class="headerlink" href="#training-the-model" title="Permalink to this heading">#</a></h3>
