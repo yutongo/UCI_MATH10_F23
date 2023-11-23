@@ -431,45 +431,50 @@ P(y=1|\mathbf{x})=f(\mathbf{x};\mathbf{\beta}) = \frac{1}{1 + \exp(-\tilde{x}\ma
 <p>where <span class="math notranslate nohighlight">\(\sigma(z)=\frac{1}{1+\exp{(-z)}}\)</span> is called <a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_regression#:~:text=Logistic%20regression%20is%20a%20statistical,a%20form%20of%20binary%20regression">standard logistic function</a>, or sigmoid function in deep learning. Recall that <span class="math notranslate nohighlight">\(\beta\in\mathbb{R}^{p+1}\)</span> and <span class="math notranslate nohighlight">\(\tilde{x}\)</span> is the “augmented” sample with first element one to incorporate intercept in the linear function.</p>
 <p><strong>Equivalent expression</strong>:</p>
 <ul class="simple">
-<li><p>Denote <span class="math notranslate nohighlight">\(p = P(y=1|\mathbf{x})\)</span>, then we can write in linear form (the LHS is called <strong>odds ratio</strong> in statistics)
-$<span class="math notranslate nohighlight">\(
-\ln\frac{p}{1-p}=\tilde{x}\beta
-\)</span>$</p></li>
-<li><p>Since <span class="math notranslate nohighlight">\(y\)</span> only takes value in 0 or 1, we have
-$<span class="math notranslate nohighlight">\(
-P(y|\mathbf{x},\beta) = f(\mathbf{x};\beta)^y \big(1 - f(\mathbf{x};\beta) \big)^{1-y}
-\)</span>$</p></li>
+<li><p>Denote <span class="math notranslate nohighlight">\(p = P(y=1|\mathbf{x})\)</span>, then we can write in linear form (the LHS is called <strong>odds ratio</strong> in statistics)</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+  \ln\frac{p}{1-p}=\tilde{x}\beta
+  \]</div>
+<ul class="simple">
+<li><p>Since <span class="math notranslate nohighlight">\(y\)</span> only takes value in 0 or 1, we have</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+  P(y|\mathbf{x},\beta) = f(\mathbf{x};\beta)^y \big(1 - f(\mathbf{x};\beta) \big)^{1-y}
+  \]</div>
 <p><strong>MLE (Maximum Likelihood Estimation)</strong></p>
-<p>Assume the samples are independent. The overall probibility to witness the whole training dataset
-$<span class="math notranslate nohighlight">\(
+<p>Assume the samples are independent. The overall probibility to witness the whole training dataset</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 {\begin{aligned}
 &amp;P(\mathbf{y}\; | \; \mathbf{X};\beta )\\
 =&amp;\prod _{i=1}^N P\left(y^{(i)}\mid \mathbf{x}^{(i)};\beta\right)\\
 =&amp;\prod_{i=1}^N f\big(\mathbf{x}^{(i)};\beta \big)^{y^{(i)}} 
 \Big(1-f\big(\mathbf{x}^{(i)};\beta\big) \Big)^{\big(1-y^{(i)}\big)}
 \end{aligned}}.
-\)</span>$</p>
-<p>By maximizing the logarithm of likelihood function, then we derive the <strong>loss function</strong> to be minimized
-$$
-L (\beta) = L (\beta; X,\mathbf{y}) = - \frac{1}{N}\sum_{i=1}^N
-\Bigl{y^{(i)} \ln\big( f(\mathbf{x}^{(i)};\beta) \big)</p>
-<ul class="simple">
-<li><p>(1 - y^{(i)}) \ln\big( 1 - f(\mathbf{x}^{(i)};\beta) \big) \Bigr}.
-$$</p></li>
-</ul>
+\end{split}\]</div>
+<p>By maximizing the logarithm of likelihood function, then we derive the <strong>loss function</strong> to be minimized</p>
+<div class="math notranslate nohighlight">
+\[
+L (\beta) = L (\beta; X,\mathbf{y}) = - \frac{1}{N}\sum_{i=1}^N 
+\Bigl\{y^{(i)} \ln\big( f(\mathbf{x}^{(i)};\beta) \big) + (1 - y^{(i)}) \ln\big( 1 - f(\mathbf{x}^{(i)};\beta) \big) \Bigr\}.
+\]</div>
 <p>The loss function also has clear probabilistic interpretations. Given <span class="math notranslate nohighlight">\(i\)</span>-th sample, the vector of true labels <span class="math notranslate nohighlight">\((y^{i},1-y^{i})\)</span> can also be viewed as the probability distribution. Then the loss function is the mean of all <a class="reference external" href="https://en.wikipedia.org/wiki/Cross_entropy">cross entropy</a> across samples, i.e. <strong>“distance” between observed sample probability distribution and modelled probability distribution</strong> via logistic model.</p>
 <section id="algorithm">
 <h3>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
-<p>Take the gradient (left as exercise – if you like)
-$<span class="math notranslate nohighlight">\(
+<p>Take the gradient (left as exercise – if you like)</p>
+<div class="math notranslate nohighlight">
+\[
 \frac{\partial L (\beta)}{\partial \beta_{k}} =\frac{1}{N}\sum_{i=1}^N  \big(\sigma(\tilde{x}^{(i)}\beta)  - y^{(i)} \big) \tilde{x}^{(i)}_k.
-\)</span>$</p>
-<p>In vector form
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>In vector form</p>
+<div class="math notranslate nohighlight">
+\[
 \nabla_{\beta} \big( L (\beta) \big) = \sum_{i=1}^N  \big(\sigma(\tilde{x}^{(i)})  - y^{(i)} \big) \tilde{x}^{(i)} 
 =\frac{1}{N}\sum_{i=1}^N \big( f(\mathbf{x}^{(i)};\beta)  - y^{(i)} \big) \tilde{x}^{(i)}.
-\)</span>$</p>
+\]</div>
 <p>The solution here is <a class="reference external" href="https://github.com/Jaewan-Yun/optimizer-visualization">numerical optimization</a>. The simplest algorithm in optimization is <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent#:~:text=Gradient%20descent%20is%20a%20first,function%20at%20the%20current%20point.">gradient descent (GD)</a>. $<span class="math notranslate nohighlight">\(\beta^{k+1}=\beta^{k}-\eta\nabla L(\beta^{k}).\)</span>$</p>
 <p>Here the step size <span class="math notranslate nohighlight">\(\eta\)</span> is also called <strong>learning rate</strong> in machine learning. Note that it is indeed the Euler’s scheme to solve the ODE $<span class="math notranslate nohighlight">\(\dot{\beta} = -\nabla L(\beta).\)</span>$</p>
 <p>By setting certain stopping criterion for GD, we think that we have approximated the optimized solution <span class="math notranslate nohighlight">\(\hat{\beta}\)</span>.</p>
