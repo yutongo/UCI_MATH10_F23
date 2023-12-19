@@ -2,4 +2,4 @@
 
 Here are some of the student projects from Fall 2023!
 
-* [Gender Inequality](Student Projects/KhanhLinhBui.ipynb) by Khanh Linh Bui
+* [Gender Inequality](https://yutongo.github.io/UCI_MATH10_F23/Course%20Project/Student%20Projects/KhanhLinhBui.html) by Khanh Linh Bui
