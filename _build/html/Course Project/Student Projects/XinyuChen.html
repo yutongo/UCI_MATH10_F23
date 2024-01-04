@@ -1,0 +1,3098 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Transcation Fraud Detection &#8212; UC Irvine Math 10, Fall 2023</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Course Project/Student Projects/XinyuChen';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Prediction of All-NBA Player using 22-23 NBA Player Stats Per Game + Advanced Stats" href="XiCheng.html" />
+    <link rel="prev" title="Predicting Success of MLB Teams" href="EricCao.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    UC Irvine, Math 10, Fall 2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week0/Week0_Intro.html">Week 0</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week0/Week_0_Friday.html">Week 0 Friday</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week1/Week1_Intro.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week1/Week_1_Monday.html">Week 1 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week1/Week_1_Wednesday.html">Week 1 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week1/Week_1_Friday.html">Week 1 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week2/Week2_Intro.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week2/Week_2_Monday.html">Week 2 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week2/Week_2_Wednesday.html">Week 2 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week2/Week_2_Friday.html">Week 2 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week3/Week3_Intro.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week3/Week_3_Monday.html">Week 3 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week3/Week_3_Wednesday.html">Week 3 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week3/Week_3_Friday.html">Week 3 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week4/Week4_Intro.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week4/Week_4_Monday.html">Week 4 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week4/Week_4_Wednesday.html">Week 4 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week4/Week_4_Friday.html">Week 4 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week5/Week5_Intro.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week5/Week_5_Wednesday.html">Week 5 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week5/Week_5_Friday.html">Week 5 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week6/Week6_Intro.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week6/Week_6_Monday.html">Week 6 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week6/Week_6_Wednesday.html">Week 6 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week7/Week7_Intro.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week7/Week_7_Monday.html">Week 7 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week7/Week_7_Wednesday.html">Week 7 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week7/Week_7_Thursday.html">Week 7 Thursday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week8/Week8_Intro.html">Week 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week8/Week_8_Monday.html">Week 8 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week8/Week_8_Wednesday.html">Week 8 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week9/Week9_Intro.html">Week 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week9/Week_9_Monday.html">Week 9 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week9/Week_9_Wednesday.html">Week 9 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project%20Instructions.html">Project Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Possible%20Extra%20Topics.html">Possible extra topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Student_Projects.html">Student Projects</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="KhanhLinhBui.html">Gender Inequality</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="EricCao.html">Predicting Success of MLB Teams</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Transcation Fraud Detection</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="XiCheng.html">Prediction of All-NBA Player using 22-23 NBA Player Stats Per Game + Advanced Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TimothyCho.html">Predicting Income Above a Threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HieuLeDang.html">Comparing NBA 3 Point Shots For Two Given Seasons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YanjunHe.html">🚗Sports Car Price Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AndrewHeider.html">Star Classification and Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YorickHerrmann.html">Predicting a Team’s March Madness finish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YidingHuang.html">Prediction of the class of the wine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JacquelineJia.html">Gender Basied From the Letters That Exist in Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KatieKim.html">Avocado Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="XidanLiao.html">Sleep Health and Lifestyle</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="WuYanNie.html">Animation Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CyrusPhan.html">Analyzing Top Rubik’s Cube Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TaimianQiao.html">Predicting the age of abalone through decision tree regression and random forest regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BoyuRen.html">Analyzing the Interplay Between Meteorological Factors and Urban Air Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YiqunSu.html">Bank Direct Marketing: Term Deposit Subscription Forecast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CourtneyRenaVasquez.html">Netflix Stock Price Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiyuWu.html">Predicting the Housing Price and House Type in London</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NanjieYao.html">Stock Prediction of APPL Inc. From Yahoo Finace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ShengqiYou.html">Email Segmentation Forecasting and Bank Subscriber Forecasting</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="MianfuZhong.html">The effects of every parts of a car to its acceleration</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="YongjunZhu.html">Analysis of Electric Car Data</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yutongo/UCI_MATH10_F23" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Course Project/Student Projects/XinyuChen.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Transcation Fraud Detection</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Transcation Fraud Detection</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">1. import data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-original-dataset-costs-long-time-to-process-you-may-switch-directly-to-the-second-dataset-to-run-the-cell-it-will-take-shorter-time-this-section-is-for-simplify-the-dataset-you-can-see-the-instruction-underneath-to-straightforwardly-run-the-second-csv-file"><strong>This original dataset costs long time to process, you may switch directly to the second dataset to run the cell, it will take shorter time, this section is for simplify the dataset. You can see the instruction underneath to straightforwardly run the second csv file.</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">2.EDA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-the-dataset-provides-too-much-time-to-process-it-s-also-fine-to-start-the-notebook-from-here"><strong>If the dataset provides too much time to process, it’s also fine to start the notebook from here.</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-and-feature-engineering">3.data cleaning and feature engineering</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-building">4.model building</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">Xgboost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">random forest</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">5.model evaluation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">XGBoost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Logistic regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">random forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="transcation-fraud-detection">
+<h1>Transcation Fraud Detection<a class="headerlink" href="#transcation-fraud-detection" title="Permalink to this heading">#</a></h1>
+<p>Author: Xinyu Chen</p>
+<p>Email: <a class="reference external" href="mailto:chenxinyupeter&#37;&#52;&#48;126&#46;com">chenxinyupeter<span>&#64;</span>126<span>&#46;</span>com</a></p>
+<p>Github: <a class="github reference external" href="https://github.com/cxy-peter/Math-10-project">cxy-peter/Math-10-project</a></p>
+<p>Course Project, UC Irvine, Math 10, F23</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p><strong>This project predicts the fraud detection using features. However, there also exists no-use features, so I have to find which dedicates most to the prediction. Also, it has results of 0 and 1, which presents to be a supervised learning and binary classification problem.</strong></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-data">
+<h1>1. import data<a class="headerlink" href="#import-data" title="Permalink to this heading">#</a></h1>
+<section id="this-original-dataset-costs-long-time-to-process-you-may-switch-directly-to-the-second-dataset-to-run-the-cell-it-will-take-shorter-time-this-section-is-for-simplify-the-dataset-you-can-see-the-instruction-underneath-to-straightforwardly-run-the-second-csv-file">
+<h2><strong>This original dataset costs long time to process, you may switch directly to the second dataset to run the cell, it will take shorter time, this section is for simplify the dataset. You can see the instruction underneath to straightforwardly run the second csv file.</strong><a class="headerlink" href="#this-original-dataset-costs-long-time-to-process-you-may-switch-directly-to-the-second-dataset-to-run-the-cell-it-will-take-shorter-time-this-section-is-for-simplify-the-dataset-you-can-see-the-instruction-underneath-to-straightforwardly-run-the-second-csv-file" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#It will take up to 20-25 sec to execute the csv.</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/work/PS_20174392719_1491204439457_log.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>step</th>
+      <th>type</th>
+      <th>amount</th>
+      <th>nameOrig</th>
+      <th>oldbalanceOrg</th>
+      <th>newbalanceOrig</th>
+      <th>nameDest</th>
+      <th>oldbalanceDest</th>
+      <th>newbalanceDest</th>
+      <th>isFraud</th>
+      <th>isFlaggedFraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>PAYMENT</td>
+      <td>9839.64</td>
+      <td>C1231006815</td>
+      <td>170136.0</td>
+      <td>160296.36</td>
+      <td>M1979787155</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>PAYMENT</td>
+      <td>1864.28</td>
+      <td>C1666544295</td>
+      <td>21249.0</td>
+      <td>19384.72</td>
+      <td>M2044282225</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>TRANSFER</td>
+      <td>181.00</td>
+      <td>C1305486145</td>
+      <td>181.0</td>
+      <td>0.00</td>
+      <td>C553264065</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>CASH_OUT</td>
+      <td>181.00</td>
+      <td>C840083671</td>
+      <td>181.0</td>
+      <td>0.00</td>
+      <td>C38997010</td>
+      <td>21182.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>PAYMENT</td>
+      <td>11668.14</td>
+      <td>C2048537720</td>
+      <td>41554.0</td>
+      <td>29885.86</td>
+      <td>M1230701703</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6362620, 11)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 6362620 entries, 0 to 6362619
+Data columns (total 11 columns):
+ #   Column          Dtype  
+---  ------          -----  
+ 0   step            int64  
+ 1   type            object 
+ 2   amount          float64
+ 3   nameOrig        object 
+ 4   oldbalanceOrg   float64
+ 5   newbalanceOrig  float64
+ 6   nameDest        object 
+ 7   oldbalanceDest  float64
+ 8   newbalanceDest  float64
+ 9   isFraud         int64  
+ 10  isFlaggedFraud  int64  
+dtypes: float64(5), int64(3), object(3)
+memory usage: 534.0+ MB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span><span class="n">category</span> <span class="o">=</span> <span class="ne">DeprecationWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of duplicate rows:&quot;</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of duplicate rows: 0
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>There is no duplicated rows.</strong></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="eda">
+<h1>2.EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h1>
+<p><strong>What does each variable means?</strong>
+<strong>step</strong><br />
+Transcation happens in a hour, no use<br />
+<strong>type</strong><br />
+transaction type, sentence the affliation of the fraud<br />
+<strong>amount</strong>
+amount of the transcation<br />
+<strong>nameOrig</strong>
+the account payer<br />
+<strong>oldbalanceOrg</strong>
+the payer’s amount before the transcation<br />
+<strong>newbalanceOrig</strong>
+the payer’s amount after the transcation<br />
+<strong>nameDest</strong>
+the payee’s name<br />
+<strong>oldbalanceDest</strong>
+the payee’s amount before the transcation<br />
+<strong>newbalanceDest</strong>
+the payee’s amount after the transcation<br />
+<strong>isFraud</strong>
+Whether the transcation is a fraud(0,1), so it’s a supervised learning question<br />
+<strong>isFlaggedFraud</strong>
+Whether a transfer amount&gt;200000, no big use now</p>
+<p><strong>We need to classify the fraud type because maybe not every type has the fraud record</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+<span class="n">grouped_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type
+CASH_OUT    4116
+TRANSFER    4097
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>We can see that only ‘cash_out’ and ‘transfer’ type has the fraud record, so we can focus on these two. Also, considering the record and the fraud amount, there aren’t many fraud happens. Therefore, the x should only be data that contains ‘transfer’ and ‘cash_out’.</strong></p>
+<p><strong>Therefore, we will only focus on data containing this two types. Also, since step only contains number 1, so we can drop it.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;TRANSFER&#39;</span><span class="p">,</span> <span class="s1">&#39;CASH_OUT&#39;</span><span class="p">])),:]</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;step&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">tmp</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">tmp</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;step&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tmp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;first_processing_data.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/shared-libs/python3.9/py/lib/python3.9/site-packages/pandas/core/frame.py:4308: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  return super().drop(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;type&#39;, &#39;amount&#39;, &#39;nameOrig&#39;, &#39;oldbalanceOrg&#39;, &#39;newbalanceOrig&#39;,
+       &#39;nameDest&#39;, &#39;oldbalanceDest&#39;, &#39;newbalanceDest&#39;, &#39;isFraud&#39;,
+       &#39;isFlaggedFraud&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmp</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2770409, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="if-the-dataset-provides-too-much-time-to-process-it-s-also-fine-to-start-the-notebook-from-here">
+<h2><strong>If the dataset provides too much time to process, it’s also fine to start the notebook from here.</strong><a class="headerlink" href="#if-the-dataset-provides-too-much-time-to-process-it-s-also-fine-to-start-the-notebook-from-here" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;first_processing_data.csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1">#This will greatly decreases the processing time.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2770409, 10)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;type&#39;, &#39;amount&#39;, &#39;nameOrig&#39;, &#39;oldbalanceOrg&#39;, &#39;newbalanceOrig&#39;,
+       &#39;nameDest&#39;, &#39;oldbalanceDest&#39;, &#39;newbalanceDest&#39;, &#39;isFraud&#39;,
+       &#39;isFlaggedFraud&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>amount</th>
+      <th>nameOrig</th>
+      <th>oldbalanceOrg</th>
+      <th>newbalanceOrig</th>
+      <th>nameDest</th>
+      <th>oldbalanceDest</th>
+      <th>newbalanceDest</th>
+      <th>isFraud</th>
+      <th>isFlaggedFraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2056112</th>
+      <td>CASH_OUT</td>
+      <td>84059.52</td>
+      <td>C1583877681</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>C1503134106</td>
+      <td>220619.67</td>
+      <td>304679.18</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>983956</th>
+      <td>CASH_OUT</td>
+      <td>40584.70</td>
+      <td>C1384648531</td>
+      <td>17215.0</td>
+      <td>0.0</td>
+      <td>C940141589</td>
+      <td>0.00</td>
+      <td>40584.70</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2359232</th>
+      <td>CASH_OUT</td>
+      <td>310984.43</td>
+      <td>C893666197</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>C1618024942</td>
+      <td>481055.93</td>
+      <td>792040.36</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>923004</th>
+      <td>CASH_OUT</td>
+      <td>26021.74</td>
+      <td>C192862021</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>C2043549610</td>
+      <td>1618256.14</td>
+      <td>1644277.88</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1286308</th>
+      <td>TRANSFER</td>
+      <td>1079362.35</td>
+      <td>C709778027</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>C446002180</td>
+      <td>2584452.81</td>
+      <td>4085189.07</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Firstly, we need to decide whether to drop the isFlaggedFraud, an easy way to determine is that it contains only the transfer type, as the variable definition says, is not enough to decide whether an transcation is fraud, because there remains cash_out type, but we can look closer to it.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isFlaggedFraud</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>amount</th>
+      <th>nameOrig</th>
+      <th>oldbalanceOrg</th>
+      <th>newbalanceOrig</th>
+      <th>nameDest</th>
+      <th>oldbalanceDest</th>
+      <th>newbalanceDest</th>
+      <th>isFraud</th>
+      <th>isFlaggedFraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1204984</th>
+      <td>TRANSFER</td>
+      <td>4953893.08</td>
+      <td>C728984460</td>
+      <td>4953893.08</td>
+      <td>4953893.08</td>
+      <td>C639921569</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1422214</th>
+      <td>TRANSFER</td>
+      <td>1343002.08</td>
+      <td>C1100582606</td>
+      <td>1343002.08</td>
+      <td>1343002.08</td>
+      <td>C1147517658</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1646619</th>
+      <td>TRANSFER</td>
+      <td>536624.41</td>
+      <td>C1035541766</td>
+      <td>536624.41</td>
+      <td>536624.41</td>
+      <td>C1100697970</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2428454</th>
+      <td>TRANSFER</td>
+      <td>4892193.09</td>
+      <td>C908544136</td>
+      <td>4892193.09</td>
+      <td>4892193.09</td>
+      <td>C891140444</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2619154</th>
+      <td>TRANSFER</td>
+      <td>10000000.00</td>
+      <td>C689608084</td>
+      <td>19585040.37</td>
+      <td>19585040.37</td>
+      <td>C1392803603</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2619156</th>
+      <td>TRANSFER</td>
+      <td>9585040.37</td>
+      <td>C452586515</td>
+      <td>19585040.37</td>
+      <td>19585040.37</td>
+      <td>C1109166882</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2688696</th>
+      <td>TRANSFER</td>
+      <td>3576297.10</td>
+      <td>C193696150</td>
+      <td>3576297.10</td>
+      <td>3576297.10</td>
+      <td>C484597480</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2703826</th>
+      <td>TRANSFER</td>
+      <td>353874.22</td>
+      <td>C1684585475</td>
+      <td>353874.22</td>
+      <td>353874.22</td>
+      <td>C1770418982</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2729568</th>
+      <td>TRANSFER</td>
+      <td>2542664.27</td>
+      <td>C786455622</td>
+      <td>2542664.27</td>
+      <td>2542664.27</td>
+      <td>C661958277</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2736011</th>
+      <td>TRANSFER</td>
+      <td>10000000.00</td>
+      <td>C19004745</td>
+      <td>10399045.08</td>
+      <td>10399045.08</td>
+      <td>C1806199534</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2736013</th>
+      <td>TRANSFER</td>
+      <td>399045.08</td>
+      <td>C724693370</td>
+      <td>10399045.08</td>
+      <td>10399045.08</td>
+      <td>C1909486199</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2741701</th>
+      <td>TRANSFER</td>
+      <td>3441041.46</td>
+      <td>C917414431</td>
+      <td>3441041.46</td>
+      <td>3441041.46</td>
+      <td>C1082139865</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2765218</th>
+      <td>TRANSFER</td>
+      <td>3171085.59</td>
+      <td>C1892216157</td>
+      <td>3171085.59</td>
+      <td>3171085.59</td>
+      <td>C1308068787</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2770249</th>
+      <td>TRANSFER</td>
+      <td>10000000.00</td>
+      <td>C2140038573</td>
+      <td>17316255.05</td>
+      <td>17316255.05</td>
+      <td>C1395467927</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2770251</th>
+      <td>TRANSFER</td>
+      <td>7316255.05</td>
+      <td>C1869569059</td>
+      <td>17316255.05</td>
+      <td>17316255.05</td>
+      <td>C1861208726</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2770373</th>
+      <td>TRANSFER</td>
+      <td>5674547.89</td>
+      <td>C992223106</td>
+      <td>5674547.89</td>
+      <td>5674547.89</td>
+      <td>C1366804249</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>We can also validate the variable by using the random forest to decide the importance of each variable.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="n">df_test1</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_test1</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;isFraud&#39;</span><span class="p">,</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="s1">&#39;nameOrig&#39;</span><span class="p">,</span><span class="s1">&#39;nameDest&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 特征列</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_test1</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span>  <span class="c1"># 目标列</span>
+
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">feature_importance_scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="p">):</span>
+    <span class="n">sample_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">X_sample</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sample_indices</span><span class="p">]</span>
+    <span class="n">y_sample</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sample_indices</span><span class="p">]</span>
+    
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_sample</span><span class="p">,</span> <span class="n">y_sample</span><span class="p">)</span>
+    
+    <span class="n">feature_importance_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)</span>
+
+<span class="n">average_feature_importance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">feature_importance_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">feature_importance_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">average_feature_importance</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">importance</span> <span class="ow">in</span> <span class="n">feature_importance_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feature: </span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">, Importance: </span><span class="si">{</span><span class="n">importance</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: amount, Importance: 0.1838
+Feature: oldbalanceOrg, Importance: 0.3878
+Feature: newbalanceOrig, Importance: 0.0454
+Feature: oldbalanceDest, Importance: 0.1527
+Feature: newbalanceDest, Importance: 0.2294
+Feature: isFlaggedFraud, Importance: 0.0008
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>We can see that ithas very low importance, so we’d better drop it.</strong></p>
+<p><strong>There is only 16 transcations this varible can know. If “isFlaggedFraud”=1, it’s definitly “isFraud”=1, but there remains fraud but the “isFlaggedFraud” doesn’t recognize. Therefore, the transcation doesn’t seem to have a good reflection of the label itself, so we’d better drop it.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="s1">&#39;TRANSFER&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span> <span class="o">&gt;=</span><span class="mi">2000000</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceOrg</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceOrig</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2000000</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceDest</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceDest</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">2000000</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>amount</th>
+      <th>nameOrig</th>
+      <th>oldbalanceOrg</th>
+      <th>newbalanceOrig</th>
+      <th>nameDest</th>
+      <th>oldbalanceDest</th>
+      <th>newbalanceDest</th>
+      <th>isFraud</th>
+      <th>isFlaggedFraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>TRANSFER</td>
+      <td>311685.89</td>
+      <td>C1984094095</td>
+      <td>10835.00</td>
+      <td>0.00</td>
+      <td>C932583850</td>
+      <td>6267.00</td>
+      <td>2719172.89</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>TRANSFER</td>
+      <td>125872.53</td>
+      <td>C1443967876</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>C392292416</td>
+      <td>348512.00</td>
+      <td>3420103.09</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>TRANSFER</td>
+      <td>379856.23</td>
+      <td>C1449772539</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>C1590550415</td>
+      <td>900180.00</td>
+      <td>19169204.93</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>TRANSFER</td>
+      <td>1505626.01</td>
+      <td>C926859124</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>C665576141</td>
+      <td>29031.00</td>
+      <td>5515763.34</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>TRANSFER</td>
+      <td>761507.39</td>
+      <td>C412788346</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>C1590550415</td>
+      <td>1280036.23</td>
+      <td>19169204.93</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2770369</th>
+      <td>TRANSFER</td>
+      <td>10000000.00</td>
+      <td>C88849251</td>
+      <td>25674547.89</td>
+      <td>15674547.89</td>
+      <td>C1939028448</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770371</th>
+      <td>TRANSFER</td>
+      <td>10000000.00</td>
+      <td>C1945606464</td>
+      <td>15674547.89</td>
+      <td>5674547.89</td>
+      <td>C625944676</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770373</th>
+      <td>TRANSFER</td>
+      <td>5674547.89</td>
+      <td>C992223106</td>
+      <td>5674547.89</td>
+      <td>5674547.89</td>
+      <td>C1366804249</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2770387</th>
+      <td>TRANSFER</td>
+      <td>4009058.39</td>
+      <td>C1044665079</td>
+      <td>4009058.39</td>
+      <td>0.00</td>
+      <td>C750074708</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770405</th>
+      <td>TRANSFER</td>
+      <td>6311409.28</td>
+      <td>C1529008245</td>
+      <td>6311409.28</td>
+      <td>0.00</td>
+      <td>C1881841831</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>47141 rows × 10 columns</p>
+</div></div></div>
+</div>
+<p><strong>The final decision whether to drop this variable is that it can’t filter all the transfer one that are &gt;2000000, so I really don’t know what’s this varible for, so I will drop it. Also, I’ve figured out we can’t see through whether a transcation is fraud by calculating the spread of the old balanceOrg and new balanceorig or by the payee side or the amount side to decide in this question, to certify my conclusion, I will write the code.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">isFraud</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="s1">&#39;TRANSFER&#39;</span><span class="p">)</span><span class="o">&amp;</span><span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceOrg</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceOrig</span><span class="p">))</span><span class="o">|</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceDest</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceDest</span><span class="p">))</span><span class="o">|</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceDest</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceDest</span><span class="p">)</span><span class="o">!=</span><span class="nb">abs</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceDest</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceDest</span><span class="p">))</span><span class="o">|</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceDest</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceDest</span><span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">newbalanceDest</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">oldbalanceDest</span><span class="o">!=</span><span class="mi">0</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>amount</th>
+      <th>nameOrig</th>
+      <th>oldbalanceOrg</th>
+      <th>newbalanceOrig</th>
+      <th>nameDest</th>
+      <th>oldbalanceDest</th>
+      <th>newbalanceDest</th>
+      <th>isFraud</th>
+      <th>isFlaggedFraud</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>TRANSFER</td>
+      <td>215310.30</td>
+      <td>C1670993182</td>
+      <td>705.00</td>
+      <td>0.00</td>
+      <td>C1100439041</td>
+      <td>22425.00</td>
+      <td>0.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TRANSFER</td>
+      <td>311685.89</td>
+      <td>C1984094095</td>
+      <td>10835.00</td>
+      <td>0.00</td>
+      <td>C932583850</td>
+      <td>6267.00</td>
+      <td>2719172.89</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>TRANSFER</td>
+      <td>62610.80</td>
+      <td>C1976401987</td>
+      <td>79114.00</td>
+      <td>16503.20</td>
+      <td>C1937962514</td>
+      <td>517.00</td>
+      <td>8383.29</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>TRANSFER</td>
+      <td>42712.39</td>
+      <td>C283039401</td>
+      <td>10363.39</td>
+      <td>0.00</td>
+      <td>C1330106945</td>
+      <td>57901.66</td>
+      <td>24044.18</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>TRANSFER</td>
+      <td>77957.68</td>
+      <td>C207471778</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>C1761291320</td>
+      <td>94900.00</td>
+      <td>22233.65</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2770096</th>
+      <td>TRANSFER</td>
+      <td>92746.73</td>
+      <td>C587921214</td>
+      <td>5051.00</td>
+      <td>0.00</td>
+      <td>C930436926</td>
+      <td>279931.86</td>
+      <td>372678.59</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770097</th>
+      <td>TRANSFER</td>
+      <td>76507.70</td>
+      <td>C1157171835</td>
+      <td>13161.00</td>
+      <td>0.00</td>
+      <td>C720176528</td>
+      <td>274281.30</td>
+      <td>350789.00</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770098</th>
+      <td>TRANSFER</td>
+      <td>14563.03</td>
+      <td>C936960472</td>
+      <td>20705.00</td>
+      <td>6141.97</td>
+      <td>C1924752944</td>
+      <td>153878.31</td>
+      <td>168441.35</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770102</th>
+      <td>TRANSFER</td>
+      <td>139144.25</td>
+      <td>C1264043726</td>
+      <td>7075.00</td>
+      <td>0.00</td>
+      <td>C2093369248</td>
+      <td>49040158.93</td>
+      <td>49179303.19</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2770112</th>
+      <td>TRANSFER</td>
+      <td>82096.45</td>
+      <td>C614459560</td>
+      <td>13492.00</td>
+      <td>0.00</td>
+      <td>C855350324</td>
+      <td>0.00</td>
+      <td>82096.45</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>524910 rows × 10 columns</p>
+</div></div></div>
+</div>
+<p><strong>We can’t simply treat it as a accounting problem, there usually exists other questions. Also, the condition of condition, old and new balanceorg can be treated as one feature by using +/-.</strong></p>
+<p><strong>So what about the name of payer and payee? It’s rather a good point as we may need to think about before dropping it not to treat it as a feature. We can classify the data using C and M.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;type2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">nameOrig</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">nameDest</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">),</span> <span class="s1">&#39;type2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CC&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">nameOrig</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">nameDest</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">),</span> <span class="s1">&#39;type2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;CM&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">nameOrig</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">nameDest</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">),</span> <span class="s1">&#39;type2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MC&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">nameOrig</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">nameDest</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">),</span> <span class="s1">&#39;type2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;MM&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;type2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CC    2770409
+Name: type2, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Tricky part is that all fraud are CC in transfer and check out fraction, so it’s better throw them.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">columns_to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type2&#39;</span><span class="p">,</span> <span class="s1">&#39;nameOrig&#39;</span><span class="p">,</span> <span class="s1">&#39;nameDest&#39;</span><span class="p">,</span> <span class="s1">&#39;isFlaggedFraud&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns_to_drop</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-cleaning-and-feature-engineering">
+<h1>3.data cleaning and feature engineering<a class="headerlink" href="#data-cleaning-and-feature-engineering" title="Permalink to this heading">#</a></h1>
+<p><strong>Firstly, we need to change some column names to achieve the standardize effect.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;oldbalanceOrg&#39;</span><span class="p">:</span> <span class="s1">&#39;from_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;newbalanceOrig&#39;</span><span class="p">:</span> <span class="s1">&#39;from_newb&#39;</span><span class="p">,</span><span class="s1">&#39;oldbalanceDest&#39;</span><span class="p">:</span> <span class="s1">&#39;to_oldb&#39;</span><span class="p">,</span><span class="s1">&#39;newbalanceDest&#39;</span><span class="p">:</span> <span class="s1">&#39;to_newb&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Also, since I’ve only contained cash_out and transfer type as the only two columns that isFraud=1, the df columns can be set as the dataset. isFraud column should be set as Y for upcoming machine learning dataset setting.</strong></p>
+<p><strong>Set the type of transcation into digital numbers for better classification.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="s1">&#39;TRANSFER&#39;</span><span class="p">,</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">==</span><span class="s1">&#39;CASH_OUT&#39;</span><span class="p">,</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Next, we need to deal with the missing values. I’ve discussed before on whether to retain the ‘isFlaggedFraud’ variable when I find that from and to account has amount balance but ‘amount’ column remains 0 but not be considered as a fraud, and that may be a missing value problem. Here are two situations: one is that amount&gt;0, but from_oldb=0 and from_newb=0, another situation is that amount&gt;0, but to_oldb and to_newb=0.Thereforem we should examine the fraud amount to decide what we should do about it.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">isFraud</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">from_oldb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">from_newb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="mi">0</span><span class="p">)])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0030439547059539756
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">isFraud</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">from_oldb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">from_newb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="mi">0</span><span class="p">)])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4737321319703598
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>It does have smaller probability that both are 0 is considered to be a fraud, therefore, we should set it still because it won’t influence much about the result of the fraud rate, we can treat it as nan to decrease the probability of wrongly treatment.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">isFraud</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_oldb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_newb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="mi">0</span><span class="p">)])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4955558261293072
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">isFraud</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_oldb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_newb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="mi">0</span><span class="p">)])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0006176245277308345
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>The non fraud rate of the second situation has a low rate, we can tell that if to_b=0, it is more likely to be a fraud transcation, so we’d better change the number from 0 to -1 for the better usuage of the upcoming machine learning method.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">to_oldb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_newb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="mi">0</span><span class="p">),[</span><span class="s1">&#39;to_oldb&#39;</span><span class="p">,</span><span class="s1">&#39;to_newb&#39;</span><span class="p">]]</span><span class="o">=-</span><span class="mi">1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">from_oldb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">from_newb</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">!=</span><span class="mi">0</span><span class="p">),[</span><span class="s1">&#39;from_oldb&#39;</span><span class="p">,</span><span class="s1">&#39;from_newb&#39;</span><span class="p">]]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>To simplify the dataset, we won’t discuss any rows containing nan because it may increase unecessary burden to the model fitting in the next part.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>From the above missing value disscussion we cen tell that to_b and from_b has close relationship with amount, so we should set these three into a new variable since they prove to be similar function, let alone they point out to decrease missing value influence after combining together.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;errorto_b&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">to_newb</span><span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">to_oldb</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;errorfrom_b&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">from_newb</span><span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">amount</span><span class="o">-</span><span class="n">df</span><span class="o">.</span><span class="n">from_oldb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;type&#39;, &#39;amount&#39;, &#39;from_oldb&#39;, &#39;from_newb&#39;, &#39;to_oldb&#39;, &#39;to_newb&#39;,
+       &#39;isFraud&#39;, &#39;errorto_b&#39;, &#39;errorfrom_b&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Before modeling, let’s evaluate again the feature importance.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="n">df_test</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;isFraud&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_test</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span>  
+
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="n">feature_importance_scores</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_samples</span><span class="p">):</span>
+    <span class="n">sample_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">X_sample</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sample_indices</span><span class="p">]</span>
+    <span class="n">y_sample</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">sample_indices</span><span class="p">]</span>
+    
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_sample</span><span class="p">,</span> <span class="n">y_sample</span><span class="p">)</span>
+    
+    <span class="n">feature_importance_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rfc</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)</span>
+
+<span class="n">average_feature_importance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">feature_importance_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">feature_importance_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">average_feature_importance</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">feature</span><span class="p">,</span> <span class="n">importance</span> <span class="ow">in</span> <span class="n">feature_importance_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Feature: </span><span class="si">{</span><span class="n">feature</span><span class="si">}</span><span class="s2">, Importance: </span><span class="si">{</span><span class="n">importance</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feature: type, Importance: 0.0518
+Feature: amount, Importance: 0.0886
+Feature: from_oldb, Importance: 0.1726
+Feature: from_newb, Importance: 0.1666
+Feature: to_oldb, Importance: 0.1731
+Feature: to_newb, Importance: 0.2022
+Feature: errorto_b, Importance: 0.0673
+Feature: errorfrom_b, Importance: 0.0777
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>We can also use the pearson correlation to watch the relation of each two variables.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="k">def</span> <span class="nf">correlation_heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">_</span> <span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">colormap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">diverging_palette</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">as_cmap</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">_</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> 
+        <span class="n">cmap</span> <span class="o">=</span> <span class="n">colormap</span><span class="p">,</span>
+        <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;shrink&#39;</span><span class="p">:</span><span class="mf">.9</span> <span class="p">},</span> 
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+        <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">linecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">annot_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fontsize&#39;</span><span class="p">:</span><span class="mi">12</span> <span class="p">}</span>
+    <span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pearson Correlation of Features&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.05</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">correlation_heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e4b07cecd6c04d21756b57e2b3fb86cc7320f10757550b7667abfb8f7354b9e8.png" src="../../_images/e4b07cecd6c04d21756b57e2b3fb86cc7320f10757550b7667abfb8f7354b9e8.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="model-building">
+<h1>4.model building<a class="headerlink" href="#model-building" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;isFraud&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isFraud&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="xgboost">
+<h2>Xgboost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h2>
+<p><strong>Xgboost is a machine learning tool to predict outcomes. Why I want to put it at the first place is that it can handle the missing values easily, and quicker than the random forest, and is often used in competition.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>For the best use of machine learning, I choose a range of learning rate to get the best prediction.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1">#X = pd.get_dummies(X)</span>
+<span class="n">X_train_xgb</span><span class="p">,</span><span class="n">X_test_xgb</span><span class="p">,</span><span class="n">y_train_xgb</span><span class="p">,</span><span class="n">y_test_xgb</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;from_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;from_newb&#39;</span><span class="p">,</span> <span class="s1">&#39;to_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;to_newb&#39;</span><span class="p">,</span> <span class="s1">&#39;errorto_b&#39;</span><span class="p">,</span> <span class="s1">&#39;errorfrom_b&#39;</span><span class="p">]],</span><span class="n">Y</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">answer</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;train_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;test_errors&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">xgbr</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">xgbr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_xgb</span><span class="p">,</span> <span class="n">y_train_xgb</span><span class="p">)</span>
+    <span class="n">train_error_xgb</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xgbr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_xgb</span><span class="p">,</span> <span class="n">y_train_xgb</span><span class="p">)</span>
+    <span class="n">test_error_xgb</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xgbr</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_xgb</span><span class="p">,</span> <span class="n">y_test_xgb</span><span class="p">)</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">answer</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+        <span class="s1">&#39;train_errors&#39;</span><span class="p">:</span> <span class="n">train_error_xgb</span><span class="p">,</span>
+        <span class="s1">&#39;test_errors&#39;</span><span class="p">:</span> <span class="n">test_error_xgb</span>
+    <span class="p">},</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">answer</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>i</th>
+      <th>train_errors</th>
+      <th>test_errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.05</td>
+      <td>0.000582</td>
+      <td>0.000534</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.06</td>
+      <td>0.000582</td>
+      <td>0.000534</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.07</td>
+      <td>0.000579</td>
+      <td>0.000530</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.08</td>
+      <td>0.000572</td>
+      <td>0.000537</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.09</td>
+      <td>0.000556</td>
+      <td>0.000527</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">answer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>i</th>
+      <th>train_errors</th>
+      <th>test_errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.05</td>
+      <td>0.000582</td>
+      <td>0.000534</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.06</td>
+      <td>0.000582</td>
+      <td>0.000534</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.07</td>
+      <td>0.000579</td>
+      <td>0.000530</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.08</td>
+      <td>0.000572</td>
+      <td>0.000537</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.09</td>
+      <td>0.000556</td>
+      <td>0.000527</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.10</td>
+      <td>0.000553</td>
+      <td>0.000516</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.11</td>
+      <td>0.000546</td>
+      <td>0.000520</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.12</td>
+      <td>0.000535</td>
+      <td>0.000510</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.13</td>
+      <td>0.000540</td>
+      <td>0.000510</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.14</td>
+      <td>0.000520</td>
+      <td>0.000510</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">c1</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;train_errors&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0005</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">answer</span><span class="p">[</span><span class="s1">&#39;train_errors&#39;</span><span class="p">])]))</span>
+<span class="p">)</span>
+
+
+<span class="n">c2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;test_errors&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">[</span><span class="mf">0.0005</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">answer</span><span class="p">[</span><span class="s1">&#39;test_errors&#39;</span><span class="p">])])),</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;i&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Train Error and Test Error Depending on Learning Rate&#39;</span>
+<span class="p">)</span>
+
+
+<span class="n">final_chart</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
+<span class="n">final_chart</span>
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-fc0beda1f9314be09ddb8601e78b5788"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-fc0beda1f9314be09ddb8601e78b5788") {
+      outputDiv = document.getElementById("altair-viz-fc0beda1f9314be09ddb8601e78b5788");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "i", "type": "quantitative"}, "y": {"field": "train_errors", "scale": {"domain": [0.0005, 0.0005823130740828519]}, "type": "quantitative"}}}, {"mark": {"type": "line", "color": "red"}, "encoding": {"tooltip": {"field": "i", "type": "quantitative"}, "x": {"field": "i", "type": "quantitative"}, "y": {"field": "test_errors", "scale": {"domain": [0.0005, 0.000536992636018141]}, "type": "quantitative"}}, "title": "Train Error and Test Error Depending on Learning Rate"}], "data": {"name": "data-05b2e2bfeb9829f1955b5adba17a86c7"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-05b2e2bfeb9829f1955b5adba17a86c7": [{"i": 0.05, "train_errors": 0.0005823130740828519, "test_errors": 0.0005335723007569015}, {"i": 0.060000000000000005, "train_errors": 0.0005823130740828519, "test_errors": 0.0005335723007569015}, {"i": 0.07, "train_errors": 0.0005788927329722915, "test_errors": 0.0005301519654956621}, {"i": 0.08000000000000002, "train_errors": 0.0005720520507510596, "test_errors": 0.000536992636018141}, {"i": 0.09000000000000001, "train_errors": 0.0005558054304756199, "test_errors": 0.0005267316302344227}, {"i": 0.1, "train_errors": 0.0005532401746426441, "test_errors": 0.0005164706244505934}, {"i": 0.11000000000000001, "train_errors": 0.0005455444071437165, "test_errors": 0.0005198909597118329}, {"i": 0.12000000000000001, "train_errors": 0.0005352833838118132, "test_errors": 0.0005096299539281146}, {"i": 0.13, "train_errors": 0.0005395588102001803, "test_errors": 0.0005096299539281146}, {"i": 0.14, "train_errors": 0.0005198918488140691, "test_errors": 0.0005096299539281146}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><strong>I will use i=0.1 as the learning rate since it’s the lowest rate except the end.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">xgbr</span> <span class="o">=</span> <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">(</span><span class="n">max_depth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">xgbr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_xgb</span><span class="p">,</span> <span class="n">y_train_xgb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.1, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=3, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=-1,
+              num_parallel_tree=None, random_state=42, ...)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">XGBClassifier</label><div class="sk-toggleable__content"><pre>XGBClassifier(base_score=None, booster=None, callbacks=None,
+              colsample_bylevel=None, colsample_bynode=None,
+              colsample_bytree=None, device=None, early_stopping_rounds=None,
+              enable_categorical=False, eval_metric=None, feature_types=None,
+              gamma=None, grow_policy=None, importance_type=None,
+              interaction_constraints=None, learning_rate=0.1, max_bin=None,
+              max_cat_threshold=None, max_cat_to_onehot=None,
+              max_delta_step=None, max_depth=3, max_leaves=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              multi_strategy=None, n_estimators=None, n_jobs=-1,
+              num_parallel_tree=None, random_state=42, ...)</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_xgbr</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">,</span><span class="s2">&quot;pred&quot;</span><span class="p">])</span>
+<span class="n">df_xgbr</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">y_test_xgb</span>
+<span class="n">df_xgbr</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">xgbr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_xgb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_xgbr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;isFraud&quot;</span><span class="p">:</span> <span class="n">df_xgbr</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">df_xgbr</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">y_pred_xgbr</span> <span class="o">=</span> <span class="n">xgbr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_xgb</span><span class="p">)</span>
+<span class="n">y_pred_proba_xgbr</span> <span class="o">=</span> <span class="n">xgbr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_xgb</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">error_xgbr</span><span class="o">=</span><span class="p">(</span><span class="n">df_xgbr</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">df_xgbr</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df_xgbr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">error_xgbr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9994835293755494
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Use confusion matrix to see the prediction failure.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_xgb</span><span class="p">,</span> <span class="n">y_pred_xgbr</span><span class="p">)</span>
+
+
+<span class="n">df_cm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+
+<span class="n">df_cm_long</span> <span class="o">=</span> <span class="n">df_cm</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_cm_long</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;index:N&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion Matrix&#39;</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-846ecc535bed4cc8b5dd5b83cceedcbb"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-846ecc535bed4cc8b5dd5b83cceedcbb") {
+      outputDiv = document.getElementById("altair-viz-846ecc535bed4cc8b5dd5b83cceedcbb");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-b7f45b68e4d4d672a81c2eabf5c2b655"}, "mark": {"type": "text", "size": 20}, "encoding": {"color": {"field": "value", "type": "quantitative"}, "text": {"field": "value", "type": "quantitative"}, "x": {"field": "variable", "type": "nominal"}, "y": {"field": "index", "type": "nominal"}}, "height": 300, "title": "Confusion Matrix", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-b7f45b68e4d4d672a81c2eabf5c2b655": [{"index": "0", "variable": "0", "value": 290679}, {"index": "1", "variable": "0", "value": 66}, {"index": "0", "variable": "1", "value": 85}, {"index": "1", "variable": "1", "value": 1539}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+<section id="logistic-regression">
+<h2>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Logistic Regression has no need to test the parameters, just use it to classify, so it may be has the worst prediction, we can later use methods to find out.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_log</span><span class="p">,</span><span class="n">X_test_log</span><span class="p">,</span><span class="n">y_train_log</span><span class="p">,</span><span class="n">y_test_log</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;from_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;from_newb&#39;</span><span class="p">,</span> <span class="s1">&#39;to_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;to_newb&#39;</span><span class="p">,</span> <span class="s1">&#39;errorto_b&#39;</span><span class="p">,</span> <span class="s1">&#39;errorfrom_b&#39;</span><span class="p">]],</span><span class="n">Y</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">log</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>
+<span class="n">log</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_log</span><span class="p">,</span> <span class="n">y_train_log</span><span class="p">)</span>
+<span class="n">df_log</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">,</span><span class="s2">&quot;pred&quot;</span><span class="p">])</span>
+<span class="n">df_log</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">y_test_log</span>
+<span class="n">df_log</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">log</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_log</span><span class="p">)</span>
+<span class="n">df_log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;isFraud&quot;</span><span class="p">:</span> <span class="n">df_log</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">df_log</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">y_pred_log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_log</span><span class="p">)</span>
+<span class="n">y_pred_proba_log</span> <span class="o">=</span> <span class="n">log</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_log</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">error_log</span><span class="o">=</span><span class="p">(</span><span class="n">df_log</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">df_log</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df_log</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">error_log</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.995488577790395
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">,</span> <span class="n">y_pred_log</span><span class="p">)</span> 
+
+
+<span class="n">df_cm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+
+<span class="n">df_cm_long</span> <span class="o">=</span> <span class="n">df_cm</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_cm_long</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;index:N&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion Matrix&#39;</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-8f1aa94a6c0f48e99172f0fcc1837fbb"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-8f1aa94a6c0f48e99172f0fcc1837fbb") {
+      outputDiv = document.getElementById("altair-viz-8f1aa94a6c0f48e99172f0fcc1837fbb");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-530a40f7ca2ae52f5d682f51b4a4a11c"}, "mark": {"type": "text", "size": 20}, "encoding": {"color": {"field": "value", "type": "quantitative"}, "text": {"field": "value", "type": "quantitative"}, "x": {"field": "variable", "type": "nominal"}, "y": {"field": "index", "type": "nominal"}}, "height": 300, "title": "Confusion Matrix", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-530a40f7ca2ae52f5d682f51b4a4a11c": [{"index": "0", "variable": "0", "value": 289869}, {"index": "1", "variable": "0", "value": 424}, {"index": "0", "variable": "1", "value": 895}, {"index": "1", "variable": "1", "value": 1181}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+<section id="random-forest">
+<h2>random forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Random forest takes much more time to estimate, we firstly set to find the best n_estimators, it may take about 5-10 min to complete.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_rfc</span><span class="p">,</span><span class="n">X_test_rfc</span><span class="p">,</span><span class="n">y_train_rfc</span><span class="p">,</span><span class="n">y_test_rfc</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;amount&#39;</span><span class="p">,</span> <span class="s1">&#39;from_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;from_newb&#39;</span><span class="p">,</span> <span class="s1">&#39;to_oldb&#39;</span><span class="p">,</span> <span class="s1">&#39;to_newb&#39;</span><span class="p">,</span> <span class="s1">&#39;errorto_b&#39;</span><span class="p">,</span> <span class="s1">&#39;errorfrom_b&#39;</span><span class="p">]],</span><span class="n">Y</span><span class="p">,</span><span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">answer_rf</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;train_errors&#39;</span><span class="p">,</span> <span class="s1">&#39;test_errors&#39;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_rfc</span><span class="p">,</span> <span class="n">y_train_rfc</span><span class="p">)</span>
+    <span class="n">train_error</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_rfc</span><span class="p">,</span> <span class="n">y_train_rfc</span><span class="p">)</span>
+    <span class="n">test_error</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_rfc</span><span class="p">,</span> <span class="n">y_test_rfc</span><span class="p">)</span>
+    <span class="n">answer_rf</span> <span class="o">=</span> <span class="n">answer_rf</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="n">i</span><span class="p">,</span>
+        <span class="s1">&#39;train_errors&#39;</span><span class="p">:</span> <span class="n">train_error</span><span class="p">,</span>
+        <span class="s1">&#39;test_errors&#39;</span><span class="p">:</span> <span class="n">test_error</span>
+    <span class="p">},</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">answer_rf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>i</th>
+      <th>train_errors</th>
+      <th>test_errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000010</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000017</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>14.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000014</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">answer_rf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>i</th>
+      <th>train_errors</th>
+      <th>test_errors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000017</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000010</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000010</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000010</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>14.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>15.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>16.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>17.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000010</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>18.0</td>
+      <td>8.550853e-07</td>
+      <td>0.000014</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>19.0</td>
+      <td>0.000000e+00</td>
+      <td>0.000017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">c3</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">answer_rf</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;train_errors&#39;</span>
+<span class="p">)</span>
+
+
+<span class="n">c4</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">answer_rf</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;test_errors&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;i&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Train Error and Test Error Depending on n_estimators&#39;</span>
+<span class="p">)</span>
+
+
+<span class="n">final_chart</span> <span class="o">=</span> <span class="n">c3</span> <span class="o">+</span> <span class="n">c4</span>
+<span class="n">final_chart</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-ed85531cf4034aa6b4e69f33acaa445e"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-ed85531cf4034aa6b4e69f33acaa445e") {
+      outputDiv = document.getElementById("altair-viz-ed85531cf4034aa6b4e69f33acaa445e");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": {"type": "line", "color": "black"}, "encoding": {"x": {"field": "i", "type": "quantitative"}, "y": {"field": "train_errors", "type": "quantitative"}}}, {"mark": {"type": "line", "color": "red"}, "encoding": {"tooltip": {"field": "i", "type": "quantitative"}, "x": {"field": "i", "type": "quantitative"}, "y": {"field": "test_errors", "type": "quantitative"}}, "title": "Train Error and Test Error Depending on n_estimators"}], "data": {"name": "data-739304e2b850860404a358f6f2ebe66f"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-739304e2b850860404a358f6f2ebe66f": [{"i": 10.0, "train_errors": 8.550852776956219e-07, "test_errors": 1.71016763063081e-05}, {"i": 11.0, "train_errors": 8.550852776956219e-07, "test_errors": 1.0261005783829269e-05}, {"i": 12.0, "train_errors": 0.0, "test_errors": 1.0261005783829269e-05}, {"i": 13.0, "train_errors": 0.0, "test_errors": 1.0261005783829269e-05}, {"i": 14.0, "train_errors": 8.550852776956219e-07, "test_errors": 1.3681341045068685e-05}, {"i": 15.0, "train_errors": 0.0, "test_errors": 1.3681341045068685e-05}, {"i": 16.0, "train_errors": 0.0, "test_errors": 1.3681341045068685e-05}, {"i": 17.0, "train_errors": 8.550852776956219e-07, "test_errors": 1.0261005783829269e-05}, {"i": 18.0, "train_errors": 8.550852776956219e-07, "test_errors": 1.3681341045068685e-05}, {"i": 19.0, "train_errors": 0.0, "test_errors": 1.71016763063081e-05}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><strong>I will choose n_estimators=15.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_rfc</span><span class="p">,</span> <span class="n">y_train_rfc</span><span class="p">)</span>
+<span class="n">df_rfc</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">,</span><span class="s2">&quot;pred&quot;</span><span class="p">])</span>
+<span class="n">df_rfc</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">y_test_rfc</span>
+<span class="n">df_rfc</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">]</span><span class="o">=</span><span class="n">rfc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_rfc</span><span class="p">)</span>
+<span class="n">df_rfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;isFraud&quot;</span><span class="p">:</span> <span class="n">df_rfc</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">df_rfc</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">y_pred_rfc</span> <span class="o">=</span> <span class="n">rfc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_rfc</span><span class="p">)</span>
+<span class="n">y_pred_proba_rfc</span> <span class="o">=</span> <span class="n">rfc</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_rfc</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">error_rfc</span><span class="o">=</span><span class="p">(</span><span class="n">df_rfc</span><span class="p">[</span><span class="s2">&quot;isFraud&quot;</span><span class="p">]</span><span class="o">==</span><span class="n">df_rfc</span><span class="p">[</span><span class="s2">&quot;pred&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">df_rfc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">error_rfc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9999897389942162
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test_rfc</span><span class="p">,</span> <span class="n">y_pred_rfc</span><span class="p">)</span>  
+
+
+<span class="n">df_cm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">])</span>
+
+<span class="n">df_cm_long</span> <span class="o">=</span> <span class="n">df_cm</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_cm_long</span><span class="p">)</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable:N&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;index:N&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s1">&#39;value:Q&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion Matrix&#39;</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-f50fcd19d4d74a219af0a3b60ec97876"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-f50fcd19d4d74a219af0a3b60ec97876") {
+      outputDiv = document.getElementById("altair-viz-f50fcd19d4d74a219af0a3b60ec97876");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-1ce8bbded36438778b960b5bebaa5e93"}, "mark": {"type": "text", "size": 20}, "encoding": {"color": {"field": "value", "type": "quantitative"}, "text": {"field": "value", "type": "quantitative"}, "x": {"field": "variable", "type": "nominal"}, "y": {"field": "index", "type": "nominal"}}, "height": 300, "title": "Confusion Matrix", "width": 300, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-1ce8bbded36438778b960b5bebaa5e93": [{"index": "0", "variable": "0", "value": 290764}, {"index": "1", "variable": "0", "value": 3}, {"index": "0", "variable": "1", "value": 0}, {"index": "1", "variable": "1", "value": 1602}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p><strong>We can roughly compare with each other about the prediction accuracy of three models, and other stuff will be disscussed in the next part.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="n">errors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Model&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Random Forest&#39;</span><span class="p">,</span> <span class="s1">&#39;Logistic&#39;</span><span class="p">,</span> <span class="s1">&#39;XGBoost&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Error Difference&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="o">-</span> <span class="n">error_rfc</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">error_log</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">error_xgbr</span><span class="p">]</span>  <span class="c1"># Differences from 1</span>
+<span class="p">})</span>
+
+<span class="c1"># Create a horizontal bar chart</span>
+<span class="n">bar_chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Model:N&#39;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Error Difference:Q&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;.6f&#39;</span><span class="p">)),</span>  
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Model:N&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Error Difference for Models&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Create text labels for the bars</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">bar_chart</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span>
+    <span class="n">align</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
+    <span class="n">baseline</span><span class="o">=</span><span class="s1">&#39;middle&#39;</span><span class="p">,</span>
+    <span class="n">dx</span><span class="o">=</span><span class="mi">3</span>  
+<span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s1">&#39;Error Difference:Q&#39;</span><span class="p">,</span> <span class="n">stack</span><span class="o">=</span><span class="s1">&#39;zero&#39;</span><span class="p">),</span> 
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s1">&#39;Model:N&#39;</span><span class="p">),</span>
+    <span class="n">text</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Error Difference:Q&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;.6f&#39;</span><span class="p">)</span>  
+<span class="p">)</span>
+
+<span class="n">chart_with_text</span> <span class="o">=</span> <span class="n">bar_chart</span> <span class="o">+</span> <span class="n">text</span>
+
+<span class="n">chart_with_text</span>
+
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-e0574be4204343bd8f03ca1c109d1d2e"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-e0574be4204343bd8f03ca1c109d1d2e") {
+      outputDiv = document.getElementById("altair-viz-e0574be4204343bd8f03ca1c109d1d2e");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "layer": [{"mark": "bar", "encoding": {"color": {"field": "Model", "type": "nominal"}, "x": {"axis": {"format": ".6f"}, "field": "Error Difference", "type": "quantitative"}, "y": {"field": "Model", "type": "nominal"}}, "title": "Error Difference for Models"}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3}, "encoding": {"color": {"field": "Model", "type": "nominal"}, "text": {"field": "Error Difference", "format": ".6f", "type": "quantitative"}, "x": {"field": "Error Difference", "stack": "zero", "type": "quantitative"}, "y": {"field": "Model", "type": "nominal"}}, "title": "Error Difference for Models"}], "data": {"name": "data-e312f1426091fbb628c7c7a07f8e1cd6"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-e312f1426091fbb628c7c7a07f8e1cd6": [{"Model": "Random Forest", "Error Difference": 1.0261005783829269e-05}, {"Model": "Logistic", "Error Difference": 0.004511422209604987}, {"Model": "XGBoost", "Error Difference": 0.0005164706244505934}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="model-evaluation">
+<h1>5.model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h1>
+<p><strong>We will use accuracy_score, precision_score, recall_score,F1 score and AUC-ROC to decide whether it’s a good model.</strong>
+<strong>accuracy_score</strong>: This measures the overall correctness of the model by calculating the ratio of correctly predicted instances (both true positives and true negatives) to the total number of instances. A higher accuracy is better, but this metric can be misleading if the class distribution is imbalanced.</p>
+<p><strong>precision_score</strong>: Precision assesses the model’s ability to correctly identify only relevant instances. It is the ratio of true positives (correct positive predictions) to the sum of true and false positives (all positive predictions). A higher precision score is better and means fewer false positive errors.</p>
+<p><strong>recall_score</strong>: Recall (or sensitivity) measures the model’s ability to detect all relevant instances. It is the ratio of true positives to the sum of true positives and false negatives (all actual positive instances). A higher recall score is better, indicating fewer false negative errors.</p>
+<p><strong>f1_score</strong>: The F1 score is a balanced measure that combines precision and recall. It is the harmonic mean of precision and recall, providing a single metric that accounts for both false positives and false negatives. A higher F1 score is better, indicating a balanced model in terms of precision and recall.</p>
+<p><strong>roc_auc_score</strong>: The ROC (Receiver Operating Characteristic) AUC (Area Under the Curve) score measures a model’s ability to distinguish between the classes. It is the probability that the model ranks a randomly chosen positive instance higher than a randomly chosen negative one. A higher AUC score is better, indicating a better distinction between positive and negative instances.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h2>XGBoost<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_xgb</span><span class="p">,</span> <span class="n">y_pred_xgbr</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_xgb</span><span class="p">,</span> <span class="n">y_pred_xgbr</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_xgb</span><span class="p">,</span> <span class="n">y_pred_xgbr</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_xgb</span><span class="p">,</span> <span class="n">y_pred_xgbr</span><span class="p">)</span>
+<span class="n">auc_roc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test_xgb</span><span class="p">,</span> <span class="n">y_pred_proba_xgbr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;precision:&quot;</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 Score:&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC-ROC:&quot;</span><span class="p">,</span> <span class="n">auc_roc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9994835293755494
+precision: 0.9476600985221675
+Recall: 0.9588785046728971
+F1 Score: 0.9532362960668938
+AUC-ROC: 0.998687124019304
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Logistic regression<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">,</span> <span class="n">y_pred_log</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">,</span> <span class="n">y_pred_log</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">,</span> <span class="n">y_pred_log</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">,</span> <span class="n">y_pred_log</span><span class="p">)</span>
+<span class="n">auc_roc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test_log</span><span class="p">,</span> <span class="n">y_pred_proba_log</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;precision:&quot;</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 Score:&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC-ROC:&quot;</span><span class="p">,</span> <span class="n">auc_roc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.995488577790395
+precision: 0.5688824662813102
+Recall: 0.7358255451713396
+F1 Score: 0.6416734582993753
+AUC-ROC: 0.9495115510706759
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>random forest<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_rfc</span><span class="p">,</span> <span class="n">y_pred_rfc</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_rfc</span><span class="p">,</span> <span class="n">y_pred_rfc</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_rfc</span><span class="p">,</span> <span class="n">y_pred_rfc</span><span class="p">)</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_rfc</span><span class="p">,</span> <span class="n">y_pred_rfc</span><span class="p">)</span>
+<span class="n">auc_roc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test_rfc</span><span class="p">,</span> <span class="n">y_pred_proba_rfc</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;precision:&quot;</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1 Score:&quot;</span><span class="p">,</span> <span class="n">f1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AUC-ROC:&quot;</span><span class="p">,</span> <span class="n">auc_roc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9999897389942162
+precision: 1.0
+Recall: 0.9981308411214953
+F1 Score: 0.9990645463049579
+AUC-ROC: 0.9990651055671961
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Random forest shows the best prediction of fraud detection, and nearly all evaluation methods show the good predicition, the Xgboost is in the second place, and it shows a higher process time compared with the random forest, but presents more prediction failure, the logistic regression shows the worst result.</strong></p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>Either summarize what you did, or summarize the results.  Maybe 3 sentences.</p>
+<p><strong>In this project, we select features to predict the fraud. Firstly, we use quantitative method to get the most-related variables and feasible dataset, and then use xgboost, logistic regression and random forest to predict the fraud and their effectiveness, and shows a good result on random forest. This project can give instructions for fraud detection.</strong></p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<p>Your code above should include references.  Here is some additional space for references.</p>
+<ul class="simple">
+<li><p>What is the source of your dataset(s)?</p></li>
+</ul>
+<p><a class="reference external" href="https://www.kaggle.com/datasets/ealaxi/paysim1">https://www.kaggle.com/datasets/ealaxi/paysim1</a></p>
+<ul class="simple">
+<li><p>List any other references that you found helpful.</p></li>
+</ul>
+<p>XGBoost: <a class="reference external" href="https://xgboost.readthedocs.io/en/stable/">https://xgboost.readthedocs.io/en/stable/</a>
+accuracy:<a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score">https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score</a>
+recall:<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score</a>
+F1:<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html</a>
+AUC-ROC:<a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score</a>
+confusion matrix:<a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix">https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Course Project/Student Projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="EricCao.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Predicting Success of MLB Teams</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="XiCheng.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Prediction of All-NBA Player using 22-23 NBA Player Stats Per Game + Advanced Stats</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Transcation Fraud Detection</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-data">1. import data</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-original-dataset-costs-long-time-to-process-you-may-switch-directly-to-the-second-dataset-to-run-the-cell-it-will-take-shorter-time-this-section-is-for-simplify-the-dataset-you-can-see-the-instruction-underneath-to-straightforwardly-run-the-second-csv-file"><strong>This original dataset costs long time to process, you may switch directly to the second dataset to run the cell, it will take shorter time, this section is for simplify the dataset. You can see the instruction underneath to straightforwardly run the second csv file.</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">2.EDA</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-the-dataset-provides-too-much-time-to-process-it-s-also-fine-to-start-the-notebook-from-here"><strong>If the dataset provides too much time to process, it’s also fine to start the notebook from here.</strong></a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-and-feature-engineering">3.data cleaning and feature engineering</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-building">4.model building</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">Xgboost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">random forest</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">5.model evaluation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">XGBoost</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Logistic regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">random forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yutong Sha
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

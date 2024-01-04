@@ -1,0 +1,1490 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Prediction of the class of the wine &#8212; UC Irvine Math 10, Fall 2023</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Course Project/Student Projects/YidingHuang';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Gender Basied From the Letters That Exist in Name" href="JacquelineJia.html" />
+    <link rel="prev" title="Predicting a Team’s March Madness finish" href="YorickHerrmann.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    UC Irvine, Math 10, Fall 2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week0/Week0_Intro.html">Week 0</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week0/Week_0_Friday.html">Week 0 Friday</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week1/Week1_Intro.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week1/Week_1_Monday.html">Week 1 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week1/Week_1_Wednesday.html">Week 1 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week1/Week_1_Friday.html">Week 1 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week2/Week2_Intro.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week2/Week_2_Monday.html">Week 2 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week2/Week_2_Wednesday.html">Week 2 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week2/Week_2_Friday.html">Week 2 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week3/Week3_Intro.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week3/Week_3_Monday.html">Week 3 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week3/Week_3_Wednesday.html">Week 3 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week3/Week_3_Friday.html">Week 3 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week4/Week4_Intro.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week4/Week_4_Monday.html">Week 4 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week4/Week_4_Wednesday.html">Week 4 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week4/Week_4_Friday.html">Week 4 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week5/Week5_Intro.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week5/Week_5_Wednesday.html">Week 5 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week5/Week_5_Friday.html">Week 5 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week6/Week6_Intro.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week6/Week_6_Monday.html">Week 6 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week6/Week_6_Wednesday.html">Week 6 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week7/Week7_Intro.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week7/Week_7_Monday.html">Week 7 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week7/Week_7_Wednesday.html">Week 7 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week7/Week_7_Thursday.html">Week 7 Thursday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week8/Week8_Intro.html">Week 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week8/Week_8_Monday.html">Week 8 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week8/Week_8_Wednesday.html">Week 8 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../Week9/Week9_Intro.html">Week 9</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Week9/Week_9_Monday.html">Week 9 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Week9/Week_9_Wednesday.html">Week 9 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Project%20Instructions.html">Project Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Possible%20Extra%20Topics.html">Possible extra topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Student_Projects.html">Student Projects</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="KhanhLinhBui.html">Gender Inequality</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="EricCao.html">Predicting Success of MLB Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="XinyuChen.html">Transcation Fraud Detection</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="XiCheng.html">Prediction of All-NBA Player using 22-23 NBA Player Stats Per Game + Advanced Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TimothyCho.html">Predicting Income Above a Threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HieuLeDang.html">Comparing NBA 3 Point Shots For Two Given Seasons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YanjunHe.html">🚗Sports Car Price Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AndrewHeider.html">Star Classification and Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YorickHerrmann.html">Predicting a Team’s March Madness finish</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Prediction of the class of the wine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JacquelineJia.html">Gender Basied From the Letters That Exist in Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KatieKim.html">Avocado Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="XidanLiao.html">Sleep Health and Lifestyle</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="WuYanNie.html">Animation Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CyrusPhan.html">Analyzing Top Rubik’s Cube Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TaimianQiao.html">Predicting the age of abalone through decision tree regression and random forest regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BoyuRen.html">Analyzing the Interplay Between Meteorological Factors and Urban Air Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="YiqunSu.html">Bank Direct Marketing: Term Deposit Subscription Forecast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CourtneyRenaVasquez.html">Netflix Stock Price Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiyuWu.html">Predicting the Housing Price and House Type in London</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NanjieYao.html">Stock Prediction of APPL Inc. From Yahoo Finace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ShengqiYou.html">Email Segmentation Forecasting and Bank Subscriber Forecasting</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="MianfuZhong.html">The effects of every parts of a car to its acceleration</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="YongjunZhu.html">Analysis of Electric Car Data</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yutongo/UCI_MATH10_F23" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/Course Project/Student Projects/YidingHuang.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Prediction of the class of the wine</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#losgistic-regression">Losgistic Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-for-linear-regression-model">Conclusion for Linear Regression model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#princiiple-component-analysis-pca-and-t-distributed-stochastic-neighbor-embedding-tsne">Princiiple Component Analysis(PCA) and t-distributed stochastic neighbor embedding (tSNE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="prediction-of-the-class-of-the-wine">
+<h1>Prediction of the class of the wine<a class="headerlink" href="#prediction-of-the-class-of-the-wine" title="Permalink to this heading">#</a></h1>
+<p>Author: Yiding Huang</p>
+<p>Course Project, UC Irvine, Math 10, F23</p>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>This project mainly explores the performance of different models on the wine dataset from sklearn. It also explores the pattern of the data using PCA and tSNE. The goal is to use the 5 features in the wine dataset to predict the class of each samples.</p>
+</section>
+<section id="feature-engineering">
+<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this heading">#</a></h2>
+<p>Firstly, I am going to load the dataset from sklearn.dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">wine_dataset</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">()</span>
+<span class="n">wine_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;data&#39;: array([[1.423e+01, 1.710e+00, 2.430e+00, ..., 1.040e+00, 3.920e+00,
+         1.065e+03],
+        [1.320e+01, 1.780e+00, 2.140e+00, ..., 1.050e+00, 3.400e+00,
+         1.050e+03],
+        [1.316e+01, 2.360e+00, 2.670e+00, ..., 1.030e+00, 3.170e+00,
+         1.185e+03],
+        ...,
+        [1.327e+01, 4.280e+00, 2.260e+00, ..., 5.900e-01, 1.560e+00,
+         8.350e+02],
+        [1.317e+01, 2.590e+00, 2.370e+00, ..., 6.000e-01, 1.620e+00,
+         8.400e+02],
+        [1.413e+01, 4.100e+00, 2.740e+00, ..., 6.100e-01, 1.600e+00,
+         5.600e+02]]),
+ &#39;target&#39;: array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+        2, 2]),
+ &#39;frame&#39;: None,
+ &#39;target_names&#39;: array([&#39;class_0&#39;, &#39;class_1&#39;, &#39;class_2&#39;], dtype=&#39;&lt;U7&#39;),
+ &#39;DESCR&#39;: &#39;.. _wine_dataset:\n\nWine recognition dataset\n------------------------\n\n**Data Set Characteristics:**\n\n    :Number of Instances: 178\n    :Number of Attributes: 13 numeric, predictive attributes and the class\n    :Attribute Information:\n \t\t- Alcohol\n \t\t- Malic acid\n \t\t- Ash\n\t\t- Alcalinity of ash  \n \t\t- Magnesium\n\t\t- Total phenols\n \t\t- Flavanoids\n \t\t- Nonflavanoid phenols\n \t\t- Proanthocyanins\n\t\t- Color intensity\n \t\t- Hue\n \t\t- OD280/OD315 of diluted wines\n \t\t- Proline\n\n    - class:\n            - class_0\n            - class_1\n            - class_2\n\t\t\n    :Summary Statistics:\n    \n    ============================= ==== ===== ======= =====\n                                   Min   Max   Mean     SD\n    ============================= ==== ===== ======= =====\n    Alcohol:                      11.0  14.8    13.0   0.8\n    Malic Acid:                   0.74  5.80    2.34  1.12\n    Ash:                          1.36  3.23    2.36  0.27\n    Alcalinity of Ash:            10.6  30.0    19.5   3.3\n    Magnesium:                    70.0 162.0    99.7  14.3\n    Total Phenols:                0.98  3.88    2.29  0.63\n    Flavanoids:                   0.34  5.08    2.03  1.00\n    Nonflavanoid Phenols:         0.13  0.66    0.36  0.12\n    Proanthocyanins:              0.41  3.58    1.59  0.57\n    Colour Intensity:              1.3  13.0     5.1   2.3\n    Hue:                          0.48  1.71    0.96  0.23\n    OD280/OD315 of diluted wines: 1.27  4.00    2.61  0.71\n    Proline:                       278  1680     746   315\n    ============================= ==== ===== ======= =====\n\n    :Missing Attribute Values: None\n    :Class Distribution: class_0 (59), class_1 (71), class_2 (48)\n    :Creator: R.A. Fisher\n    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)\n    :Date: July, 1988\n\nThis is a copy of UCI ML Wine recognition datasets.\nhttps://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data\n\nThe data is the results of a chemical analysis of wines grown in the same\nregion in Italy by three different cultivators. There are thirteen different\nmeasurements taken for different constituents found in the three types of\nwine.\n\nOriginal Owners: \n\nForina, M. et al, PARVUS - \nAn Extendible Package for Data Exploration, Classification and Correlation. \nInstitute of Pharmaceutical and Food Analysis and Technologies,\nVia Brigata Salerno, 16147 Genoa, Italy.\n\nCitation:\n\nLichman, M. (2013). UCI Machine Learning Repository\n[https://archive.ics.uci.edu/ml]. Irvine, CA: University of California,\nSchool of Information and Computer Science. \n\n.. topic:: References\n\n  (1) S. Aeberhard, D. Coomans and O. de Vel, \n  Comparison of Classifiers in High Dimensional Settings, \n  Tech. Rep. no. 92-02, (1992), Dept. of Computer Science and Dept. of  \n  Mathematics and Statistics, James Cook University of North Queensland. \n  (Also submitted to Technometrics). \n\n  The data was used with many others for comparing various \n  classifiers. The classes are separable, though only RDA \n  has achieved 100% correct classification. \n  (RDA : 100%, QDA 99.4%, LDA 98.9%, 1NN 96.1% (z-transformed data)) \n  (All results using the leave-one-out technique) \n\n  (2) S. Aeberhard, D. Coomans and O. de Vel, \n  &quot;THE CLASSIFICATION PERFORMANCE OF RDA&quot; \n  Tech. Rep. no. 92-01, (1992), Dept. of Computer Science and Dept. of \n  Mathematics and Statistics, James Cook University of North Queensland. \n  (Also submitted to Journal of Chemometrics).\n&#39;,
+ &#39;feature_names&#39;: [&#39;alcohol&#39;,
+  &#39;malic_acid&#39;,
+  &#39;ash&#39;,
+  &#39;alcalinity_of_ash&#39;,
+  &#39;magnesium&#39;,
+  &#39;total_phenols&#39;,
+  &#39;flavanoids&#39;,
+  &#39;nonflavanoid_phenols&#39;,
+  &#39;proanthocyanins&#39;,
+  &#39;color_intensity&#39;,
+  &#39;hue&#39;,
+  &#39;od280/od315_of_diluted_wines&#39;,
+  &#39;proline&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that now the dataset is hard to read. Let’s transform the data into a pandas dataframe. To access the data and the name for each column, we can use data and feature_names attributes. Since the type of this wine_dataset is not in the range of Math 10, I found these two attribute with the help of Chatgpt.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">wine_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sklearn.utils._bunch.Bunch
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">wine_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">wine_dataset</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>alcohol</th>
+      <th>malic_acid</th>
+      <th>ash</th>
+      <th>alcalinity_of_ash</th>
+      <th>magnesium</th>
+      <th>total_phenols</th>
+      <th>flavanoids</th>
+      <th>nonflavanoid_phenols</th>
+      <th>proanthocyanins</th>
+      <th>color_intensity</th>
+      <th>hue</th>
+      <th>od280/od315_of_diluted_wines</th>
+      <th>proline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127.0</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100.0</td>
+      <td>2.65</td>
+      <td>2.76</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101.0</td>
+      <td>2.80</td>
+      <td>3.24</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113.0</td>
+      <td>3.85</td>
+      <td>3.49</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.87</td>
+      <td>21.0</td>
+      <td>118.0</td>
+      <td>2.80</td>
+      <td>2.69</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>13.71</td>
+      <td>5.65</td>
+      <td>2.45</td>
+      <td>20.5</td>
+      <td>95.0</td>
+      <td>1.68</td>
+      <td>0.61</td>
+      <td>0.52</td>
+      <td>1.06</td>
+      <td>7.70</td>
+      <td>0.64</td>
+      <td>1.74</td>
+      <td>740.0</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>13.40</td>
+      <td>3.91</td>
+      <td>2.48</td>
+      <td>23.0</td>
+      <td>102.0</td>
+      <td>1.80</td>
+      <td>0.75</td>
+      <td>0.43</td>
+      <td>1.41</td>
+      <td>7.30</td>
+      <td>0.70</td>
+      <td>1.56</td>
+      <td>750.0</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>13.27</td>
+      <td>4.28</td>
+      <td>2.26</td>
+      <td>20.0</td>
+      <td>120.0</td>
+      <td>1.59</td>
+      <td>0.69</td>
+      <td>0.43</td>
+      <td>1.35</td>
+      <td>10.20</td>
+      <td>0.59</td>
+      <td>1.56</td>
+      <td>835.0</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>13.17</td>
+      <td>2.59</td>
+      <td>2.37</td>
+      <td>20.0</td>
+      <td>120.0</td>
+      <td>1.65</td>
+      <td>0.68</td>
+      <td>0.53</td>
+      <td>1.46</td>
+      <td>9.30</td>
+      <td>0.60</td>
+      <td>1.62</td>
+      <td>840.0</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>14.13</td>
+      <td>4.10</td>
+      <td>2.74</td>
+      <td>24.5</td>
+      <td>96.0</td>
+      <td>2.05</td>
+      <td>0.76</td>
+      <td>0.56</td>
+      <td>1.35</td>
+      <td>9.20</td>
+      <td>0.61</td>
+      <td>1.60</td>
+      <td>560.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>178 rows × 13 columns</p>
+</div></div></div>
+</div>
+<p>There are 13 features and 178 samples. However, the class of the wine for each sample is not shown in the dataframe. Let’s add the new column named class in the dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">wine_dataset</span><span class="o">.</span><span class="n">target</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      0
+1      0
+2      0
+3      0
+4      0
+      ..
+173    2
+174    2
+175    2
+176    2
+177    2
+Name: class, Length: 178, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are three classes in this dataset which are 0, 1, and 2. let’s check the type of data for each column and make sure there is no missing values in any rows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(178, 14)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>alcohol                         float64
+malic_acid                      float64
+ash                             float64
+alcalinity_of_ash               float64
+magnesium                       float64
+total_phenols                   float64
+flavanoids                      float64
+nonflavanoid_phenols            float64
+proanthocyanins                 float64
+color_intensity                 float64
+hue                             float64
+od280/od315_of_diluted_wines    float64
+proline                         float64
+class                             int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will be only exploring the first 5 features among the 13 features, so let’s save these column names here to save the redundant code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;alcohol&#39;, &#39;malic_acid&#39;, &#39;ash&#39;, &#39;alcalinity_of_ash&#39;, &#39;magnesium&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="losgistic-regression">
+<h2>Losgistic Regression<a class="headerlink" href="#losgistic-regression" title="Permalink to this heading">#</a></h2>
+<p>Even though the type of the class column is int, but it is actuallly a classification problem. Therefore, let’s imply Losgistic Regression to predict the class for each sample based on the 5 parameters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use train_test_split to get the train set and test set for our model, so later on we can use test set to check the accuracy of our model. I set max_iter to 5000 to avoid the max iteration error</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">5000</span><span class="p">)</span>
+<span class="n">reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=5000)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=5000)</pre></div></div></div></div></div></div></div>
+</div>
+<p>Then we check the accuracy of the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8661971830985915
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8888888888888888
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.54585303e+00, -1.06491444e-01,  2.06049833e+00,
+        -4.56947436e-01,  2.10866426e-02],
+       [-1.83081135e+00, -4.85981649e-01, -1.67076083e+00,
+         2.66545555e-01, -2.00940638e-02],
+       [ 2.84958317e-01,  5.92473093e-01, -3.89737501e-01,
+         1.90401881e-01, -9.92578768e-04]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">classes_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 1, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reg</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-18.35259791,  25.87706018,  -7.52446227])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s visualize the data for the first two columns</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;predict&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">])</span>
+<span class="n">c</span><span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;alcohol&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;malic_acid&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;class:N&quot;</span>
+<span class="p">)</span>
+
+<span class="n">c2</span><span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;alcohol&quot;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;malic_acid&quot;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;predict:N&quot;</span>
+<span class="p">)</span>
+<span class="n">c</span><span class="o">|</span><span class="n">c2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-2131f1eeae7c41138f6c9b096ce67706"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-2131f1eeae7c41138f6c9b096ce67706") {
+      outputDiv = document.getElementById("altair-viz-2131f1eeae7c41138f6c9b096ce67706");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": "circle", "encoding": {"color": {"field": "class", "type": "nominal"}, "x": {"field": "alcohol", "type": "quantitative"}, "y": {"field": "malic_acid", "type": "quantitative"}}}, {"mark": "circle", "encoding": {"color": {"field": "predict", "type": "nominal"}, "x": {"field": "alcohol", "type": "quantitative"}, "y": {"field": "malic_acid", "type": "quantitative"}}}], "data": {"name": "data-3883c15eb8c0c97d746de5d4f5d1bf65"}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-3883c15eb8c0c97d746de5d4f5d1bf65": [{"alcohol": 14.23, "malic_acid": 1.71, "ash": 2.43, "alcalinity_of_ash": 15.6, "magnesium": 127.0, "total_phenols": 2.8, "flavanoids": 3.06, "nonflavanoid_phenols": 0.28, "proanthocyanins": 2.29, "color_intensity": 5.64, "hue": 1.04, "od280/od315_of_diluted_wines": 3.92, "proline": 1065.0, "class": 0, "predict": 0}, {"alcohol": 13.2, "malic_acid": 1.78, "ash": 2.14, "alcalinity_of_ash": 11.2, "magnesium": 100.0, "total_phenols": 2.65, "flavanoids": 2.76, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.28, "color_intensity": 4.38, "hue": 1.05, "od280/od315_of_diluted_wines": 3.4, "proline": 1050.0, "class": 0, "predict": 0}, {"alcohol": 13.16, "malic_acid": 2.36, "ash": 2.67, "alcalinity_of_ash": 18.6, "magnesium": 101.0, "total_phenols": 2.8, "flavanoids": 3.24, "nonflavanoid_phenols": 0.3, "proanthocyanins": 2.81, "color_intensity": 5.68, "hue": 1.03, "od280/od315_of_diluted_wines": 3.17, "proline": 1185.0, "class": 0, "predict": 0}, {"alcohol": 14.37, "malic_acid": 1.95, "ash": 2.5, "alcalinity_of_ash": 16.8, "magnesium": 113.0, "total_phenols": 3.85, "flavanoids": 3.49, "nonflavanoid_phenols": 0.24, "proanthocyanins": 2.18, "color_intensity": 7.8, "hue": 0.86, "od280/od315_of_diluted_wines": 3.45, "proline": 1480.0, "class": 0, "predict": 0}, {"alcohol": 13.24, "malic_acid": 2.59, "ash": 2.87, "alcalinity_of_ash": 21.0, "magnesium": 118.0, "total_phenols": 2.8, "flavanoids": 2.69, "nonflavanoid_phenols": 0.39, "proanthocyanins": 1.82, "color_intensity": 4.32, "hue": 1.04, "od280/od315_of_diluted_wines": 2.93, "proline": 735.0, "class": 0, "predict": 0}, {"alcohol": 14.2, "malic_acid": 1.76, "ash": 2.45, "alcalinity_of_ash": 15.2, "magnesium": 112.0, "total_phenols": 3.27, "flavanoids": 3.39, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.97, "color_intensity": 6.75, "hue": 1.05, "od280/od315_of_diluted_wines": 2.85, "proline": 1450.0, "class": 0, "predict": 0}, {"alcohol": 14.39, "malic_acid": 1.87, "ash": 2.45, "alcalinity_of_ash": 14.6, "magnesium": 96.0, "total_phenols": 2.5, "flavanoids": 2.52, "nonflavanoid_phenols": 0.3, "proanthocyanins": 1.98, "color_intensity": 5.25, "hue": 1.02, "od280/od315_of_diluted_wines": 3.58, "proline": 1290.0, "class": 0, "predict": 0}, {"alcohol": 14.06, "malic_acid": 2.15, "ash": 2.61, "alcalinity_of_ash": 17.6, "magnesium": 121.0, "total_phenols": 2.6, "flavanoids": 2.51, "nonflavanoid_phenols": 0.31, "proanthocyanins": 1.25, "color_intensity": 5.05, "hue": 1.06, "od280/od315_of_diluted_wines": 3.58, "proline": 1295.0, "class": 0, "predict": 0}, {"alcohol": 14.83, "malic_acid": 1.64, "ash": 2.17, "alcalinity_of_ash": 14.0, "magnesium": 97.0, "total_phenols": 2.8, "flavanoids": 2.98, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.98, "color_intensity": 5.2, "hue": 1.08, "od280/od315_of_diluted_wines": 2.85, "proline": 1045.0, "class": 0, "predict": 0}, {"alcohol": 13.86, "malic_acid": 1.35, "ash": 2.27, "alcalinity_of_ash": 16.0, "magnesium": 98.0, "total_phenols": 2.98, "flavanoids": 3.15, "nonflavanoid_phenols": 0.22, "proanthocyanins": 1.85, "color_intensity": 7.22, "hue": 1.01, "od280/od315_of_diluted_wines": 3.55, "proline": 1045.0, "class": 0, "predict": 0}, {"alcohol": 14.1, "malic_acid": 2.16, "ash": 2.3, "alcalinity_of_ash": 18.0, "magnesium": 105.0, "total_phenols": 2.95, "flavanoids": 3.32, "nonflavanoid_phenols": 0.22, "proanthocyanins": 2.38, "color_intensity": 5.75, "hue": 1.25, "od280/od315_of_diluted_wines": 3.17, "proline": 1510.0, "class": 0, "predict": 0}, {"alcohol": 14.12, "malic_acid": 1.48, "ash": 2.32, "alcalinity_of_ash": 16.8, "magnesium": 95.0, "total_phenols": 2.2, "flavanoids": 2.43, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.57, "color_intensity": 5.0, "hue": 1.17, "od280/od315_of_diluted_wines": 2.82, "proline": 1280.0, "class": 0, "predict": 0}, {"alcohol": 13.75, "malic_acid": 1.73, "ash": 2.41, "alcalinity_of_ash": 16.0, "magnesium": 89.0, "total_phenols": 2.6, "flavanoids": 2.76, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.81, "color_intensity": 5.6, "hue": 1.15, "od280/od315_of_diluted_wines": 2.9, "proline": 1320.0, "class": 0, "predict": 0}, {"alcohol": 14.75, "malic_acid": 1.73, "ash": 2.39, "alcalinity_of_ash": 11.4, "magnesium": 91.0, "total_phenols": 3.1, "flavanoids": 3.69, "nonflavanoid_phenols": 0.43, "proanthocyanins": 2.81, "color_intensity": 5.4, "hue": 1.25, "od280/od315_of_diluted_wines": 2.73, "proline": 1150.0, "class": 0, "predict": 0}, {"alcohol": 14.38, "malic_acid": 1.87, "ash": 2.38, "alcalinity_of_ash": 12.0, "magnesium": 102.0, "total_phenols": 3.3, "flavanoids": 3.64, "nonflavanoid_phenols": 0.29, "proanthocyanins": 2.96, "color_intensity": 7.5, "hue": 1.2, "od280/od315_of_diluted_wines": 3.0, "proline": 1547.0, "class": 0, "predict": 0}, {"alcohol": 13.63, "malic_acid": 1.81, "ash": 2.7, "alcalinity_of_ash": 17.2, "magnesium": 112.0, "total_phenols": 2.85, "flavanoids": 2.91, "nonflavanoid_phenols": 0.3, "proanthocyanins": 1.46, "color_intensity": 7.3, "hue": 1.28, "od280/od315_of_diluted_wines": 2.88, "proline": 1310.0, "class": 0, "predict": 0}, {"alcohol": 14.3, "malic_acid": 1.92, "ash": 2.72, "alcalinity_of_ash": 20.0, "magnesium": 120.0, "total_phenols": 2.8, "flavanoids": 3.14, "nonflavanoid_phenols": 0.33, "proanthocyanins": 1.97, "color_intensity": 6.2, "hue": 1.07, "od280/od315_of_diluted_wines": 2.65, "proline": 1280.0, "class": 0, "predict": 0}, {"alcohol": 13.83, "malic_acid": 1.57, "ash": 2.62, "alcalinity_of_ash": 20.0, "magnesium": 115.0, "total_phenols": 2.95, "flavanoids": 3.4, "nonflavanoid_phenols": 0.4, "proanthocyanins": 1.72, "color_intensity": 6.6, "hue": 1.13, "od280/od315_of_diluted_wines": 2.57, "proline": 1130.0, "class": 0, "predict": 0}, {"alcohol": 14.19, "malic_acid": 1.59, "ash": 2.48, "alcalinity_of_ash": 16.5, "magnesium": 108.0, "total_phenols": 3.3, "flavanoids": 3.93, "nonflavanoid_phenols": 0.32, "proanthocyanins": 1.86, "color_intensity": 8.7, "hue": 1.23, "od280/od315_of_diluted_wines": 2.82, "proline": 1680.0, "class": 0, "predict": 0}, {"alcohol": 13.64, "malic_acid": 3.1, "ash": 2.56, "alcalinity_of_ash": 15.2, "magnesium": 116.0, "total_phenols": 2.7, "flavanoids": 3.03, "nonflavanoid_phenols": 0.17, "proanthocyanins": 1.66, "color_intensity": 5.1, "hue": 0.96, "od280/od315_of_diluted_wines": 3.36, "proline": 845.0, "class": 0, "predict": 0}, {"alcohol": 14.06, "malic_acid": 1.63, "ash": 2.28, "alcalinity_of_ash": 16.0, "magnesium": 126.0, "total_phenols": 3.0, "flavanoids": 3.17, "nonflavanoid_phenols": 0.24, "proanthocyanins": 2.1, "color_intensity": 5.65, "hue": 1.09, "od280/od315_of_diluted_wines": 3.71, "proline": 780.0, "class": 0, "predict": 0}, {"alcohol": 12.93, "malic_acid": 3.8, "ash": 2.65, "alcalinity_of_ash": 18.6, "magnesium": 102.0, "total_phenols": 2.41, "flavanoids": 2.41, "nonflavanoid_phenols": 0.25, "proanthocyanins": 1.98, "color_intensity": 4.5, "hue": 1.03, "od280/od315_of_diluted_wines": 3.52, "proline": 770.0, "class": 0, "predict": 2}, {"alcohol": 13.71, "malic_acid": 1.86, "ash": 2.36, "alcalinity_of_ash": 16.6, "magnesium": 101.0, "total_phenols": 2.61, "flavanoids": 2.88, "nonflavanoid_phenols": 0.27, "proanthocyanins": 1.69, "color_intensity": 3.8, "hue": 1.11, "od280/od315_of_diluted_wines": 4.0, "proline": 1035.0, "class": 0, "predict": 0}, {"alcohol": 12.85, "malic_acid": 1.6, "ash": 2.52, "alcalinity_of_ash": 17.8, "magnesium": 95.0, "total_phenols": 2.48, "flavanoids": 2.37, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.46, "color_intensity": 3.93, "hue": 1.09, "od280/od315_of_diluted_wines": 3.63, "proline": 1015.0, "class": 0, "predict": 0}, {"alcohol": 13.5, "malic_acid": 1.81, "ash": 2.61, "alcalinity_of_ash": 20.0, "magnesium": 96.0, "total_phenols": 2.53, "flavanoids": 2.61, "nonflavanoid_phenols": 0.28, "proanthocyanins": 1.66, "color_intensity": 3.52, "hue": 1.12, "od280/od315_of_diluted_wines": 3.82, "proline": 845.0, "class": 0, "predict": 0}, {"alcohol": 13.05, "malic_acid": 2.05, "ash": 3.22, "alcalinity_of_ash": 25.0, "magnesium": 124.0, "total_phenols": 2.63, "flavanoids": 2.68, "nonflavanoid_phenols": 0.47, "proanthocyanins": 1.92, "color_intensity": 3.58, "hue": 1.13, "od280/od315_of_diluted_wines": 3.2, "proline": 830.0, "class": 0, "predict": 2}, {"alcohol": 13.39, "malic_acid": 1.77, "ash": 2.62, "alcalinity_of_ash": 16.1, "magnesium": 93.0, "total_phenols": 2.85, "flavanoids": 2.94, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.45, "color_intensity": 4.8, "hue": 0.92, "od280/od315_of_diluted_wines": 3.22, "proline": 1195.0, "class": 0, "predict": 0}, {"alcohol": 13.3, "malic_acid": 1.72, "ash": 2.14, "alcalinity_of_ash": 17.0, "magnesium": 94.0, "total_phenols": 2.4, "flavanoids": 2.19, "nonflavanoid_phenols": 0.27, "proanthocyanins": 1.35, "color_intensity": 3.95, "hue": 1.02, "od280/od315_of_diluted_wines": 2.77, "proline": 1285.0, "class": 0, "predict": 0}, {"alcohol": 13.87, "malic_acid": 1.9, "ash": 2.8, "alcalinity_of_ash": 19.4, "magnesium": 107.0, "total_phenols": 2.95, "flavanoids": 2.97, "nonflavanoid_phenols": 0.37, "proanthocyanins": 1.76, "color_intensity": 4.5, "hue": 1.25, "od280/od315_of_diluted_wines": 3.4, "proline": 915.0, "class": 0, "predict": 0}, {"alcohol": 14.02, "malic_acid": 1.68, "ash": 2.21, "alcalinity_of_ash": 16.0, "magnesium": 96.0, "total_phenols": 2.65, "flavanoids": 2.33, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.98, "color_intensity": 4.7, "hue": 1.04, "od280/od315_of_diluted_wines": 3.59, "proline": 1035.0, "class": 0, "predict": 0}, {"alcohol": 13.73, "malic_acid": 1.5, "ash": 2.7, "alcalinity_of_ash": 22.5, "magnesium": 101.0, "total_phenols": 3.0, "flavanoids": 3.25, "nonflavanoid_phenols": 0.29, "proanthocyanins": 2.38, "color_intensity": 5.7, "hue": 1.19, "od280/od315_of_diluted_wines": 2.71, "proline": 1285.0, "class": 0, "predict": 2}, {"alcohol": 13.58, "malic_acid": 1.66, "ash": 2.36, "alcalinity_of_ash": 19.1, "magnesium": 106.0, "total_phenols": 2.86, "flavanoids": 3.19, "nonflavanoid_phenols": 0.22, "proanthocyanins": 1.95, "color_intensity": 6.9, "hue": 1.09, "od280/od315_of_diluted_wines": 2.88, "proline": 1515.0, "class": 0, "predict": 0}, {"alcohol": 13.68, "malic_acid": 1.83, "ash": 2.36, "alcalinity_of_ash": 17.2, "magnesium": 104.0, "total_phenols": 2.42, "flavanoids": 2.69, "nonflavanoid_phenols": 0.42, "proanthocyanins": 1.97, "color_intensity": 3.84, "hue": 1.23, "od280/od315_of_diluted_wines": 2.87, "proline": 990.0, "class": 0, "predict": 0}, {"alcohol": 13.76, "malic_acid": 1.53, "ash": 2.7, "alcalinity_of_ash": 19.5, "magnesium": 132.0, "total_phenols": 2.95, "flavanoids": 2.74, "nonflavanoid_phenols": 0.5, "proanthocyanins": 1.35, "color_intensity": 5.4, "hue": 1.25, "od280/od315_of_diluted_wines": 3.0, "proline": 1235.0, "class": 0, "predict": 0}, {"alcohol": 13.51, "malic_acid": 1.8, "ash": 2.65, "alcalinity_of_ash": 19.0, "magnesium": 110.0, "total_phenols": 2.35, "flavanoids": 2.53, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.54, "color_intensity": 4.2, "hue": 1.1, "od280/od315_of_diluted_wines": 2.87, "proline": 1095.0, "class": 0, "predict": 0}, {"alcohol": 13.48, "malic_acid": 1.81, "ash": 2.41, "alcalinity_of_ash": 20.5, "magnesium": 100.0, "total_phenols": 2.7, "flavanoids": 2.98, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.86, "color_intensity": 5.1, "hue": 1.04, "od280/od315_of_diluted_wines": 3.47, "proline": 920.0, "class": 0, "predict": 2}, {"alcohol": 13.28, "malic_acid": 1.64, "ash": 2.84, "alcalinity_of_ash": 15.5, "magnesium": 110.0, "total_phenols": 2.6, "flavanoids": 2.68, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.36, "color_intensity": 4.6, "hue": 1.09, "od280/od315_of_diluted_wines": 2.78, "proline": 880.0, "class": 0, "predict": 0}, {"alcohol": 13.05, "malic_acid": 1.65, "ash": 2.55, "alcalinity_of_ash": 18.0, "magnesium": 98.0, "total_phenols": 2.45, "flavanoids": 2.43, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.44, "color_intensity": 4.25, "hue": 1.12, "od280/od315_of_diluted_wines": 2.51, "proline": 1105.0, "class": 0, "predict": 0}, {"alcohol": 13.07, "malic_acid": 1.5, "ash": 2.1, "alcalinity_of_ash": 15.5, "magnesium": 98.0, "total_phenols": 2.4, "flavanoids": 2.64, "nonflavanoid_phenols": 0.28, "proanthocyanins": 1.37, "color_intensity": 3.7, "hue": 1.18, "od280/od315_of_diluted_wines": 2.69, "proline": 1020.0, "class": 0, "predict": 0}, {"alcohol": 14.22, "malic_acid": 3.99, "ash": 2.51, "alcalinity_of_ash": 13.2, "magnesium": 128.0, "total_phenols": 3.0, "flavanoids": 3.04, "nonflavanoid_phenols": 0.2, "proanthocyanins": 2.08, "color_intensity": 5.1, "hue": 0.89, "od280/od315_of_diluted_wines": 3.53, "proline": 760.0, "class": 0, "predict": 0}, {"alcohol": 13.56, "malic_acid": 1.71, "ash": 2.31, "alcalinity_of_ash": 16.2, "magnesium": 117.0, "total_phenols": 3.15, "flavanoids": 3.29, "nonflavanoid_phenols": 0.34, "proanthocyanins": 2.34, "color_intensity": 6.13, "hue": 0.95, "od280/od315_of_diluted_wines": 3.38, "proline": 795.0, "class": 0, "predict": 0}, {"alcohol": 13.41, "malic_acid": 3.84, "ash": 2.12, "alcalinity_of_ash": 18.8, "magnesium": 90.0, "total_phenols": 2.45, "flavanoids": 2.68, "nonflavanoid_phenols": 0.27, "proanthocyanins": 1.48, "color_intensity": 4.28, "hue": 0.91, "od280/od315_of_diluted_wines": 3.0, "proline": 1035.0, "class": 0, "predict": 2}, {"alcohol": 13.88, "malic_acid": 1.89, "ash": 2.59, "alcalinity_of_ash": 15.0, "magnesium": 101.0, "total_phenols": 3.25, "flavanoids": 3.56, "nonflavanoid_phenols": 0.17, "proanthocyanins": 1.7, "color_intensity": 5.43, "hue": 0.88, "od280/od315_of_diluted_wines": 3.56, "proline": 1095.0, "class": 0, "predict": 0}, {"alcohol": 13.24, "malic_acid": 3.98, "ash": 2.29, "alcalinity_of_ash": 17.5, "magnesium": 103.0, "total_phenols": 2.64, "flavanoids": 2.63, "nonflavanoid_phenols": 0.32, "proanthocyanins": 1.66, "color_intensity": 4.36, "hue": 0.82, "od280/od315_of_diluted_wines": 3.0, "proline": 680.0, "class": 0, "predict": 2}, {"alcohol": 13.05, "malic_acid": 1.77, "ash": 2.1, "alcalinity_of_ash": 17.0, "magnesium": 107.0, "total_phenols": 3.0, "flavanoids": 3.0, "nonflavanoid_phenols": 0.28, "proanthocyanins": 2.03, "color_intensity": 5.04, "hue": 0.88, "od280/od315_of_diluted_wines": 3.35, "proline": 885.0, "class": 0, "predict": 0}, {"alcohol": 14.21, "malic_acid": 4.04, "ash": 2.44, "alcalinity_of_ash": 18.9, "magnesium": 111.0, "total_phenols": 2.85, "flavanoids": 2.65, "nonflavanoid_phenols": 0.3, "proanthocyanins": 1.25, "color_intensity": 5.24, "hue": 0.87, "od280/od315_of_diluted_wines": 3.33, "proline": 1080.0, "class": 0, "predict": 0}, {"alcohol": 14.38, "malic_acid": 3.59, "ash": 2.28, "alcalinity_of_ash": 16.0, "magnesium": 102.0, "total_phenols": 3.25, "flavanoids": 3.17, "nonflavanoid_phenols": 0.27, "proanthocyanins": 2.19, "color_intensity": 4.9, "hue": 1.04, "od280/od315_of_diluted_wines": 3.44, "proline": 1065.0, "class": 0, "predict": 0}, {"alcohol": 13.9, "malic_acid": 1.68, "ash": 2.12, "alcalinity_of_ash": 16.0, "magnesium": 101.0, "total_phenols": 3.1, "flavanoids": 3.39, "nonflavanoid_phenols": 0.21, "proanthocyanins": 2.14, "color_intensity": 6.1, "hue": 0.91, "od280/od315_of_diluted_wines": 3.33, "proline": 985.0, "class": 0, "predict": 0}, {"alcohol": 14.1, "malic_acid": 2.02, "ash": 2.4, "alcalinity_of_ash": 18.8, "magnesium": 103.0, "total_phenols": 2.75, "flavanoids": 2.92, "nonflavanoid_phenols": 0.32, "proanthocyanins": 2.38, "color_intensity": 6.2, "hue": 1.07, "od280/od315_of_diluted_wines": 2.75, "proline": 1060.0, "class": 0, "predict": 0}, {"alcohol": 13.94, "malic_acid": 1.73, "ash": 2.27, "alcalinity_of_ash": 17.4, "magnesium": 108.0, "total_phenols": 2.88, "flavanoids": 3.54, "nonflavanoid_phenols": 0.32, "proanthocyanins": 2.08, "color_intensity": 8.9, "hue": 1.12, "od280/od315_of_diluted_wines": 3.1, "proline": 1260.0, "class": 0, "predict": 0}, {"alcohol": 13.05, "malic_acid": 1.73, "ash": 2.04, "alcalinity_of_ash": 12.4, "magnesium": 92.0, "total_phenols": 2.72, "flavanoids": 3.27, "nonflavanoid_phenols": 0.17, "proanthocyanins": 2.91, "color_intensity": 7.2, "hue": 1.12, "od280/od315_of_diluted_wines": 2.91, "proline": 1150.0, "class": 0, "predict": 0}, {"alcohol": 13.83, "malic_acid": 1.65, "ash": 2.6, "alcalinity_of_ash": 17.2, "magnesium": 94.0, "total_phenols": 2.45, "flavanoids": 2.99, "nonflavanoid_phenols": 0.22, "proanthocyanins": 2.29, "color_intensity": 5.6, "hue": 1.24, "od280/od315_of_diluted_wines": 3.37, "proline": 1265.0, "class": 0, "predict": 0}, {"alcohol": 13.82, "malic_acid": 1.75, "ash": 2.42, "alcalinity_of_ash": 14.0, "magnesium": 111.0, "total_phenols": 3.88, "flavanoids": 3.74, "nonflavanoid_phenols": 0.32, "proanthocyanins": 1.87, "color_intensity": 7.05, "hue": 1.01, "od280/od315_of_diluted_wines": 3.26, "proline": 1190.0, "class": 0, "predict": 0}, {"alcohol": 13.77, "malic_acid": 1.9, "ash": 2.68, "alcalinity_of_ash": 17.1, "magnesium": 115.0, "total_phenols": 3.0, "flavanoids": 2.79, "nonflavanoid_phenols": 0.39, "proanthocyanins": 1.68, "color_intensity": 6.3, "hue": 1.13, "od280/od315_of_diluted_wines": 2.93, "proline": 1375.0, "class": 0, "predict": 0}, {"alcohol": 13.74, "malic_acid": 1.67, "ash": 2.25, "alcalinity_of_ash": 16.4, "magnesium": 118.0, "total_phenols": 2.6, "flavanoids": 2.9, "nonflavanoid_phenols": 0.21, "proanthocyanins": 1.62, "color_intensity": 5.85, "hue": 0.92, "od280/od315_of_diluted_wines": 3.2, "proline": 1060.0, "class": 0, "predict": 0}, {"alcohol": 13.56, "malic_acid": 1.73, "ash": 2.46, "alcalinity_of_ash": 20.5, "magnesium": 116.0, "total_phenols": 2.96, "flavanoids": 2.78, "nonflavanoid_phenols": 0.2, "proanthocyanins": 2.45, "color_intensity": 6.25, "hue": 0.98, "od280/od315_of_diluted_wines": 3.03, "proline": 1120.0, "class": 0, "predict": 0}, {"alcohol": 14.22, "malic_acid": 1.7, "ash": 2.3, "alcalinity_of_ash": 16.3, "magnesium": 118.0, "total_phenols": 3.2, "flavanoids": 3.0, "nonflavanoid_phenols": 0.26, "proanthocyanins": 2.03, "color_intensity": 6.38, "hue": 0.94, "od280/od315_of_diluted_wines": 3.31, "proline": 970.0, "class": 0, "predict": 0}, {"alcohol": 13.29, "malic_acid": 1.97, "ash": 2.68, "alcalinity_of_ash": 16.8, "magnesium": 102.0, "total_phenols": 3.0, "flavanoids": 3.23, "nonflavanoid_phenols": 0.31, "proanthocyanins": 1.66, "color_intensity": 6.0, "hue": 1.07, "od280/od315_of_diluted_wines": 2.84, "proline": 1270.0, "class": 0, "predict": 0}, {"alcohol": 13.72, "malic_acid": 1.43, "ash": 2.5, "alcalinity_of_ash": 16.7, "magnesium": 108.0, "total_phenols": 3.4, "flavanoids": 3.67, "nonflavanoid_phenols": 0.19, "proanthocyanins": 2.04, "color_intensity": 6.8, "hue": 0.89, "od280/od315_of_diluted_wines": 2.87, "proline": 1285.0, "class": 0, "predict": 0}, {"alcohol": 12.37, "malic_acid": 0.94, "ash": 1.36, "alcalinity_of_ash": 10.6, "magnesium": 88.0, "total_phenols": 1.98, "flavanoids": 0.57, "nonflavanoid_phenols": 0.28, "proanthocyanins": 0.42, "color_intensity": 1.95, "hue": 1.05, "od280/od315_of_diluted_wines": 1.82, "proline": 520.0, "class": 1, "predict": 1}, {"alcohol": 12.33, "malic_acid": 1.1, "ash": 2.28, "alcalinity_of_ash": 16.0, "magnesium": 101.0, "total_phenols": 2.05, "flavanoids": 1.09, "nonflavanoid_phenols": 0.63, "proanthocyanins": 0.41, "color_intensity": 3.27, "hue": 1.25, "od280/od315_of_diluted_wines": 1.67, "proline": 680.0, "class": 1, "predict": 1}, {"alcohol": 12.64, "malic_acid": 1.36, "ash": 2.02, "alcalinity_of_ash": 16.8, "magnesium": 100.0, "total_phenols": 2.02, "flavanoids": 1.41, "nonflavanoid_phenols": 0.53, "proanthocyanins": 0.62, "color_intensity": 5.75, "hue": 0.98, "od280/od315_of_diluted_wines": 1.59, "proline": 450.0, "class": 1, "predict": 1}, {"alcohol": 13.67, "malic_acid": 1.25, "ash": 1.92, "alcalinity_of_ash": 18.0, "magnesium": 94.0, "total_phenols": 2.1, "flavanoids": 1.79, "nonflavanoid_phenols": 0.32, "proanthocyanins": 0.73, "color_intensity": 3.8, "hue": 1.23, "od280/od315_of_diluted_wines": 2.46, "proline": 630.0, "class": 1, "predict": 0}, {"alcohol": 12.37, "malic_acid": 1.13, "ash": 2.16, "alcalinity_of_ash": 19.0, "magnesium": 87.0, "total_phenols": 3.5, "flavanoids": 3.1, "nonflavanoid_phenols": 0.19, "proanthocyanins": 1.87, "color_intensity": 4.45, "hue": 1.22, "od280/od315_of_diluted_wines": 2.87, "proline": 420.0, "class": 1, "predict": 1}, {"alcohol": 12.17, "malic_acid": 1.45, "ash": 2.53, "alcalinity_of_ash": 19.0, "magnesium": 104.0, "total_phenols": 1.89, "flavanoids": 1.75, "nonflavanoid_phenols": 0.45, "proanthocyanins": 1.03, "color_intensity": 2.95, "hue": 1.45, "od280/od315_of_diluted_wines": 2.23, "proline": 355.0, "class": 1, "predict": 1}, {"alcohol": 12.37, "malic_acid": 1.21, "ash": 2.56, "alcalinity_of_ash": 18.1, "magnesium": 98.0, "total_phenols": 2.42, "flavanoids": 2.65, "nonflavanoid_phenols": 0.37, "proanthocyanins": 2.08, "color_intensity": 4.6, "hue": 1.19, "od280/od315_of_diluted_wines": 2.3, "proline": 678.0, "class": 1, "predict": 1}, {"alcohol": 13.11, "malic_acid": 1.01, "ash": 1.7, "alcalinity_of_ash": 15.0, "magnesium": 78.0, "total_phenols": 2.98, "flavanoids": 3.18, "nonflavanoid_phenols": 0.26, "proanthocyanins": 2.28, "color_intensity": 5.3, "hue": 1.12, "od280/od315_of_diluted_wines": 3.18, "proline": 502.0, "class": 1, "predict": 1}, {"alcohol": 12.37, "malic_acid": 1.17, "ash": 1.92, "alcalinity_of_ash": 19.6, "magnesium": 78.0, "total_phenols": 2.11, "flavanoids": 2.0, "nonflavanoid_phenols": 0.27, "proanthocyanins": 1.04, "color_intensity": 4.68, "hue": 1.12, "od280/od315_of_diluted_wines": 3.48, "proline": 510.0, "class": 1, "predict": 1}, {"alcohol": 13.34, "malic_acid": 0.94, "ash": 2.36, "alcalinity_of_ash": 17.0, "magnesium": 110.0, "total_phenols": 2.53, "flavanoids": 1.3, "nonflavanoid_phenols": 0.55, "proanthocyanins": 0.42, "color_intensity": 3.17, "hue": 1.02, "od280/od315_of_diluted_wines": 1.93, "proline": 750.0, "class": 1, "predict": 0}, {"alcohol": 12.21, "malic_acid": 1.19, "ash": 1.75, "alcalinity_of_ash": 16.8, "magnesium": 151.0, "total_phenols": 1.85, "flavanoids": 1.28, "nonflavanoid_phenols": 0.14, "proanthocyanins": 2.5, "color_intensity": 2.85, "hue": 1.28, "od280/od315_of_diluted_wines": 3.07, "proline": 718.0, "class": 1, "predict": 1}, {"alcohol": 12.29, "malic_acid": 1.61, "ash": 2.21, "alcalinity_of_ash": 20.4, "magnesium": 103.0, "total_phenols": 1.1, "flavanoids": 1.02, "nonflavanoid_phenols": 0.37, "proanthocyanins": 1.46, "color_intensity": 3.05, "hue": 0.906, "od280/od315_of_diluted_wines": 1.82, "proline": 870.0, "class": 1, "predict": 1}, {"alcohol": 13.86, "malic_acid": 1.51, "ash": 2.67, "alcalinity_of_ash": 25.0, "magnesium": 86.0, "total_phenols": 2.95, "flavanoids": 2.86, "nonflavanoid_phenols": 0.21, "proanthocyanins": 1.87, "color_intensity": 3.38, "hue": 1.36, "od280/od315_of_diluted_wines": 3.16, "proline": 410.0, "class": 1, "predict": 2}, {"alcohol": 13.49, "malic_acid": 1.66, "ash": 2.24, "alcalinity_of_ash": 24.0, "magnesium": 87.0, "total_phenols": 1.88, "flavanoids": 1.84, "nonflavanoid_phenols": 0.27, "proanthocyanins": 1.03, "color_intensity": 3.74, "hue": 0.98, "od280/od315_of_diluted_wines": 2.78, "proline": 472.0, "class": 1, "predict": 1}, {"alcohol": 12.99, "malic_acid": 1.67, "ash": 2.6, "alcalinity_of_ash": 30.0, "magnesium": 139.0, "total_phenols": 3.3, "flavanoids": 2.89, "nonflavanoid_phenols": 0.21, "proanthocyanins": 1.96, "color_intensity": 3.35, "hue": 1.31, "od280/od315_of_diluted_wines": 3.5, "proline": 985.0, "class": 1, "predict": 1}, {"alcohol": 11.96, "malic_acid": 1.09, "ash": 2.3, "alcalinity_of_ash": 21.0, "magnesium": 101.0, "total_phenols": 3.38, "flavanoids": 2.14, "nonflavanoid_phenols": 0.13, "proanthocyanins": 1.65, "color_intensity": 3.21, "hue": 0.99, "od280/od315_of_diluted_wines": 3.13, "proline": 886.0, "class": 1, "predict": 1}, {"alcohol": 11.66, "malic_acid": 1.88, "ash": 1.92, "alcalinity_of_ash": 16.0, "magnesium": 97.0, "total_phenols": 1.61, "flavanoids": 1.57, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.15, "color_intensity": 3.8, "hue": 1.23, "od280/od315_of_diluted_wines": 2.14, "proline": 428.0, "class": 1, "predict": 1}, {"alcohol": 13.03, "malic_acid": 0.9, "ash": 1.71, "alcalinity_of_ash": 16.0, "magnesium": 86.0, "total_phenols": 1.95, "flavanoids": 2.03, "nonflavanoid_phenols": 0.24, "proanthocyanins": 1.46, "color_intensity": 4.6, "hue": 1.19, "od280/od315_of_diluted_wines": 2.48, "proline": 392.0, "class": 1, "predict": 1}, {"alcohol": 11.84, "malic_acid": 2.89, "ash": 2.23, "alcalinity_of_ash": 18.0, "magnesium": 112.0, "total_phenols": 1.72, "flavanoids": 1.32, "nonflavanoid_phenols": 0.43, "proanthocyanins": 0.95, "color_intensity": 2.65, "hue": 0.96, "od280/od315_of_diluted_wines": 2.52, "proline": 500.0, "class": 1, "predict": 1}, {"alcohol": 12.33, "malic_acid": 0.99, "ash": 1.95, "alcalinity_of_ash": 14.8, "magnesium": 136.0, "total_phenols": 1.9, "flavanoids": 1.85, "nonflavanoid_phenols": 0.35, "proanthocyanins": 2.76, "color_intensity": 3.4, "hue": 1.06, "od280/od315_of_diluted_wines": 2.31, "proline": 750.0, "class": 1, "predict": 1}, {"alcohol": 12.7, "malic_acid": 3.87, "ash": 2.4, "alcalinity_of_ash": 23.0, "magnesium": 101.0, "total_phenols": 2.83, "flavanoids": 2.55, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.95, "color_intensity": 2.57, "hue": 1.19, "od280/od315_of_diluted_wines": 3.13, "proline": 463.0, "class": 1, "predict": 2}, {"alcohol": 12.0, "malic_acid": 0.92, "ash": 2.0, "alcalinity_of_ash": 19.0, "magnesium": 86.0, "total_phenols": 2.42, "flavanoids": 2.26, "nonflavanoid_phenols": 0.3, "proanthocyanins": 1.43, "color_intensity": 2.5, "hue": 1.38, "od280/od315_of_diluted_wines": 3.12, "proline": 278.0, "class": 1, "predict": 1}, {"alcohol": 12.72, "malic_acid": 1.81, "ash": 2.2, "alcalinity_of_ash": 18.8, "magnesium": 86.0, "total_phenols": 2.2, "flavanoids": 2.53, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.77, "color_intensity": 3.9, "hue": 1.16, "od280/od315_of_diluted_wines": 3.14, "proline": 714.0, "class": 1, "predict": 1}, {"alcohol": 12.08, "malic_acid": 1.13, "ash": 2.51, "alcalinity_of_ash": 24.0, "magnesium": 78.0, "total_phenols": 2.0, "flavanoids": 1.58, "nonflavanoid_phenols": 0.4, "proanthocyanins": 1.4, "color_intensity": 2.2, "hue": 1.31, "od280/od315_of_diluted_wines": 2.72, "proline": 630.0, "class": 1, "predict": 1}, {"alcohol": 13.05, "malic_acid": 3.86, "ash": 2.32, "alcalinity_of_ash": 22.5, "magnesium": 85.0, "total_phenols": 1.65, "flavanoids": 1.59, "nonflavanoid_phenols": 0.61, "proanthocyanins": 1.62, "color_intensity": 4.8, "hue": 0.84, "od280/od315_of_diluted_wines": 2.01, "proline": 515.0, "class": 1, "predict": 2}, {"alcohol": 11.84, "malic_acid": 0.89, "ash": 2.58, "alcalinity_of_ash": 18.0, "magnesium": 94.0, "total_phenols": 2.2, "flavanoids": 2.21, "nonflavanoid_phenols": 0.22, "proanthocyanins": 2.35, "color_intensity": 3.05, "hue": 0.79, "od280/od315_of_diluted_wines": 3.08, "proline": 520.0, "class": 1, "predict": 1}, {"alcohol": 12.67, "malic_acid": 0.98, "ash": 2.24, "alcalinity_of_ash": 18.0, "magnesium": 99.0, "total_phenols": 2.2, "flavanoids": 1.94, "nonflavanoid_phenols": 0.3, "proanthocyanins": 1.46, "color_intensity": 2.62, "hue": 1.23, "od280/od315_of_diluted_wines": 3.16, "proline": 450.0, "class": 1, "predict": 1}, {"alcohol": 12.16, "malic_acid": 1.61, "ash": 2.31, "alcalinity_of_ash": 22.8, "magnesium": 90.0, "total_phenols": 1.78, "flavanoids": 1.69, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.56, "color_intensity": 2.45, "hue": 1.33, "od280/od315_of_diluted_wines": 2.26, "proline": 495.0, "class": 1, "predict": 1}, {"alcohol": 11.65, "malic_acid": 1.67, "ash": 2.62, "alcalinity_of_ash": 26.0, "magnesium": 88.0, "total_phenols": 1.92, "flavanoids": 1.61, "nonflavanoid_phenols": 0.4, "proanthocyanins": 1.34, "color_intensity": 2.6, "hue": 1.36, "od280/od315_of_diluted_wines": 3.21, "proline": 562.0, "class": 1, "predict": 1}, {"alcohol": 11.64, "malic_acid": 2.06, "ash": 2.46, "alcalinity_of_ash": 21.6, "magnesium": 84.0, "total_phenols": 1.95, "flavanoids": 1.69, "nonflavanoid_phenols": 0.48, "proanthocyanins": 1.35, "color_intensity": 2.8, "hue": 1.0, "od280/od315_of_diluted_wines": 2.75, "proline": 680.0, "class": 1, "predict": 1}, {"alcohol": 12.08, "malic_acid": 1.33, "ash": 2.3, "alcalinity_of_ash": 23.6, "magnesium": 70.0, "total_phenols": 2.2, "flavanoids": 1.59, "nonflavanoid_phenols": 0.42, "proanthocyanins": 1.38, "color_intensity": 1.74, "hue": 1.07, "od280/od315_of_diluted_wines": 3.21, "proline": 625.0, "class": 1, "predict": 1}, {"alcohol": 12.08, "malic_acid": 1.83, "ash": 2.32, "alcalinity_of_ash": 18.5, "magnesium": 81.0, "total_phenols": 1.6, "flavanoids": 1.5, "nonflavanoid_phenols": 0.52, "proanthocyanins": 1.64, "color_intensity": 2.4, "hue": 1.08, "od280/od315_of_diluted_wines": 2.27, "proline": 480.0, "class": 1, "predict": 1}, {"alcohol": 12.0, "malic_acid": 1.51, "ash": 2.42, "alcalinity_of_ash": 22.0, "magnesium": 86.0, "total_phenols": 1.45, "flavanoids": 1.25, "nonflavanoid_phenols": 0.5, "proanthocyanins": 1.63, "color_intensity": 3.6, "hue": 1.05, "od280/od315_of_diluted_wines": 2.65, "proline": 450.0, "class": 1, "predict": 1}, {"alcohol": 12.69, "malic_acid": 1.53, "ash": 2.26, "alcalinity_of_ash": 20.7, "magnesium": 80.0, "total_phenols": 1.38, "flavanoids": 1.46, "nonflavanoid_phenols": 0.58, "proanthocyanins": 1.62, "color_intensity": 3.05, "hue": 0.96, "od280/od315_of_diluted_wines": 2.06, "proline": 495.0, "class": 1, "predict": 1}, {"alcohol": 12.29, "malic_acid": 2.83, "ash": 2.22, "alcalinity_of_ash": 18.0, "magnesium": 88.0, "total_phenols": 2.45, "flavanoids": 2.25, "nonflavanoid_phenols": 0.25, "proanthocyanins": 1.99, "color_intensity": 2.15, "hue": 1.15, "od280/od315_of_diluted_wines": 3.3, "proline": 290.0, "class": 1, "predict": 1}, {"alcohol": 11.62, "malic_acid": 1.99, "ash": 2.28, "alcalinity_of_ash": 18.0, "magnesium": 98.0, "total_phenols": 3.02, "flavanoids": 2.26, "nonflavanoid_phenols": 0.17, "proanthocyanins": 1.35, "color_intensity": 3.25, "hue": 1.16, "od280/od315_of_diluted_wines": 2.96, "proline": 345.0, "class": 1, "predict": 1}, {"alcohol": 12.47, "malic_acid": 1.52, "ash": 2.2, "alcalinity_of_ash": 19.0, "magnesium": 162.0, "total_phenols": 2.5, "flavanoids": 2.27, "nonflavanoid_phenols": 0.32, "proanthocyanins": 3.28, "color_intensity": 2.6, "hue": 1.16, "od280/od315_of_diluted_wines": 2.63, "proline": 937.0, "class": 1, "predict": 1}, {"alcohol": 11.81, "malic_acid": 2.12, "ash": 2.74, "alcalinity_of_ash": 21.5, "magnesium": 134.0, "total_phenols": 1.6, "flavanoids": 0.99, "nonflavanoid_phenols": 0.14, "proanthocyanins": 1.56, "color_intensity": 2.5, "hue": 0.95, "od280/od315_of_diluted_wines": 2.26, "proline": 625.0, "class": 1, "predict": 1}, {"alcohol": 12.29, "malic_acid": 1.41, "ash": 1.98, "alcalinity_of_ash": 16.0, "magnesium": 85.0, "total_phenols": 2.55, "flavanoids": 2.5, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.77, "color_intensity": 2.9, "hue": 1.23, "od280/od315_of_diluted_wines": 2.74, "proline": 428.0, "class": 1, "predict": 1}, {"alcohol": 12.37, "malic_acid": 1.07, "ash": 2.1, "alcalinity_of_ash": 18.5, "magnesium": 88.0, "total_phenols": 3.52, "flavanoids": 3.75, "nonflavanoid_phenols": 0.24, "proanthocyanins": 1.95, "color_intensity": 4.5, "hue": 1.04, "od280/od315_of_diluted_wines": 2.77, "proline": 660.0, "class": 1, "predict": 1}, {"alcohol": 12.29, "malic_acid": 3.17, "ash": 2.21, "alcalinity_of_ash": 18.0, "magnesium": 88.0, "total_phenols": 2.85, "flavanoids": 2.99, "nonflavanoid_phenols": 0.45, "proanthocyanins": 2.81, "color_intensity": 2.3, "hue": 1.42, "od280/od315_of_diluted_wines": 2.83, "proline": 406.0, "class": 1, "predict": 1}, {"alcohol": 12.08, "malic_acid": 2.08, "ash": 1.7, "alcalinity_of_ash": 17.5, "magnesium": 97.0, "total_phenols": 2.23, "flavanoids": 2.17, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.4, "color_intensity": 3.3, "hue": 1.27, "od280/od315_of_diluted_wines": 2.96, "proline": 710.0, "class": 1, "predict": 1}, {"alcohol": 12.6, "malic_acid": 1.34, "ash": 1.9, "alcalinity_of_ash": 18.5, "magnesium": 88.0, "total_phenols": 1.45, "flavanoids": 1.36, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.35, "color_intensity": 2.45, "hue": 1.04, "od280/od315_of_diluted_wines": 2.77, "proline": 562.0, "class": 1, "predict": 1}, {"alcohol": 12.34, "malic_acid": 2.45, "ash": 2.46, "alcalinity_of_ash": 21.0, "magnesium": 98.0, "total_phenols": 2.56, "flavanoids": 2.11, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.31, "color_intensity": 2.8, "hue": 0.8, "od280/od315_of_diluted_wines": 3.38, "proline": 438.0, "class": 1, "predict": 1}, {"alcohol": 11.82, "malic_acid": 1.72, "ash": 1.88, "alcalinity_of_ash": 19.5, "magnesium": 86.0, "total_phenols": 2.5, "flavanoids": 1.64, "nonflavanoid_phenols": 0.37, "proanthocyanins": 1.42, "color_intensity": 2.06, "hue": 0.94, "od280/od315_of_diluted_wines": 2.44, "proline": 415.0, "class": 1, "predict": 1}, {"alcohol": 12.51, "malic_acid": 1.73, "ash": 1.98, "alcalinity_of_ash": 20.5, "magnesium": 85.0, "total_phenols": 2.2, "flavanoids": 1.92, "nonflavanoid_phenols": 0.32, "proanthocyanins": 1.48, "color_intensity": 2.94, "hue": 1.04, "od280/od315_of_diluted_wines": 3.57, "proline": 672.0, "class": 1, "predict": 1}, {"alcohol": 12.42, "malic_acid": 2.55, "ash": 2.27, "alcalinity_of_ash": 22.0, "magnesium": 90.0, "total_phenols": 1.68, "flavanoids": 1.84, "nonflavanoid_phenols": 0.66, "proanthocyanins": 1.42, "color_intensity": 2.7, "hue": 0.86, "od280/od315_of_diluted_wines": 3.3, "proline": 315.0, "class": 1, "predict": 1}, {"alcohol": 12.25, "malic_acid": 1.73, "ash": 2.12, "alcalinity_of_ash": 19.0, "magnesium": 80.0, "total_phenols": 1.65, "flavanoids": 2.03, "nonflavanoid_phenols": 0.37, "proanthocyanins": 1.63, "color_intensity": 3.4, "hue": 1.0, "od280/od315_of_diluted_wines": 3.17, "proline": 510.0, "class": 1, "predict": 1}, {"alcohol": 12.72, "malic_acid": 1.75, "ash": 2.28, "alcalinity_of_ash": 22.5, "magnesium": 84.0, "total_phenols": 1.38, "flavanoids": 1.76, "nonflavanoid_phenols": 0.48, "proanthocyanins": 1.63, "color_intensity": 3.3, "hue": 0.88, "od280/od315_of_diluted_wines": 2.42, "proline": 488.0, "class": 1, "predict": 1}, {"alcohol": 12.22, "malic_acid": 1.29, "ash": 1.94, "alcalinity_of_ash": 19.0, "magnesium": 92.0, "total_phenols": 2.36, "flavanoids": 2.04, "nonflavanoid_phenols": 0.39, "proanthocyanins": 2.08, "color_intensity": 2.7, "hue": 0.86, "od280/od315_of_diluted_wines": 3.02, "proline": 312.0, "class": 1, "predict": 1}, {"alcohol": 11.61, "malic_acid": 1.35, "ash": 2.7, "alcalinity_of_ash": 20.0, "magnesium": 94.0, "total_phenols": 2.74, "flavanoids": 2.92, "nonflavanoid_phenols": 0.29, "proanthocyanins": 2.49, "color_intensity": 2.65, "hue": 0.96, "od280/od315_of_diluted_wines": 3.26, "proline": 680.0, "class": 1, "predict": 1}, {"alcohol": 11.46, "malic_acid": 3.74, "ash": 1.82, "alcalinity_of_ash": 19.5, "magnesium": 107.0, "total_phenols": 3.18, "flavanoids": 2.58, "nonflavanoid_phenols": 0.24, "proanthocyanins": 3.58, "color_intensity": 2.9, "hue": 0.75, "od280/od315_of_diluted_wines": 2.81, "proline": 562.0, "class": 1, "predict": 1}, {"alcohol": 12.52, "malic_acid": 2.43, "ash": 2.17, "alcalinity_of_ash": 21.0, "magnesium": 88.0, "total_phenols": 2.55, "flavanoids": 2.27, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.22, "color_intensity": 2.0, "hue": 0.9, "od280/od315_of_diluted_wines": 2.78, "proline": 325.0, "class": 1, "predict": 1}, {"alcohol": 11.76, "malic_acid": 2.68, "ash": 2.92, "alcalinity_of_ash": 20.0, "magnesium": 103.0, "total_phenols": 1.75, "flavanoids": 2.03, "nonflavanoid_phenols": 0.6, "proanthocyanins": 1.05, "color_intensity": 3.8, "hue": 1.23, "od280/od315_of_diluted_wines": 2.5, "proline": 607.0, "class": 1, "predict": 1}, {"alcohol": 11.41, "malic_acid": 0.74, "ash": 2.5, "alcalinity_of_ash": 21.0, "magnesium": 88.0, "total_phenols": 2.48, "flavanoids": 2.01, "nonflavanoid_phenols": 0.42, "proanthocyanins": 1.44, "color_intensity": 3.08, "hue": 1.1, "od280/od315_of_diluted_wines": 2.31, "proline": 434.0, "class": 1, "predict": 1}, {"alcohol": 12.08, "malic_acid": 1.39, "ash": 2.5, "alcalinity_of_ash": 22.5, "magnesium": 84.0, "total_phenols": 2.56, "flavanoids": 2.29, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.04, "color_intensity": 2.9, "hue": 0.93, "od280/od315_of_diluted_wines": 3.19, "proline": 385.0, "class": 1, "predict": 1}, {"alcohol": 11.03, "malic_acid": 1.51, "ash": 2.2, "alcalinity_of_ash": 21.5, "magnesium": 85.0, "total_phenols": 2.46, "flavanoids": 2.17, "nonflavanoid_phenols": 0.52, "proanthocyanins": 2.01, "color_intensity": 1.9, "hue": 1.71, "od280/od315_of_diluted_wines": 2.87, "proline": 407.0, "class": 1, "predict": 1}, {"alcohol": 11.82, "malic_acid": 1.47, "ash": 1.99, "alcalinity_of_ash": 20.8, "magnesium": 86.0, "total_phenols": 1.98, "flavanoids": 1.6, "nonflavanoid_phenols": 0.3, "proanthocyanins": 1.53, "color_intensity": 1.95, "hue": 0.95, "od280/od315_of_diluted_wines": 3.33, "proline": 495.0, "class": 1, "predict": 1}, {"alcohol": 12.42, "malic_acid": 1.61, "ash": 2.19, "alcalinity_of_ash": 22.5, "magnesium": 108.0, "total_phenols": 2.0, "flavanoids": 2.09, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.61, "color_intensity": 2.06, "hue": 1.06, "od280/od315_of_diluted_wines": 2.96, "proline": 345.0, "class": 1, "predict": 1}, {"alcohol": 12.77, "malic_acid": 3.43, "ash": 1.98, "alcalinity_of_ash": 16.0, "magnesium": 80.0, "total_phenols": 1.63, "flavanoids": 1.25, "nonflavanoid_phenols": 0.43, "proanthocyanins": 0.83, "color_intensity": 3.4, "hue": 0.7, "od280/od315_of_diluted_wines": 2.12, "proline": 372.0, "class": 1, "predict": 2}, {"alcohol": 12.0, "malic_acid": 3.43, "ash": 2.0, "alcalinity_of_ash": 19.0, "magnesium": 87.0, "total_phenols": 2.0, "flavanoids": 1.64, "nonflavanoid_phenols": 0.37, "proanthocyanins": 1.87, "color_intensity": 1.28, "hue": 0.93, "od280/od315_of_diluted_wines": 3.05, "proline": 564.0, "class": 1, "predict": 1}, {"alcohol": 11.45, "malic_acid": 2.4, "ash": 2.42, "alcalinity_of_ash": 20.0, "magnesium": 96.0, "total_phenols": 2.9, "flavanoids": 2.79, "nonflavanoid_phenols": 0.32, "proanthocyanins": 1.83, "color_intensity": 3.25, "hue": 0.8, "od280/od315_of_diluted_wines": 3.39, "proline": 625.0, "class": 1, "predict": 1}, {"alcohol": 11.56, "malic_acid": 2.05, "ash": 3.23, "alcalinity_of_ash": 28.5, "magnesium": 119.0, "total_phenols": 3.18, "flavanoids": 5.08, "nonflavanoid_phenols": 0.47, "proanthocyanins": 1.87, "color_intensity": 6.0, "hue": 0.93, "od280/od315_of_diluted_wines": 3.69, "proline": 465.0, "class": 1, "predict": 1}, {"alcohol": 12.42, "malic_acid": 4.43, "ash": 2.73, "alcalinity_of_ash": 26.5, "magnesium": 102.0, "total_phenols": 2.2, "flavanoids": 2.13, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.71, "color_intensity": 2.08, "hue": 0.92, "od280/od315_of_diluted_wines": 3.12, "proline": 365.0, "class": 1, "predict": 2}, {"alcohol": 13.05, "malic_acid": 5.8, "ash": 2.13, "alcalinity_of_ash": 21.5, "magnesium": 86.0, "total_phenols": 2.62, "flavanoids": 2.65, "nonflavanoid_phenols": 0.3, "proanthocyanins": 2.01, "color_intensity": 2.6, "hue": 0.73, "od280/od315_of_diluted_wines": 3.1, "proline": 380.0, "class": 1, "predict": 2}, {"alcohol": 11.87, "malic_acid": 4.31, "ash": 2.39, "alcalinity_of_ash": 21.0, "magnesium": 82.0, "total_phenols": 2.86, "flavanoids": 3.03, "nonflavanoid_phenols": 0.21, "proanthocyanins": 2.91, "color_intensity": 2.8, "hue": 0.75, "od280/od315_of_diluted_wines": 3.64, "proline": 380.0, "class": 1, "predict": 1}, {"alcohol": 12.07, "malic_acid": 2.16, "ash": 2.17, "alcalinity_of_ash": 21.0, "magnesium": 85.0, "total_phenols": 2.6, "flavanoids": 2.65, "nonflavanoid_phenols": 0.37, "proanthocyanins": 1.35, "color_intensity": 2.76, "hue": 0.86, "od280/od315_of_diluted_wines": 3.28, "proline": 378.0, "class": 1, "predict": 1}, {"alcohol": 12.43, "malic_acid": 1.53, "ash": 2.29, "alcalinity_of_ash": 21.5, "magnesium": 86.0, "total_phenols": 2.74, "flavanoids": 3.15, "nonflavanoid_phenols": 0.39, "proanthocyanins": 1.77, "color_intensity": 3.94, "hue": 0.69, "od280/od315_of_diluted_wines": 2.84, "proline": 352.0, "class": 1, "predict": 1}, {"alcohol": 11.79, "malic_acid": 2.13, "ash": 2.78, "alcalinity_of_ash": 28.5, "magnesium": 92.0, "total_phenols": 2.13, "flavanoids": 2.24, "nonflavanoid_phenols": 0.58, "proanthocyanins": 1.76, "color_intensity": 3.0, "hue": 0.97, "od280/od315_of_diluted_wines": 2.44, "proline": 466.0, "class": 1, "predict": 1}, {"alcohol": 12.37, "malic_acid": 1.63, "ash": 2.3, "alcalinity_of_ash": 24.5, "magnesium": 88.0, "total_phenols": 2.22, "flavanoids": 2.45, "nonflavanoid_phenols": 0.4, "proanthocyanins": 1.9, "color_intensity": 2.12, "hue": 0.89, "od280/od315_of_diluted_wines": 2.78, "proline": 342.0, "class": 1, "predict": 1}, {"alcohol": 12.04, "malic_acid": 4.3, "ash": 2.38, "alcalinity_of_ash": 22.0, "magnesium": 80.0, "total_phenols": 2.1, "flavanoids": 1.75, "nonflavanoid_phenols": 0.42, "proanthocyanins": 1.35, "color_intensity": 2.6, "hue": 0.79, "od280/od315_of_diluted_wines": 2.57, "proline": 580.0, "class": 1, "predict": 1}, {"alcohol": 12.86, "malic_acid": 1.35, "ash": 2.32, "alcalinity_of_ash": 18.0, "magnesium": 122.0, "total_phenols": 1.51, "flavanoids": 1.25, "nonflavanoid_phenols": 0.21, "proanthocyanins": 0.94, "color_intensity": 4.1, "hue": 0.76, "od280/od315_of_diluted_wines": 1.29, "proline": 630.0, "class": 2, "predict": 0}, {"alcohol": 12.88, "malic_acid": 2.99, "ash": 2.4, "alcalinity_of_ash": 20.0, "magnesium": 104.0, "total_phenols": 1.3, "flavanoids": 1.22, "nonflavanoid_phenols": 0.24, "proanthocyanins": 0.83, "color_intensity": 5.4, "hue": 0.74, "od280/od315_of_diluted_wines": 1.42, "proline": 530.0, "class": 2, "predict": 2}, {"alcohol": 12.81, "malic_acid": 2.31, "ash": 2.4, "alcalinity_of_ash": 24.0, "magnesium": 98.0, "total_phenols": 1.15, "flavanoids": 1.09, "nonflavanoid_phenols": 0.27, "proanthocyanins": 0.83, "color_intensity": 5.7, "hue": 0.66, "od280/od315_of_diluted_wines": 1.36, "proline": 560.0, "class": 2, "predict": 1}, {"alcohol": 12.7, "malic_acid": 3.55, "ash": 2.36, "alcalinity_of_ash": 21.5, "magnesium": 106.0, "total_phenols": 1.7, "flavanoids": 1.2, "nonflavanoid_phenols": 0.17, "proanthocyanins": 0.84, "color_intensity": 5.0, "hue": 0.78, "od280/od315_of_diluted_wines": 1.29, "proline": 600.0, "class": 2, "predict": 2}, {"alcohol": 12.51, "malic_acid": 1.24, "ash": 2.25, "alcalinity_of_ash": 17.5, "magnesium": 85.0, "total_phenols": 2.0, "flavanoids": 0.58, "nonflavanoid_phenols": 0.6, "proanthocyanins": 1.25, "color_intensity": 5.45, "hue": 0.75, "od280/od315_of_diluted_wines": 1.51, "proline": 650.0, "class": 2, "predict": 1}, {"alcohol": 12.6, "malic_acid": 2.46, "ash": 2.2, "alcalinity_of_ash": 18.5, "magnesium": 94.0, "total_phenols": 1.62, "flavanoids": 0.66, "nonflavanoid_phenols": 0.63, "proanthocyanins": 0.94, "color_intensity": 7.1, "hue": 0.73, "od280/od315_of_diluted_wines": 1.58, "proline": 695.0, "class": 2, "predict": 1}, {"alcohol": 12.25, "malic_acid": 4.72, "ash": 2.54, "alcalinity_of_ash": 21.0, "magnesium": 89.0, "total_phenols": 1.38, "flavanoids": 0.47, "nonflavanoid_phenols": 0.53, "proanthocyanins": 0.8, "color_intensity": 3.85, "hue": 0.75, "od280/od315_of_diluted_wines": 1.27, "proline": 720.0, "class": 2, "predict": 2}, {"alcohol": 12.53, "malic_acid": 5.51, "ash": 2.64, "alcalinity_of_ash": 25.0, "magnesium": 96.0, "total_phenols": 1.79, "flavanoids": 0.6, "nonflavanoid_phenols": 0.63, "proanthocyanins": 1.1, "color_intensity": 5.0, "hue": 0.82, "od280/od315_of_diluted_wines": 1.69, "proline": 515.0, "class": 2, "predict": 2}, {"alcohol": 13.49, "malic_acid": 3.59, "ash": 2.19, "alcalinity_of_ash": 19.5, "magnesium": 88.0, "total_phenols": 1.62, "flavanoids": 0.48, "nonflavanoid_phenols": 0.58, "proanthocyanins": 0.88, "color_intensity": 5.7, "hue": 0.81, "od280/od315_of_diluted_wines": 1.82, "proline": 580.0, "class": 2, "predict": 2}, {"alcohol": 12.84, "malic_acid": 2.96, "ash": 2.61, "alcalinity_of_ash": 24.0, "magnesium": 101.0, "total_phenols": 2.32, "flavanoids": 0.6, "nonflavanoid_phenols": 0.53, "proanthocyanins": 0.81, "color_intensity": 4.92, "hue": 0.89, "od280/od315_of_diluted_wines": 2.15, "proline": 590.0, "class": 2, "predict": 2}, {"alcohol": 12.93, "malic_acid": 2.81, "ash": 2.7, "alcalinity_of_ash": 21.0, "magnesium": 96.0, "total_phenols": 1.54, "flavanoids": 0.5, "nonflavanoid_phenols": 0.53, "proanthocyanins": 0.75, "color_intensity": 4.6, "hue": 0.77, "od280/od315_of_diluted_wines": 2.31, "proline": 600.0, "class": 2, "predict": 2}, {"alcohol": 13.36, "malic_acid": 2.56, "ash": 2.35, "alcalinity_of_ash": 20.0, "magnesium": 89.0, "total_phenols": 1.4, "flavanoids": 0.5, "nonflavanoid_phenols": 0.37, "proanthocyanins": 0.64, "color_intensity": 5.6, "hue": 0.7, "od280/od315_of_diluted_wines": 2.47, "proline": 780.0, "class": 2, "predict": 2}, {"alcohol": 13.52, "malic_acid": 3.17, "ash": 2.72, "alcalinity_of_ash": 23.5, "magnesium": 97.0, "total_phenols": 1.55, "flavanoids": 0.52, "nonflavanoid_phenols": 0.5, "proanthocyanins": 0.55, "color_intensity": 4.35, "hue": 0.89, "od280/od315_of_diluted_wines": 2.06, "proline": 520.0, "class": 2, "predict": 2}, {"alcohol": 13.62, "malic_acid": 4.95, "ash": 2.35, "alcalinity_of_ash": 20.0, "magnesium": 92.0, "total_phenols": 2.0, "flavanoids": 0.8, "nonflavanoid_phenols": 0.47, "proanthocyanins": 1.02, "color_intensity": 4.4, "hue": 0.91, "od280/od315_of_diluted_wines": 2.05, "proline": 550.0, "class": 2, "predict": 2}, {"alcohol": 12.25, "malic_acid": 3.88, "ash": 2.2, "alcalinity_of_ash": 18.5, "magnesium": 112.0, "total_phenols": 1.38, "flavanoids": 0.78, "nonflavanoid_phenols": 0.29, "proanthocyanins": 1.14, "color_intensity": 8.21, "hue": 0.65, "od280/od315_of_diluted_wines": 2.0, "proline": 855.0, "class": 2, "predict": 2}, {"alcohol": 13.16, "malic_acid": 3.57, "ash": 2.15, "alcalinity_of_ash": 21.0, "magnesium": 102.0, "total_phenols": 1.5, "flavanoids": 0.55, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.3, "color_intensity": 4.0, "hue": 0.6, "od280/od315_of_diluted_wines": 1.68, "proline": 830.0, "class": 2, "predict": 2}, {"alcohol": 13.88, "malic_acid": 5.04, "ash": 2.23, "alcalinity_of_ash": 20.0, "magnesium": 80.0, "total_phenols": 0.98, "flavanoids": 0.34, "nonflavanoid_phenols": 0.4, "proanthocyanins": 0.68, "color_intensity": 4.9, "hue": 0.58, "od280/od315_of_diluted_wines": 1.33, "proline": 415.0, "class": 2, "predict": 2}, {"alcohol": 12.87, "malic_acid": 4.61, "ash": 2.48, "alcalinity_of_ash": 21.5, "magnesium": 86.0, "total_phenols": 1.7, "flavanoids": 0.65, "nonflavanoid_phenols": 0.47, "proanthocyanins": 0.86, "color_intensity": 7.65, "hue": 0.54, "od280/od315_of_diluted_wines": 1.86, "proline": 625.0, "class": 2, "predict": 2}, {"alcohol": 13.32, "malic_acid": 3.24, "ash": 2.38, "alcalinity_of_ash": 21.5, "magnesium": 92.0, "total_phenols": 1.93, "flavanoids": 0.76, "nonflavanoid_phenols": 0.45, "proanthocyanins": 1.25, "color_intensity": 8.42, "hue": 0.55, "od280/od315_of_diluted_wines": 1.62, "proline": 650.0, "class": 2, "predict": 2}, {"alcohol": 13.08, "malic_acid": 3.9, "ash": 2.36, "alcalinity_of_ash": 21.5, "magnesium": 113.0, "total_phenols": 1.41, "flavanoids": 1.39, "nonflavanoid_phenols": 0.34, "proanthocyanins": 1.14, "color_intensity": 9.4, "hue": 0.57, "od280/od315_of_diluted_wines": 1.33, "proline": 550.0, "class": 2, "predict": 2}, {"alcohol": 13.5, "malic_acid": 3.12, "ash": 2.62, "alcalinity_of_ash": 24.0, "magnesium": 123.0, "total_phenols": 1.4, "flavanoids": 1.57, "nonflavanoid_phenols": 0.22, "proanthocyanins": 1.25, "color_intensity": 8.6, "hue": 0.59, "od280/od315_of_diluted_wines": 1.3, "proline": 500.0, "class": 2, "predict": 2}, {"alcohol": 12.79, "malic_acid": 2.67, "ash": 2.48, "alcalinity_of_ash": 22.0, "magnesium": 112.0, "total_phenols": 1.48, "flavanoids": 1.36, "nonflavanoid_phenols": 0.24, "proanthocyanins": 1.26, "color_intensity": 10.8, "hue": 0.48, "od280/od315_of_diluted_wines": 1.47, "proline": 480.0, "class": 2, "predict": 2}, {"alcohol": 13.11, "malic_acid": 1.9, "ash": 2.75, "alcalinity_of_ash": 25.5, "magnesium": 116.0, "total_phenols": 2.2, "flavanoids": 1.28, "nonflavanoid_phenols": 0.26, "proanthocyanins": 1.56, "color_intensity": 7.1, "hue": 0.61, "od280/od315_of_diluted_wines": 1.33, "proline": 425.0, "class": 2, "predict": 2}, {"alcohol": 13.23, "malic_acid": 3.3, "ash": 2.28, "alcalinity_of_ash": 18.5, "magnesium": 98.0, "total_phenols": 1.8, "flavanoids": 0.83, "nonflavanoid_phenols": 0.61, "proanthocyanins": 1.87, "color_intensity": 10.52, "hue": 0.56, "od280/od315_of_diluted_wines": 1.51, "proline": 675.0, "class": 2, "predict": 2}, {"alcohol": 12.58, "malic_acid": 1.29, "ash": 2.1, "alcalinity_of_ash": 20.0, "magnesium": 103.0, "total_phenols": 1.48, "flavanoids": 0.58, "nonflavanoid_phenols": 0.53, "proanthocyanins": 1.4, "color_intensity": 7.6, "hue": 0.58, "od280/od315_of_diluted_wines": 1.55, "proline": 640.0, "class": 2, "predict": 1}, {"alcohol": 13.17, "malic_acid": 5.19, "ash": 2.32, "alcalinity_of_ash": 22.0, "magnesium": 93.0, "total_phenols": 1.74, "flavanoids": 0.63, "nonflavanoid_phenols": 0.61, "proanthocyanins": 1.55, "color_intensity": 7.9, "hue": 0.6, "od280/od315_of_diluted_wines": 1.48, "proline": 725.0, "class": 2, "predict": 2}, {"alcohol": 13.84, "malic_acid": 4.12, "ash": 2.38, "alcalinity_of_ash": 19.5, "magnesium": 89.0, "total_phenols": 1.8, "flavanoids": 0.83, "nonflavanoid_phenols": 0.48, "proanthocyanins": 1.56, "color_intensity": 9.01, "hue": 0.57, "od280/od315_of_diluted_wines": 1.64, "proline": 480.0, "class": 2, "predict": 2}, {"alcohol": 12.45, "malic_acid": 3.03, "ash": 2.64, "alcalinity_of_ash": 27.0, "magnesium": 97.0, "total_phenols": 1.9, "flavanoids": 0.58, "nonflavanoid_phenols": 0.63, "proanthocyanins": 1.14, "color_intensity": 7.5, "hue": 0.67, "od280/od315_of_diluted_wines": 1.73, "proline": 880.0, "class": 2, "predict": 1}, {"alcohol": 14.34, "malic_acid": 1.68, "ash": 2.7, "alcalinity_of_ash": 25.0, "magnesium": 98.0, "total_phenols": 2.8, "flavanoids": 1.31, "nonflavanoid_phenols": 0.53, "proanthocyanins": 2.7, "color_intensity": 13.0, "hue": 0.57, "od280/od315_of_diluted_wines": 1.96, "proline": 660.0, "class": 2, "predict": 2}, {"alcohol": 13.48, "malic_acid": 1.67, "ash": 2.64, "alcalinity_of_ash": 22.5, "magnesium": 89.0, "total_phenols": 2.6, "flavanoids": 1.1, "nonflavanoid_phenols": 0.52, "proanthocyanins": 2.29, "color_intensity": 11.75, "hue": 0.57, "od280/od315_of_diluted_wines": 1.78, "proline": 620.0, "class": 2, "predict": 2}, {"alcohol": 12.36, "malic_acid": 3.83, "ash": 2.38, "alcalinity_of_ash": 21.0, "magnesium": 88.0, "total_phenols": 2.3, "flavanoids": 0.92, "nonflavanoid_phenols": 0.5, "proanthocyanins": 1.04, "color_intensity": 7.65, "hue": 0.56, "od280/od315_of_diluted_wines": 1.58, "proline": 520.0, "class": 2, "predict": 2}, {"alcohol": 13.69, "malic_acid": 3.26, "ash": 2.54, "alcalinity_of_ash": 20.0, "magnesium": 107.0, "total_phenols": 1.83, "flavanoids": 0.56, "nonflavanoid_phenols": 0.5, "proanthocyanins": 0.8, "color_intensity": 5.88, "hue": 0.96, "od280/od315_of_diluted_wines": 1.82, "proline": 680.0, "class": 2, "predict": 2}, {"alcohol": 12.85, "malic_acid": 3.27, "ash": 2.58, "alcalinity_of_ash": 22.0, "magnesium": 106.0, "total_phenols": 1.65, "flavanoids": 0.6, "nonflavanoid_phenols": 0.6, "proanthocyanins": 0.96, "color_intensity": 5.58, "hue": 0.87, "od280/od315_of_diluted_wines": 2.11, "proline": 570.0, "class": 2, "predict": 2}, {"alcohol": 12.96, "malic_acid": 3.45, "ash": 2.35, "alcalinity_of_ash": 18.5, "magnesium": 106.0, "total_phenols": 1.39, "flavanoids": 0.7, "nonflavanoid_phenols": 0.4, "proanthocyanins": 0.94, "color_intensity": 5.28, "hue": 0.68, "od280/od315_of_diluted_wines": 1.75, "proline": 675.0, "class": 2, "predict": 2}, {"alcohol": 13.78, "malic_acid": 2.76, "ash": 2.3, "alcalinity_of_ash": 22.0, "magnesium": 90.0, "total_phenols": 1.35, "flavanoids": 0.68, "nonflavanoid_phenols": 0.41, "proanthocyanins": 1.03, "color_intensity": 9.58, "hue": 0.7, "od280/od315_of_diluted_wines": 1.68, "proline": 615.0, "class": 2, "predict": 2}, {"alcohol": 13.73, "malic_acid": 4.36, "ash": 2.26, "alcalinity_of_ash": 22.5, "magnesium": 88.0, "total_phenols": 1.28, "flavanoids": 0.47, "nonflavanoid_phenols": 0.52, "proanthocyanins": 1.15, "color_intensity": 6.62, "hue": 0.78, "od280/od315_of_diluted_wines": 1.75, "proline": 520.0, "class": 2, "predict": 2}, {"alcohol": 13.45, "malic_acid": 3.7, "ash": 2.6, "alcalinity_of_ash": 23.0, "magnesium": 111.0, "total_phenols": 1.7, "flavanoids": 0.92, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.46, "color_intensity": 10.68, "hue": 0.85, "od280/od315_of_diluted_wines": 1.56, "proline": 695.0, "class": 2, "predict": 2}, {"alcohol": 12.82, "malic_acid": 3.37, "ash": 2.3, "alcalinity_of_ash": 19.5, "magnesium": 88.0, "total_phenols": 1.48, "flavanoids": 0.66, "nonflavanoid_phenols": 0.4, "proanthocyanins": 0.97, "color_intensity": 10.26, "hue": 0.72, "od280/od315_of_diluted_wines": 1.75, "proline": 685.0, "class": 2, "predict": 2}, {"alcohol": 13.58, "malic_acid": 2.58, "ash": 2.69, "alcalinity_of_ash": 24.5, "magnesium": 105.0, "total_phenols": 1.55, "flavanoids": 0.84, "nonflavanoid_phenols": 0.39, "proanthocyanins": 1.54, "color_intensity": 8.66, "hue": 0.74, "od280/od315_of_diluted_wines": 1.8, "proline": 750.0, "class": 2, "predict": 2}, {"alcohol": 13.4, "malic_acid": 4.6, "ash": 2.86, "alcalinity_of_ash": 25.0, "magnesium": 112.0, "total_phenols": 1.98, "flavanoids": 0.96, "nonflavanoid_phenols": 0.27, "proanthocyanins": 1.11, "color_intensity": 8.5, "hue": 0.67, "od280/od315_of_diluted_wines": 1.92, "proline": 630.0, "class": 2, "predict": 2}, {"alcohol": 12.2, "malic_acid": 3.03, "ash": 2.32, "alcalinity_of_ash": 19.0, "magnesium": 96.0, "total_phenols": 1.25, "flavanoids": 0.49, "nonflavanoid_phenols": 0.4, "proanthocyanins": 0.73, "color_intensity": 5.5, "hue": 0.66, "od280/od315_of_diluted_wines": 1.83, "proline": 510.0, "class": 2, "predict": 1}, {"alcohol": 12.77, "malic_acid": 2.39, "ash": 2.28, "alcalinity_of_ash": 19.5, "magnesium": 86.0, "total_phenols": 1.39, "flavanoids": 0.51, "nonflavanoid_phenols": 0.48, "proanthocyanins": 0.64, "color_intensity": 9.899999, "hue": 0.57, "od280/od315_of_diluted_wines": 1.63, "proline": 470.0, "class": 2, "predict": 1}, {"alcohol": 14.16, "malic_acid": 2.51, "ash": 2.48, "alcalinity_of_ash": 20.0, "magnesium": 91.0, "total_phenols": 1.68, "flavanoids": 0.7, "nonflavanoid_phenols": 0.44, "proanthocyanins": 1.24, "color_intensity": 9.7, "hue": 0.62, "od280/od315_of_diluted_wines": 1.71, "proline": 660.0, "class": 2, "predict": 0}, {"alcohol": 13.71, "malic_acid": 5.65, "ash": 2.45, "alcalinity_of_ash": 20.5, "magnesium": 95.0, "total_phenols": 1.68, "flavanoids": 0.61, "nonflavanoid_phenols": 0.52, "proanthocyanins": 1.06, "color_intensity": 7.7, "hue": 0.64, "od280/od315_of_diluted_wines": 1.74, "proline": 740.0, "class": 2, "predict": 2}, {"alcohol": 13.4, "malic_acid": 3.91, "ash": 2.48, "alcalinity_of_ash": 23.0, "magnesium": 102.0, "total_phenols": 1.8, "flavanoids": 0.75, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.41, "color_intensity": 7.3, "hue": 0.7, "od280/od315_of_diluted_wines": 1.56, "proline": 750.0, "class": 2, "predict": 2}, {"alcohol": 13.27, "malic_acid": 4.28, "ash": 2.26, "alcalinity_of_ash": 20.0, "magnesium": 120.0, "total_phenols": 1.59, "flavanoids": 0.69, "nonflavanoid_phenols": 0.43, "proanthocyanins": 1.35, "color_intensity": 10.2, "hue": 0.59, "od280/od315_of_diluted_wines": 1.56, "proline": 835.0, "class": 2, "predict": 2}, {"alcohol": 13.17, "malic_acid": 2.59, "ash": 2.37, "alcalinity_of_ash": 20.0, "magnesium": 120.0, "total_phenols": 1.65, "flavanoids": 0.68, "nonflavanoid_phenols": 0.53, "proanthocyanins": 1.46, "color_intensity": 9.3, "hue": 0.6, "od280/od315_of_diluted_wines": 1.62, "proline": 840.0, "class": 2, "predict": 2}, {"alcohol": 14.13, "malic_acid": 4.1, "ash": 2.74, "alcalinity_of_ash": 24.5, "magnesium": 96.0, "total_phenols": 2.05, "flavanoids": 0.76, "nonflavanoid_phenols": 0.56, "proanthocyanins": 1.35, "color_intensity": 9.2, "hue": 0.61, "od280/od315_of_diluted_wines": 1.6, "proline": 560.0, "class": 2, "predict": 2}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>The right hand side is the graph for predicted class. We can see that some points for class 0 around (13,4) are predicted to be class 2. We can see why this is from the graph.</p>
+</section>
+<section id="conclusion-for-linear-regression-model">
+<h2>Conclusion for Linear Regression model<a class="headerlink" href="#conclusion-for-linear-regression-model" title="Permalink to this heading">#</a></h2>
+<p>The accuracy for both train set and test set are pretty high. It is plausible that there is an overfitting problem. However, considering it uses 5 paremeters to predict only 3 classes, and the test size are pretty small(178*0.2= 35.6), the high accuracy is understandable. Also, checking the score for the test set also helps us to inspect overfitting. For this model, the score for test set is consistent with train set. We should check the model for a larger test set to see the real performance of this model.</p>
+</section>
+<section id="random-forest">
+<h2>Random Forest<a class="headerlink" href="#random-forest" title="Permalink to this heading">#</a></h2>
+<p>Using Random Forest model is a good way to avoid overfitting problems. Let’s check the performance of Random Forest model on this dataset. Considering it is a pretty small dataset, I am going to set the max depth to 5 and max leaf node to 5. Let’s also use the first five columns instead of 13 columns to predict the classes, and see how would the accuracy be different from the Logistic Regression mmodel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;alcohol&#39;, &#39;malic_acid&#39;, &#39;ash&#39;, &#39;alcalinity_of_ash&#39;, &#39;magnesium&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rfc</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">5</span> <span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rfc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>RandomForestClassifier(max_depth=5, max_leaf_nodes=5, random_state=42)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">RandomForestClassifier</label><div class="sk-toggleable__content"><pre>RandomForestClassifier(max_depth=5, max_leaf_nodes=5, random_state=42)</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span> <span class="n">rfc</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9166666666666666, 0.8802816901408451)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also access one particular Decision Tree.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">rfc</span><span class="o">.</span><span class="n">estimators_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">clf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier(max_depth=5, max_features=&#x27;sqrt&#x27;, max_leaf_nodes=5,
+                       random_state=1608637542)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">DecisionTreeClassifier</label><div class="sk-toggleable__content"><pre>DecisionTreeClassifier(max_depth=5, max_features=&#x27;sqrt&#x27;, max_leaf_nodes=5,
+                       random_state=1608637542)</pre></div></div></div></div></div></div></div>
+</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>Generally random tree forest is also a pretty good model for predicting the class of the wine. Since the test score are pretty good, and there is limit in max leaf node and max depth, there should be no overfitting.</p>
+</section>
+<section id="princiiple-component-analysis-pca-and-t-distributed-stochastic-neighbor-embedding-tsne">
+<h2>Princiiple Component Analysis(PCA) and t-distributed stochastic neighbor embedding (tSNE)<a class="headerlink" href="#princiiple-component-analysis-pca-and-t-distributed-stochastic-neighbor-embedding-tsne" title="Permalink to this heading">#</a></h2>
+<p>We want to visualize the pattern between the parameters and the class. Because there are 13 parameters with many dimensions, we can first process the data using PCA, and then apply tSNE to the data. This idea is from Week 9 Monday <a class="reference external" href="https://deepnote.com/workspace/yidingh-e4771a0c-f6a2-4e56-a1c1-1e3b722443e1/project/W9Monday-Duplicate-5d113670-1a44-40d4-b14b-25fc975f1627/notebook/82aac0e734df489fa063c3b95c94cda1">https://deepnote.com/workspace/yidingh-e4771a0c-f6a2-4e56-a1c1-1e3b722443e1/project/W9Monday-Duplicate-5d113670-1a44-40d4-b14b-25fc975f1627/notebook/82aac0e734df489fa063c3b95c94cda1</a>.</p>
+<p>Now we first use PCA to process the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="n">columns</span><span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">13</span><span class="p">])</span>
+<span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Transform the data into an Altair chart.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
+<span class="n">pca_df</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">pca_df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;PC1&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;PC2&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;class:N&#39;</span><span class="p">),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-7f1027460c1540d1a35837d928fbd41f"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-7f1027460c1540d1a35837d928fbd41f") {
+      outputDiv = document.getElementById("altair-viz-7f1027460c1540d1a35837d928fbd41f");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-d01183face6be29c9de3a3ca7f1f7b18"}, "mark": "point", "encoding": {"color": {"field": "class", "type": "nominal"}, "tooltip": [{"field": "class", "type": "quantitative"}], "x": {"field": "PC1", "type": "quantitative"}, "y": {"field": "PC2", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-d01183face6be29c9de3a3ca7f1f7b18": [{"PC1": 318.56297928793686, "PC2": 21.49213073453995, "class": 0}, {"PC1": 303.0974196593862, "PC2": -5.364717683064027, "class": 0}, {"PC1": 438.0611329172357, "PC2": -6.537309449440046, "class": 0}, {"PC1": 733.2401393508109, "PC2": 0.192729032072134, "class": 0}, {"PC1": -11.571428495905746, "PC2": 18.48999460836036, "class": 0}, {"PC1": 703.2311917377224, "PC2": -0.3321586742532871, "class": 0}, {"PC1": 542.9715808665927, "PC2": -13.518966641596885, "class": 0}, {"PC1": 548.401859840437, "PC2": 11.449432383558475, "class": 0}, {"PC1": 298.0368628006118, "PC2": -8.18015783540834, "class": 0}, {"PC1": 298.0495531354683, "PC2": -7.101542937561728, "class": 0}, {"PC1": 763.0797119412475, "PC2": -8.334317226298765, "class": 0}, {"PC1": 532.9432277319981, "PC2": -14.287633770471398, "class": 0}, {"PC1": 572.8344103911644, "PC2": -21.00501433007111, "class": 0}, {"PC1": 402.9253582860967, "PC2": -16.102635218597193, "class": 0}, {"PC1": 800.0533938569718, "PC2": -12.11844719158933, "class": 0}, {"PC1": 563.2455779988175, "PC2": 2.2148286640862755, "class": 0}, {"PC1": 533.3796506359126, "PC2": 10.804802233662494, "class": 0}, {"PC1": 383.31759107727515, "PC2": 8.47741981756293, "class": 0}, {"PC1": 933.1183874996059, "PC2": -8.354478439743353, "class": 0}, {"PC1": 98.40317747596022, "PC2": 14.392659413302267, "class": 0}, {"PC1": 33.59359400185373, "PC2": 25.567956497752526, "class": 0}, {"PC1": 23.146437540271027, "PC2": 1.8174730862651138, "class": 0}, {"PC1": 288.09303021740465, "PC2": -3.963041749665031, "class": 0}, {"PC1": 267.9815125349914, "PC2": -9.570704013405837, "class": 0}, {"PC1": 98.01988577277818, "PC2": -5.4958460621884155, "class": 0}, {"PC1": 83.49874396134177, "PC2": 22.89162154995942, "class": 0}, {"PC1": 447.9255962223425, "PC2": -14.797331250759303, "class": 0}, {"PC1": 537.9191650213774, "PC2": -15.388346065023548, "class": 0}, {"PC1": 168.21046760464947, "PC2": 4.255310963149657, "class": 0}, {"PC1": 288.0082470812647, "PC2": -8.95973154901575, "class": 0}, {"PC1": 538.0264521021907, "PC2": -8.212738820938174, "class": 0}, {"PC1": 768.0929388553868, "PC2": -7.37989737463995, "class": 0}, {"PC1": 243.1507509018916, "PC2": -0.1439149276148137, "class": 0}, {"PC1": 488.6012800452355, "PC2": 23.56532504324064, "class": 0}, {"PC1": 348.2310069968195, "PC2": 4.038080148998222, "class": 0}, {"PC1": 173.0799574260964, "PC2": -2.792921649776869, "class": 0}, {"PC1": 133.28642354659135, "PC2": 7.772729575349445, "class": 0}, {"PC1": 358.0185591752663, "PC2": -8.157984118124048, "class": 0}, {"PC1": 273.04443152140374, "PC2": -6.725074307758917, "class": 0}, {"PC1": 13.643002113365252, "PC2": 27.846832147749087, "class": 0}, {"PC1": 48.42964224993015, "PC2": 16.321949760522184, "class": 0}, {"PC1": 287.8840921689912, "PC2": -14.885118535217185, "class": 0}, {"PC1": 348.09534818044665, "PC2": -5.043426088455582, "class": 0}, {"PC1": -66.81465538610273, "PC2": 4.3848299183095705, "class": 0}, {"PC1": 138.2270098834421, "PC2": 4.730688359804035, "class": 0}, {"PC1": 333.2548058291665, "PC2": 5.319331158248495, "class": 0}, {"PC1": 318.11184846663883, "PC2": -3.4869449391169445, "class": 0}, {"PC1": 238.11148507872264, "PC2": -3.051521001293952, "class": 0}, {"PC1": 313.1199153878398, "PC2": -2.305363163587638, "class": 0}, {"PC1": 513.1877480212282, "PC2": -0.8637592352155256, "class": 0}, {"PC1": 402.9390171589735, "PC2": -15.053302848806693, "class": 0}, {"PC1": 517.9289632654715, "PC2": -14.997554888546459, "class": 0}, {"PC1": 443.26641129493294, "PC2": 3.2605020440732786, "class": 0}, {"PC1": 628.2860709851127, "PC2": 4.041145380795896, "class": 0}, {"PC1": 313.3976126756323, "PC2": 12.608913514882222, "class": 0}, {"PC1": 373.33329122238, "PC2": 9.664198626315429, "class": 0}, {"PC1": 223.4171063579505, "PC2": 14.216892411736984, "class": 0}, {"PC1": 523.0728513966159, "PC2": -7.096625255912906, "class": 0}, {"PC1": 538.1820973229432, "PC2": -1.35678012810163, "class": 0}, {"PC1": -227.03269045249672, "PC2": -7.994967969134492, "class": 1}, {"PC1": -66.85012199724919, "PC2": 2.319866536222573, "class": 1}, {"PC1": -296.8244368914156, "PC2": 5.468475698009889, "class": 1}, {"PC1": -116.97047258185768, "PC2": -3.726383423155165, "class": 1}, {"PC1": -327.0591255951513, "PC2": -6.948130808142175, "class": 1}, {"PC1": -391.75248643605016, "PC2": 11.171678256222844, "class": 1}, {"PC1": -68.90576044269501, "PC2": -0.558620537124197, "class": 1}, {"PC1": -245.2125239770789, "PC2": -17.493639299420554, "class": 1}, {"PC1": -237.24141029251672, "PC2": -17.531025550918, "class": 1}, {"PC1": 3.2961559909799147, "PC2": 10.095811600653025, "class": 1}, {"PC1": -27.9661207305392, "PC2": 51.6301251859264, "class": 1}, {"PC1": 123.13013830856279, "PC2": 1.0598345145506847, "class": 1}, {"PC1": -337.1041224880131, "PC2": -7.6238551221758, "class": 1}, {"PC1": -275.09602587968766, "PC2": -7.753152131800835, "class": 1}, {"PC1": 238.71675654886138, "PC2": 35.25182736823365, "class": 1}, {"PC1": 139.09405663995784, "PC2": -1.2074761987359943, "class": 1}, {"PC1": -318.87632890232953, "PC2": 2.8107711323253235, "class": 1}, {"PC1": -355.060252514137, "PC2": -7.530701831829731, "class": 1}, {"PC1": -246.63359745191596, "PC2": 16.558436650558402, "class": 1}, {"PC1": 3.771689655532764, "PC2": 36.03109236303351, "class": 1}, {"PC1": -283.8422476447661, "PC2": 6.361860804858201, "class": 1}, {"PC1": -469.05935030926656, "PC2": -5.4589239790874915, "class": 1}, {"PC1": -33.131339246156216, "PC2": -13.187104957216402, "class": 1}, {"PC1": -117.29039200980708, "PC2": -19.578612467991924, "class": 1}, {"PC1": -232.13298838412308, "PC2": -10.530103259648032, "class": 1}, {"PC1": -226.9532994201187, "PC2": -1.7760587915564732, "class": 1}, {"PC1": -296.85215173438587, "PC2": 4.452803088679311, "class": 1}, {"PC1": -252.04639192844044, "PC2": -5.2126175881049805, "class": 1}, {"PC1": -185.1088573734927, "PC2": -8.318582024009313, "class": 1}, {"PC1": -67.18075184447467, "PC2": -14.524690218444064, "class": 1}, {"PC1": -122.4313264012048, "PC2": -27.504038698491353, "class": 1}, {"PC1": -267.1853332030439, "PC2": -14.053890086022559, "class": 1}, {"PC1": -297.10441467528636, "PC2": -8.415031614551134, "class": 1}, {"PC1": -252.2138850717704, "PC2": -15.251570245283128, "class": 1}, {"PC1": -457.0222149421967, "PC2": -3.697337926777127, "class": 1}, {"PC1": -401.851274089996, "PC2": 5.331400215799389, "class": 1}, {"PC1": 191.1833967725067, "PC2": 58.793762379561834, "class": 1}, {"PC1": -121.27917775374175, "PC2": 36.4175148893171, "class": 1}, {"PC1": -319.08827280468586, "PC2": -9.19307819529587, "class": 1}, {"PC1": -87.08029256129839, "PC2": -10.226572689125993, "class": 1}, {"PC1": -341.04090016734887, "PC2": -5.75056558657892, "class": 1}, {"PC1": -36.9316145509981, "PC2": -2.1704159280460527, "class": 1}, {"PC1": -185.0737134940791, "PC2": -8.520519018587823, "class": 1}, {"PC1": -308.882386612496, "PC2": 3.7516565521730816, "class": 1}, {"PC1": -332.08929638290084, "PC2": -7.883728753439606, "class": 1}, {"PC1": -75.15313775202637, "PC2": -13.413827944810862, "class": 1}, {"PC1": -432.00974192285366, "PC2": -2.032946733749538, "class": 1}, {"PC1": -237.20669708725697, "PC2": -15.561967932903476, "class": 1}, {"PC1": -259.14836773379625, "PC2": -11.078816347723377, "class": 1}, {"PC1": -434.95778011238116, "PC2": -0.05952602952399659, "class": 1}, {"PC1": -66.99069577012982, "PC2": -4.571457640410515, "class": 1}, {"PC1": -184.736438525327, "PC2": 10.516463160565277, "class": 1}, {"PC1": -422.0428736248791, "PC2": -4.244921941762492, "class": 1}, {"PC1": -139.81866316131382, "PC2": 5.735552074296905, "class": 1}, {"PC1": -313.0609481628972, "PC2": -6.167094011040836, "class": 1}, {"PC1": -362.1296331136067, "PC2": -9.259295397921363, "class": 1}, {"PC1": -340.11500621424557, "PC2": -8.689734429642705, "class": 1}, {"PC1": -252.10947206109932, "PC2": -9.27587014686267, "class": 1}, {"PC1": -401.6959734817672, "PC2": 15.425890267706617, "class": 1}, {"PC1": -375.1710923664664, "PC2": -13.18505025381476, "class": 1}, {"PC1": -183.09792918191033, "PC2": -9.553544319548783, "class": 1}, {"PC1": -121.9452413484445, "PC2": -1.5888942780782362, "class": 1}, {"PC1": -281.5345691197326, "PC2": 24.508261186546694, "class": 1}, {"PC1": -381.8267782342636, "PC2": 9.189109755405713, "class": 1}, {"PC1": -367.089380045994, "PC2": -7.1882158902563695, "class": 1}, {"PC1": -367.1571746966124, "PC2": -11.1963202216613, "class": 1}, {"PC1": -369.1036009666214, "PC2": -8.175804911790458, "class": 1}, {"PC1": -395.0788364569409, "PC2": -6.679831873374485, "class": 1}, {"PC1": -281.03036870910114, "PC2": -2.53586006771769, "class": 1}, {"PC1": -405.06128780288566, "PC2": -4.451073669629206, "class": 1}, {"PC1": -167.23764181767572, "PC2": -16.731185725058758, "class": 1}, {"PC1": -116.47300035905566, "PC2": 24.266020059797498, "class": 2}, {"PC1": -216.7845399781076, "PC2": 8.13044955622494, "class": 2}, {"PC1": -186.9151119656017, "PC2": 1.7100573556775922, "class": 2}, {"PC1": -146.76952962486226, "PC2": 8.92033411356218, "class": 2}, {"PC1": -97.13297359792655, "PC2": -13.058283826880889, "class": 2}, {"PC1": -51.98204686718353, "PC2": -4.812293096844394, "class": 2}, {"PC1": -27.097930749853518, "PC2": -10.22999622396206, "class": 2}, {"PC1": -231.9515340706208, "PC2": 0.5349074098240243, "class": 2}, {"PC1": -167.07624576452392, "PC2": -8.756723111031372, "class": 2}, {"PC1": -156.86804454285763, "PC2": 4.163162488055394, "class": 2}, {"PC1": -146.94648958055137, "PC2": -1.096728964203258, "class": 2}, {"PC1": 32.90429274889572, "PC2": -11.305365635407663, "class": 2}, {"PC1": -226.9262096856647, "PC2": 1.3882783668810976, "class": 2}, {"PC1": -197.00434749401978, "PC2": -4.228428695529232, "class": 2}, {"PC1": 108.3126773032599, "PC2": 10.351330443795758, "class": 2}, {"PC1": 83.11826261248208, "PC2": 0.8068696950290704, "class": 2}, {"PC1": -332.1958399900889, "PC2": -13.813298892465195, "class": 2}, {"PC1": -122.12609208783446, "PC2": -11.469925859637065, "class": 2}, {"PC1": -97.01938926807345, "PC2": -5.906442575323518, "class": 2}, {"PC1": -196.62480660405078, "PC2": 16.873113924850287, "class": 2}, {"PC1": -246.44919923184148, "PC2": 27.810095379533575, "class": 2}, {"PC1": -266.6287880497013, "PC2": 17.15023199752927, "class": 2}, {"PC1": -321.5707409351809, "PC2": 22.164340097201016, "class": 2}, {"PC1": -71.8976587062259, "PC2": -0.39965639971936195, "class": 2}, {"PC1": -106.8166178012724, "PC2": 5.206123065088728, "class": 2}, {"PC1": -22.020256798528823, "PC2": -6.229439254840841, "class": 2}, {"PC1": -267.0317323055762, "PC2": -5.92308914400985, "class": 2}, {"PC1": 132.99984125218958, "PC2": -4.867705439544272, "class": 2}, {"PC1": -86.91399859078044, "PC2": 0.07963577715359424, "class": 2}, {"PC1": -127.06128965116446, "PC2": -8.291416841194469, "class": 2}, {"PC1": -227.06883575173464, "PC2": -7.618630299434805, "class": 2}, {"PC1": -66.75543117637739, "PC2": 8.470289897435144, "class": 2}, {"PC1": -176.7650984251171, "PC2": 9.473190002016782, "class": 2}, {"PC1": -71.76839793240195, "PC2": 7.510637841257726, "class": 2}, {"PC1": -132.04824836043466, "PC2": -7.255030312061557, "class": 2}, {"PC1": -227.0778445532602, "PC2": -7.593379303886892, "class": 2}, {"PC1": -51.68950645984436, "PC2": 12.358084974597833, "class": 2}, {"PC1": -62.0850111243039, "PC2": -10.554015295801587, "class": 2}, {"PC1": 3.182764653492937, "PC2": 5.391361501575991, "class": 2}, {"PC1": -116.67481804945255, "PC2": 14.533370347154198, "class": 2}, {"PC1": -236.92120794183776, "PC2": 0.46303699755317224, "class": 2}, {"PC1": -277.0835782560393, "PC2": -8.740331907970248, "class": 2}, {"PC1": -87.0274026313734, "PC2": -7.104595748581736, "class": 2}, {"PC1": -6.980210958028467, "PC2": -4.541136569158689, "class": 2}, {"PC1": 3.131604678755463, "PC2": 2.335190511328358, "class": 2}, {"PC1": 88.45807368612967, "PC2": 18.776284558356135, "class": 2}, {"PC1": 93.45624185410922, "PC2": 18.670819123425396, "class": 2}, {"PC1": -186.94319027310925, "PC2": -0.2133308031216712, "class": 2}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>Then we apply tSNE.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_pca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:800: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
+  warnings.warn(
+/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:810: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
+  warnings.warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_tsne</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tsne1&#39;</span><span class="p">,</span><span class="s1">&#39;tsne2&#39;</span><span class="p">])</span>
+<span class="n">df_tsne</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df_tsne</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;tsne1&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;tsne2&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;Class:N&#39;</span><span class="p">,</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Class:N&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-9d5abe5d5bc4466badf65291900eab6d"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-9d5abe5d5bc4466badf65291900eab6d") {
+      outputDiv = document.getElementById("altair-viz-9d5abe5d5bc4466badf65291900eab6d");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-691a454b6ecc45f2253c09cee37a022b"}, "mark": "circle", "encoding": {"color": {"field": "Class", "type": "nominal"}, "tooltip": [{"field": "Class", "type": "nominal"}], "x": {"field": "tsne1", "type": "quantitative"}, "y": {"field": "tsne2", "type": "quantitative"}}, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-691a454b6ecc45f2253c09cee37a022b": [{"tsne1": -5.9022216796875, "tsne2": 7.084769248962402, "Class": 0}, {"tsne1": -6.256147861480713, "tsne2": 6.365512847900391, "Class": 0}, {"tsne1": -7.579983234405518, "tsne2": 8.632827758789062, "Class": 0}, {"tsne1": -9.448179244995117, "tsne2": 10.824573516845703, "Class": 0}, {"tsne1": -0.4953702688217163, "tsne2": 0.08902647346258163, "Class": 0}, {"tsne1": -9.05280876159668, "tsne2": 10.926319122314453, "Class": 0}, {"tsne1": -8.214958190917969, "tsne2": 10.049108505249023, "Class": 0}, {"tsne1": -8.815337181091309, "tsne2": 9.686090469360352, "Class": 0}, {"tsne1": -5.691928386688232, "tsne2": 6.66192102432251, "Class": 0}, {"tsne1": -6.1834282875061035, "tsne2": 6.259022235870361, "Class": 0}, {"tsne1": -9.349382400512695, "tsne2": 11.108160018920898, "Class": 0}, {"tsne1": -8.612573623657227, "tsne2": 9.495271682739258, "Class": 0}, {"tsne1": -8.53166389465332, "tsne2": 10.259730339050293, "Class": 0}, {"tsne1": -7.201194763183594, "tsne2": 8.13387680053711, "Class": 0}, {"tsne1": -9.51629638671875, "tsne2": 11.166297912597656, "Class": 0}, {"tsne1": -8.7801513671875, "tsne2": 9.94482421875, "Class": 0}, {"tsne1": -8.672603607177734, "tsne2": 9.456718444824219, "Class": 0}, {"tsne1": -6.985429286956787, "tsne2": 7.7976765632629395, "Class": 0}, {"tsne1": -9.716605186462402, "tsne2": 11.338852882385254, "Class": 0}, {"tsne1": -2.8715133666992188, "tsne2": 2.52020263671875, "Class": 0}, {"tsne1": -1.4965159893035889, "tsne2": 1.1925805807113647, "Class": 0}, {"tsne1": -1.4446707963943481, "tsne2": 0.7452664375305176, "Class": 0}, {"tsne1": -5.592034339904785, "tsne2": 6.44326639175415, "Class": 0}, {"tsne1": -5.696390151977539, "tsne2": 5.849945068359375, "Class": 0}, {"tsne1": -2.597599983215332, "tsne2": 2.7845308780670166, "Class": 0}, {"tsne1": -2.5061211585998535, "tsne2": 2.18841552734375, "Class": 0}, {"tsne1": -7.649001121520996, "tsne2": 8.801600456237793, "Class": 0}, {"tsne1": -8.136701583862305, "tsne2": 9.99739933013916, "Class": 0}, {"tsne1": -3.802062511444092, "tsne2": 3.8427438735961914, "Class": 0}, {"tsne1": -6.030949592590332, "tsne2": 6.085945129394531, "Class": 0}, {"tsne1": -8.668352127075195, "tsne2": 9.585488319396973, "Class": 0}, {"tsne1": -9.50005054473877, "tsne2": 11.010932922363281, "Class": 0}, {"tsne1": -5.266185283660889, "tsne2": 5.581719398498535, "Class": 0}, {"tsne1": -8.184514999389648, "tsne2": 9.081175804138184, "Class": 0}, {"tsne1": -6.747344493865967, "tsne2": 7.135007381439209, "Class": 0}, {"tsne1": -3.8867061138153076, "tsne2": 3.9374096393585205, "Class": 0}, {"tsne1": -3.3782637119293213, "tsne2": 3.130730628967285, "Class": 0}, {"tsne1": -6.833264350891113, "tsne2": 7.330320835113525, "Class": 0}, {"tsne1": -5.506404399871826, "tsne2": 6.10288667678833, "Class": 0}, {"tsne1": -1.0173274278640747, "tsne2": 0.7899865508079529, "Class": 0}, {"tsne1": -1.8849983215332031, "tsne2": 1.5158799886703491, "Class": 0}, {"tsne1": -5.574542999267578, "tsne2": 6.454603672027588, "Class": 0}, {"tsne1": -6.430419445037842, "tsne2": 7.401590824127197, "Class": 0}, {"tsne1": 1.1400176286697388, "tsne2": -1.7721130847930908, "Class": 0}, {"tsne1": -3.3862855434417725, "tsne2": 3.2858150005340576, "Class": 0}, {"tsne1": -6.282378196716309, "tsne2": 7.170130729675293, "Class": 0}, {"tsne1": -6.476128101348877, "tsne2": 6.640385150909424, "Class": 0}, {"tsne1": -5.176435470581055, "tsne2": 5.502903461456299, "Class": 0}, {"tsne1": -6.350586414337158, "tsne2": 6.593540191650391, "Class": 0}, {"tsne1": -8.261846542358398, "tsne2": 9.357632637023926, "Class": 0}, {"tsne1": -7.20427942276001, "tsne2": 8.128433227539062, "Class": 0}, {"tsne1": -7.974125385284424, "tsne2": 9.648398399353027, "Class": 0}, {"tsne1": -7.646618366241455, "tsne2": 8.706548690795898, "Class": 0}, {"tsne1": -8.985004425048828, "tsne2": 10.38813304901123, "Class": 0}, {"tsne1": -5.8919997215271, "tsne2": 6.957961082458496, "Class": 0}, {"tsne1": -6.745799541473389, "tsne2": 7.739023685455322, "Class": 0}, {"tsne1": -4.880293846130371, "tsne2": 5.150035381317139, "Class": 0}, {"tsne1": -8.029252052307129, "tsne2": 9.710982322692871, "Class": 0}, {"tsne1": -8.174209594726562, "tsne2": 9.969071388244629, "Class": 0}, {"tsne1": 7.173003673553467, "tsne2": -8.616907119750977, "Class": 1}, {"tsne1": 1.077823281288147, "tsne2": -1.841811180114746, "Class": 1}, {"tsne1": 10.429054260253906, "tsne2": -11.01691722869873, "Class": 1}, {"tsne1": 2.7397959232330322, "tsne2": -3.912663698196411, "Class": 1}, {"tsne1": 11.406865119934082, "tsne2": -12.136059761047363, "Class": 1}, {"tsne1": 13.327997207641602, "tsne2": -13.199864387512207, "Class": 1}, {"tsne1": 1.0244909524917603, "tsne2": -2.1628592014312744, "Class": 1}, {"tsne1": 7.806336879730225, "tsne2": -9.506891250610352, "Class": 1}, {"tsne1": 7.497538089752197, "tsne2": -9.26482105255127, "Class": 1}, {"tsne1": -0.9632551670074463, "tsne2": 0.3129483163356781, "Class": 1}, {"tsne1": 0.11792713403701782, "tsne2": 0.2581186592578888, "Class": 1}, {"tsne1": -3.025336265563965, "tsne2": 3.1074728965759277, "Class": 1}, {"tsne1": 11.895575523376465, "tsne2": -12.227821350097656, "Class": 1}, {"tsne1": 9.263855934143066, "tsne2": -10.395867347717285, "Class": 1}, {"tsne1": -5.028512477874756, "tsne2": 5.414300918579102, "Class": 1}, {"tsne1": -3.388657808303833, "tsne2": 3.321730852127075, "Class": 1}, {"tsne1": 11.2558012008667, "tsne2": -11.680147171020508, "Class": 1}, {"tsne1": 12.341480255126953, "tsne2": -12.638625144958496, "Class": 1}, {"tsne1": 8.655213356018066, "tsne2": -8.752887725830078, "Class": 1}, {"tsne1": -0.6808141469955444, "tsne2": 0.681771993637085, "Class": 1}, {"tsne1": 9.925323486328125, "tsne2": -10.56246280670166, "Class": 1}, {"tsne1": 13.741559982299805, "tsne2": -14.385619163513184, "Class": 1}, {"tsne1": -0.1421443521976471, "tsne2": -1.0366324186325073, "Class": 1}, {"tsne1": 3.014881134033203, "tsne2": -3.612642526626587, "Class": 1}, {"tsne1": 7.452023029327393, "tsne2": -8.898554801940918, "Class": 1}, {"tsne1": 7.437180519104004, "tsne2": -8.301534652709961, "Class": 1}, {"tsne1": 10.41401195526123, "tsne2": -11.03775405883789, "Class": 1}, {"tsne1": 8.419671058654785, "tsne2": -9.3783540725708, "Class": 1}, {"tsne1": 5.31790018081665, "tsne2": -6.799832820892334, "Class": 1}, {"tsne1": 0.6901254057884216, "tsne2": -2.3877158164978027, "Class": 1}, {"tsne1": 3.3676936626434326, "tsne2": -3.6945533752441406, "Class": 1}, {"tsne1": 8.778879165649414, "tsne2": -10.194181442260742, "Class": 1}, {"tsne1": 10.258771896362305, "tsne2": -11.271632194519043, "Class": 1}, {"tsne1": 8.115509033203125, "tsne2": -9.711895942687988, "Class": 1}, {"tsne1": 13.685517311096191, "tsne2": -14.314477920532227, "Class": 1}, {"tsne1": 13.363336563110352, "tsne2": -13.477264404296875, "Class": 1}, {"tsne1": -4.300784111022949, "tsne2": 4.455745220184326, "Class": 1}, {"tsne1": 2.3564586639404297, "tsne2": -4.865870952606201, "Class": 1}, {"tsne1": 11.084692001342773, "tsne2": -12.006922721862793, "Class": 1}, {"tsne1": 1.590868353843689, "tsne2": -2.911334991455078, "Class": 1}, {"tsne1": 12.03528881072998, "tsne2": -12.291205406188965, "Class": 1}, {"tsne1": 0.10271351039409637, "tsne2": -0.9936005473136902, "Class": 1}, {"tsne1": 5.311689853668213, "tsne2": -6.798128128051758, "Class": 1}, {"tsne1": 10.860623359680176, "tsne2": -11.419693946838379, "Class": 1}, {"tsne1": 11.684270858764648, "tsne2": -12.155564308166504, "Class": 1}, {"tsne1": 1.0673049688339233, "tsne2": -2.6494808197021484, "Class": 1}, {"tsne1": 13.71733570098877, "tsne2": -13.893089294433594, "Class": 1}, {"tsne1": 7.555903434753418, "tsne2": -9.202540397644043, "Class": 1}, {"tsne1": 8.527359962463379, "tsne2": -9.864874839782715, "Class": 1}, {"tsne1": 13.75308609008789, "tsne2": -13.916885375976562, "Class": 1}, {"tsne1": 0.805031418800354, "tsne2": -2.184448003768921, "Class": 1}, {"tsne1": 5.688700199127197, "tsne2": -6.494685173034668, "Class": 1}, {"tsne1": 13.288597106933594, "tsne2": -14.043278694152832, "Class": 1}, {"tsne1": 3.505800485610962, "tsne2": -4.934445858001709, "Class": 1}, {"tsne1": 10.899916648864746, "tsne2": -11.755053520202637, "Class": 1}, {"tsne1": 12.278763771057129, "tsne2": -13.048735618591309, "Class": 1}, {"tsne1": 11.763312339782715, "tsne2": -12.57701587677002, "Class": 1}, {"tsne1": 8.303244590759277, "tsne2": -9.49657917022705, "Class": 1}, {"tsne1": 13.544328689575195, "tsne2": -13.347862243652344, "Class": 1}, {"tsne1": 12.518089294433594, "tsne2": -13.368327140808105, "Class": 1}, {"tsne1": 5.216186046600342, "tsne2": -6.667275428771973, "Class": 1}, {"tsne1": 2.9327714443206787, "tsne2": -4.230462074279785, "Class": 1}, {"tsne1": 10.138765335083008, "tsne2": -10.140739440917969, "Class": 1}, {"tsne1": 13.139701843261719, "tsne2": -13.02069091796875, "Class": 1}, {"tsne1": 12.7059326171875, "tsne2": -12.775642395019531, "Class": 1}, {"tsne1": 12.37709903717041, "tsne2": -13.166438102722168, "Class": 1}, {"tsne1": 12.700516700744629, "tsne2": -12.886970520019531, "Class": 1}, {"tsne1": 12.908568382263184, "tsne2": -13.668983459472656, "Class": 1}, {"tsne1": 9.6419677734375, "tsne2": -10.595633506774902, "Class": 1}, {"tsne1": 13.06562614440918, "tsne2": -13.821310997009277, "Class": 1}, {"tsne1": 4.735881805419922, "tsne2": -6.054930210113525, "Class": 1}, {"tsne1": 2.324063539505005, "tsne2": -4.548650741577148, "Class": 2}, {"tsne1": 6.891152858734131, "tsne2": -7.872281551361084, "Class": 2}, {"tsne1": 5.646531581878662, "tsne2": -6.733315944671631, "Class": 2}, {"tsne1": 3.8176634311676025, "tsne2": -5.222707271575928, "Class": 2}, {"tsne1": 2.1851766109466553, "tsne2": -3.092205286026001, "Class": 2}, {"tsne1": 0.41339924931526184, "tsne2": -1.5516481399536133, "Class": 2}, {"tsne1": -0.28626346588134766, "tsne2": -0.7825033664703369, "Class": 2}, {"tsne1": 7.782876968383789, "tsne2": -8.457535743713379, "Class": 2}, {"tsne1": 4.764604568481445, "tsne2": -6.0277628898620605, "Class": 2}, {"tsne1": 4.3379292488098145, "tsne2": -5.581212997436523, "Class": 2}, {"tsne1": 3.931623697280884, "tsne2": -5.131527900695801, "Class": 2}, {"tsne1": -1.7072498798370361, "tsne2": 0.9564569592475891, "Class": 2}, {"tsne1": 7.500677585601807, "tsne2": -8.22635269165039, "Class": 2}, {"tsne1": 5.951003074645996, "tsne2": -7.2686028480529785, "Class": 2}, {"tsne1": -3.0453755855560303, "tsne2": 2.6944499015808105, "Class": 2}, {"tsne1": -2.471565008163452, "tsne2": 2.2714431285858154, "Class": 2}, {"tsne1": 11.472989082336426, "tsne2": -12.46483325958252, "Class": 2}, {"tsne1": 3.1210227012634277, "tsne2": -3.980311870574951, "Class": 2}, {"tsne1": 2.033735513687134, "tsne2": -3.2183637619018555, "Class": 2}, {"tsne1": 6.145338535308838, "tsne2": -7.075067043304443, "Class": 2}, {"tsne1": 8.884037971496582, "tsne2": -8.599617004394531, "Class": 2}, {"tsne1": 9.477357864379883, "tsne2": -9.599252700805664, "Class": 2}, {"tsne1": 11.520923614501953, "tsne2": -11.402880668640137, "Class": 2}, {"tsne1": 1.2975225448608398, "tsne2": -2.197094440460205, "Class": 2}, {"tsne1": 2.217409372329712, "tsne2": -3.756743907928467, "Class": 2}, {"tsne1": -0.4135531783103943, "tsne2": -0.5778090357780457, "Class": 2}, {"tsne1": 8.984123229980469, "tsne2": -10.01528263092041, "Class": 2}, {"tsne1": -3.1928303241729736, "tsne2": 3.2875475883483887, "Class": 2}, {"tsne1": 1.7447758913040161, "tsne2": -2.717662811279297, "Class": 2}, {"tsne1": 3.272435426712036, "tsne2": -4.290098667144775, "Class": 2}, {"tsne1": 7.186710357666016, "tsne2": -8.600974082946777, "Class": 2}, {"tsne1": 1.2008509635925293, "tsne2": -1.681715726852417, "Class": 2}, {"tsne1": 5.257030487060547, "tsne2": -6.22442102432251, "Class": 2}, {"tsne1": 1.4593254327774048, "tsne2": -1.9824273586273193, "Class": 2}, {"tsne1": 3.4318888187408447, "tsne2": -4.486324787139893, "Class": 2}, {"tsne1": 7.19069766998291, "tsne2": -8.59732723236084, "Class": 2}, {"tsne1": 0.6584905982017517, "tsne2": -1.231980323791504, "Class": 2}, {"tsne1": 0.5338469743728638, "tsne2": -2.024369955062866, "Class": 2}, {"tsne1": -1.0256067514419556, "tsne2": 0.2242310792207718, "Class": 2}, {"tsne1": 2.4456374645233154, "tsne2": -4.3357744216918945, "Class": 2}, {"tsne1": 7.974502086639404, "tsne2": -8.683768272399902, "Class": 2}, {"tsne1": 9.326333999633789, "tsne2": -10.507163047790527, "Class": 2}, {"tsne1": 1.6944018602371216, "tsne2": -2.8018014430999756, "Class": 2}, {"tsne1": -0.836301863193512, "tsne2": -0.20208756625652313, "Class": 2}, {"tsne1": -1.0579242706298828, "tsne2": 0.1746516227722168, "Class": 2}, {"tsne1": -2.5092051029205322, "tsne2": 2.4049458503723145, "Class": 2}, {"tsne1": -2.839653730392456, "tsne2": 2.3580851554870605, "Class": 2}, {"tsne1": 5.601176738739014, "tsne2": -6.775393009185791, "Class": 2}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+</section>
+<section id="id1">
+<h2>Conclusion<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<p>From the PCA chart we can see that it is easier to distinguish class 2 from the 3 classes, but class 0 and class 1 have a similarity in them. The shape of the tSNE chart was a little unexpected, but we can still observe that class 0 is more distinguished from class 1 and 2, and class 1 and 2 are blended together. This result is also consistent with the graph in the LogisticRegression part.</p>
+</section>
+<section id="k-nearest-neighbors-classifier">
+<h2>K-Nearest Neighbors Classifier<a class="headerlink" href="#k-nearest-neighbors-classifier" title="Permalink to this heading">#</a></h2>
+<p>I see this model in the extra topic session in the instruction topic, and I followed the note from YuJa professor <a class="reference external" href="https://christopherdavisuci.github.io/UCI-Math-10-W22/Week6/Week6-Wednesday.html">https://christopherdavisuci.github.io/UCI-Math-10-W22/Week6/Week6-Wednesday.html</a>. But I use clasifier for this dataset instead of regressor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use score to check the accuracy of the model, but it doen’t give us a number. Then we use the accuracy_score method to inspect the accuracy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">clf2</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=10)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">KNeighborsClassifier</label><div class="sk-toggleable__content"><pre>KNeighborsClassifier(n_neighbors=10)</pre></div></div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clf2</span><span class="o">.</span><span class="n">score</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;bound method ClassifierMixin.score of KNeighborsClassifier(n_neighbors=10)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_test</span> <span class="o">=</span> <span class="n">clf2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_test</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7222222222222222
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_train</span> <span class="o">=</span> <span class="n">clf2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred_train</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7676056338028169
+</pre></div>
+</div>
+</div>
+</div>
+<p>The accuracy is consitent, so there should be no over fitting problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;              precision    recall  f1-score   support\n\n           0       0.82      1.00      0.90        14\n           1       0.82      0.64      0.72        14\n           2       0.38      0.38      0.38         8\n\n    accuracy                           0.72        36\n   macro avg       0.67      0.67      0.67        36\nweighted avg       0.72      0.72      0.71        36\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Conclusion<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>The K-Nearest Neighbor Regressor model suprisingly has a low accuracy compared to the model previously used(Logistic Regression and Random Forest).</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>In this project, I mainly explore the performance of three models on the wine dataset for predicting the classes for each sample. Overall, Logistic Regression and Random Forest have a pretty high accuracy on the dataset(Both around 88 percent), while the accuracy for K-Neighbors Classifier are relatively low. We can also see that class 0 is distinguishable compared to the two other classes.</p>
+<ul class="simple">
+<li><p>What is the source of your dataset(s)?</p></li>
+</ul>
+<p>Sklearn.dataset</p>
+<ul class="simple">
+<li><p>List any other references that you found helpful.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://deepnote.com/workspace/yidingh-e4771a0c-f6a2-4e56-a1c1-1e3b722443e1/project/W9Monday-Duplicate-5d113670-1a44-40d4-b14b-25fc975f1627/notebook/82aac0e734df489fa063c3b95c94cda1">https://deepnote.com/workspace/yidingh-e4771a0c-f6a2-4e56-a1c1-1e3b722443e1/project/W9Monday-Duplicate-5d113670-1a44-40d4-b14b-25fc975f1627/notebook/82aac0e734df489fa063c3b95c94cda1</a>.</p></li>
+<li><p><a class="reference external" href="https://christopherdavisuci.github.io/UCI-Math-10-W22/Week6/Week6-Wednesday.html">https://christopherdavisuci.github.io/UCI-Math-10-W22/Week6/Week6-Wednesday.html</a>.</p></li>
+<li><p><a class="reference external" href="https://christopherdavisuci.github.io/UCI-Math-10-S23/Proj/StudentProjects/SethAbuhamdeh.html#logistic-regression">https://christopherdavisuci.github.io/UCI-Math-10-S23/Proj/StudentProjects/SethAbuhamdeh.html#logistic-regression</a></p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Course Project/Student Projects"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="YorickHerrmann.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Predicting a Team’s March Madness finish</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="JacquelineJia.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gender Basied From the Letters That Exist in Name</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#losgistic-regression">Losgistic Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion-for-linear-regression-model">Conclusion for Linear Regression model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest">Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#princiiple-component-analysis-pca-and-t-distributed-stochastic-neighbor-embedding-tsne">Princiiple Component Analysis(PCA) and t-distributed stochastic neighbor embedding (tSNE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-classifier">K-Nearest Neighbors Classifier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yutong Sha
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

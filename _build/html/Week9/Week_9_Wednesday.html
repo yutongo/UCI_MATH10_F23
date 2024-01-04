@@ -1,0 +1,1399 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 9 Wednesday &#8212; UC Irvine Math 10, Fall 2023</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Week9/Week_9_Wednesday';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Project Instructions" href="../Course%20Project/Project%20Instructions.html" />
+    <link rel="prev" title="Week 9 Monday" href="Week_9_Monday.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    UC Irvine, Math 10, Fall 2023
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week0/Week0_Intro.html">Week 0</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week0/Week_0_Friday.html">Week 0 Friday</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week1/Week1_Intro.html">Week 1</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/Week_1_Monday.html">Week 1 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/Week_1_Wednesday.html">Week 1 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week1/Week_1_Friday.html">Week 1 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week2/Week2_Intro.html">Week 2</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/Week_2_Monday.html">Week 2 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/Week_2_Wednesday.html">Week 2 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week2/Week_2_Friday.html">Week 2 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week3/Week3_Intro.html">Week 3</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/Week_3_Monday.html">Week 3 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/Week_3_Wednesday.html">Week 3 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week3/Week_3_Friday.html">Week 3 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week4/Week4_Intro.html">Week 4</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/Week_4_Monday.html">Week 4 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/Week_4_Wednesday.html">Week 4 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week4/Week_4_Friday.html">Week 4 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week5/Week5_Intro.html">Week 5</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/Week_5_Wednesday.html">Week 5 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week5/Week_5_Friday.html">Week 5 Friday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week6/Week6_Intro.html">Week 6</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/Week_6_Monday.html">Week 6 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week6/Week_6_Wednesday.html">Week 6 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week7/Week7_Intro.html">Week 7</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/Week_7_Monday.html">Week 7 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/Week_7_Wednesday.html">Week 7 Wednesday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week7/Week_7_Thursday.html">Week 7 Thursday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Week8/Week8_Intro.html">Week 8</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/Week_8_Monday.html">Week 8 Monday</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Week8/Week_8_Wednesday.html">Week 8 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Week9_Intro.html">Week 9</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Week_9_Monday.html">Week 9 Monday</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Week 9 Wednesday</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Course%20Project/Project%20Instructions.html">Project Instructions</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Possible%20Extra%20Topics.html">Possible extra topics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Course%20Project/Student_Projects.html">Student Projects</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/KhanhLinhBui.html">Gender Inequality</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/EricCao.html">Predicting Success of MLB Teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/XinyuChen.html">Transcation Fraud Detection</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/XiCheng.html">Prediction of All-NBA Player using 22-23 NBA Player Stats Per Game + Advanced Stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/TimothyCho.html">Predicting Income Above a Threshold</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/HieuLeDang.html">Comparing NBA 3 Point Shots For Two Given Seasons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/YanjunHe.html">🚗Sports Car Price Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/AndrewHeider.html">Star Classification and Prediction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/YorickHerrmann.html">Predicting a Team’s March Madness finish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/YidingHuang.html">Prediction of the class of the wine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/JacquelineJia.html">Gender Basied From the Letters That Exist in Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/KatieKim.html">Avocado Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/XidanLiao.html">Sleep Health and Lifestyle</a></li>
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/WuYanNie.html">Animation Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/CyrusPhan.html">Analyzing Top Rubik’s Cube Times</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/TaimianQiao.html">Predicting the age of abalone through decision tree regression and random forest regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/BoyuRen.html">Analyzing the Interplay Between Meteorological Factors and Urban Air Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/YiqunSu.html">Bank Direct Marketing: Term Deposit Subscription Forecast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/CourtneyRenaVasquez.html">Netflix Stock Price Predictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/SiyuWu.html">Predicting the Housing Price and House Type in London</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/NanjieYao.html">Stock Prediction of APPL Inc. From Yahoo Finace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/ShengqiYou.html">Email Segmentation Forecasting and Bank Subscriber Forecasting</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/MianfuZhong.html">The effects of every parts of a car to its acceleration</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../Course%20Project/Student%20Projects/YongjunZhu.html">Analysis of Electric Car Data</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yutongo/UCI_MATH10_F23" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Week9/Week_9_Wednesday.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 9 Wednesday</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning-clustering">Unsupervised Learning: Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">K-Means Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering-using-scikit-learn">K-means clustering using scikit-learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-model-gmm">Gaussian Mixture Model (GMM)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-9-wednesday">
+<h1>Week 9 Wednesday<a class="headerlink" href="#week-9-wednesday" title="Permalink to this heading">#</a></h1>
+<section id="unsupervised-learning-clustering">
+<h2>Unsupervised Learning: Clustering<a class="headerlink" href="#unsupervised-learning-clustering" title="Permalink to this heading">#</a></h2>
+<p>In addition to <strong>dimension reduction</strong>, another typical task of unsupervised machine learning is <strong>clustering</strong>: assigning the data samples into several groups (called clusters) based on their similarity – similar samples should be in the same cluster, and dissimilar samples should be in different clusters.</p>
+<p><strong>Caution</strong>: Don’t confuse clustering (unsupervised) with classification (supervised)!</p>
+</section>
+<section id="k-means-clustering">
+<h2><a class="reference external" href="https://en.wikipedia.org/wiki/K-means_clustering">K-Means Clustering</a><a class="headerlink" href="#k-means-clustering" title="Permalink to this heading">#</a></h2>
+<p><strong>Mathematical Description:</strong> Given a set of observations <span class="math notranslate nohighlight">\((x^{(1)}, x^{(2)}, ..., x^{(n)})\)</span>, where each observation is a p-dimensional real vector, k-means clustering aims to partition the <span class="math notranslate nohighlight">\(n\)</span> samples into <span class="math notranslate nohighlight">\(K (\leq n)\)</span> sets <span class="math notranslate nohighlight">\(S = {S_1, S_2, ..., S_K}\)</span> so as to minimize the within-cluster sum of squares (i.e. variance). Formally, the objective is to find the best parition of groups such that minimize the “loss function” of <span class="math notranslate nohighlight">\(S\)</span></p>
+<div class="math notranslate nohighlight">
+\[\min_{S}\sum_{i=1}^{K}\sum_{x\in S_{i}}\|x-\mu_{i}\|^{2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu_{i}\)</span> is the mean of points in <span class="math notranslate nohighlight">\(S_i\)</span>.</p>
+<p><strong>How to solve it:</strong> The exact solution to the K-means problem is <a class="reference external" href="https://en.wikipedia.org/wiki/P_versus_NP_problem">NP hard</a>. In practical, the common approach is to apply <a class="reference external" href="https://en.wikipedia.org/wiki/Lloyd%27s_algorithm">Lloyd’s algorithm</a> to find the heuristic solutions (local minimum).</p>
+<p>In the iterative algorithm, each iteration contains two steps:</p>
+<ul class="simple">
+<li><p>(<strong>assignment step</strong>) Given the cluster center, update the cluster of data according to its nearest cluster center.</p></li>
+<li><p>(<strong>update step</strong>) Given the cluster assignment, update the cluster centers by calculating the means within each cluster.</p></li>
+</ul>
+<p>The algorithm may converge if no further adjustments can be made.</p>
+<p>Because the algorithm may stuck in local minimums, the practical strategy is to randomly initialize the algorithm, and run multiple parallel programs to find the best partition with smallest “loss function “.</p>
+<p>Below we will apply the functions in <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">scikit-learn</a>. Note that to visualize the results of k-means on high-dimensional data, it is often combined with dimension reductions. Another pratical strategy is to use dimension reduction to pre-process the data, and apply clustering on the reduced datasets.</p>
+<p>It is also worth noting that in practice, <a class="reference external" href="https://en.wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set">determining true number of clusters (<span class="math notranslate nohighlight">\(K\)</span>) is a very hard problem</a>.</p>
+</section>
+<section id="k-means-clustering-using-scikit-learn">
+<h2>K-means clustering using scikit-learn<a class="headerlink" href="#k-means-clustering-using-scikit-learn" title="Permalink to this heading">#</a></h2>
+<p>Using <code class="docutils literal notranslate"><span class="pre">KMeans</span></code> from scikit-learn, cluster the iris data using the columns ‘sepal_length’, ‘sepal_width’, ‘petal_length’, ‘petal_width’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="c1"># Load the Iris dataset using Seaborn</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">cols</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;sepal_length&#39;, &#39;sepal_width&#39;, &#39;petal_length&#39;, &#39;petal_width&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Divide that data into three clusters.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_km</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_km</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+       1, 1, 1, 1, 1, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 2, 2, 2, 0, 2, 2, 2,
+       2, 2, 2, 0, 0, 2, 2, 2, 2, 0, 2, 0, 2, 0, 2, 2, 0, 0, 2, 2, 2, 2,
+       2, 0, 2, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 2, 0, 2, 2, 0], dtype=int32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kmeans_cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_km</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+      <th>kmeans_cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Visualize the clustering result on PCs</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+<span class="n">X_pca</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(150, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span><span class="s1">&#39;PC2&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">X_pca</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+      <th>kmeans_cluster</th>
+      <th>PC1</th>
+      <th>PC2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.684126</td>
+      <td>0.319397</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.714142</td>
+      <td>-0.177001</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.888991</td>
+      <td>-0.144949</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.745343</td>
+      <td>-0.318299</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.728717</td>
+      <td>0.326755</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;PC1&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;PC2&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;kmeans_cluster:N&#39;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;set1&#39;</span><span class="p">)),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kmeans_cluster:N&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;K-means clustering&#39;</span>
+<span class="p">)</span>
+<span class="n">c1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-3934a746bbdf46909ab36c53c837cf34"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-3934a746bbdf46909ab36c53c837cf34") {
+      outputDiv = document.getElementById("altair-viz-3934a746bbdf46909ab36c53c837cf34");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-26e70527714a8290ce6f0e3a8a5ebbc5"}, "mark": {"type": "circle", "size": 60}, "encoding": {"color": {"field": "kmeans_cluster", "scale": {"scheme": "set1"}, "type": "nominal"}, "tooltip": [{"field": "kmeans_cluster", "type": "nominal"}], "x": {"field": "PC1", "type": "quantitative"}, "y": {"field": "PC2", "type": "quantitative"}}, "title": "K-means clustering", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-26e70527714a8290ce6f0e3a8a5ebbc5": [{"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.684125625969541, "PC2": 0.3193972465851031}, {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7141416872943274, "PC2": -0.17700122506477925}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.888990569059296, "PC2": -0.14494942608555722}, {"sepal_length": 4.6, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.745342855641409, "PC2": -0.31829897925191586}, {"sepal_length": 5.0, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7287165365545287, "PC2": 0.32675451293492047}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.7, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2808596328444914, "PC2": 0.7413304490629157}, {"sepal_length": 4.6, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.820537750740608, "PC2": -0.08946138452856846}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6261449731466318, "PC2": 0.16338495969832917}, {"sepal_length": 4.4, "sepal_width": 2.9, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8863827317805524, "PC2": -0.5783117541867038}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.672755797820953, "PC2": -0.11377424587411651}, {"sepal_length": 5.4, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5069470906518547, "PC2": 0.6450688986485744}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.612755230908722, "PC2": 0.014729939161374953}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.786109266188017, "PC2": -0.23511200020171813}, {"sepal_length": 4.3, "sepal_width": 3.0, "petal_length": 1.1, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.223803743865651, "PC2": -0.511394587006382}, {"sepal_length": 5.8, "sepal_width": 4.0, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.644750389942029, "PC2": 1.1787646364375761}, {"sepal_length": 5.7, "sepal_width": 4.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.386039033531132, "PC2": 1.3380623304006534}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.3, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.623527875224425, "PC2": 0.8106795141812584}, {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6482967062543805, "PC2": 0.3118491445933553}, {"sepal_length": 5.7, "sepal_width": 3.8, "petal_length": 1.7, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.199820323617579, "PC2": 0.8728390389622118}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.5, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5879863998787673, "PC2": 0.5135603087492776}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.7, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3102562152425175, "PC2": 0.39134593565389486}, {"sepal_length": 5.1, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5437052287571555, "PC2": 0.43299606327902873}, {"sepal_length": 4.6, "sepal_width": 3.6, "petal_length": 1.0, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.2159394156486107, "PC2": 0.13346806953852625}, {"sepal_length": 5.1, "sepal_width": 3.3, "petal_length": 1.7, "petal_width": 0.5, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3027331822262065, "PC2": 0.09870885481409995}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.9, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.355754049123772, "PC2": -0.03728185967738212}, {"sepal_length": 5.0, "sepal_width": 3.0, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5066689069258206, "PC2": -0.14601688049526743}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.468820073121338, "PC2": 0.13095148943525073}, {"sepal_length": 5.2, "sepal_width": 3.5, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.562319906196015, "PC2": 0.3677188574342005}, {"sepal_length": 5.2, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6395347153845417, "PC2": 0.3120399802352835}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6319893872743454, "PC2": -0.1969612249243143}, {"sepal_length": 4.8, "sepal_width": 3.1, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5873984766893514, "PC2": -0.20431849127413315}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.409932497002174, "PC2": 0.41092426422957334}, {"sepal_length": 5.2, "sepal_width": 4.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.648862334349911, "PC2": 0.813363820296963}, {"sepal_length": 5.5, "sepal_width": 4.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5987367491005857, "PC2": 1.0931457594493577}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6369268781057977, "PC2": -0.12132234786586286}, {"sepal_length": 5.0, "sepal_width": 3.2, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.866241652118669, "PC2": 0.06936447158008105}, {"sepal_length": 5.5, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.625238049850371, "PC2": 0.5993700213794242}, {"sepal_length": 4.9, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8006841154482207, "PC2": 0.26864373779798284}, {"sepal_length": 4.4, "sepal_width": 3.0, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.9805020437819927, "PC2": -0.4879583444286153}, {"sepal_length": 5.1, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5900063139680944, "PC2": 0.22904383682701318}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7701024260279006, "PC2": 0.263527533744257}, {"sepal_length": 4.5, "sepal_width": 2.3, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8493687050431022, "PC2": -0.9409605736411968}, {"sepal_length": 4.4, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.997406546594907, "PC2": -0.34192605747160976}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.6, "petal_width": 0.6, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.4056144850974843, "PC2": 0.18887142893026088}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.9, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2094892377836786, "PC2": 0.4366631416391884}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.714451426757707, "PC2": -0.2502082041852109}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.538148258998939, "PC2": 0.5037711444614382}, {"sepal_length": 4.6, "sepal_width": 3.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.839462167642849, "PC2": -0.22794556949382733}, {"sepal_length": 5.3, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.543085749830392, "PC2": 0.5794100215198902}, {"sepal_length": 5.0, "sepal_width": 3.3, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7033597823351587, "PC2": 0.1077060824994121}, {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2848256888583536, "PC2": 0.6851604704673091}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9324885323123204, "PC2": 0.3183336382626293}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.4643023219913962, "PC2": 0.5042628153092046}, {"sepal_length": 5.5, "sepal_width": 2.3, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1833177199583726, "PC2": -0.8279590118206326}, {"sepal_length": 6.5, "sepal_width": 2.8, "petal_length": 4.6, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.088103257711668, "PC2": 0.07459067519771641}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.5, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.6416690842580796, "PC2": -0.4182468715686787}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 4.7, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.095060662632449, "PC2": 0.2834682700615294}, {"sepal_length": 4.9, "sepal_width": 2.4, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7491226698296556, "PC2": -1.0048909611818955}, {"sepal_length": 6.6, "sepal_width": 2.9, "petal_length": 4.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.0441318260534382, "PC2": 0.2283618997883959}, {"sepal_length": 5.2, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.008745404082894285, "PC2": -0.7230819050048343}, {"sepal_length": 5.0, "sepal_width": 2.0, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.5078408838353242, "PC2": -1.265971190526394}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5116985574475993, "PC2": -0.10398123549904023}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 4.0, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2649765081120483, "PC2": -0.5500364636804747}, {"sepal_length": 6.1, "sepal_width": 2.9, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9849345104708923, "PC2": -0.12481785412635721}, {"sepal_length": 5.6, "sepal_width": 2.9, "petal_length": 3.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.17392537168176606, "PC2": -0.2548542087025892}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9278607809442491, "PC2": 0.4671794944415109}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.660283761696939, "PC2": -0.35296966572385036}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 4.1, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2361049933176735, "PC2": -0.33361076682491525}, {"sepal_length": 6.2, "sepal_width": 2.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9447337280198155, "PC2": -0.5431455507797666}, {"sepal_length": 5.6, "sepal_width": 2.5, "petal_length": 3.9, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.04522697629870169, "PC2": -0.5838343774718644}, {"sepal_length": 5.9, "sepal_width": 3.2, "petal_length": 4.8, "petal_width": 1.8, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.1162831773500517, "PC2": -0.08461685219478782}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3578884179973092, "PC2": -0.06892503165601371}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2981838753589157, "PC2": -0.32778730833391734}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.7, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9217289224470391, "PC2": -0.1827377936213673}, {"sepal_length": 6.4, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.7148533259114135, "PC2": 0.14905594436978506}, {"sepal_length": 6.6, "sepal_width": 3.0, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9001743731721693, "PC2": 0.3285044738343237}, {"sepal_length": 6.8, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3320244367220904, "PC2": 0.2444408760163438}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.0, "petal_width": 1.7, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.5578021550660723, "PC2": 0.2674954473102549}, {"sepal_length": 6.0, "sepal_width": 2.9, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8132906498175435, "PC2": -0.16335030068761613}, {"sepal_length": 5.7, "sepal_width": 2.6, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.30558377802430736, "PC2": -0.3682621897545878}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.8, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.06812649206836169, "PC2": -0.7051721317994655}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.7, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.18962247237849997, "PC2": -0.6802867635281336}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1364287115580168, "PC2": -0.31403243824923666}, {"sepal_length": 6.0, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3800264359155132, "PC2": -0.42095428731388185}, {"sepal_length": 5.4, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5880064433398654, "PC2": -0.48428741998121827}, {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8068583125004142, "PC2": 0.1941823147131512}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.7, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2206908824443548, "PC2": 0.4076195936110074}, {"sepal_length": 6.3, "sepal_width": 2.3, "petal_length": 4.4, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.815095235766602, "PC2": -0.37203705990950175}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.24595767988669426, "PC2": -0.2685243966220147}, {"sepal_length": 5.5, "sepal_width": 2.5, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.16641321714545868, "PC2": -0.6819267248636267}, {"sepal_length": 5.5, "sepal_width": 2.6, "petal_length": 4.4, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.4648002884037811, "PC2": -0.6707115445117203}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.6, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8908151984694513, "PC2": -0.034464444368268635}, {"sepal_length": 5.8, "sepal_width": 2.6, "petal_length": 4.0, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2305480235594573, "PC2": -0.4043858480073251}, {"sepal_length": 5.0, "sepal_width": 2.3, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7045317592446619, "PC2": -1.0122482275317146}, {"sepal_length": 5.6, "sepal_width": 2.7, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.35698149470104884, "PC2": -0.5049100933371085}, {"sepal_length": 5.7, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3319344799450603, "PC2": -0.21265468378116967}, {"sepal_length": 5.7, "sepal_width": 2.9, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3762156510666724, "PC2": -0.2932189292514188}, {"sepal_length": 6.2, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.64257600755434, "PC2": 0.017738190112416535}, {"sepal_length": 5.1, "sepal_width": 2.5, "petal_length": 3.0, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.9064698649488343, "PC2": -0.7560933665990142}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.29900084187814524, "PC2": -0.3488978064503358}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.53119272780363, "PC2": -0.009849109498801816}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895}, {"sepal_length": 7.1, "sepal_width": 3.0, "petal_length": 5.9, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6166760159956923, "PC2": 0.34390315134173455}, {"sepal_length": 6.3, "sepal_width": 2.9, "petal_length": 5.6, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9715310530434376, "PC2": -0.1797279043522453}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.3500059200446426, "PC2": -0.040260947142530965}, {"sepal_length": 7.6, "sepal_width": 3.0, "petal_length": 6.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.397038736053262, "PC2": 0.5508366730280557}, {"sepal_length": 4.9, "sepal_width": 2.5, "petal_length": 4.5, "petal_width": 1.7, "species": "virginica", "kmeans_cluster": 0, "PC1": 0.5212322439097756, "PC2": -1.1927587270006454}, {"sepal_length": 7.3, "sepal_width": 2.9, "petal_length": 6.3, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9325870689936915, "PC2": 0.3555000029774966}, {"sepal_length": 6.7, "sepal_width": 2.5, "petal_length": 5.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.32122881657338, "PC2": -0.24383150231069073}, {"sepal_length": 7.2, "sepal_width": 3.6, "petal_length": 6.1, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9167509667860747, "PC2": 0.7827919488152788}, {"sepal_length": 6.5, "sepal_width": 3.2, "petal_length": 5.1, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.6617741536365338, "PC2": 0.24222840775506727}, {"sepal_length": 6.4, "sepal_width": 2.7, "petal_length": 5.3, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.8034019529650933, "PC2": -0.21563761733355535}, {"sepal_length": 6.8, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1655917960801476, "PC2": 0.21627558507402495}, {"sepal_length": 5.7, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3461635794584532, "PC2": -0.7768183473443395}, {"sepal_length": 5.8, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5859282238732233, "PC2": -0.5396407140267188}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 5.3, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9044563747934289, "PC2": 0.1192506920919729}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9496890593990717, "PC2": 0.04194325966321156}, {"sepal_length": 7.7, "sepal_width": 3.8, "petal_length": 6.7, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.487055364290282, "PC2": 1.1757393297134298}, {"sepal_length": 7.7, "sepal_width": 2.6, "petal_length": 6.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.7956454220728855, "PC2": 0.2573229734204796}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 5.0, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3007917126376594, "PC2": -0.7611496364350634}, {"sepal_length": 6.9, "sepal_width": 3.2, "petal_length": 5.7, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.4278179130660478, "PC2": 0.37819601261705094}, {"sepal_length": 5.6, "sepal_width": 2.8, "petal_length": 4.9, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1990011054655627, "PC2": -0.6060915277579306}, {"sepal_length": 7.7, "sepal_width": 2.8, "petal_length": 6.7, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.49992003892454, "PC2": 0.46067409891189526}, {"sepal_length": 6.3, "sepal_width": 2.7, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3887661316914672, "PC2": -0.2043993273521508}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.275430503872207, "PC2": 0.3349906058216776}, {"sepal_length": 7.2, "sepal_width": 3.2, "petal_length": 6.0, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6140904738108337, "PC2": 0.5609013551230783}, {"sepal_length": 6.2, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.2585081605114898, "PC2": -0.17970479472274653}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.291132059115023, "PC2": -0.11666865117401132}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.123608722773897, "PC2": -0.20972947667730266}, {"sepal_length": 7.2, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 1.6, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.38800301600347, "PC2": 0.4646398047087367}, {"sepal_length": 7.4, "sepal_width": 2.8, "petal_length": 6.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.841672778103873, "PC2": 0.37526916719510356}, {"sepal_length": 7.9, "sepal_width": 3.8, "petal_length": 6.4, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.2306736614320952, "PC2": 1.3741650867930482}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1594376424890522, "PC2": -0.21727757866904904}, {"sepal_length": 6.3, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4441612423295116, "PC2": -0.14341341045758058}, {"sepal_length": 6.1, "sepal_width": 2.6, "petal_length": 5.6, "petal_width": 1.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7812948100451143, "PC2": -0.49990168107813643}, {"sepal_length": 7.7, "sepal_width": 3.0, "petal_length": 6.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.0764999316871897, "PC2": 0.6880856775711761}, {"sepal_length": 6.3, "sepal_width": 3.4, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.144243314302084, "PC2": 0.14006420108979026}, {"sepal_length": 6.4, "sepal_width": 3.1, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9050981488140784, "PC2": 0.04930052601303041}, {"sepal_length": 6.0, "sepal_width": 3.0, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1693263393415023, "PC2": -0.16499026202310949}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.4, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1076111432572446, "PC2": 0.3722878719607979}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.314154705235602, "PC2": 0.18365127916901905}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.922267800902603, "PC2": 0.40920346681606246}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895}, {"sepal_length": 6.8, "sepal_width": 3.2, "petal_length": 5.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.5630133750774777, "PC2": 0.277862602929195}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.418746182732827, "PC2": 0.3047981978546921}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9441097945469699, "PC2": 0.18753230280060532}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5271666148145193, "PC2": -0.3753169825804884}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7643457170444314, "PC2": 0.07885885451847592}, {"sepal_length": 6.2, "sepal_width": 3.4, "petal_length": 5.4, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.900941614218426, "PC2": 0.11662795851202372}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 5.1, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3901888619479161, "PC2": -0.2826609379905505}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;PC1&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;PC2&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;species:N&#39;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;set1&#39;</span><span class="p">)),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;species:N&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Species&#39;</span>
+<span class="p">)</span>
+<span class="n">c2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-bc1ffa7d798843a2871a5982368395b9"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-bc1ffa7d798843a2871a5982368395b9") {
+      outputDiv = document.getElementById("altair-viz-bc1ffa7d798843a2871a5982368395b9");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "data": {"name": "data-26e70527714a8290ce6f0e3a8a5ebbc5"}, "mark": {"type": "circle", "size": 60}, "encoding": {"color": {"field": "species", "scale": {"scheme": "set1"}, "type": "nominal"}, "tooltip": [{"field": "species", "type": "nominal"}], "x": {"field": "PC1", "type": "quantitative"}, "y": {"field": "PC2", "type": "quantitative"}}, "title": "Species", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-26e70527714a8290ce6f0e3a8a5ebbc5": [{"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.684125625969541, "PC2": 0.3193972465851031}, {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7141416872943274, "PC2": -0.17700122506477925}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.888990569059296, "PC2": -0.14494942608555722}, {"sepal_length": 4.6, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.745342855641409, "PC2": -0.31829897925191586}, {"sepal_length": 5.0, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7287165365545287, "PC2": 0.32675451293492047}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.7, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2808596328444914, "PC2": 0.7413304490629157}, {"sepal_length": 4.6, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.820537750740608, "PC2": -0.08946138452856846}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6261449731466318, "PC2": 0.16338495969832917}, {"sepal_length": 4.4, "sepal_width": 2.9, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8863827317805524, "PC2": -0.5783117541867038}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.672755797820953, "PC2": -0.11377424587411651}, {"sepal_length": 5.4, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5069470906518547, "PC2": 0.6450688986485744}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.612755230908722, "PC2": 0.014729939161374953}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.786109266188017, "PC2": -0.23511200020171813}, {"sepal_length": 4.3, "sepal_width": 3.0, "petal_length": 1.1, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.223803743865651, "PC2": -0.511394587006382}, {"sepal_length": 5.8, "sepal_width": 4.0, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.644750389942029, "PC2": 1.1787646364375761}, {"sepal_length": 5.7, "sepal_width": 4.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.386039033531132, "PC2": 1.3380623304006534}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.3, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.623527875224425, "PC2": 0.8106795141812584}, {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6482967062543805, "PC2": 0.3118491445933553}, {"sepal_length": 5.7, "sepal_width": 3.8, "petal_length": 1.7, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.199820323617579, "PC2": 0.8728390389622118}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.5, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5879863998787673, "PC2": 0.5135603087492776}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.7, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3102562152425175, "PC2": 0.39134593565389486}, {"sepal_length": 5.1, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5437052287571555, "PC2": 0.43299606327902873}, {"sepal_length": 4.6, "sepal_width": 3.6, "petal_length": 1.0, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.2159394156486107, "PC2": 0.13346806953852625}, {"sepal_length": 5.1, "sepal_width": 3.3, "petal_length": 1.7, "petal_width": 0.5, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3027331822262065, "PC2": 0.09870885481409995}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.9, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.355754049123772, "PC2": -0.03728185967738212}, {"sepal_length": 5.0, "sepal_width": 3.0, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5066689069258206, "PC2": -0.14601688049526743}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.468820073121338, "PC2": 0.13095148943525073}, {"sepal_length": 5.2, "sepal_width": 3.5, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.562319906196015, "PC2": 0.3677188574342005}, {"sepal_length": 5.2, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6395347153845417, "PC2": 0.3120399802352835}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6319893872743454, "PC2": -0.1969612249243143}, {"sepal_length": 4.8, "sepal_width": 3.1, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5873984766893514, "PC2": -0.20431849127413315}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.409932497002174, "PC2": 0.41092426422957334}, {"sepal_length": 5.2, "sepal_width": 4.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.648862334349911, "PC2": 0.813363820296963}, {"sepal_length": 5.5, "sepal_width": 4.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5987367491005857, "PC2": 1.0931457594493577}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6369268781057977, "PC2": -0.12132234786586286}, {"sepal_length": 5.0, "sepal_width": 3.2, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.866241652118669, "PC2": 0.06936447158008105}, {"sepal_length": 5.5, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.625238049850371, "PC2": 0.5993700213794242}, {"sepal_length": 4.9, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8006841154482207, "PC2": 0.26864373779798284}, {"sepal_length": 4.4, "sepal_width": 3.0, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.9805020437819927, "PC2": -0.4879583444286153}, {"sepal_length": 5.1, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5900063139680944, "PC2": 0.22904383682701318}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7701024260279006, "PC2": 0.263527533744257}, {"sepal_length": 4.5, "sepal_width": 2.3, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8493687050431022, "PC2": -0.9409605736411968}, {"sepal_length": 4.4, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.997406546594907, "PC2": -0.34192605747160976}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.6, "petal_width": 0.6, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.4056144850974843, "PC2": 0.18887142893026088}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.9, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2094892377836786, "PC2": 0.4366631416391884}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.714451426757707, "PC2": -0.2502082041852109}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.538148258998939, "PC2": 0.5037711444614382}, {"sepal_length": 4.6, "sepal_width": 3.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.839462167642849, "PC2": -0.22794556949382733}, {"sepal_length": 5.3, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.543085749830392, "PC2": 0.5794100215198902}, {"sepal_length": 5.0, "sepal_width": 3.3, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7033597823351587, "PC2": 0.1077060824994121}, {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2848256888583536, "PC2": 0.6851604704673091}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9324885323123204, "PC2": 0.3183336382626293}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.4643023219913962, "PC2": 0.5042628153092046}, {"sepal_length": 5.5, "sepal_width": 2.3, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1833177199583726, "PC2": -0.8279590118206326}, {"sepal_length": 6.5, "sepal_width": 2.8, "petal_length": 4.6, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.088103257711668, "PC2": 0.07459067519771641}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.5, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.6416690842580796, "PC2": -0.4182468715686787}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 4.7, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.095060662632449, "PC2": 0.2834682700615294}, {"sepal_length": 4.9, "sepal_width": 2.4, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7491226698296556, "PC2": -1.0048909611818955}, {"sepal_length": 6.6, "sepal_width": 2.9, "petal_length": 4.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.0441318260534382, "PC2": 0.2283618997883959}, {"sepal_length": 5.2, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.008745404082894285, "PC2": -0.7230819050048343}, {"sepal_length": 5.0, "sepal_width": 2.0, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.5078408838353242, "PC2": -1.265971190526394}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5116985574475993, "PC2": -0.10398123549904023}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 4.0, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2649765081120483, "PC2": -0.5500364636804747}, {"sepal_length": 6.1, "sepal_width": 2.9, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9849345104708923, "PC2": -0.12481785412635721}, {"sepal_length": 5.6, "sepal_width": 2.9, "petal_length": 3.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.17392537168176606, "PC2": -0.2548542087025892}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9278607809442491, "PC2": 0.4671794944415109}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.660283761696939, "PC2": -0.35296966572385036}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 4.1, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2361049933176735, "PC2": -0.33361076682491525}, {"sepal_length": 6.2, "sepal_width": 2.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9447337280198155, "PC2": -0.5431455507797666}, {"sepal_length": 5.6, "sepal_width": 2.5, "petal_length": 3.9, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.04522697629870169, "PC2": -0.5838343774718644}, {"sepal_length": 5.9, "sepal_width": 3.2, "petal_length": 4.8, "petal_width": 1.8, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.1162831773500517, "PC2": -0.08461685219478782}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3578884179973092, "PC2": -0.06892503165601371}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2981838753589157, "PC2": -0.32778730833391734}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.7, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9217289224470391, "PC2": -0.1827377936213673}, {"sepal_length": 6.4, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.7148533259114135, "PC2": 0.14905594436978506}, {"sepal_length": 6.6, "sepal_width": 3.0, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9001743731721693, "PC2": 0.3285044738343237}, {"sepal_length": 6.8, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3320244367220904, "PC2": 0.2444408760163438}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.0, "petal_width": 1.7, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.5578021550660723, "PC2": 0.2674954473102549}, {"sepal_length": 6.0, "sepal_width": 2.9, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8132906498175435, "PC2": -0.16335030068761613}, {"sepal_length": 5.7, "sepal_width": 2.6, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.30558377802430736, "PC2": -0.3682621897545878}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.8, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.06812649206836169, "PC2": -0.7051721317994655}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.7, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.18962247237849997, "PC2": -0.6802867635281336}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1364287115580168, "PC2": -0.31403243824923666}, {"sepal_length": 6.0, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3800264359155132, "PC2": -0.42095428731388185}, {"sepal_length": 5.4, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5880064433398654, "PC2": -0.48428741998121827}, {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8068583125004142, "PC2": 0.1941823147131512}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.7, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2206908824443548, "PC2": 0.4076195936110074}, {"sepal_length": 6.3, "sepal_width": 2.3, "petal_length": 4.4, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.815095235766602, "PC2": -0.37203705990950175}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.24595767988669426, "PC2": -0.2685243966220147}, {"sepal_length": 5.5, "sepal_width": 2.5, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.16641321714545868, "PC2": -0.6819267248636267}, {"sepal_length": 5.5, "sepal_width": 2.6, "petal_length": 4.4, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.4648002884037811, "PC2": -0.6707115445117203}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.6, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8908151984694513, "PC2": -0.034464444368268635}, {"sepal_length": 5.8, "sepal_width": 2.6, "petal_length": 4.0, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2305480235594573, "PC2": -0.4043858480073251}, {"sepal_length": 5.0, "sepal_width": 2.3, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7045317592446619, "PC2": -1.0122482275317146}, {"sepal_length": 5.6, "sepal_width": 2.7, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.35698149470104884, "PC2": -0.5049100933371085}, {"sepal_length": 5.7, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3319344799450603, "PC2": -0.21265468378116967}, {"sepal_length": 5.7, "sepal_width": 2.9, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3762156510666724, "PC2": -0.2932189292514188}, {"sepal_length": 6.2, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.64257600755434, "PC2": 0.017738190112416535}, {"sepal_length": 5.1, "sepal_width": 2.5, "petal_length": 3.0, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.9064698649488343, "PC2": -0.7560933665990142}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.29900084187814524, "PC2": -0.3488978064503358}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.53119272780363, "PC2": -0.009849109498801816}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895}, {"sepal_length": 7.1, "sepal_width": 3.0, "petal_length": 5.9, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6166760159956923, "PC2": 0.34390315134173455}, {"sepal_length": 6.3, "sepal_width": 2.9, "petal_length": 5.6, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9715310530434376, "PC2": -0.1797279043522453}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.3500059200446426, "PC2": -0.040260947142530965}, {"sepal_length": 7.6, "sepal_width": 3.0, "petal_length": 6.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.397038736053262, "PC2": 0.5508366730280557}, {"sepal_length": 4.9, "sepal_width": 2.5, "petal_length": 4.5, "petal_width": 1.7, "species": "virginica", "kmeans_cluster": 0, "PC1": 0.5212322439097756, "PC2": -1.1927587270006454}, {"sepal_length": 7.3, "sepal_width": 2.9, "petal_length": 6.3, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9325870689936915, "PC2": 0.3555000029774966}, {"sepal_length": 6.7, "sepal_width": 2.5, "petal_length": 5.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.32122881657338, "PC2": -0.24383150231069073}, {"sepal_length": 7.2, "sepal_width": 3.6, "petal_length": 6.1, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9167509667860747, "PC2": 0.7827919488152788}, {"sepal_length": 6.5, "sepal_width": 3.2, "petal_length": 5.1, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.6617741536365338, "PC2": 0.24222840775506727}, {"sepal_length": 6.4, "sepal_width": 2.7, "petal_length": 5.3, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.8034019529650933, "PC2": -0.21563761733355535}, {"sepal_length": 6.8, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1655917960801476, "PC2": 0.21627558507402495}, {"sepal_length": 5.7, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3461635794584532, "PC2": -0.7768183473443395}, {"sepal_length": 5.8, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5859282238732233, "PC2": -0.5396407140267188}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 5.3, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9044563747934289, "PC2": 0.1192506920919729}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9496890593990717, "PC2": 0.04194325966321156}, {"sepal_length": 7.7, "sepal_width": 3.8, "petal_length": 6.7, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.487055364290282, "PC2": 1.1757393297134298}, {"sepal_length": 7.7, "sepal_width": 2.6, "petal_length": 6.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.7956454220728855, "PC2": 0.2573229734204796}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 5.0, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3007917126376594, "PC2": -0.7611496364350634}, {"sepal_length": 6.9, "sepal_width": 3.2, "petal_length": 5.7, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.4278179130660478, "PC2": 0.37819601261705094}, {"sepal_length": 5.6, "sepal_width": 2.8, "petal_length": 4.9, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1990011054655627, "PC2": -0.6060915277579306}, {"sepal_length": 7.7, "sepal_width": 2.8, "petal_length": 6.7, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.49992003892454, "PC2": 0.46067409891189526}, {"sepal_length": 6.3, "sepal_width": 2.7, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3887661316914672, "PC2": -0.2043993273521508}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.275430503872207, "PC2": 0.3349906058216776}, {"sepal_length": 7.2, "sepal_width": 3.2, "petal_length": 6.0, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6140904738108337, "PC2": 0.5609013551230783}, {"sepal_length": 6.2, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.2585081605114898, "PC2": -0.17970479472274653}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.291132059115023, "PC2": -0.11666865117401132}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.123608722773897, "PC2": -0.20972947667730266}, {"sepal_length": 7.2, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 1.6, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.38800301600347, "PC2": 0.4646398047087367}, {"sepal_length": 7.4, "sepal_width": 2.8, "petal_length": 6.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.841672778103873, "PC2": 0.37526916719510356}, {"sepal_length": 7.9, "sepal_width": 3.8, "petal_length": 6.4, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.2306736614320952, "PC2": 1.3741650867930482}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1594376424890522, "PC2": -0.21727757866904904}, {"sepal_length": 6.3, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4441612423295116, "PC2": -0.14341341045758058}, {"sepal_length": 6.1, "sepal_width": 2.6, "petal_length": 5.6, "petal_width": 1.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7812948100451143, "PC2": -0.49990168107813643}, {"sepal_length": 7.7, "sepal_width": 3.0, "petal_length": 6.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.0764999316871897, "PC2": 0.6880856775711761}, {"sepal_length": 6.3, "sepal_width": 3.4, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.144243314302084, "PC2": 0.14006420108979026}, {"sepal_length": 6.4, "sepal_width": 3.1, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9050981488140784, "PC2": 0.04930052601303041}, {"sepal_length": 6.0, "sepal_width": 3.0, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1693263393415023, "PC2": -0.16499026202310949}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.4, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1076111432572446, "PC2": 0.3722878719607979}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.314154705235602, "PC2": 0.18365127916901905}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.922267800902603, "PC2": 0.40920346681606246}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895}, {"sepal_length": 6.8, "sepal_width": 3.2, "petal_length": 5.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.5630133750774777, "PC2": 0.277862602929195}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.418746182732827, "PC2": 0.3047981978546921}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9441097945469699, "PC2": 0.18753230280060532}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5271666148145193, "PC2": -0.3753169825804884}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7643457170444314, "PC2": 0.07885885451847592}, {"sepal_length": 6.2, "sepal_width": 3.4, "petal_length": 5.4, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.900941614218426, "PC2": 0.11662795851202372}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 5.1, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3901888619479161, "PC2": -0.2826609379905505}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PCA: k-means clusterting vs species label&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-83017cc1eb254162a26043efc4f3c424"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-83017cc1eb254162a26043efc4f3c424") {
+      outputDiv = document.getElementById("altair-viz-83017cc1eb254162a26043efc4f3c424");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "circle", "size": 60}, "encoding": {"color": {"field": "kmeans_cluster", "scale": {"scheme": "set1"}, "type": "nominal"}, "tooltip": [{"field": "kmeans_cluster", "type": "nominal"}], "x": {"field": "PC1", "type": "quantitative"}, "y": {"field": "PC2", "type": "quantitative"}}, "title": "K-means clustering"}, {"mark": {"type": "circle", "size": 60}, "encoding": {"color": {"field": "species", "scale": {"scheme": "set1"}, "type": "nominal"}, "tooltip": [{"field": "species", "type": "nominal"}], "x": {"field": "PC1", "type": "quantitative"}, "y": {"field": "PC2", "type": "quantitative"}}, "title": "Species"}], "data": {"name": "data-26e70527714a8290ce6f0e3a8a5ebbc5"}, "title": "PCA: k-means clusterting vs species label", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-26e70527714a8290ce6f0e3a8a5ebbc5": [{"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.684125625969541, "PC2": 0.3193972465851031}, {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7141416872943274, "PC2": -0.17700122506477925}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.888990569059296, "PC2": -0.14494942608555722}, {"sepal_length": 4.6, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.745342855641409, "PC2": -0.31829897925191586}, {"sepal_length": 5.0, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7287165365545287, "PC2": 0.32675451293492047}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.7, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2808596328444914, "PC2": 0.7413304490629157}, {"sepal_length": 4.6, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.820537750740608, "PC2": -0.08946138452856846}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6261449731466318, "PC2": 0.16338495969832917}, {"sepal_length": 4.4, "sepal_width": 2.9, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8863827317805524, "PC2": -0.5783117541867038}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.672755797820953, "PC2": -0.11377424587411651}, {"sepal_length": 5.4, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5069470906518547, "PC2": 0.6450688986485744}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.612755230908722, "PC2": 0.014729939161374953}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.786109266188017, "PC2": -0.23511200020171813}, {"sepal_length": 4.3, "sepal_width": 3.0, "petal_length": 1.1, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.223803743865651, "PC2": -0.511394587006382}, {"sepal_length": 5.8, "sepal_width": 4.0, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.644750389942029, "PC2": 1.1787646364375761}, {"sepal_length": 5.7, "sepal_width": 4.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.386039033531132, "PC2": 1.3380623304006534}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.3, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.623527875224425, "PC2": 0.8106795141812584}, {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6482967062543805, "PC2": 0.3118491445933553}, {"sepal_length": 5.7, "sepal_width": 3.8, "petal_length": 1.7, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.199820323617579, "PC2": 0.8728390389622118}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.5, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5879863998787673, "PC2": 0.5135603087492776}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.7, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3102562152425175, "PC2": 0.39134593565389486}, {"sepal_length": 5.1, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5437052287571555, "PC2": 0.43299606327902873}, {"sepal_length": 4.6, "sepal_width": 3.6, "petal_length": 1.0, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.2159394156486107, "PC2": 0.13346806953852625}, {"sepal_length": 5.1, "sepal_width": 3.3, "petal_length": 1.7, "petal_width": 0.5, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3027331822262065, "PC2": 0.09870885481409995}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.9, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.355754049123772, "PC2": -0.03728185967738212}, {"sepal_length": 5.0, "sepal_width": 3.0, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5066689069258206, "PC2": -0.14601688049526743}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.468820073121338, "PC2": 0.13095148943525073}, {"sepal_length": 5.2, "sepal_width": 3.5, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.562319906196015, "PC2": 0.3677188574342005}, {"sepal_length": 5.2, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6395347153845417, "PC2": 0.3120399802352835}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6319893872743454, "PC2": -0.1969612249243143}, {"sepal_length": 4.8, "sepal_width": 3.1, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5873984766893514, "PC2": -0.20431849127413315}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.409932497002174, "PC2": 0.41092426422957334}, {"sepal_length": 5.2, "sepal_width": 4.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.648862334349911, "PC2": 0.813363820296963}, {"sepal_length": 5.5, "sepal_width": 4.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5987367491005857, "PC2": 1.0931457594493577}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6369268781057977, "PC2": -0.12132234786586286}, {"sepal_length": 5.0, "sepal_width": 3.2, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.866241652118669, "PC2": 0.06936447158008105}, {"sepal_length": 5.5, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.625238049850371, "PC2": 0.5993700213794242}, {"sepal_length": 4.9, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8006841154482207, "PC2": 0.26864373779798284}, {"sepal_length": 4.4, "sepal_width": 3.0, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.9805020437819927, "PC2": -0.4879583444286153}, {"sepal_length": 5.1, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5900063139680944, "PC2": 0.22904383682701318}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7701024260279006, "PC2": 0.263527533744257}, {"sepal_length": 4.5, "sepal_width": 2.3, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8493687050431022, "PC2": -0.9409605736411968}, {"sepal_length": 4.4, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.997406546594907, "PC2": -0.34192605747160976}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.6, "petal_width": 0.6, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.4056144850974843, "PC2": 0.18887142893026088}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.9, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2094892377836786, "PC2": 0.4366631416391884}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.714451426757707, "PC2": -0.2502082041852109}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.538148258998939, "PC2": 0.5037711444614382}, {"sepal_length": 4.6, "sepal_width": 3.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.839462167642849, "PC2": -0.22794556949382733}, {"sepal_length": 5.3, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.543085749830392, "PC2": 0.5794100215198902}, {"sepal_length": 5.0, "sepal_width": 3.3, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7033597823351587, "PC2": 0.1077060824994121}, {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2848256888583536, "PC2": 0.6851604704673091}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9324885323123204, "PC2": 0.3183336382626293}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.4643023219913962, "PC2": 0.5042628153092046}, {"sepal_length": 5.5, "sepal_width": 2.3, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1833177199583726, "PC2": -0.8279590118206326}, {"sepal_length": 6.5, "sepal_width": 2.8, "petal_length": 4.6, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.088103257711668, "PC2": 0.07459067519771641}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.5, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.6416690842580796, "PC2": -0.4182468715686787}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 4.7, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.095060662632449, "PC2": 0.2834682700615294}, {"sepal_length": 4.9, "sepal_width": 2.4, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7491226698296556, "PC2": -1.0048909611818955}, {"sepal_length": 6.6, "sepal_width": 2.9, "petal_length": 4.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.0441318260534382, "PC2": 0.2283618997883959}, {"sepal_length": 5.2, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.008745404082894285, "PC2": -0.7230819050048343}, {"sepal_length": 5.0, "sepal_width": 2.0, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.5078408838353242, "PC2": -1.265971190526394}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5116985574475993, "PC2": -0.10398123549904023}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 4.0, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2649765081120483, "PC2": -0.5500364636804747}, {"sepal_length": 6.1, "sepal_width": 2.9, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9849345104708923, "PC2": -0.12481785412635721}, {"sepal_length": 5.6, "sepal_width": 2.9, "petal_length": 3.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.17392537168176606, "PC2": -0.2548542087025892}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9278607809442491, "PC2": 0.4671794944415109}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.660283761696939, "PC2": -0.35296966572385036}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 4.1, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2361049933176735, "PC2": -0.33361076682491525}, {"sepal_length": 6.2, "sepal_width": 2.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9447337280198155, "PC2": -0.5431455507797666}, {"sepal_length": 5.6, "sepal_width": 2.5, "petal_length": 3.9, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.04522697629870169, "PC2": -0.5838343774718644}, {"sepal_length": 5.9, "sepal_width": 3.2, "petal_length": 4.8, "petal_width": 1.8, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.1162831773500517, "PC2": -0.08461685219478782}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3578884179973092, "PC2": -0.06892503165601371}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2981838753589157, "PC2": -0.32778730833391734}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.7, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9217289224470391, "PC2": -0.1827377936213673}, {"sepal_length": 6.4, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.7148533259114135, "PC2": 0.14905594436978506}, {"sepal_length": 6.6, "sepal_width": 3.0, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9001743731721693, "PC2": 0.3285044738343237}, {"sepal_length": 6.8, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3320244367220904, "PC2": 0.2444408760163438}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.0, "petal_width": 1.7, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.5578021550660723, "PC2": 0.2674954473102549}, {"sepal_length": 6.0, "sepal_width": 2.9, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8132906498175435, "PC2": -0.16335030068761613}, {"sepal_length": 5.7, "sepal_width": 2.6, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.30558377802430736, "PC2": -0.3682621897545878}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.8, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.06812649206836169, "PC2": -0.7051721317994655}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.7, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.18962247237849997, "PC2": -0.6802867635281336}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1364287115580168, "PC2": -0.31403243824923666}, {"sepal_length": 6.0, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3800264359155132, "PC2": -0.42095428731388185}, {"sepal_length": 5.4, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5880064433398654, "PC2": -0.48428741998121827}, {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8068583125004142, "PC2": 0.1941823147131512}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.7, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2206908824443548, "PC2": 0.4076195936110074}, {"sepal_length": 6.3, "sepal_width": 2.3, "petal_length": 4.4, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.815095235766602, "PC2": -0.37203705990950175}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.24595767988669426, "PC2": -0.2685243966220147}, {"sepal_length": 5.5, "sepal_width": 2.5, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.16641321714545868, "PC2": -0.6819267248636267}, {"sepal_length": 5.5, "sepal_width": 2.6, "petal_length": 4.4, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.4648002884037811, "PC2": -0.6707115445117203}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.6, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8908151984694513, "PC2": -0.034464444368268635}, {"sepal_length": 5.8, "sepal_width": 2.6, "petal_length": 4.0, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2305480235594573, "PC2": -0.4043858480073251}, {"sepal_length": 5.0, "sepal_width": 2.3, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7045317592446619, "PC2": -1.0122482275317146}, {"sepal_length": 5.6, "sepal_width": 2.7, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.35698149470104884, "PC2": -0.5049100933371085}, {"sepal_length": 5.7, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3319344799450603, "PC2": -0.21265468378116967}, {"sepal_length": 5.7, "sepal_width": 2.9, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3762156510666724, "PC2": -0.2932189292514188}, {"sepal_length": 6.2, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.64257600755434, "PC2": 0.017738190112416535}, {"sepal_length": 5.1, "sepal_width": 2.5, "petal_length": 3.0, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.9064698649488343, "PC2": -0.7560933665990142}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.29900084187814524, "PC2": -0.3488978064503358}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.53119272780363, "PC2": -0.009849109498801816}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895}, {"sepal_length": 7.1, "sepal_width": 3.0, "petal_length": 5.9, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6166760159956923, "PC2": 0.34390315134173455}, {"sepal_length": 6.3, "sepal_width": 2.9, "petal_length": 5.6, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9715310530434376, "PC2": -0.1797279043522453}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.3500059200446426, "PC2": -0.040260947142530965}, {"sepal_length": 7.6, "sepal_width": 3.0, "petal_length": 6.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.397038736053262, "PC2": 0.5508366730280557}, {"sepal_length": 4.9, "sepal_width": 2.5, "petal_length": 4.5, "petal_width": 1.7, "species": "virginica", "kmeans_cluster": 0, "PC1": 0.5212322439097756, "PC2": -1.1927587270006454}, {"sepal_length": 7.3, "sepal_width": 2.9, "petal_length": 6.3, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9325870689936915, "PC2": 0.3555000029774966}, {"sepal_length": 6.7, "sepal_width": 2.5, "petal_length": 5.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.32122881657338, "PC2": -0.24383150231069073}, {"sepal_length": 7.2, "sepal_width": 3.6, "petal_length": 6.1, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9167509667860747, "PC2": 0.7827919488152788}, {"sepal_length": 6.5, "sepal_width": 3.2, "petal_length": 5.1, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.6617741536365338, "PC2": 0.24222840775506727}, {"sepal_length": 6.4, "sepal_width": 2.7, "petal_length": 5.3, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.8034019529650933, "PC2": -0.21563761733355535}, {"sepal_length": 6.8, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1655917960801476, "PC2": 0.21627558507402495}, {"sepal_length": 5.7, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3461635794584532, "PC2": -0.7768183473443395}, {"sepal_length": 5.8, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5859282238732233, "PC2": -0.5396407140267188}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 5.3, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9044563747934289, "PC2": 0.1192506920919729}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9496890593990717, "PC2": 0.04194325966321156}, {"sepal_length": 7.7, "sepal_width": 3.8, "petal_length": 6.7, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.487055364290282, "PC2": 1.1757393297134298}, {"sepal_length": 7.7, "sepal_width": 2.6, "petal_length": 6.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.7956454220728855, "PC2": 0.2573229734204796}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 5.0, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3007917126376594, "PC2": -0.7611496364350634}, {"sepal_length": 6.9, "sepal_width": 3.2, "petal_length": 5.7, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.4278179130660478, "PC2": 0.37819601261705094}, {"sepal_length": 5.6, "sepal_width": 2.8, "petal_length": 4.9, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1990011054655627, "PC2": -0.6060915277579306}, {"sepal_length": 7.7, "sepal_width": 2.8, "petal_length": 6.7, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.49992003892454, "PC2": 0.46067409891189526}, {"sepal_length": 6.3, "sepal_width": 2.7, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3887661316914672, "PC2": -0.2043993273521508}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.275430503872207, "PC2": 0.3349906058216776}, {"sepal_length": 7.2, "sepal_width": 3.2, "petal_length": 6.0, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6140904738108337, "PC2": 0.5609013551230783}, {"sepal_length": 6.2, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.2585081605114898, "PC2": -0.17970479472274653}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.291132059115023, "PC2": -0.11666865117401132}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.123608722773897, "PC2": -0.20972947667730266}, {"sepal_length": 7.2, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 1.6, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.38800301600347, "PC2": 0.4646398047087367}, {"sepal_length": 7.4, "sepal_width": 2.8, "petal_length": 6.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.841672778103873, "PC2": 0.37526916719510356}, {"sepal_length": 7.9, "sepal_width": 3.8, "petal_length": 6.4, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.2306736614320952, "PC2": 1.3741650867930482}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1594376424890522, "PC2": -0.21727757866904904}, {"sepal_length": 6.3, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4441612423295116, "PC2": -0.14341341045758058}, {"sepal_length": 6.1, "sepal_width": 2.6, "petal_length": 5.6, "petal_width": 1.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7812948100451143, "PC2": -0.49990168107813643}, {"sepal_length": 7.7, "sepal_width": 3.0, "petal_length": 6.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.0764999316871897, "PC2": 0.6880856775711761}, {"sepal_length": 6.3, "sepal_width": 3.4, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.144243314302084, "PC2": 0.14006420108979026}, {"sepal_length": 6.4, "sepal_width": 3.1, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9050981488140784, "PC2": 0.04930052601303041}, {"sepal_length": 6.0, "sepal_width": 3.0, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1693263393415023, "PC2": -0.16499026202310949}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.4, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1076111432572446, "PC2": 0.3722878719607979}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.314154705235602, "PC2": 0.18365127916901905}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.922267800902603, "PC2": 0.40920346681606246}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895}, {"sepal_length": 6.8, "sepal_width": 3.2, "petal_length": 5.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.5630133750774777, "PC2": 0.277862602929195}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.418746182732827, "PC2": 0.3047981978546921}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9441097945469699, "PC2": 0.18753230280060532}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5271666148145193, "PC2": -0.3753169825804884}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7643457170444314, "PC2": 0.07885885451847592}, {"sepal_length": 6.2, "sepal_width": 3.4, "petal_length": 5.4, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.900941614218426, "PC2": 0.11662795851202372}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 5.1, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3901888619479161, "PC2": -0.2826609379905505}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<p>To quantitatively measure the performace, it is not a good idea to naively compute “accuracy” as in the classification case, because permutation of the label values does not affect clustering results, while severely affects the “accuracy”. There are many <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">good measures</a> considering such effects in the clustering.</p>
+<p>Adjusted Rand Index (ARI)
+The Adjusted Rand Index is a function that measures the similarity of the two assignments, ignoring permutations and with chance normalization. It’s a common way to compare the clustering result with the true labels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kmeans_cluster&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7302382722834697
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Visualiztion on tsne</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;tsne1&#39;</span><span class="p">,</span><span class="s1">&#39;tsne2&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">X_tsne</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:800: FutureWarning: The default initialization in TSNE will change from &#39;random&#39; to &#39;pca&#39; in 1.2.
+  warnings.warn(
+/shared-libs/python3.9/py/lib/python3.9/site-packages/sklearn/manifold/_t_sne.py:810: FutureWarning: The default learning rate in TSNE will change from 200.0 to &#39;auto&#39; in 1.2.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+      <th>kmeans_cluster</th>
+      <th>PC1</th>
+      <th>PC2</th>
+      <th>tsne1</th>
+      <th>tsne2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.684126</td>
+      <td>0.319397</td>
+      <td>8.037639</td>
+      <td>26.252501</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.714142</td>
+      <td>-0.177001</td>
+      <td>8.577435</td>
+      <td>23.864986</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.888991</td>
+      <td>-0.144949</td>
+      <td>7.902760</td>
+      <td>23.480476</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.745343</td>
+      <td>-0.318299</td>
+      <td>7.691000</td>
+      <td>23.256388</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+      <td>1</td>
+      <td>-2.728717</td>
+      <td>0.326755</td>
+      <td>7.589659</td>
+      <td>26.284225</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;tsne1&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;tsne2&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;kmeans_cluster:N&#39;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;set1&#39;</span><span class="p">)),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kmeans_cluster:N&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;K-means clustering&#39;</span>
+<span class="p">)</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">60</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;tsne1&#39;</span><span class="p">,</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;tsne2&#39;</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s1">&#39;species:N&#39;</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s1">&#39;set1&#39;</span><span class="p">)),</span>
+    <span class="n">tooltip</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;species:N&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Species&#39;</span>
+<span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;tsne: k-means clusterting vs species label&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<div id="altair-viz-65c12319af8f49bfacb1c5f6d63e7283"></div>
+<script type="text/javascript">
+  var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
+  (function(spec, embedOpt){
+    let outputDiv = document.currentScript.previousElementSibling;
+    if (outputDiv.id !== "altair-viz-65c12319af8f49bfacb1c5f6d63e7283") {
+      outputDiv = document.getElementById("altair-viz-65c12319af8f49bfacb1c5f6d63e7283");
+    }
+    const paths = {
+      "vega": "https://cdn.jsdelivr.net/npm//vega@5?noext",
+      "vega-lib": "https://cdn.jsdelivr.net/npm//vega-lib?noext",
+      "vega-lite": "https://cdn.jsdelivr.net/npm//vega-lite@4.17.0?noext",
+      "vega-embed": "https://cdn.jsdelivr.net/npm//vega-embed@6?noext",
+    };
+
+    function maybeLoadScript(lib, version) {
+      var key = `${lib.replace("-", "")}_version`;
+      return (VEGA_DEBUG[key] == version) ?
+        Promise.resolve(paths[lib]) :
+        new Promise(function(resolve, reject) {
+          var s = document.createElement('script');
+          document.getElementsByTagName("head")[0].appendChild(s);
+          s.async = true;
+          s.onload = () => {
+            VEGA_DEBUG[key] = version;
+            return resolve(paths[lib]);
+          };
+          s.onerror = () => reject(`Error loading script: ${paths[lib]}`);
+          s.src = paths[lib];
+        });
+    }
+
+    function showError(err) {
+      outputDiv.innerHTML = `<div class="error" style="color:red;">${err}</div>`;
+      throw err;
+    }
+
+    function displayChart(vegaEmbed) {
+      vegaEmbed(outputDiv, spec, embedOpt)
+        .catch(err => showError(`Javascript Error: ${err.message}<br>This usually means there's a typo in your chart specification. See the javascript console for the full traceback.`));
+    }
+
+    if(typeof define === "function" && define.amd) {
+      requirejs.config({paths});
+      require(["vega-embed"], displayChart, err => showError(`Error loading script: ${err.message}`));
+    } else {
+      maybeLoadScript("vega", "5")
+        .then(() => maybeLoadScript("vega-lite", "4.17.0"))
+        .then(() => maybeLoadScript("vega-embed", "6"))
+        .catch(showError)
+        .then(() => displayChart(vegaEmbed));
+    }
+  })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "hconcat": [{"mark": {"type": "circle", "size": 60}, "encoding": {"color": {"field": "kmeans_cluster", "scale": {"scheme": "set1"}, "type": "nominal"}, "tooltip": [{"field": "kmeans_cluster", "type": "nominal"}], "x": {"field": "tsne1", "type": "quantitative"}, "y": {"field": "tsne2", "type": "quantitative"}}, "title": "K-means clustering"}, {"mark": {"type": "circle", "size": 60}, "encoding": {"color": {"field": "species", "scale": {"scheme": "set1"}, "type": "nominal"}, "tooltip": [{"field": "species", "type": "nominal"}], "x": {"field": "tsne1", "type": "quantitative"}, "y": {"field": "tsne2", "type": "quantitative"}}, "title": "Species"}], "data": {"name": "data-2330e2a745f65b9f6a04a6185a0b7c7b"}, "title": "tsne: k-means clusterting vs species label", "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-2330e2a745f65b9f6a04a6185a0b7c7b": [{"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.684125625969541, "PC2": 0.3193972465851031, "tsne1": 8.037638664245605, "tsne2": 26.252500534057617}, {"sepal_length": 4.9, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7141416872943274, "PC2": -0.17700122506477925, "tsne1": 8.577434539794922, "tsne2": 23.864986419677734}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.888990569059296, "PC2": -0.14494942608555722, "tsne1": 7.902760028839111, "tsne2": 23.48047637939453}, {"sepal_length": 4.6, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.745342855641409, "PC2": -0.31829897925191586, "tsne1": 7.690999507904053, "tsne2": 23.25638771057129}, {"sepal_length": 5.0, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7287165365545287, "PC2": 0.32675451293492047, "tsne1": 7.589658737182617, "tsne2": 26.284225463867188}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.7, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2808596328444914, "PC2": 0.7413304490629157, "tsne1": 7.209024429321289, "tsne2": 28.15073585510254}, {"sepal_length": 4.6, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.820537750740608, "PC2": -0.08946138452856846, "tsne1": 7.049851417541504, "tsne2": 23.645645141601562}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6261449731466318, "PC2": 0.16338495969832917, "tsne1": 7.771018028259277, "tsne2": 25.48414421081543}, {"sepal_length": 4.4, "sepal_width": 2.9, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8863827317805524, "PC2": -0.5783117541867038, "tsne1": 8.21087646484375, "tsne2": 22.541921615600586}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.672755797820953, "PC2": -0.11377424587411651, "tsne1": 8.172469139099121, "tsne2": 24.208656311035156}, {"sepal_length": 5.4, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5069470906518547, "PC2": 0.6450688986485744, "tsne1": 7.95173454284668, "tsne2": 27.74275016784668}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.612755230908722, "PC2": 0.014729939161374953, "tsne1": 7.2248311042785645, "tsne2": 24.751399993896484}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.786109266188017, "PC2": -0.23511200020171813, "tsne1": 8.468332290649414, "tsne2": 23.507112503051758}, {"sepal_length": 4.3, "sepal_width": 3.0, "petal_length": 1.1, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.223803743865651, "PC2": -0.511394587006382, "tsne1": 7.934102535247803, "tsne2": 22.189376831054688}, {"sepal_length": 5.8, "sepal_width": 4.0, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.644750389942029, "PC2": 1.1787646364375761, "tsne1": 7.977337837219238, "tsne2": 29.013093948364258}, {"sepal_length": 5.7, "sepal_width": 4.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.386039033531132, "PC2": 1.3380623304006534, "tsne1": 7.400376796722412, "tsne2": 29.17398452758789}, {"sepal_length": 5.4, "sepal_width": 3.9, "petal_length": 1.3, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.623527875224425, "PC2": 0.8106795141812584, "tsne1": 7.661418437957764, "tsne2": 28.311866760253906}, {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6482967062543805, "PC2": 0.3118491445933553, "tsne1": 7.832046985626221, "tsne2": 26.311338424682617}, {"sepal_length": 5.7, "sepal_width": 3.8, "petal_length": 1.7, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.199820323617579, "PC2": 0.8728390389622118, "tsne1": 8.144353866577148, "tsne2": 28.526371002197266}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.5, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5879863998787673, "PC2": 0.5135603087492776, "tsne1": 7.181656360626221, "tsne2": 27.267560958862305}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.7, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3102562152425175, "PC2": 0.39134593565389486, "tsne1": 8.703426361083984, "tsne2": 27.177526473999023}, {"sepal_length": 5.1, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5437052287571555, "PC2": 0.43299606327902873, "tsne1": 7.175339698791504, "tsne2": 26.926179885864258}, {"sepal_length": 4.6, "sepal_width": 3.6, "petal_length": 1.0, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -3.2159394156486107, "PC2": 0.13346806953852625, "tsne1": 9.731256484985352, "tsne2": 24.364505767822266}, {"sepal_length": 5.1, "sepal_width": 3.3, "petal_length": 1.7, "petal_width": 0.5, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.3027331822262065, "PC2": 0.09870885481409995, "tsne1": 6.619461536407471, "tsne2": 25.72086524963379}, {"sepal_length": 4.8, "sepal_width": 3.4, "petal_length": 1.9, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.355754049123772, "PC2": -0.03728185967738212, "tsne1": 6.536403179168701, "tsne2": 24.707927703857422}, {"sepal_length": 5.0, "sepal_width": 3.0, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5066689069258206, "PC2": -0.14601688049526743, "tsne1": 8.505605697631836, "tsne2": 24.246990203857422}, {"sepal_length": 5.0, "sepal_width": 3.4, "petal_length": 1.6, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.468820073121338, "PC2": 0.13095148943525073, "tsne1": 7.050191402435303, "tsne2": 25.652454376220703}, {"sepal_length": 5.2, "sepal_width": 3.5, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.562319906196015, "PC2": 0.3677188574342005, "tsne1": 8.049202919006348, "tsne2": 26.687559127807617}, {"sepal_length": 5.2, "sepal_width": 3.4, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6395347153845417, "PC2": 0.3120399802352835, "tsne1": 8.469137191772461, "tsne2": 26.288982391357422}, {"sepal_length": 4.7, "sepal_width": 3.2, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6319893872743454, "PC2": -0.1969612249243143, "tsne1": 7.3592987060546875, "tsne2": 23.94168472290039}, {"sepal_length": 4.8, "sepal_width": 3.1, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5873984766893514, "PC2": -0.20431849127413315, "tsne1": 7.715032577514648, "tsne2": 24.02857208251953}, {"sepal_length": 5.4, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.409932497002174, "PC2": 0.41092426422957334, "tsne1": 8.594305992126465, "tsne2": 27.135068893432617}, {"sepal_length": 5.2, "sepal_width": 4.1, "petal_length": 1.5, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.648862334349911, "PC2": 0.813363820296963, "tsne1": 6.891043186187744, "tsne2": 28.31686782836914}, {"sepal_length": 5.5, "sepal_width": 4.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5987367491005857, "PC2": 1.0931457594493577, "tsne1": 7.35365629196167, "tsne2": 28.86300277709961}, {"sepal_length": 4.9, "sepal_width": 3.1, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.6369268781057977, "PC2": -0.12132234786586286, "tsne1": 8.089524269104004, "tsne2": 24.249935150146484}, {"sepal_length": 5.0, "sepal_width": 3.2, "petal_length": 1.2, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.866241652118669, "PC2": 0.06936447158008105, "tsne1": 8.766927719116211, "tsne2": 24.83224868774414}, {"sepal_length": 5.5, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.625238049850371, "PC2": 0.5993700213794242, "tsne1": 8.635529518127441, "tsne2": 27.655927658081055}, {"sepal_length": 4.9, "sepal_width": 3.6, "petal_length": 1.4, "petal_width": 0.1, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8006841154482207, "PC2": 0.26864373779798284, "tsne1": 7.623937606811523, "tsne2": 25.808197021484375}, {"sepal_length": 4.4, "sepal_width": 3.0, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.9805020437819927, "PC2": -0.4879583444286153, "tsne1": 7.962337017059326, "tsne2": 22.54875946044922}, {"sepal_length": 5.1, "sepal_width": 3.4, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.5900063139680944, "PC2": 0.22904383682701318, "tsne1": 8.06701374053955, "tsne2": 25.876379013061523}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7701024260279006, "PC2": 0.263527533744257, "tsne1": 8.210968971252441, "tsne2": 25.851945877075195}, {"sepal_length": 4.5, "sepal_width": 2.3, "petal_length": 1.3, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.8493687050431022, "PC2": -0.9409605736411968, "tsne1": 8.955004692077637, "tsne2": 22.28942108154297}, {"sepal_length": 4.4, "sepal_width": 3.2, "petal_length": 1.3, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.997406546594907, "PC2": -0.34192605747160976, "tsne1": 7.507742881774902, "tsne2": 22.690305709838867}, {"sepal_length": 5.0, "sepal_width": 3.5, "petal_length": 1.6, "petal_width": 0.6, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.4056144850974843, "PC2": 0.18887142893026088, "tsne1": 6.558348178863525, "tsne2": 26.141496658325195}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.9, "petal_width": 0.4, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.2094892377836786, "PC2": 0.4366631416391884, "tsne1": 6.406949996948242, "tsne2": 27.37746238708496}, {"sepal_length": 4.8, "sepal_width": 3.0, "petal_length": 1.4, "petal_width": 0.3, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.714451426757707, "PC2": -0.2502082041852109, "tsne1": 8.432035446166992, "tsne2": 23.518281936645508}, {"sepal_length": 5.1, "sepal_width": 3.8, "petal_length": 1.6, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.538148258998939, "PC2": 0.5037711444614382, "tsne1": 7.0979084968566895, "tsne2": 27.328832626342773}, {"sepal_length": 4.6, "sepal_width": 3.2, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.839462167642849, "PC2": -0.22794556949382733, "tsne1": 7.540639400482178, "tsne2": 23.294198989868164}, {"sepal_length": 5.3, "sepal_width": 3.7, "petal_length": 1.5, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.543085749830392, "PC2": 0.5794100215198902, "tsne1": 7.777353763580322, "tsne2": 27.470993041992188}, {"sepal_length": 5.0, "sepal_width": 3.3, "petal_length": 1.4, "petal_width": 0.2, "species": "setosa", "kmeans_cluster": 1, "PC1": -2.7033597823351587, "PC2": 0.1077060824994121, "tsne1": 8.178937911987305, "tsne2": 25.17437744140625}, {"sepal_length": 7.0, "sepal_width": 3.2, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2848256888583536, "PC2": 0.6851604704673091, "tsne1": -1.2945570945739746, "tsne2": -11.710289001464844}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9324885323123204, "PC2": 0.3183336382626293, "tsne1": -0.8836458921432495, "tsne2": -10.0156831741333}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.4643023219913962, "PC2": 0.5042628153092046, "tsne1": -1.7892093658447266, "tsne2": -11.681868553161621}, {"sepal_length": 5.5, "sepal_width": 2.3, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1833177199583726, "PC2": -0.8279590118206326, "tsne1": 3.2198238372802734, "tsne2": -7.217206954956055}, {"sepal_length": 6.5, "sepal_width": 2.8, "petal_length": 4.6, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.088103257711668, "PC2": 0.07459067519771641, "tsne1": -1.1289691925048828, "tsne2": -10.440545082092285}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.5, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.6416690842580796, "PC2": -0.4182468715686787, "tsne1": 0.7124359011650085, "tsne2": -7.486250400543213}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 4.7, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.095060662632449, "PC2": 0.2834682700615294, "tsne1": -1.4640872478485107, "tsne2": -9.538566589355469}, {"sepal_length": 4.9, "sepal_width": 2.4, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7491226698296556, "PC2": -1.0048909611818955, "tsne1": 4.114863395690918, "tsne2": -5.802488803863525}, {"sepal_length": 6.6, "sepal_width": 2.9, "petal_length": 4.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.0441318260534382, "PC2": 0.2283618997883959, "tsne1": -0.8679096698760986, "tsne2": -10.778643608093262}, {"sepal_length": 5.2, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.008745404082894285, "PC2": -0.7230819050048343, "tsne1": 3.512542963027954, "tsne2": -7.086820602416992}, {"sepal_length": 5.0, "sepal_width": 2.0, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.5078408838353242, "PC2": -1.265971190526394, "tsne1": 4.227342128753662, "tsne2": -6.112034797668457}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5116985574475993, "PC2": -0.10398123549904023, "tsne1": 0.7800210118293762, "tsne2": -8.053461074829102}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 4.0, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2649765081120483, "PC2": -0.5500364636804747, "tsne1": 2.943513870239258, "tsne2": -8.18418025970459}, {"sepal_length": 6.1, "sepal_width": 2.9, "petal_length": 4.7, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9849345104708923, "PC2": -0.12481785412635721, "tsne1": -0.8904536962509155, "tsne2": -9.029486656188965}, {"sepal_length": 5.6, "sepal_width": 2.9, "petal_length": 3.6, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.17392537168176606, "PC2": -0.2548542087025892, "tsne1": 2.555950880050659, "tsne2": -6.214560031890869}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9278607809442491, "PC2": 0.4671794944415109, "tsne1": -0.6554071307182312, "tsne2": -10.991935729980469}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.660283761696939, "PC2": -0.35296966572385036, "tsne1": 0.3097721040248871, "tsne2": -7.278628349304199}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 4.1, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2361049933176735, "PC2": -0.33361076682491525, "tsne1": 2.2516541481018066, "tsne2": -7.711475372314453}, {"sepal_length": 6.2, "sepal_width": 2.2, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9447337280198155, "PC2": -0.5431455507797666, "tsne1": 1.187354326248169, "tsne2": -10.084668159484863}, {"sepal_length": 5.6, "sepal_width": 2.5, "petal_length": 3.9, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.04522697629870169, "PC2": -0.5838343774718644, "tsne1": 2.8474576473236084, "tsne2": -6.939335823059082}, {"sepal_length": 5.9, "sepal_width": 3.2, "petal_length": 4.8, "petal_width": 1.8, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.1162831773500517, "PC2": -0.08461685219478782, "tsne1": -2.271684408187866, "tsne2": -8.31466007232666}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3578884179973092, "PC2": -0.06892503165601371, "tsne1": 1.6393659114837646, "tsne2": -8.409477233886719}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 4.9, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2981838753589157, "PC2": -0.32778730833391734, "tsne1": -2.8025107383728027, "tsne2": -10.11656379699707}, {"sepal_length": 6.1, "sepal_width": 2.8, "petal_length": 4.7, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9217289224470391, "PC2": -0.1827377936213673, "tsne1": -0.43521103262901306, "tsne2": -9.085315704345703}, {"sepal_length": 6.4, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.7148533259114135, "PC2": 0.14905594436978506, "tsne1": -0.02543257735669613, "tsne2": -9.967598915100098}, {"sepal_length": 6.6, "sepal_width": 3.0, "petal_length": 4.4, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.9001743731721693, "PC2": 0.3285044738343237, "tsne1": -0.5508893132209778, "tsne2": -10.65787410736084}, {"sepal_length": 6.8, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3320244367220904, "PC2": 0.2444408760163438, "tsne1": -1.5535622835159302, "tsne2": -11.31238842010498}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.0, "petal_width": 1.7, "species": "versicolor", "kmeans_cluster": 2, "PC1": 1.5578021550660723, "PC2": 0.2674954473102549, "tsne1": -2.6650712490081787, "tsne2": -11.488554954528809}, {"sepal_length": 6.0, "sepal_width": 2.9, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8132906498175435, "PC2": -0.16335030068761613, "tsne1": -0.2828073799610138, "tsne2": -8.54355525970459}, {"sepal_length": 5.7, "sepal_width": 2.6, "petal_length": 3.5, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.30558377802430736, "PC2": -0.3682621897545878, "tsne1": 3.07594633102417, "tsne2": -6.132905006408691}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.8, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.06812649206836169, "PC2": -0.7051721317994655, "tsne1": 3.2391583919525146, "tsne2": -6.702661514282227}, {"sepal_length": 5.5, "sepal_width": 2.4, "petal_length": 3.7, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.18962247237849997, "PC2": -0.6802867635281336, "tsne1": 3.390876531600952, "tsne2": -6.482435703277588}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 3.9, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.1364287115580168, "PC2": -0.31403243824923666, "tsne1": 2.413472890853882, "tsne2": -7.348581314086914}, {"sepal_length": 6.0, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.3800264359155132, "PC2": -0.42095428731388185, "tsne1": -3.4976844787597656, "tsne2": -9.305670738220215}, {"sepal_length": 5.4, "sepal_width": 3.0, "petal_length": 4.5, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.5880064433398654, "PC2": -0.48428741998121827, "tsne1": 0.5034925937652588, "tsne2": -6.896073818206787}, {"sepal_length": 6.0, "sepal_width": 3.4, "petal_length": 4.5, "petal_width": 1.6, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8068583125004142, "PC2": 0.1941823147131512, "tsne1": -1.1740953922271729, "tsne2": -8.244975090026855}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 4.7, "petal_width": 1.5, "species": "versicolor", "kmeans_cluster": 0, "PC1": 1.2206908824443548, "PC2": 0.4076195936110074, "tsne1": -1.3558744192123413, "tsne2": -11.149300575256348}, {"sepal_length": 6.3, "sepal_width": 2.3, "petal_length": 4.4, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.815095235766602, "PC2": -0.37203705990950175, "tsne1": 1.1989325284957886, "tsne2": -9.9827880859375}, {"sepal_length": 5.6, "sepal_width": 3.0, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.24595767988669426, "PC2": -0.2685243966220147, "tsne1": 1.4698491096496582, "tsne2": -7.042045593261719}, {"sepal_length": 5.5, "sepal_width": 2.5, "petal_length": 4.0, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.16641321714545868, "PC2": -0.6819267248636267, "tsne1": 2.785522937774658, "tsne2": -7.013978004455566}, {"sepal_length": 5.5, "sepal_width": 2.6, "petal_length": 4.4, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.4648002884037811, "PC2": -0.6707115445117203, "tsne1": 1.6692216396331787, "tsne2": -6.721004962921143}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.6, "petal_width": 1.4, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.8908151984694513, "PC2": -0.034464444368268635, "tsne1": -0.6581556797027588, "tsne2": -8.96056079864502}, {"sepal_length": 5.8, "sepal_width": 2.6, "petal_length": 4.0, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.2305480235594573, "PC2": -0.4043858480073251, "tsne1": 2.440960168838501, "tsne2": -7.541062831878662}, {"sepal_length": 5.0, "sepal_width": 2.3, "petal_length": 3.3, "petal_width": 1.0, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.7045317592446619, "PC2": -1.0122482275317146, "tsne1": 4.083958148956299, "tsne2": -5.85300350189209}, {"sepal_length": 5.6, "sepal_width": 2.7, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.35698149470104884, "PC2": -0.5049100933371085, "tsne1": 1.8726147413253784, "tsne2": -7.0823798179626465}, {"sepal_length": 5.7, "sepal_width": 3.0, "petal_length": 4.2, "petal_width": 1.2, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3319344799450603, "PC2": -0.21265468378116967, "tsne1": 1.3252679109573364, "tsne2": -7.442198276519775}, {"sepal_length": 5.7, "sepal_width": 2.9, "petal_length": 4.2, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.3762156510666724, "PC2": -0.2932189292514188, "tsne1": 1.3844656944274902, "tsne2": -7.461421966552734}, {"sepal_length": 6.2, "sepal_width": 2.9, "petal_length": 4.3, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.64257600755434, "PC2": 0.017738190112416535, "tsne1": 0.3362622559070587, "tsne2": -9.11912727355957}, {"sepal_length": 5.1, "sepal_width": 2.5, "petal_length": 3.0, "petal_width": 1.1, "species": "versicolor", "kmeans_cluster": 0, "PC1": -0.9064698649488343, "PC2": -0.7560933665990142, "tsne1": 4.082752704620361, "tsne2": -5.626028060913086}, {"sepal_length": 5.7, "sepal_width": 2.8, "petal_length": 4.1, "petal_width": 1.3, "species": "versicolor", "kmeans_cluster": 0, "PC1": 0.29900084187814524, "PC2": -0.3488978064503358, "tsne1": 1.8322677612304688, "tsne2": -7.401577949523926}, {"sepal_length": 6.3, "sepal_width": 3.3, "petal_length": 6.0, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.53119272780363, "PC2": -0.009849109498801816, "tsne1": -8.394185066223145, "tsne2": -11.390911102294922}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895, "tsne1": -3.880399227142334, "tsne2": -8.51451587677002}, {"sepal_length": 7.1, "sepal_width": 3.0, "petal_length": 5.9, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6166760159956923, "PC2": 0.34390315134173455, "tsne1": -7.7704291343688965, "tsne2": -13.217301368713379}, {"sepal_length": 6.3, "sepal_width": 2.9, "petal_length": 5.6, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9715310530434376, "PC2": -0.1797279043522453, "tsne1": -5.449875354766846, "tsne2": -11.706485748291016}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.3500059200446426, "PC2": -0.040260947142530965, "tsne1": -6.9507856369018555, "tsne2": -12.252273559570312}, {"sepal_length": 7.6, "sepal_width": 3.0, "petal_length": 6.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.397038736053262, "PC2": 0.5508366730280557, "tsne1": -8.68402099609375, "tsne2": -14.319967269897461}, {"sepal_length": 4.9, "sepal_width": 2.5, "petal_length": 4.5, "petal_width": 1.7, "species": "virginica", "kmeans_cluster": 0, "PC1": 0.5212322439097756, "PC2": -1.1927587270006454, "tsne1": 4.033458709716797, "tsne2": -8.147181510925293}, {"sepal_length": 7.3, "sepal_width": 2.9, "petal_length": 6.3, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9325870689936915, "PC2": 0.3555000029774966, "tsne1": -8.025580406188965, "tsne2": -14.144096374511719}, {"sepal_length": 6.7, "sepal_width": 2.5, "petal_length": 5.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.32122881657338, "PC2": -0.24383150231069073, "tsne1": -6.058757305145264, "tsne2": -12.958596229553223}, {"sepal_length": 7.2, "sepal_width": 3.6, "petal_length": 6.1, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.9167509667860747, "PC2": 0.7827919488152788, "tsne1": -8.8179931640625, "tsne2": -13.00367546081543}, {"sepal_length": 6.5, "sepal_width": 3.2, "petal_length": 5.1, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.6617741536365338, "PC2": 0.24222840775506727, "tsne1": -6.065643310546875, "tsne2": -10.632020950317383}, {"sepal_length": 6.4, "sepal_width": 2.7, "petal_length": 5.3, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.8034019529650933, "PC2": -0.21563761733355535, "tsne1": -5.042642593383789, "tsne2": -11.003211975097656}, {"sepal_length": 6.8, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1655917960801476, "PC2": 0.21627558507402495, "tsne1": -6.922510623931885, "tsne2": -12.035285949707031}, {"sepal_length": 5.7, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3461635794584532, "PC2": -0.7768183473443395, "tsne1": -4.0526814460754395, "tsne2": -8.226213455200195}, {"sepal_length": 5.8, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5859282238732233, "PC2": -0.5396407140267188, "tsne1": -4.637925624847412, "tsne2": -8.216827392578125}, {"sepal_length": 6.4, "sepal_width": 3.2, "petal_length": 5.3, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9044563747934289, "PC2": 0.1192506920919729, "tsne1": -7.000857353210449, "tsne2": -10.789495468139648}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9496890593990717, "PC2": 0.04194325966321156, "tsne1": -5.731449127197266, "tsne2": -11.67740535736084}, {"sepal_length": 7.7, "sepal_width": 3.8, "petal_length": 6.7, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.487055364290282, "PC2": 1.1757393297134298, "tsne1": -9.312179565429688, "tsne2": -13.9089937210083}, {"sepal_length": 7.7, "sepal_width": 2.6, "petal_length": 6.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.7956454220728855, "PC2": 0.2573229734204796, "tsne1": -8.725564002990723, "tsne2": -14.714971542358398}, {"sepal_length": 6.0, "sepal_width": 2.2, "petal_length": 5.0, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3007917126376594, "PC2": -0.7611496364350634, "tsne1": -3.792342185974121, "tsne2": -9.6718111038208}, {"sepal_length": 6.9, "sepal_width": 3.2, "petal_length": 5.7, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.4278179130660478, "PC2": 0.37819601261705094, "tsne1": -7.787441730499268, "tsne2": -12.366480827331543}, {"sepal_length": 5.6, "sepal_width": 2.8, "petal_length": 4.9, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1990011054655627, "PC2": -0.6060915277579306, "tsne1": -3.7131242752075195, "tsne2": -7.954213619232178}, {"sepal_length": 7.7, "sepal_width": 2.8, "petal_length": 6.7, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.49992003892454, "PC2": 0.46067409891189526, "tsne1": -8.634709358215332, "tsne2": -14.536380767822266}, {"sepal_length": 6.3, "sepal_width": 2.7, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3887661316914672, "PC2": -0.2043993273521508, "tsne1": -3.133837938308716, "tsne2": -9.820793151855469}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.275430503872207, "PC2": 0.3349906058216776, "tsne1": -7.536156177520752, "tsne2": -12.158856391906738}, {"sepal_length": 7.2, "sepal_width": 3.2, "petal_length": 6.0, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.6140904738108337, "PC2": 0.5609013551230783, "tsne1": -7.799706935882568, "tsne2": -13.66523551940918}, {"sepal_length": 6.2, "sepal_width": 2.8, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.2585081605114898, "PC2": -0.17970479472274653, "tsne1": -2.730534076690674, "tsne2": -9.400190353393555}, {"sepal_length": 6.1, "sepal_width": 3.0, "petal_length": 4.9, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.291132059115023, "PC2": -0.11666865117401132, "tsne1": -2.7299551963806152, "tsne2": -8.915462493896484}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.123608722773897, "PC2": -0.20972947667730266, "tsne1": -6.1056599617004395, "tsne2": -11.968024253845215}, {"sepal_length": 7.2, "sepal_width": 3.0, "petal_length": 5.8, "petal_width": 1.6, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.38800301600347, "PC2": 0.4646398047087367, "tsne1": -7.367094039916992, "tsne2": -13.793980598449707}, {"sepal_length": 7.4, "sepal_width": 2.8, "petal_length": 6.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.841672778103873, "PC2": 0.37526916719510356, "tsne1": -7.955420970916748, "tsne2": -14.068000793457031}, {"sepal_length": 7.9, "sepal_width": 3.8, "petal_length": 6.4, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.2306736614320952, "PC2": 1.3741650867930482, "tsne1": -9.296833038330078, "tsne2": -13.903291702270508}, {"sepal_length": 6.4, "sepal_width": 2.8, "petal_length": 5.6, "petal_width": 2.2, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1594376424890522, "PC2": -0.21727757866904904, "tsne1": -6.28963565826416, "tsne2": -11.957566261291504}, {"sepal_length": 6.3, "sepal_width": 2.8, "petal_length": 5.1, "petal_width": 1.5, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4441612423295116, "PC2": -0.14341341045758058, "tsne1": -3.1397931575775146, "tsne2": -10.281630516052246}, {"sepal_length": 6.1, "sepal_width": 2.6, "petal_length": 5.6, "petal_width": 1.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7812948100451143, "PC2": -0.49990168107813643, "tsne1": -4.300772666931152, "tsne2": -10.878091812133789}, {"sepal_length": 7.7, "sepal_width": 3.0, "petal_length": 6.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 3.0764999316871897, "PC2": 0.6880856775711761, "tsne1": -8.572111129760742, "tsne2": -13.961385726928711}, {"sepal_length": 6.3, "sepal_width": 3.4, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.144243314302084, "PC2": 0.14006420108979026, "tsne1": -7.884738922119141, "tsne2": -10.964376449584961}, {"sepal_length": 6.4, "sepal_width": 3.1, "petal_length": 5.5, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9050981488140784, "PC2": 0.04930052601303041, "tsne1": -5.7022552490234375, "tsne2": -11.554409980773926}, {"sepal_length": 6.0, "sepal_width": 3.0, "petal_length": 4.8, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.1693263393415023, "PC2": -0.16499026202310949, "tsne1": -2.517545461654663, "tsne2": -8.65364933013916}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.4, "petal_width": 2.1, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.1076111432572446, "PC2": 0.3722878719607979, "tsne1": -7.069395542144775, "tsne2": -11.852046966552734}, {"sepal_length": 6.7, "sepal_width": 3.1, "petal_length": 5.6, "petal_width": 2.4, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.314154705235602, "PC2": 0.18365127916901905, "tsne1": -7.559508800506592, "tsne2": -11.763911247253418}, {"sepal_length": 6.9, "sepal_width": 3.1, "petal_length": 5.1, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.922267800902603, "PC2": 0.40920346681606246, "tsne1": -6.938949108123779, "tsne2": -11.089298248291016}, {"sepal_length": 5.8, "sepal_width": 2.7, "petal_length": 5.1, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.4152358767039046, "PC2": -0.5749163475464895, "tsne1": -3.8804004192352295, "tsne2": -8.514516830444336}, {"sepal_length": 6.8, "sepal_width": 3.2, "petal_length": 5.9, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.5630133750774777, "PC2": 0.277862602929195, "tsne1": -7.981276512145996, "tsne2": -12.43749713897705}, {"sepal_length": 6.7, "sepal_width": 3.3, "petal_length": 5.7, "petal_width": 2.5, "species": "virginica", "kmeans_cluster": 2, "PC1": 2.418746182732827, "PC2": 0.3047981978546921, "tsne1": -8.05691146850586, "tsne2": -11.801994323730469}, {"sepal_length": 6.7, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.9441097945469699, "PC2": 0.18753230280060532, "tsne1": -6.793459892272949, "tsne2": -11.124968528747559}, {"sepal_length": 6.3, "sepal_width": 2.5, "petal_length": 5.0, "petal_width": 1.9, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.5271666148145193, "PC2": -0.3753169825804884, "tsne1": -3.7788634300231934, "tsne2": -9.919071197509766}, {"sepal_length": 6.5, "sepal_width": 3.0, "petal_length": 5.2, "petal_width": 2.0, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.7643457170444314, "PC2": 0.07885885451847592, "tsne1": -5.89301872253418, "tsne2": -10.912468910217285}, {"sepal_length": 6.2, "sepal_width": 3.4, "petal_length": 5.4, "petal_width": 2.3, "species": "virginica", "kmeans_cluster": 2, "PC1": 1.900941614218426, "PC2": 0.11662795851202372, "tsne1": -7.532608509063721, "tsne2": -10.540789604187012}, {"sepal_length": 5.9, "sepal_width": 3.0, "petal_length": 5.1, "petal_width": 1.8, "species": "virginica", "kmeans_cluster": 0, "PC1": 1.3901888619479161, "PC2": -0.2826609379905505, "tsne1": -3.2918267250061035, "tsne2": -8.562695503234863}]}}, {"mode": "vega-lite"});
+</script></div></div>
+</div>
+<ul class="simple">
+<li><p>How about clustering on TSNE instaed of orginal features?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_km_tsne</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">)</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">adjusted_rand_score</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;species&#39;</span><span class="p">],</span> <span class="n">y_km_tsne</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7591987071071522
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>How about try other clustering methods?</p></li>
+</ul>
+</section>
+<section id="gaussian-mixture-model-gmm">
+<h2><a class="reference external" href="https://www.kaggle.com/code/vipulgandhi/gaussian-mixture-models-clustering-explained">Gaussian Mixture Model (GMM)</a><a class="headerlink" href="#gaussian-mixture-model-gmm" title="Permalink to this heading">#</a></h2>
+<p>GMMs provide a flexible and probabilistic approach to clustering, making them suitable for complex datasets where the assumption of spherical clusters (as in k-means) is too restrictive.</p>
+<p>Explore yourself and you may upload your results to <a class="reference external" href="https://www.kaggle.com/uciml/iris">Kaggle</a>!</p>
+<a style='text-decoration:none;line-height:16px;display:flex;color:#5B5B62;padding:10px;justify-content:end;' href='https://deepnote.com?utm_source=created-in-deepnote-cell&projectId=9ba2e9ff-5bd6-44a5-9be4-ae1ee96b31aa' target="_blank">
+<img alt='Created in deepnote.com' style='display:inline;max-height:16px;margin:0px;margin-right:7.5px;' src='data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iODBweCIgaGVpZ2h0PSI4MHB4IiB2aWV3Qm94PSIwIDAgODAgODAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDU0LjEgKDc2NDkwKSAtIGh0dHBzOi8vc2tldGNoYXBwLmNvbSAtLT4KICAgIDx0aXRsZT5Hcm91cCAzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGcgaWQ9IkxhbmRpbmciIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJBcnRib2FyZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEyMzUuMDAwMDAwLCAtNzkuMDAwMDAwKSI+CiAgICAgICAgICAgIDxnIGlkPSJHcm91cC0zIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMjM1LjAwMDAwMCwgNzkuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8cG9seWdvbiBpZD0iUGF0aC0yMCIgZmlsbD0iIzAyNjVCNCIgcG9pbnRzPSIyLjM3NjIzNzYyIDgwIDM4LjA0NzY2NjcgODAgNTcuODIxNzgyMiA3My44MDU3NTkyIDU3LjgyMTc4MjIgMzIuNzU5MjczOSAzOS4xNDAyMjc4IDMxLjY4MzE2ODMiPjwvcG9seWdvbj4KICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNS4wMDc3MTgsODAgQzQyLjkwNjIwMDcsNzYuNDU0OTM1OCA0Ny41NjQ5MTY3LDcxLjU0MjI2NzEgNDguOTgzODY2LDY1LjI2MTk5MzkgQzUxLjExMjI4OTksNTUuODQxNTg0MiA0MS42NzcxNzk1LDQ5LjIxMjIyODQgMjUuNjIzOTg0Niw0OS4yMTIyMjg0IEMyNS40ODQ5Mjg5LDQ5LjEyNjg0NDggMjkuODI2MTI5Niw0My4yODM4MjQ4IDM4LjY0NzU4NjksMzEuNjgzMTY4MyBMNzIuODcxMjg3MSwzMi41NTQ0MjUgTDY1LjI4MDk3Myw2Ny42NzYzNDIxIEw1MS4xMTIyODk5LDc3LjM3NjE0NCBMMzUuMDA3NzE4LDgwIFoiIGlkPSJQYXRoLTIyIiBmaWxsPSIjMDAyODY4Ij48L3BhdGg+CiAgICAgICAgICAgICAgICA8cGF0aCBkPSJNMCwzNy43MzA0NDA1IEwyNy4xMTQ1MzcsMC4yNTcxMTE0MzYgQzYyLjM3MTUxMjMsLTEuOTkwNzE3MDEgODAsMTAuNTAwMzkyNyA4MCwzNy43MzA0NDA1IEM4MCw2NC45NjA0ODgyIDY0Ljc3NjUwMzgsNzkuMDUwMzQxNCAzNC4zMjk1MTEzLDgwIEM0Ny4wNTUzNDg5LDc3LjU2NzA4MDggNTMuNDE4MjY3Nyw3MC4zMTM2MTAzIDUzLjQxODI2NzcsNTguMjM5NTg4NSBDNTMuNDE4MjY3Nyw0MC4xMjg1NTU3IDM2LjMwMzk1NDQsMzcuNzMwNDQwNSAyNS4yMjc0MTcsMzcuNzMwNDQwNSBDMTcuODQzMDU4NiwzNy43MzA0NDA1IDkuNDMzOTE5NjYsMzcuNzMwNDQwNSAwLDM3LjczMDQ0MDUgWiIgaWQ9IlBhdGgtMTkiIGZpbGw9IiMzNzkzRUYiPjwvcGF0aD4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+' > </img>
+Created in <span style='font-weight:600;margin-left:4px;'>Deepnote</span></a></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Week9"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Week_9_Monday.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 9 Monday</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Course%20Project/Project%20Instructions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Instructions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning-clustering">Unsupervised Learning: Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">K-Means Clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering-using-scikit-learn">K-means clustering using scikit-learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-model-gmm">Gaussian Mixture Model (GMM)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yutong Sha
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
